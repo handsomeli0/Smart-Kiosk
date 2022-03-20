@@ -1,0 +1,8 @@
+/.idea/
+/out/
+/test/
+*.iml
+*.class
+
+# Log file
+*.log
