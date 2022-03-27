@@ -1,6 +1,4 @@
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.*;
 public class Booking_Number_Check_in
 {
@@ -37,12 +35,7 @@ public class Booking_Number_Check_in
 
         JButton button1 = new JButton("Cancel");
         button1.setBounds(230,250,80,30);
-        button1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                textField.setText("");
-            }
-        });
+        button1.addActionListener(e -> textField.setText(""));
 
         JLabel label5 = new JLabel("OR You Can Choose");
         label5.setFont(new Font("微软雅黑", Font.BOLD, 13));
@@ -50,12 +43,9 @@ public class Booking_Number_Check_in
 
         JButton button2 = new JButton("IDNum or Name");
         button2.setBounds(80,330,230,30);
-        button2.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                ID_Or_Name_Check_in b = new ID_Or_Name_Check_in();
-                frame.setVisible(false);
-            }
+        button2.addActionListener(e -> {
+            new ID_Or_Name_Check_in();
+            frame.setVisible(false);
         });
 
         JButton button3 = new JButton("ID Document");

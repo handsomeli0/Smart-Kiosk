@@ -1,6 +1,4 @@
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class ID_Or_Name_Check_in {
@@ -40,12 +38,9 @@ public class ID_Or_Name_Check_in {
         JButton button1 = new JButton("cancel");
         button1.setFont(new Font("微软雅黑",Font.BOLD,20));
         button1.setBounds(700,500,200,50);
-        button1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Booking_Number_Check_in a = new Booking_Number_Check_in();
-                jFrame.setVisible(false);
-            }
+        button1.addActionListener(e -> {
+            new Booking_Number_Check_in();
+            jFrame.setVisible(false);
         });
 
         jFrame.setBounds(0,0,icon.getIconWidth(),icon.getIconHeight());
