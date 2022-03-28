@@ -1,18 +1,16 @@
+package view;
+
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class IDdocument  {
 
     public IDdocument() {
-    }
-    public static void main (String[] args) {
         JFrame frame=new JFrame("ID document check-in");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        ImageIcon img1 = new ImageIcon("src//1.jpg");//这是背景图片1
+        ImageIcon img1 = new ImageIcon("src/image//background.jpg");//这是背景图片1
         JLabel imgLabel1 = new JLabel(img1);//将背景图放在标签里。
-        ImageIcon img2 = new ImageIcon("src//2.jpg");//这是背景图片2
+        ImageIcon img2 = new ImageIcon("src/image//icon.jpg");//这是背景图片2
         JLabel imgLabel2 = new JLabel(img2);//将背景图放在标签里。
 
         frame.getLayeredPane().add(imgLabel1, new Integer(Integer.MIN_VALUE));//注意这里是关键，将背景标签添加到jfram的LayeredPane面板里。
@@ -20,7 +18,8 @@ public class IDdocument  {
         Container cp=frame.getContentPane();
         frame.setLayout(null);
 
-        JButton but=new JButton("confirm");//创建按钮
+        JButton confirm=new JButton("confirm");//创建按钮
+        JButton cancel=new JButton("cancel");
         JTextField txtfield1=new JTextField();//创建文本框
         txtfield1.setEditable(false);
         txtfield1.setText("Put your ID document here and click confirm");
@@ -37,7 +36,8 @@ public class IDdocument  {
         jp3.setBounds(0,400,1200,500);
         imgLabel2.setBounds(500,0,700,150);
         txtfield1.setBounds(300,0,575,300);
-        but.setBounds(550,200,100,50);
+        confirm.setBounds(400,200,100,50);
+        cancel.setBounds(700,200,100,50);
         jp1.setBackground(Color.WHITE);           //将三个面板背景色设置成透明
         jp2.setBackground(Color.WHITE);
         jp3.setBackground(Color.WHITE);
@@ -48,35 +48,17 @@ public class IDdocument  {
         txtfield1.setOpaque(false);
         txtfield1.setFont(new Font("楷体",Font.BOLD,20));
 
-        but.addActionListener(new ActionListener()
-        {
-            public void actionPerformed(ActionEvent e)
-            {
-
-            }
-        });
-
-        //处理按钮单击事件的匿名内部类
-        class button1ActionListener implements ActionListener
-        {
-            public void actionPerformed(ActionEvent e)
-            {
-
-            }
-        }
-
         frame.add(jp1);
         frame.add(jp2);
         frame.add(jp3);
         jp1.add(imgLabel2);
         jp2.add(txtfield1);
-        jp3.add(but);
+        jp3.add(confirm);
+        jp3.add(cancel);
 
         ((JPanel)cp).setOpaque(false); //注意这里，将内容面板设为透明。这样LayeredPane面板中的背景才能显示出来。
 
         frame.setSize(1200,700);
         frame.setVisible(true);
-
     }
-
 }
