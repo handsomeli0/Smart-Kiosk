@@ -1,10 +1,12 @@
 package model;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
+import java.util.Arrays;
 
-import java.util.ArrayList;
-
+/**
+ * This is the entity class of meal
+ * @author Minghan Li
+ * @version 1.1
+ */
 public class Meal {
     private String name;
     private String type;
@@ -12,24 +14,6 @@ public class Meal {
     private double[] price;
     private String description;
     private String image;
-
-    public Meal(String name, String type, String[] extraOptions, double[] price, String description, String image) {
-        this.name = name;
-        this.type = type;
-        this.extraOptions = extraOptions;
-        this.price = price;
-        this.description = description;
-        this.image = image;
-    }
-
-    public Meal(String name, String type, String description) {
-        this.name = name;
-        this.type = type;
-        this.extraOptions = new String[] {"No Pepper", "Big"};
-        this.price = new double[] {0, 9.9};
-        this.description = description;
-        this.image = name+".jpg";
-    }
 
     public String getName() {
         return name;
@@ -79,15 +63,15 @@ public class Meal {
         this.image = image;
     }
 
-//    public static void main(String[] args) {
-//        ArrayList<Meal> arrayList = new ArrayList<>();
-//        arrayList.add(new Meal("Whole Wheat Chicken Sandwich", "Standard",
-//                "The best choice for weight loss and fitness people."));
-//        arrayList.add(new Meal("Vegetable Salad", "Vegetarian",
-//                "Ingredients: cucumber, red bell pepper, onion, tomato, broccoli, and etc."));
-//        arrayList.add(new Meal("Halal Guys Chicken and Rice", "Halal",
-//                "The perfect combination of delicious marinated chicken, buttery turmeric and cumin spiced rice, and an addictive white sauce that brings the whole thing together."));
-//        JSONArray jsonArray = (JSONArray) JSON.toJSON(arrayList);
-//        System.out.println(jsonArray);
-//    }
+    @Override
+    public String toString() {
+        return "Meal{" +
+                "name='" + name + '\'' +
+                ", type='" + type + '\'' +
+                ", extraOptions=" + Arrays.toString(extraOptions) +
+                ", price=" + Arrays.toString(price) +
+                ", description='" + description + '\'' +
+                ", image='" + image + '\'' +
+                '}';
+    }
 }
