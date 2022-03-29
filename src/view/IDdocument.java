@@ -2,6 +2,8 @@ package view;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class IDdocument  {
 
@@ -55,6 +57,12 @@ public class IDdocument  {
         jp2.add(txtfield1);
         jp3.add(confirm);
         jp3.add(cancel);
+        confirm.addActionListener(e -> {new Summary();
+            frame.setVisible(false);
+        });
+        cancel.addActionListener(e -> {new Booking_Number_Check_in();
+            frame.setVisible(false);
+        });
 
         ((JPanel)cp).setOpaque(false); //注意这里，将内容面板设为透明。这样LayeredPane面板中的背景才能显示出来。
 
