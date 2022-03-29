@@ -1,21 +1,22 @@
+package view;
+
 import javax.swing.*;
 import java.awt.*;
+
 public class Summary
 {
     public Summary(){
 
-        ImageIcon icon1 = new ImageIcon("D:\\ModTheSpireCode\\zxc\\src\\flight.png");
+        ImageIcon icon1 = new ImageIcon("src\\image\\123.jpg");
         JLabel label1 = new JLabel(icon1);
         label1.setBounds(0,0,icon1.getIconWidth(),icon1.getIconHeight());
-        JFrame frame=new JFrame("Summary");
-        JButton B1=new JButton("CONFIRM");
-        B1.setBounds(80,550,200,40);
+        JFrame frame=new JFrame("summary.Summary");
+        JButton B1=new JButton("Confirm and order food.");
+        B1.setBounds(450,550,200,40);
+//        B1.addActionListener(e ->{ Seat seat=new Seat(); });
         frame.add(B1);
-        JButton B2=new JButton("REFUSE");
-        B2.setBounds(900,550,200,40);
-        frame.add(B2);
         JPanel panel = new JPanel();
-        panel.add(new JLabel("Summary"));
+        panel.add(new JLabel("summary.Summary"));
         JLabel sum=new JLabel("Please do check the information below before going on board .");
         sum.setBounds(20,20,1200,40);
         frame.add(sum);
@@ -35,7 +36,7 @@ public class Summary
         JLabel label_5=new JLabel("Flight Number:");
         label_5.setBounds(20,320,400,30);
         label_5.setFont(new Font("微软雅黑", Font.BOLD, 25));
-        JLabel label_6=new JLabel("Seat:");
+        JLabel label_6=new JLabel("summary.Seat:");
         label_6.setBounds(600,220,400,30);
         label_6.setFont(new Font("微软雅黑", Font.BOLD, 25));
         JLabel label_7=new JLabel("Boarding Time:");
@@ -62,10 +63,6 @@ public class Summary
         frame.add(label1);
         frame.setVisible(true);
 
+    }
 
-    }
-    public static void main(String[] args)
-    {
-        new Summary();
-    }
 }
