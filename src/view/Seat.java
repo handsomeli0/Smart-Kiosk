@@ -65,6 +65,7 @@ public class Seat{
         con1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 closeThis();
+                new Meal();
             }
         });
         con1.setBounds(370, 500, 120, 30);
@@ -665,6 +666,7 @@ public class Seat{
             public void actionPerformed(ActionEvent actionEvent) {
                 if(bus==0&&mov==0&&leg==0) {
                     closeThis();
+                    new Meal();
                 }
                 else{
                     closeThis();
