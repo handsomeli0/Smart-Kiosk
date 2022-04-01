@@ -11,8 +11,8 @@ import javax.swing.*;
  * @version 1.1
  */
 
-public class ID_and_Name_Check_in {
-    public ID_and_Name_Check_in(){
+public class IdAndNameCheckIn {
+    public IdAndNameCheckIn(){
         JFrame frame = new JFrame("Smart-Kiosk");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(null);
@@ -55,9 +55,9 @@ public class ID_and_Name_Check_in {
             }
             else
             {
-                System.out.println("setFlight(a);");
-//               frame.setVisible(false);
-//               new Summmary();
+                Summary.setFlight(a);
+               frame.setVisible(false);
+               new Summary();
             }
         });
 
@@ -65,7 +65,7 @@ public class ID_and_Name_Check_in {
         button1.setFont(new Font("微软雅黑",Font.BOLD,20));
         button1.setBounds(700,500,200,50);
         button1.addActionListener(e -> {
-            new Booking_Number_Check_in();
+            new bookingNumberCheckIn();
             frame.setVisible(false);
         });
 
