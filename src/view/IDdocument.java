@@ -22,6 +22,7 @@ public class IDdocument  {
         ImageIcon img2 = new ImageIcon("src/image//icon.jpg");//这是背景图片2
         JLabel imgLabel2 = new JLabel(img2);//将背景图放在标签里。
 
+
         frame.getLayeredPane().add(imgLabel1, new Integer(Integer.MIN_VALUE));//注意这里是关键，将背景标签添加到jfram的LayeredPane面板里。
         imgLabel1.setBounds(0,0,img1.getIconWidth(), img1.getIconHeight());//设置背景标签的位置
         Container cp=frame.getContentPane();
