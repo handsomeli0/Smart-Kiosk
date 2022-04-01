@@ -7,7 +7,7 @@ public class Summary
 {
     public Summary(){
 
-        ImageIcon icon1 = new ImageIcon("D:\\ModTheSpireCode\\zxc\\src\\flight.png");
+        ImageIcon icon1 = new ImageIcon("src\\images\\background1.jpg");
         JLabel label1 = new JLabel(icon1);
         label1.setBounds(0,0,icon1.getIconWidth(),icon1.getIconHeight());
         JFrame frame=new JFrame("summary.Summary");
