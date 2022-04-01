@@ -1,16 +1,7 @@
 package view;
+
 import java.awt.*;
 import javax.swing.*;
-import model.*;
-import controller.*;
-
-/**
- * This class is the UI of Booking check in.
- *
- * @author Song Yan
- * @version 1.1
- */
-
 public class bookingNumberCheckIn
 {
     public bookingNumberCheckIn(){
@@ -43,21 +34,6 @@ public class bookingNumberCheckIn
 
         JButton button = new JButton("Cofirm");
         button.setBounds(80,250,80,30);
-        button.addActionListener(e -> {
-            Booking a = DataController.getBookingByNum(textField.getText());
-            if(a==null)
-            {
-                System.out.println("error!");
-                JOptionPane.showMessageDialog(frame, "Your booking number is incorrect!",
-                        "error", JOptionPane.ERROR_MESSAGE);
-            }
-            else
-            {
-//               Summary.setFlight(a);
-//               frame.setVisible(false);
-//               new Summary();
-            }
-        });
 
         JButton button1 = new JButton("Cancel");
         button1.setBounds(230,250,80,30);
@@ -67,19 +43,15 @@ public class bookingNumberCheckIn
         label5.setFont(new Font("微软雅黑", Font.BOLD, 13));
         label5.setBounds(80,300,400,30);
 
-        JButton button2 = new JButton("IDNum and Name");
+        JButton button2 = new JButton("IDNum or Name");
         button2.setBounds(80,330,230,30);
-        button2.addActionListener(e -> {
-            new IdAndNameCheckIn();
-            frame.setVisible(false);
-        });
+        //button2.addActionListener(e -> {
+        //new ID_Or_Name_Check_in();
+        //frame.setVisible(false);
+        //});
 
         JButton button3 = new JButton("ID Document");
         button3.setBounds(80,380,230,30);
-        button3.addActionListener(e -> {
-            new IDdocument();
-            frame.setVisible(false);
-        });
 
         frame.setSize(icon1.getIconWidth(),icon1.getIconHeight());
         frame.add(button3);
