@@ -1,28 +1,25 @@
-import javax.swing.*;
-        import java.awt.*;
-        import java.awt.event.ActionEvent;
-        import java.awt.event.ActionListener;
+package view;
 
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Meal extends JFrame {
     public Meal() {
         setLayout(new BorderLayout());
-        setTitle("Meal");    //设置显示窗口标题
-        setSize(1280, 960);    //设置窗口显示尺寸
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);    //置窗口是否可以关闭
+        setTitle("Meal");
+        setSize(1280, 960);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-//            ImageIcon background;
-//            background = new ImageIcon("D:/Mealimage/background.png");
-//            JLabel lbBg = new JLabel(background);
-//            lbBg.setBounds(0, 0, 1280, 960);
-//            this.add(lbBg);
-
-        //添加logo
+        //add logo
         JPanel north = new JPanel();
         north.setLayout(new GridLayout(1, 1, 0, 0));
         JLabel logo = new JLabel();
         ImageIcon logo1;
-        logo1 = new ImageIcon("D:/Mealimage/Logo.png");
+
+
+        logo1 = new ImageIcon("src/images/Logo.png");
         Image logoimg = logo1.getImage();
         logoimg = logoimg.getScaledInstance(400, 90, Image.SCALE_AREA_AVERAGING);
         logo1.setImage(logoimg);
@@ -39,7 +36,7 @@ public class Meal extends JFrame {
         center.add(menu);
 
 
-        JPanel m1 = new JPanel();//第一道菜的Panel,meal1
+        JPanel m1 = new JPanel();//first meal's Panel,meal1
         m1.setLayout(new GridLayout(3, 1, 0, 0));
         JPanel m2 = new JPanel();
         m2.setLayout(new GridLayout(3, 1, 0, 0));
@@ -55,21 +52,21 @@ public class Meal extends JFrame {
 
         Font f = new Font(Font.DIALOG, Font.BOLD, 14);
 
-        //展示图片
-        JLabel m1img = new JLabel();//创建一个带图片的 JLabel
+        //picture
+        JLabel m1img = new JLabel();//a JLabel with picture
         m1img.setHorizontalAlignment(SwingConstants.CENTER);
         ImageIcon image1;
-        image1 = new ImageIcon("D:/Mealimage/Steak with Onion.jpg");// 加载图片资源
-        Image img1 = image1.getImage();// 获得此图标的Image
-        img1 = img1.getScaledInstance(270, 170, Image.SCALE_AREA_AVERAGING);// 将image压缩后得到压缩后的img
-        image1.setImage(img1);// 将图标设置为压缩后的图像
+        image1 = new ImageIcon("src/images/Steak with Onion.jpg");
+        Image img1 = image1.getImage();// get Image
+        img1 = img1.getScaledInstance(270, 170, Image.SCALE_AREA_AVERAGING);
+        image1.setImage(img1);
         m1img.setIcon(image1);
         m1.add(m1img);
 
         JLabel m2img = new JLabel();
         m2img.setHorizontalAlignment(SwingConstants.CENTER);
         ImageIcon image2;
-        image2 = new ImageIcon("D:/Mealimage/Halal meal.jfif");
+        image2 = new ImageIcon("src/images/Halal meal.jpg");
         Image img2 = image2.getImage();
         img2 = img2.getScaledInstance(270, 170, Image.SCALE_AREA_AVERAGING);
         image2.setImage(img2);
@@ -79,7 +76,7 @@ public class Meal extends JFrame {
         JLabel m3img = new JLabel();
         m3img.setHorizontalAlignment(SwingConstants.CENTER);
         ImageIcon image3;
-        image3 = new ImageIcon("D:/Mealimage/Vegetarian Oriental Meal.jpg");
+        image3 = new ImageIcon("src/images/Vegetarian Oriental Meal.jpg");
         Image img3 = image3.getImage();
         img3 = img3.getScaledInstance(270, 170, Image.SCALE_AREA_AVERAGING);
         image3.setImage(img3);
@@ -89,7 +86,7 @@ public class Meal extends JFrame {
         JLabel m4img = new JLabel();
         m4img.setHorizontalAlignment(SwingConstants.CENTER);
         ImageIcon image4;
-        image4 = new ImageIcon("D:/Mealimage/Kid's meal.jpg");
+        image4 = new ImageIcon("src/images/Kid's meal.jpg");
         Image img4 = image4.getImage();
         img4 = img4.getScaledInstance(270, 170, Image.SCALE_AREA_AVERAGING);
         image4.setImage(img4);
@@ -97,7 +94,7 @@ public class Meal extends JFrame {
         m4.add(m4img);
 
 
-        //价格和描述
+        //price and description
 //            double price1=6.9; double price2=5.9; double price3=5.7; double price4=5.9;
 
         Mealinfo meal1 = new Mealinfo();
@@ -138,7 +135,7 @@ public class Meal extends JFrame {
         m4.add(lbdes4);
 
 
-        //选择餐按钮
+        //chose meal button
         JRadioButton rb1 = new JRadioButton(meal1.name, true);
         JRadioButton rb2 = new JRadioButton(meal2.name, false);
         JRadioButton rb3 = new JRadioButton(meal3.name, false);
@@ -158,12 +155,12 @@ public class Meal extends JFrame {
         m1.add(rb1);
         m2.add(rb2);
         m3.add(rb3);
-        m4.add(rb4);//在meal1，2，3，4的Panel中添加按钮
-        ButtonGroup group = new ButtonGroup();//按钮组
+        m4.add(rb4);//add button in meal 1,2,3,4
+        ButtonGroup group = new ButtonGroup();//button group
         group.add(rb1);
         group.add(rb2);
         group.add(rb3);
-        group.add(rb4);//按钮组中添加meal1，2，3，4
+        group.add(rb4);
 
         add(center, BorderLayout.CENTER);
 
@@ -173,9 +170,9 @@ public class Meal extends JFrame {
         menu.add(m4);
 
 
-        //Remarks 和 换页按钮
+        //Remarks and next page
         JPanel remark = new JPanel();
-        JTextArea remarktxt = new JTextArea(3, 70);    //创建文本框
+        JTextArea remarktxt = new JTextArea(3, 70);
         remarktxt.setFont(f);
 
         JLabel remarklabel = new JLabel("Remarks (etc. Special meals): ");
@@ -198,7 +195,7 @@ public class Meal extends JFrame {
         south.add(button);
         add(south, BorderLayout.SOUTH);
 
-        setVisible(true);    //设置窗口是否可见
+        setVisible(true);
         this.setLocationRelativeTo(null);
 
         jbnext.addActionListener(new ActionListener() {
@@ -213,6 +210,6 @@ public class Meal extends JFrame {
     }
 
     public static void main(String[] agrs) {
-        new Meal();    //创建一个实例化对象
+        new Meal();
     }
 }

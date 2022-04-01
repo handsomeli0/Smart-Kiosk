@@ -1,3 +1,5 @@
+package view;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -8,17 +10,17 @@ public class GourmetMenu extends JFrame{
     public GourmetMenu()
     {
         setLayout(new BorderLayout());
-        setTitle("GourmetMenu");    //设置显示窗口标题
-        setSize(1280,960);    //设置窗口显示尺寸
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);    //置窗口是否可以关闭
+        setTitle("GourmetMenu");
+        setSize(1280,960);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 
-        //添加logo
+        //add logo
         JPanel north=new JPanel();
         north.setLayout(new GridLayout(1,1,0,0));
         JLabel logo = new JLabel();
         ImageIcon logo1;
-        logo1 = new ImageIcon("D:/Mealimage/Logo.png");
+        logo1 = new ImageIcon("src/images/Logo.png");
         Image logoimg = logo1.getImage();
         logoimg = logoimg.getScaledInstance(400, 90, Image.SCALE_AREA_AVERAGING);
         logo1.setImage(logoimg);
@@ -27,7 +29,7 @@ public class GourmetMenu extends JFrame{
         add(north,BorderLayout.NORTH);
 
 
-        // 中部和南部布局
+        // center and south
         JPanel center=new JPanel();
         center.setLayout(new GridLayout(1,1,0,0));
 
@@ -36,7 +38,7 @@ public class GourmetMenu extends JFrame{
         center.add(menu);
 
 
-        JPanel m1=new JPanel();//第一道菜的Panel,meal1
+        JPanel m1=new JPanel();
         m1.setLayout(new GridLayout(3,1,0,0));
         JPanel m2=new JPanel();
         m2.setLayout(new GridLayout(3,1,0,0));
@@ -62,21 +64,21 @@ public class GourmetMenu extends JFrame{
 
 
 
-        //展示图片
-        JLabel m1img = new JLabel();//创建一个带图片的 JLabel
+        //show pictures
+        JLabel m1img = new JLabel();
         m1img.setHorizontalAlignment(SwingConstants.CENTER);
         ImageIcon image1;
-        image1 = new ImageIcon("D:/Mealimage/11.jpg");// 加载图片资源
+        image1 = new ImageIcon("src/images/11.jpg");
         Image img1 = image1.getImage();// 获得此图标的Image
-        img1 = img1.getScaledInstance(210, 130, Image.SCALE_AREA_AVERAGING);// 将image压缩后得到压缩后的img
-        image1.setImage(img1);// 将图标设置为压缩后的图像
+        img1 = img1.getScaledInstance(210, 130, Image.SCALE_AREA_AVERAGING);
+        image1.setImage(img1);
         m1img.setIcon(image1);
         m1.add(m1img);
 
         JLabel m2img = new JLabel();
         m2img.setHorizontalAlignment(SwingConstants.CENTER);
         ImageIcon image2;
-        image2 = new ImageIcon("D:/Mealimage/12.jpg");
+        image2 = new ImageIcon("src/images/12.jpg");
         Image img2 = image2.getImage();
         img2 = img2.getScaledInstance(210, 130, Image.SCALE_AREA_AVERAGING);
         image2.setImage(img2);
@@ -86,7 +88,7 @@ public class GourmetMenu extends JFrame{
         JLabel m3img = new JLabel();
         m3img.setHorizontalAlignment(SwingConstants.CENTER);
         ImageIcon image3;
-        image3 = new ImageIcon("D:/Mealimage/13.jpg");
+        image3 = new ImageIcon("src/images/13.jpg");
         Image img3 = image3.getImage();
         img3 = img3.getScaledInstance(210, 130, Image.SCALE_AREA_AVERAGING);
         image3.setImage(img3);
@@ -96,7 +98,7 @@ public class GourmetMenu extends JFrame{
         JLabel m4img = new JLabel();
         m4img.setHorizontalAlignment(SwingConstants.CENTER);
         ImageIcon image4;
-        image4 = new ImageIcon("D:/Mealimage/14.jpg");
+        image4 = new ImageIcon("src/images/14.jpg");
         Image img4 = image4.getImage();
         img4 = img4.getScaledInstance(210, 130, Image.SCALE_AREA_AVERAGING);
         image4.setImage(img4);
@@ -106,7 +108,7 @@ public class GourmetMenu extends JFrame{
         JLabel m5img = new JLabel();
         m5img.setHorizontalAlignment(SwingConstants.CENTER);
         ImageIcon image5;
-        image5 = new ImageIcon("D:/Mealimage/15.jpg");
+        image5 = new ImageIcon("src/images/15.jpg");
         Image img5 = image5.getImage();
         img5 = img5.getScaledInstance(210, 130, Image.SCALE_AREA_AVERAGING);
         image5.setImage(img5);
@@ -116,7 +118,7 @@ public class GourmetMenu extends JFrame{
         JLabel m6img = new JLabel();
         m6img.setHorizontalAlignment(SwingConstants.CENTER);
         ImageIcon image6;
-        image6 = new ImageIcon("D:/Mealimage/16.jpg");
+        image6 = new ImageIcon("src/images/16.jpg");
         Image img6 = image6.getImage();
         img6 = img6.getScaledInstance(210, 130, Image.SCALE_AREA_AVERAGING);
         image6.setImage(img6);
@@ -126,7 +128,7 @@ public class GourmetMenu extends JFrame{
         JLabel m7img = new JLabel();
         m7img.setHorizontalAlignment(SwingConstants.CENTER);
         ImageIcon image7;
-        image7 = new ImageIcon("D:/Mealimage/17.jpg");
+        image7 = new ImageIcon("src/images/17.jpg");
         Image img7 = image7.getImage();
         img7 = img7.getScaledInstance(210, 130, Image.SCALE_AREA_AVERAGING);
         image7.setImage(img7);
@@ -136,7 +138,7 @@ public class GourmetMenu extends JFrame{
         JLabel m8img = new JLabel();
         m8img.setHorizontalAlignment(SwingConstants.CENTER);
         ImageIcon image8;
-        image8 = new ImageIcon("D:/Mealimage/18.jpg");
+        image8 = new ImageIcon("src/images/18.jpg");
         Image img8 = image8.getImage();
         img8 = img8.getScaledInstance(210, 130, Image.SCALE_AREA_AVERAGING);
         image8.setImage(img8);
@@ -145,7 +147,7 @@ public class GourmetMenu extends JFrame{
 
 
 
-        //价格和描述
+        //price and description
         GourmetFood food1=new GourmetFood();
         food1.name="Drink1";
         food1.desc="Sweet!!";
@@ -230,7 +232,7 @@ public class GourmetMenu extends JFrame{
 
 
 
-        //选择餐按钮
+        //choose button
         JRadioButton rb1=new JRadioButton(food1.name, false);
         JRadioButton rb2=new JRadioButton(food2.name, false);
         JRadioButton rb3=new JRadioButton(food3.name, false);
@@ -253,7 +255,7 @@ public class GourmetMenu extends JFrame{
         rb5.setFont(f); rb6.setFont(f); rb7.setFont(f); rb8.setFont(f);
 
         m1.add(rb1); m2.add(rb2); m3.add(rb3); m4.add(rb4);
-        m5.add(rb5); m6.add(rb6); m7.add(rb7); m8.add(rb8);//在meal1，2，3，4......的Panel中添加按钮
+        m5.add(rb5); m6.add(rb6); m7.add(rb7); m8.add(rb8);
 
         add(center,BorderLayout.CENTER);
 
@@ -261,19 +263,7 @@ public class GourmetMenu extends JFrame{
         menu.add(m5); menu.add(m6); menu.add(m7); menu.add(m8);
 
 
-//        rb1.addActionListener(new ActionListener() {     //监听确定按钮，JButton类型按钮
-//            @Override
-//            public void actionPerformed(ActionEvent e){
-//                if(rb1.isSelected()) {               //监听button3按钮，JRadiobutton类型按钮**
-//                    Totalprice += food1.price;                         //跳转页面
-//                }
-//            }
-//        });
-
-
-
-
-        //总价 和 换页按钮
+        //total price and change page
 //        Double Totalprice = 0.0;
         String TP = "<html><body>" + "Total Price: "+ Totalprice + "<body></html>";
         JLabel lbTP=new JLabel(TP);// label description1
@@ -301,11 +291,11 @@ public class GourmetMenu extends JFrame{
 
 
 
-        setVisible(true);    //设置窗口是否可见
+        setVisible(true);
         this.setLocationRelativeTo(null);
 
 
-        setVisible(true);    //设置窗口是否可见
+        setVisible(true);
         this.setLocationRelativeTo(null);
 
         jbback.addActionListener(new ActionListener() {
@@ -332,6 +322,6 @@ public class GourmetMenu extends JFrame{
     }
     public static void main(String[] agrs)
     {
-        new GourmetMenu();    //创建一个实例化对象
+        new GourmetMenu();
     }
 }
