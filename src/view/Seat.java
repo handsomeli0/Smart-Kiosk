@@ -9,12 +9,9 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Seat{
+public class Seat {
     int selected = 0,bus=0,mov=0,leg=0,sum,k;
     int[] passenger=new int[32];
-
-    String flightID="flight1";
-    boolean[] seatnum= DataController.getSeatsByFlightID(flightID);
 
     JFrame frame=new JFrame("Choosing Seat"); //创建Frame窗口
     JFrame frame1=new JFrame("Pay For");
@@ -34,9 +31,9 @@ public class Seat{
     JPanel jp=new JPanel(); //创建JPanel对象
     JPanel jp2=new JPanel();
 
-    ImageIcon image=new ImageIcon("src/image/B.jpg");//背景图片
+    ImageIcon image=new ImageIcon("src/images/B.jpg");//背景图片
     JLabel im=new JLabel(image);
-    ImageIcon plane=new ImageIcon("src/image/plane.png");
+    ImageIcon plane=new ImageIcon("src/images/plane.png");
     JLabel pl=new JLabel(plane);
 
     JButton[] x=new JButton[100];
@@ -78,17 +75,17 @@ public class Seat{
         return 0;
     }
 
-    public int form() {
+    public int form(String flightID) {
         jp.setLayout(null);
-
+        boolean[] seatnum= DataController.getSeatsByFlightID(flightID);
         for(int i=0;i<32;i++)
         {
-            if(seatnum[i]==true) //座位被其他用户选择
-             {
-                 passenger[i]=1;
-                 x[i].setBackground(Color.RED);
-             }
             x[i] = new JButton();
+            if(seatnum[i]==true) //座位被其他用户选择
+            {
+                passenger[i]=1;
+                x[i].setBackground(Color.RED);
+            }
             if(i/4==0)
             {
                 x[i].setBounds(215,205+(i%4)*21+(i%4)/2*8,20,20);
@@ -713,13 +710,9 @@ public class Seat{
         frame.dispose();
         frame1.dispose();
     }
-    public Seat()
+    public Seat(String flightID)
     {
-        form();
-    }
-    public static void main (String[] args)
-    {
-        Seat seat=new Seat();
+        form(flightID);
     }
 }
 
