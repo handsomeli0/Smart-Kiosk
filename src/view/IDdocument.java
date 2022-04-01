@@ -1,12 +1,48 @@
 package view;
 
+import controller.DataController;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class IDdocument  {
+    private String idNum;
+    private String firstName;
+    private String lastName;
 
+    public String getIdNum() {
+        return idNum;
+    }
+
+    public void setIdNum(String idNum) {
+        this.idNum = idNum;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String toString() {
+        return "IDdocument{" +
+                "idNum='" + idNum + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                '}';
+    }
     public IDdocument() {
         JFrame frame=new JFrame("ID document check-in");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -60,7 +96,7 @@ public class IDdocument  {
         confirm.addActionListener(e -> {new Summary();
             frame.setVisible(false);
         });
-        cancel.addActionListener(e -> {new Booking_Number_Check_in();
+        cancel.addActionListener(e -> {new bookingNumberCheckin();
             frame.setVisible(false);
         });
 
