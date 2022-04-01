@@ -40,7 +40,7 @@ public class Seat {
     JButton con=new JButton("Confirm");
     JButton con1=new JButton("Confirm");
 
-    public int formpay(int bus,int mov,int leg,String passagerID){
+    public int formpay(int bus,int mov,int leg,String passengerID){
         JLabel id=new JLabel("Credit Card ID:");
         JTextField ID=new JTextField(20);
 
@@ -61,8 +61,14 @@ public class Seat {
 
         con1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
-                closeThis();
-                new Meal();
+                int Id= Integer.parseInt(ID.getText().toString());
+                if(DataController.checkPayment(passengerID,Id)) {
+                    closeThis();
+                    new Meal();
+                }
+                else{
+                    JOptionPane.showMessageDialog(frame, "The credit card information you entered is incorrect ","Missing information", JOptionPane.ERROR_MESSAGE);
+                }
             }
         });
         con1.setBounds(370, 500, 120, 30);
