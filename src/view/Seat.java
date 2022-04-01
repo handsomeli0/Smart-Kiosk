@@ -1,7 +1,8 @@
 package view;
 
+import controller.DataController;
 import model.Flight;
-
+import java.io.*;
 import javax.swing.*;
 import java.awt.Color;
 import java.awt.Font;
@@ -9,12 +10,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Seat{
-    int selected = 0,bus=0,mov=0,leg=0,sum;
+    int selected = 0,bus=0,mov=0,leg=0,sum,k;
     int[] passenger=new int[32];
 
-    private boolean[] seat;
-    Flight flight =new Flight();
-
+    String flightID="flight1";
+    boolean[] seatnum= DataController.getSeatsByFlightID(flightID);
 
     JFrame frame=new JFrame("Choosing Seat"); //创建Frame窗口
     JFrame frame1=new JFrame("Pay For");
@@ -82,9 +82,11 @@ public class Seat{
 
         for(int i=0;i<32;i++)
         {
-            if(seat[i]=flight.getSeat()) //座位被其他用户选择
-             //{passenger[i]=1;
-            // x[i].setBackground(Color.RED);}
+            if(seatnum[i]==true) //座位被其他用户选择
+             {
+                 passenger[i]=1;
+                 x[i].setBackground(Color.RED);
+             }
             x[i] = new JButton();
             if(i/4==0)
             {
@@ -123,297 +125,517 @@ public class Seat{
         }
         x[0].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
-                if(selected==0&&passenger[0]!=1){
-                    JButton x = Seat.this.x[0];
-                    x.setBackground(Color.RED);
-                    selected=1;
-                    bus=1;
+                try {
+                    if (selected == 0 && passenger[0] != 1) {
+                        JButton x = Seat.this.x[0];
+                        x.setBackground(Color.RED);
+                        selected = 1;
+                        bus = 1;
+                        seatnum[0] = true;
+                        DataController.updateSeat(flightID, 0);
+                    }
+                }
+                catch (Exception e) {
+                    System.out.println("Exception occoured : " + e);
                 }
             }
         });
         x[1].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
-                if(selected==0&&passenger[1]!=1) {
-                    JButton x = Seat.this.x[1];
-                    x.setBackground(Color.RED);
-                    selected=1;
-                    bus=1;
+                try {
+                    if (selected == 0 && passenger[1] != 1) {
+                        JButton x = Seat.this.x[1];
+                        x.setBackground(Color.RED);
+                        selected = 1;
+                        bus = 1;
+                        seatnum[1] = true;
+                        DataController.updateSeat(flightID, 1);
+                    }
+                }
+                catch (Exception e) {
+                    System.out.println("Exception occoured : " + e);
                 }
             }
         });
         x[2].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
-                if(selected==0&&passenger[2]!=1) {
-                    selected = 1;
-                    JButton x = Seat.this.x[2];
-                    x.setBackground(Color.RED);
-                    bus=1;
+                try {
+                    if (selected == 0 && passenger[2] != 1) {
+                        selected = 1;
+                        JButton x = Seat.this.x[2];
+                        x.setBackground(Color.RED);
+                        bus = 1;
+                        seatnum[2] = true;
+                        DataController.updateSeat(flightID, 2);
+                    }
+                }
+                catch (Exception e) {
+                    System.out.println("Exception occoured : " + e);
                 }
             }
         });
         x[3].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
-                if(selected==0&&passenger[3]!=1) {
-                    selected = 1;
-                    JButton x = Seat.this.x[3];
-                    x.setBackground(Color.RED);
-                    bus=1;
+                try {
+                    if (selected == 0 && passenger[3] != 1) {
+                        selected = 1;
+                        JButton x = Seat.this.x[3];
+                        x.setBackground(Color.RED);
+                        bus = 1;
+                        seatnum[3] = true;
+                        DataController.updateSeat(flightID, 3);
+                    }
+                }
+                catch (Exception e) {
+                    System.out.println("Exception occoured : " + e);
                 }
             }
         });
         x[4].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
-                if(selected==0&&passenger[4]!=1) {
-                    selected = 1;
-                    JButton x = Seat.this.x[4];
-                    x.setBackground(Color.RED);
-                    bus=1;
+                try {
+                    if (selected == 0 && passenger[4] != 1) {
+                        selected = 1;
+                        JButton x = Seat.this.x[4];
+                        x.setBackground(Color.RED);
+                        seatnum[4] = true;
+                        DataController.updateSeat(flightID, 4);
+                    }
+                }
+                catch (Exception e) {
+                    System.out.println("Exception occoured : " + e);
                 }
             }
         });
         x[5].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
-                if(selected==0&&passenger[5]!=1) {
-                    selected = 1;
-                    JButton x = Seat.this.x[5];
-                    x.setBackground(Color.RED);
-                    bus=1;
+                try {
+                    if (selected == 0 && passenger[5] != 1) {
+                        selected = 1;
+                        JButton x = Seat.this.x[5];
+                        x.setBackground(Color.RED);
+                        seatnum[5] = true;
+                        DataController.updateSeat(flightID, 5);
+                    }
+                }
+                catch (Exception e) {
+                    System.out.println("Exception occoured : " + e);
                 }
             }
         });
         x[6].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
-                if(selected==0&&passenger[6]!=1) {
-                    selected = 1;
-                    JButton x = Seat.this.x[6];
-                    x.setBackground(Color.RED);
-                    bus=1;
+                try {
+                    if (selected == 0 && passenger[6] != 1) {
+                        selected = 1;
+                        JButton x = Seat.this.x[6];
+                        x.setBackground(Color.RED);
+                        seatnum[6] = true;
+                        DataController.updateSeat(flightID, 6);
+                    }
+                }
+                catch (Exception e) {
+                    System.out.println("Exception occoured : " + e);
                 }
             }
         });
         x[7].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
-                if(selected==0&&passenger[7]!=1) {
-                    selected = 1;
-                    JButton x = Seat.this.x[7];
-                    x.setBackground(Color.RED);
-                    bus=1;
+                try {
+                    if (selected == 0 && passenger[7] != 1) {
+                        selected = 1;
+                        JButton x = Seat.this.x[7];
+                        x.setBackground(Color.RED);
+                        seatnum[7] = true;
+                        DataController.updateSeat(flightID, 7);
+                    }
+                }
+                catch (Exception e) {
+                    System.out.println("Exception occoured : " + e);
                 }
             }
         });
         x[8].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
-                if(selected==0&&passenger[8]!=1) {
-                    selected = 1;
-                    JButton x = Seat.this.x[8];
-                    x.setBackground(Color.RED);
+                try {
+                    if (selected == 0 && passenger[8] != 1) {
+                        selected = 1;
+                        JButton x = Seat.this.x[8];
+                        x.setBackground(Color.RED);
+                        seatnum[8] = true;
+                        DataController.updateSeat(flightID, 8);
+                    }
+                }
+                catch (Exception e) {
+                    System.out.println("Exception occoured : " + e);
                 }
             }
         });
         x[9].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
-                if(selected==0&&passenger[9]!=1) {
-                    selected = 1;
-                    JButton x = Seat.this.x[9];
-                    x.setBackground(Color.RED);
+                try {
+                    if (selected == 0 && passenger[9] != 1) {
+                        selected = 1;
+                        JButton x = Seat.this.x[9];
+                        x.setBackground(Color.RED);
+                        seatnum[9] = true;
+                        DataController.updateSeat(flightID, 9);
+                    }
+                }
+                catch (Exception e) {
+                    System.out.println("Exception occoured : " + e);
                 }
             }
         });
         x[10].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
-                if(selected==0&&passenger[10]!=1) {
-                    selected = 1;
-                    JButton x = Seat.this.x[10];
-                    x.setBackground(Color.RED);
+                try {
+                    if (selected == 0 && passenger[10] != 1) {
+                        selected = 1;
+                        JButton x = Seat.this.x[10];
+                        x.setBackground(Color.RED);
+                        seatnum[10] = true;
+                        DataController.updateSeat(flightID, 10);
+                    }
+                }
+                catch (Exception e) {
+                    System.out.println("Exception occoured : " + e);
                 }
             }
         });
         x[11].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
-                if(selected==0&&passenger[11]!=1) {
-                    selected = 1;
-                    JButton x = Seat.this.x[11];
-                    x.setBackground(Color.RED);
+                try {
+                    if (selected == 0 && passenger[11] != 1) {
+                        selected = 1;
+                        JButton x = Seat.this.x[11];
+                        x.setBackground(Color.RED);
+                        seatnum[11] = true;
+                        DataController.updateSeat(flightID, 11);
+                    }
+                }
+                catch (Exception e) {
+                    System.out.println("Exception occoured : " + e);
                 }
             }
         });
         x[12].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
-                if(selected==0&&passenger[12]!=1) {
-                    selected = 1;
-                    JButton x = Seat.this.x[12];
-                    x.setBackground(Color.RED);
+                try {
+                    if (selected == 0 && passenger[12] != 1) {
+                        selected = 1;
+                        JButton x = Seat.this.x[12];
+                        x.setBackground(Color.RED);
+                        seatnum[12] = true;
+                        DataController.updateSeat(flightID, 12);
+                    }
+                }
+                catch (Exception e) {
+                    System.out.println("Exception occoured : " + e);
                 }
             }
         });
         x[13].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
-                if(selected==0&&passenger[13]!=1) {
-                    selected = 1;
-                    JButton x = Seat.this.x[13];
-                    x.setBackground(Color.RED);
+                try {
+                    if (selected == 0 && passenger[13] != 1) {
+                        selected = 1;
+                        JButton x = Seat.this.x[13];
+                        x.setBackground(Color.RED);
+                        seatnum[13] = true;
+                        DataController.updateSeat(flightID, 13);
+                    }
+                }
+                catch (Exception e) {
+                    System.out.println("Exception occoured : " + e);
                 }
             }
         });
         x[14].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
-                if(selected==0&&passenger[14]!=1) {
-                    selected = 1;
-                    JButton x = Seat.this.x[14];
-                    x.setBackground(Color.RED);
+                try {
+                    if (selected == 0 && passenger[14] != 1) {
+                        selected = 1;
+                        JButton x = Seat.this.x[14];
+                        x.setBackground(Color.RED);
+                        seatnum[14] = true;
+                        DataController.updateSeat(flightID, 14);
+                    }
+                }
+                catch (Exception e) {
+                    System.out.println("Exception occoured : " + e);
                 }
             }
         });
         x[15].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
-                if(selected==0&&passenger[15]!=1) {
-                    selected = 1;
-                    JButton x = Seat.this.x[15];
-                    x.setBackground(Color.RED);
+                try {
+                    if (selected == 0 && passenger[15] != 1) {
+                        selected = 1;
+                        JButton x = Seat.this.x[15];
+                        x.setBackground(Color.RED);
+                        seatnum[15] = true;
+                        DataController.updateSeat(flightID, 15);
+                    }
+                }
+                catch (Exception e) {
+                    System.out.println("Exception occoured : " + e);
                 }
             }
         });
         x[16].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
-                if(selected==0&&passenger[16]!=1) {
-                    selected = 1;
-                    JButton x = Seat.this.x[16];
-                    x.setBackground(Color.RED);
+                try {
+                    if (selected == 0 && passenger[16] != 1) {
+                        selected = 1;
+                        JButton x = Seat.this.x[16];
+                        x.setBackground(Color.RED);
+                        seatnum[16] = true;
+                        DataController.updateSeat(flightID, 16);
+                    }
+                }
+                catch (Exception e) {
+                    System.out.println("Exception occoured : " + e);
                 }
             }
         });
         x[17].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
-                if(selected==0&&passenger[17]!=1) {
-                    selected = 1;
-                    JButton x = Seat.this.x[17];
-                    x.setBackground(Color.RED);
+                try {
+                    if (selected == 0 && passenger[17] != 1) {
+                        selected = 1;
+                        JButton x = Seat.this.x[17];
+                        x.setBackground(Color.RED);
+                        seatnum[17] = true;
+                        DataController.updateSeat(flightID, 17);
+                    }
+                }
+                catch (Exception e) {
+                    System.out.println("Exception occoured : " + e);
                 }
             }
         });
         x[18].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
-                if(selected==0&&passenger[18]!=1) {
-                    selected = 1;
-                    JButton x = Seat.this.x[18];
-                    x.setBackground(Color.RED);
+                try {
+                    if (selected == 0 && passenger[18] != 1) {
+                        selected = 1;
+                        JButton x = Seat.this.x[18];
+                        x.setBackground(Color.RED);
+                        seatnum[18] = true;
+                        DataController.updateSeat(flightID, 18);
+                    }
+                }
+                catch (Exception e) {
+                    System.out.println("Exception occoured : " + e);
                 }
             }
         });
         x[19].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
-                if(selected==0&&passenger[19]!=1) {
-                    selected = 1;
-                    JButton x = Seat.this.x[19];
-                    x.setBackground(Color.RED);
+                try {
+                    if (selected == 0 && passenger[19] != 1) {
+                        selected = 1;
+                        JButton x = Seat.this.x[19];
+                        x.setBackground(Color.RED);
+                        seatnum[19] = true;
+                        DataController.updateSeat(flightID, 19);
+                    }
+                }
+                catch (Exception e) {
+                    System.out.println("Exception occoured : " + e);
                 }
             }
         });
         x[20].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
-                if(selected==0&&passenger[20]!=1) {
-                    selected = 1;
-                    JButton x = Seat.this.x[20];
-                    x.setBackground(Color.RED);
+                try {
+                    if (selected == 0 && passenger[20] != 1) {
+                        selected = 1;
+                        JButton x = Seat.this.x[20];
+                        x.setBackground(Color.RED);
+                        seatnum[20] = true;
+                        DataController.updateSeat(flightID, 20);
+                    }
+                }
+                catch (Exception e) {
+                    System.out.println("Exception occoured : " + e);
                 }
             }
         });
         x[21].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
-                if(selected==0&&passenger[21]!=1) {
-                    selected = 1;
-                    JButton x = Seat.this.x[21];
-                    x.setBackground(Color.RED);
+                try {
+                    if (selected == 0 && passenger[21] != 1) {
+                        selected = 1;
+                        JButton x = Seat.this.x[21];
+                        x.setBackground(Color.RED);
+                        seatnum[21] = true;
+                        DataController.updateSeat(flightID, 21);
+                    }
+                }
+                catch (Exception e) {
+                    System.out.println("Exception occoured : " + e);
                 }
             }
         });
         x[22].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
-                if(selected==0&&passenger[22]!=1) {
-                    selected = 1;
-                    JButton x = Seat.this.x[22];
-                    x.setBackground(Color.RED);
+                try {
+                    if (selected == 0 && passenger[22] != 1) {
+                        selected = 1;
+                        JButton x = Seat.this.x[22];
+                        x.setBackground(Color.RED);
+                        seatnum[22] = true;
+                        DataController.updateSeat(flightID, 22);
+                    }
+                }
+                catch (Exception e) {
+                    System.out.println("Exception occoured : " + e);
                 }
             }
         });
         x[23].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
-                if(selected==0&&passenger[23]!=1) {
-                    selected = 1;
-                    JButton x = Seat.this.x[23];
-                    x.setBackground(Color.RED);
+                try {
+                    if (selected == 0 && passenger[23] != 1) {
+                        selected = 1;
+                        JButton x = Seat.this.x[23];
+                        x.setBackground(Color.RED);
+                        seatnum[23] = true;
+                        DataController.updateSeat(flightID, 23);
+                    }
+                }
+                catch (Exception e) {
+                    System.out.println("Exception occoured : " + e);
                 }
             }
         });
         x[24].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
-                if(selected==0&&passenger[24]!=1) {
-                    selected = 1;
-                    JButton x = Seat.this.x[24];
-                    x.setBackground(Color.RED);
+                try {
+                    if (selected == 0 && passenger[24] != 1) {
+                        selected = 1;
+                        JButton x = Seat.this.x[24];
+                        x.setBackground(Color.RED);
+                        seatnum[24] = true;
+                        DataController.updateSeat(flightID, 24);
+                    }
+                }
+                catch (Exception e) {
+                    System.out.println("Exception occoured : " + e);
                 }
             }
         });
         x[25].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
-                if(selected==0&&passenger[25]!=1) {
-                    selected = 1;
-                    JButton x = Seat.this.x[25];
-                    x.setBackground(Color.RED);
+                try {
+                    if (selected == 0 && passenger[25] != 1) {
+                        selected = 1;
+                        JButton x = Seat.this.x[25];
+                        x.setBackground(Color.RED);
+                        seatnum[25] = true;
+                        DataController.updateSeat(flightID, 25);
+                    }
+                }
+                catch (Exception e) {
+                    System.out.println("Exception occoured : " + e);
                 }
             }
         });
         x[26].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
-                if(selected==0&&passenger[26]!=1) {
-                    selected = 1;
-                    JButton x = Seat.this.x[26];
-                    x.setBackground(Color.RED);
+                try {
+                    if (selected == 0 && passenger[26] != 1) {
+                        selected = 1;
+                        JButton x = Seat.this.x[26];
+                        x.setBackground(Color.RED);
+                        seatnum[26] = true;
+                        DataController.updateSeat(flightID, 26);
+                    }
+                }
+                catch (Exception e) {
+                    System.out.println("Exception occoured : " + e);
                 }
             }
         });
         x[27].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
-                if(selected==0&&passenger[27]!=1) {
-                    selected = 1;
-                    JButton x = Seat.this.x[27];
-                    x.setBackground(Color.RED);
+                try {
+                    if (selected == 0 && passenger[27] != 1) {
+                        selected = 1;
+                        JButton x = Seat.this.x[27];
+                        x.setBackground(Color.RED);
+                        seatnum[27] = true;
+                        DataController.updateSeat(flightID, 27);
+                    }
+                }
+                catch (Exception e) {
+                    System.out.println("Exception occoured : " + e);
                 }
             }
         });
         x[28].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
-                if(selected==0&&passenger[28]!=1) {
-                    selected = 1;
-                    JButton x = Seat.this.x[28];
-                    x.setBackground(Color.RED);
+                try {
+                    if (selected == 0 && passenger[28] != 1) {
+                        selected = 1;
+                        JButton x = Seat.this.x[28];
+                        x.setBackground(Color.RED);
+                        seatnum[28] = true;
+                        DataController.updateSeat(flightID, 28);
+                    }
+                }
+                catch (Exception e) {
+                    System.out.println("Exception occoured : " + e);
                 }
             }
         });
         x[29].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
-                if(selected==0&&passenger[29]!=1) {
-                    selected = 1;
-                    JButton x = Seat.this.x[29];
-                    x.setBackground(Color.RED);
+                try {
+                    if (selected == 0 && passenger[29] != 1) {
+                        selected = 1;
+                        JButton x = Seat.this.x[29];
+                        x.setBackground(Color.RED);
+                        seatnum[29] = true;
+                        DataController.updateSeat(flightID, 29);
+                    }
+                }
+                catch (Exception e) {
+                    System.out.println("Exception occoured : " + e);
                 }
             }
         });
         x[30].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
-                if(selected==0&&passenger[30]!=1) {
-                    selected = 1;
-                    JButton x = Seat.this.x[30];
-                    x.setBackground(Color.RED);
+                try {
+                    if (selected == 0 && passenger[30] != 1) {
+                        selected = 1;
+                        JButton x = Seat.this.x[30];
+                        x.setBackground(Color.RED);
+                        seatnum[30] = true;
+                        DataController.updateSeat(flightID, 30);
+                    }
+                }
+                catch (Exception e) {
+                    System.out.println("Exception occoured : " + e);
                 }
             }
         });
         x[31].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
-                if(selected==0&&passenger[31]!=1) {
-                    selected = 1;
-                    JButton x = Seat.this.x[31];
-                    x.setBackground(Color.RED);
+                try {
+                    if (selected == 0 && passenger[31] != 1) {
+                        selected = 1;
+                        JButton x = Seat.this.x[31];
+                        x.setBackground(Color.RED);
+                        seatnum[31] = true;
+                        DataController.updateSeat(flightID, 31);
+                    }
+                }
+                catch (Exception e) {
+                    System.out.println("Exception occoured : " + e);
                 }
             }
         });
