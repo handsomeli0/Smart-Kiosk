@@ -40,7 +40,7 @@ public class Seat {
     JButton con=new JButton("Confirm");
     JButton con1=new JButton("Confirm");
 
-    public int formpay(int bus,int mov,int leg){
+    public int formpay(int bus,int mov,int leg,String passagerID){
         JLabel id=new JLabel("Credit Card ID:");
         JTextField ID=new JTextField(20);
 
@@ -75,7 +75,7 @@ public class Seat {
         return 0;
     }
 
-    public int form(String flightID) {
+    public int form(String flightID,String passengerID) {
         jp.setLayout(null);
         boolean[] seatnum= DataController.getSeatsByFlightID(flightID);
         for(int i=0;i<32;i++)
@@ -667,7 +667,7 @@ public class Seat {
                 }
                 else{
                     closeThis();
-                    formpay(bus,mov,leg);
+                    formpay(bus,mov,leg,passengerID);
                 }
             }
         });
@@ -710,9 +710,9 @@ public class Seat {
         frame.dispose();
         frame1.dispose();
     }
-    public Seat(String flightID)
+    public Seat(String flightID,String passengerID)
     {
-        form(flightID);
+        form(flightID,passengerID);
     }
 }
 
