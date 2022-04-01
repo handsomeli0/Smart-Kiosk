@@ -43,6 +43,10 @@ public class Seat{
     JButton con=new JButton("Confirm");
     JButton con1=new JButton("Confirm");
 
+    public Seat(String flightID, String passengerID) {
+
+    }
+
     public int formpay(int bus,int mov,int leg){
         JLabel id=new JLabel("Credit Card ID:");
         JTextField ID=new JTextField(20);
