@@ -53,9 +53,9 @@ public class bookingNumberCheckIn
             }
             else
             {
-               Summary.setFlight(a);
-               frame.setVisible(false);
-               new Summary();
+//               Summary.setFlight(a);
+//               frame.setVisible(false);
+//               new Summary();
             }
         });
 
