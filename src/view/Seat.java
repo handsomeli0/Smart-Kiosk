@@ -1,5 +1,7 @@
 package view;
 
+import model.Flight;
+
 import javax.swing.*;
 import java.awt.Color;
 import java.awt.Font;
@@ -9,6 +11,10 @@ import java.awt.event.ActionListener;
 public class Seat{
     int selected = 0,bus=0,mov=0,leg=0,sum;
     int[] passenger=new int[32];
+
+    private boolean[] seat;
+    Flight flight =new Flight();
+
 
     JFrame frame=new JFrame("Choosing Seat"); //创建Frame窗口
     JFrame frame1=new JFrame("Pay For");
@@ -76,8 +82,8 @@ public class Seat{
 
         for(int i=0;i<32;i++)
         {
-            //if(座位被其它用户选择) //座位被其他用户选择
-            // {passenger[i]=1;
+            if(seat[i]=flight.getSeat()) //座位被其他用户选择
+             //{passenger[i]=1;
             // x[i].setBackground(Color.RED);}
             x[i] = new JButton();
             if(i/4==0)
