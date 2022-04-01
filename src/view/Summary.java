@@ -13,7 +13,7 @@ public class Summary
         JFrame frame=new JFrame("summary.Summary");
         JButton B1=new JButton("Confirm and order food.");
         B1.setBounds(450,550,200,40);
-//        B1.addActionListener(e ->{ Seat seat=new Seat(); });
+        B1.addActionListener(e ->{ Seat seat=new Seat(); });
         frame.add(B1);
         JPanel panel = new JPanel();
         panel.add(new JLabel("summary.Summary"));
