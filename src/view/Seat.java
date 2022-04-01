@@ -66,6 +66,9 @@ public class Seat {
                     closeThis();
                     new Meal();
                 }
+                else{
+                    JOptionPane.showMessageDialog(frame, "The credit card information you entered is incorrect ","Missing information", JOptionPane.ERROR_MESSAGE);
+                }
             }
         });
         con1.setBounds(370, 500, 120, 30);
