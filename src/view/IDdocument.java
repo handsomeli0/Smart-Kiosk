@@ -1,6 +1,8 @@
 package view;
 
 import controller.DataController;
+import model.Booking;
+import model.Passenger;
 
 import javax.swing.*;
 import java.awt.*;
@@ -8,42 +10,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class IDdocument  {
-    private String idNum;
-    private String firstName;
-    private String lastName;
 
-    public String getIdNum() {
-        return idNum;
-    }
-
-    public void setIdNum(String idNum) {
-        this.idNum = idNum;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String toString() {
-        return "IDdocument{" +
-                "idNum='" + idNum + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                '}';
-    }
     public IDdocument() {
+
+        model.IDdocument iDdocument = DataController.getIDdocument();
+
         JFrame frame=new JFrame("ID document check-in");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ImageIcon img1 = new ImageIcon("src/image//background.jpg");//这是背景图片1
@@ -86,6 +57,7 @@ public class IDdocument  {
         txtfield1.setOpaque(false);
         txtfield1.setFont(new Font("楷体",Font.BOLD,20));
 
+
         frame.add(jp1);
         frame.add(jp2);
         frame.add(jp3);
@@ -93,10 +65,12 @@ public class IDdocument  {
         jp2.add(txtfield1);
         jp3.add(confirm);
         jp3.add(cancel);
-        confirm.addActionListener(e -> {new Summary();
+        confirm.addActionListener(e -> {
+            Booking a = DataController.getBookingBySurnameIdNum(iDdocument.getLastName(),iDdocument.getIdNum());
+            new Summary(a);
             frame.setVisible(false);
         });
-        cancel.addActionListener(e -> {new bookingNumberCheckin();
+        cancel.addActionListener(e -> {new BookingNumberCheckIn();
             frame.setVisible(false);
         });
 
