@@ -8,9 +8,7 @@ public class GourmetFood {
     private double price;
     private String description;
     private ImageIcon image;
-    private int number;
-    private JButton addB=new JButton("Add");
-    private JButton removeB=new JButton("Remove");
+    private int count=0;
 
     public String getName() {
         return name;
@@ -31,6 +29,13 @@ public class GourmetFood {
         this.price = price;
     }
 
+    public int getCount() {
+        return count;
+    }
+    public void setCount(int count) {
+        this.count = count;
+    }
+
     public String getDescription() {
         return description;
     }
@@ -45,27 +50,13 @@ public class GourmetFood {
         this.image = image;
     }
 
-    public JButton getAdd() {
-        return addB;
-    }
-    public void getAddB(JButton addB) {
-        this.addB = addB;
-    }
-
-    public JButton getRemove() {
-        return addB;
-    }
-    public void getRemove(JButton removeB) {
-        this.removeB = removeB;
-    }
-
     @Override
     public String toString() {
         return "Meal{" +
                 "name='" + name + '\'' +
                 ", type='" + type + '\'' +
                 ", price=" + price +
-                ", number='" + number + '\'' +
+                ", number='" + count + '\'' +
                 ", image='" + image + '\'' +
                 '}';
     }

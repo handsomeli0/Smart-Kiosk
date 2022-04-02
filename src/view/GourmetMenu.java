@@ -168,154 +168,133 @@ public class GourmetMenu extends JFrame{
 
 
         //price and description
-//        GourmetFood food1=new GourmetFood();
         food1.setName("Drink1");
         food1.setDescription("Remedy Kombucha Ginger Lemon 250ml");
+        food1.setType("Drinks");
         food1.setPrice(2.50);
-//        GourmetFood food2=new GourmetFood();
         food2.setName("Drink2");
         food2.setDescription("CRU Kafe Fresh Roasted Organic Coffee");
+        food2.setType("Drinks");
         food2.setPrice(2.70);
-//        GourmetFood food3=new GourmetFood();
         food3.setName("Drink3");
         food3.setDescription("Jimmy's Iced Coffee Original BottleCan 275ml");
+        food3.setType("Drinks");
         food3.setPrice(2.50);
-//        GourmetFood food4=new GourmetFood();
         food4.setName("Food1");
         food4.setDescription("Tom Kerridge - Ham Hock and Smoked Cheddar Sandwich");
+        food4.setType("Food");
         food4.setPrice(4.10);
-//        GourmetFood food5=new GourmetFood();
         food5.setName("Food2");
         food5.setDescription("Tom Kerridge - Soft Brie and Apple Chutney Ploughmans Sandwich");
+        food5.setType("Food");
         food5.setPrice(4.20);
-//        GourmetFood food6=new GourmetFood();
         food6.setName("Food3");
         food6.setDescription("Savoursmiths Desert Salt & Vinegar Potato Crisps 35g");
+        food6.setType("Food");
         food6.setPrice(1.35);
-//        GourmetFood food7=new GourmetFood();
         food7.setName("Snack1");
         food7.setDescription("Cadbury Mini Eggs Tube 96g");
+        food7.setType("Snacks");
         food7.setPrice(3.00);
-//        GourmetFood food8=new GourmetFood();
         food8.setName("Snack2");
         food8.setDescription("Pullin`s Blueberry Muffin 110g");
+        food8.setType("Snacks");
         food8.setPrice(2.50);
 
 
-        String PaD1 = "<html><body>" + food1.getDescription() + "<br>" + "Price: "+ food1.getPrice() + "<body></html>";
+        String PaD1 = "<html><body>" + food1.getDescription() + "<br>" + "Price: "+ food1.getPrice() + "<br>" +"Count: " + food1.getCount() + "<body></html>";
         JLabel lbdes1=new JLabel(PaD1);// label description1
         lbdes1.setHorizontalAlignment(SwingConstants.CENTER);
         lbdes1.setFont(f);
         m1.add(lbdes1);
 
-        String PaD2 = "<html><body>" + food2.getDescription() + "<br>" + "Price: "+ food2.getPrice() + "<body></html>";
+        String PaD2 = "<html><body>" + food2.getDescription() + "<br>" + "Price: "+ food2.getPrice() + "<br>" +"Count: " + food2.getCount() + "<body></html>";
         JLabel lbdes2=new JLabel(PaD2);
         lbdes2.setHorizontalAlignment(SwingConstants.CENTER);
         lbdes2.setFont(f);
         m2.add(lbdes2);
 
-        String PaD3 = "<html><body>" + food3.getDescription() + "<br>" + "Price: "+ food3.getPrice() + "<body></html>";
+        String PaD3 = "<html><body>" + food3.getDescription() + "<br>" + "Price: "+ food3.getPrice() + "<br>" +"Count: " + food3.getCount() + "<body></html>";
         JLabel lbdes3=new JLabel(PaD3);
         lbdes3.setHorizontalAlignment(SwingConstants.CENTER);
         lbdes3.setFont(f);
         m3.add(lbdes3);
 
-        String PaD4 = "<html><body>" + food4.getDescription() + "<br>" + "Price: "+ food4.getPrice() + "<body></html>";
+        String PaD4 = "<html><body>" + food4.getDescription() + "<br>" + "Price: "+ food4.getPrice() + "<br>" +"Count: " + food4.getCount() + "<body></html>";
         JLabel lbdes4=new JLabel(PaD4);
         lbdes4.setHorizontalAlignment(SwingConstants.CENTER);
         lbdes4.setFont(f);
         m4.add(lbdes4);
 
-        String PaD5 = "<html><body>" + food5.getDescription() + "<br>" + "Price: "+ food5.getPrice() + "<body></html>";
+        String PaD5 = "<html><body>" + food5.getDescription() + "<br>" + "Price: "+ food5.getPrice() + "<br>" +"Count: " + food5.getCount() + "<body></html>";
         JLabel lbdes5=new JLabel(PaD5);
         lbdes5.setHorizontalAlignment(SwingConstants.CENTER);
         lbdes5.setFont(f);
         m5.add(lbdes5);
 
-        String PaD6 = "<html><body>" + food6.getDescription() + "<br>" + "Price: "+ food6.getPrice() + "<body></html>";
+        String PaD6 = "<html><body>" + food6.getDescription() + "<br>" + "Price: "+ food6.getPrice() + "<br>" +"Count: " + food6.getCount() + "<body></html>";
         JLabel lbdes6=new JLabel(PaD6);
         lbdes6.setHorizontalAlignment(SwingConstants.CENTER);
         lbdes6.setFont(f);
         m6.add(lbdes6);
 
-        String PaD7 = "<html><body>" + food7.getDescription() + "<br>" + "Price: "+ food7.getPrice() + "<body></html>";
+        String PaD7 = "<html><body>" + food7.getDescription() + "<br>" + "Price: "+ food7.getPrice() + "<br>" +"Count: " + food7.getCount() + "<body></html>";
         JLabel lbdes7=new JLabel(PaD7);
         lbdes7.setHorizontalAlignment(SwingConstants.CENTER);
         lbdes7.setFont(f);
         m7.add(lbdes7);
 
-        String PaD8 = "<html><body>" + food8.getDescription() + "<br>" + "Price: "+ food8.getPrice() + "<body></html>";
+        String PaD8 = "<html><body>" + food8.getDescription() + "<br>" + "Price: "+ food8.getPrice() + "<br>" +"Count: " + food8.getCount() + "<body></html>";
         JLabel lbdes8=new JLabel(PaD8);
         lbdes8.setHorizontalAlignment(SwingConstants.CENTER);
         lbdes8.setFont(f);
         m8.add(lbdes8);
 
-
-
         //choose button
-        JButton addRB1=new JButton("Add"); JButton removeRB1=new JButton("Remove");
-        JButton addRB2=new JButton("Add"); JButton removeRB2=new JButton("Remove");
-        JButton addRB3=new JButton("Add"); JButton removeRB3=new JButton("Remove");
-        JButton addRB4=new JButton("Add"); JButton removeRB4=new JButton("Remove");
-        JButton addRB5=new JButton("Add"); JButton removeRB5=new JButton("Remove");
-        JButton addRB6=new JButton("Add"); JButton removeRB6=new JButton("Remove");
-        JButton addRB7=new JButton("Add"); JButton removeRB7=new JButton("Remove");
-        JButton addRB8=new JButton("Add"); JButton removeRB8=new JButton("Remove");
-//        JRadioButton rb2=new JRadioButton(food2.getName(), false);
-//        JRadioButton rb3=new JRadioButton(food3.getName(), false);
-//        JRadioButton rb4=new JRadioButton(food4.getName(), false);
-//        JRadioButton rb5=new JRadioButton(food5.getName(), false);
-//        JRadioButton rb6=new JRadioButton(food6.getName(), false);
-//        JRadioButton rb7=new JRadioButton(food7.getName(), false);
-//        JRadioButton rb8=new JRadioButton(food8.getName(), false);
-
-//        rb1.setHorizontalAlignment(SwingConstants.CENTER);
-//        rb2.setHorizontalAlignment(SwingConstants.CENTER);
-//        rb3.setHorizontalAlignment(SwingConstants.CENTER);
-//        rb4.setHorizontalAlignment(SwingConstants.CENTER);
-//        rb5.setHorizontalAlignment(SwingConstants.CENTER);
-//        rb6.setHorizontalAlignment(SwingConstants.CENTER);
-//        rb7.setHorizontalAlignment(SwingConstants.CENTER);
-//        rb8.setHorizontalAlignment(SwingConstants.CENTER);
-
-//        rb1.setFont(f); rb2.setFont(f); rb3.setFont(f); rb4.setFont(f);
-//        rb5.setFont(f); rb6.setFont(f); rb7.setFont(f); rb8.setFont(f);
+        JButton add1=new JButton("Add"); JButton remove1=new JButton("Remove");
+        JButton add2=new JButton("Add"); JButton remove2=new JButton("Remove");
+        JButton add3=new JButton("Add"); JButton remove3=new JButton("Remove");
+        JButton add4=new JButton("Add"); JButton remove4=new JButton("Remove");
+        JButton add5=new JButton("Add"); JButton remove5=new JButton("Remove");
+        JButton add6=new JButton("Add"); JButton remove6=new JButton("Remove");
+        JButton add7=new JButton("Add"); JButton remove7=new JButton("Remove");
+        JButton add8=new JButton("Add"); JButton remove8=new JButton("Remove");
 
 
-        JPanel buyButton1 = new JPanel();
-        buyButton1.add(addRB1);
-        buyButton1.add(removeRB1);
+        JPanel payButton1 = new JPanel();
+        payButton1.add(add1);
+        payButton1.add(remove1);
 
-        JPanel buyButton2 = new JPanel();
-        buyButton2.add(addRB1);
-        buyButton2.add(removeRB1);
+        JPanel payButton2 = new JPanel();
+        payButton2.add(add2);
+        payButton2.add(remove2);
 
-        JPanel buyButton3 = new JPanel();
-        buyButton3.add(addRB1);
-        buyButton3.add(removeRB1);
+        JPanel payButton3 = new JPanel();
+        payButton3.add(add3);
+        payButton3.add(remove3);
 
-        JPanel buyButton4 = new JPanel();
-        buyButton4.add(addRB1);
-        buyButton4.add(removeRB1);
+        JPanel payButton4 = new JPanel();
+        payButton4.add(add4);
+        payButton4.add(remove4);
 
-        JPanel buyButton5 = new JPanel();
-        buyButton5.add(addRB1);
-        buyButton5.add(removeRB1);
+        JPanel payButton5 = new JPanel();
+        payButton5.add(add5);
+        payButton5.add(remove5);
 
-        JPanel buyButton6 = new JPanel();
-        buyButton6.add(addRB1);
-        buyButton6.add(removeRB1);
+        JPanel payButton6 = new JPanel();
+        payButton6.add(add6);
+        payButton6.add(remove6);
 
-        JPanel buyButton7 = new JPanel();
-        buyButton7.add(addRB1);
-        buyButton7.add(removeRB1);
+        JPanel payButton7 = new JPanel();
+        payButton7.add(add7);
+        payButton7.add(remove7);
 
-        JPanel buyButton8 = new JPanel();
-        buyButton8.add(addRB1);
-        buyButton8.add(removeRB1);
+        JPanel payButton8 = new JPanel();
+        payButton8.add(add8);
+        payButton8.add(remove8);
 
-        m1.add(buyButton); m2.add(rb2); m3.add(rb3); m4.add(rb4);
-        m5.add(rb5); m6.add(rb6); m7.add(rb7); m8.add(rb8);
+        m1.add(payButton1);m2.add(payButton2);m3.add(payButton3);m4.add(payButton4);
+        m5.add(payButton5);m6.add(payButton6);m7.add(payButton7);m8.add(payButton8);
 
         add(center,BorderLayout.CENTER);
 
@@ -348,15 +327,34 @@ public class GourmetMenu extends JFrame{
         south.add(button);
         add(south,BorderLayout.SOUTH);
 
-
-
-
         setVisible(true);
         this.setLocationRelativeTo(null);
 
 
         setVisible(true);
         this.setLocationRelativeTo(null);
+
+
+
+
+
+
+
+
+        add1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(e.getSource()==add1)
+                {
+                    TotalPrice = TotalPrice + 1;
+                }
+            }
+        });
+
+
+
+
+
 
         jbback.addActionListener(new ActionListener() {
             @Override
