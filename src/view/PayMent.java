@@ -18,7 +18,7 @@ public class PayMent extends JFrame{
         north.setLayout(new GridLayout(1,1,0,0));
         JLabel logo = new JLabel();
         ImageIcon logo1;
-        logo1 = new ImageIcon("D:/Mealimage/Logo.png");
+        logo1 = new ImageIcon("src/images/Logo.png");
         Image logoimg = logo1.getImage();
         logoimg = logoimg.getScaledInstance(400, 90, Image.SCALE_AREA_AVERAGING);
         logo1.setImage(logoimg);
