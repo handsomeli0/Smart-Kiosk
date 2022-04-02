@@ -70,7 +70,7 @@ public class IDdocument  {
             new Summary(a);
             frame.setVisible(false);
         });
-        cancel.addActionListener(e -> {new bookingNumberCheckIn();
+        cancel.addActionListener(e -> {new BookingNumberCheckIn();
             frame.setVisible(false);
         });
 
