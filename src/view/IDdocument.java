@@ -57,7 +57,6 @@ public class IDdocument  {
         txtfield1.setOpaque(false);
         txtfield1.setFont(new Font("楷体",Font.BOLD,20));
 
-
         frame.add(jp1);
         frame.add(jp2);
         frame.add(jp3);
