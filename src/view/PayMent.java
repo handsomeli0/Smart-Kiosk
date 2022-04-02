@@ -9,7 +9,8 @@ public class PayMent extends JFrame{
     public PayMent() {
         setLayout(new BorderLayout());
         setTitle("PayMent");
-        setSize(1280,960);
+//        setSize(1280,960);
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         //add logo
