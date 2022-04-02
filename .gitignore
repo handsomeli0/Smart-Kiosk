@@ -3,6 +3,6 @@
 /test/
 *.iml
 *.class
-
+/META-INF/
 # Log file
 *.log
