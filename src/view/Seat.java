@@ -144,7 +144,6 @@ public class Seat {
                         x.setBackground(Color.WHITE);
                         selected=0;
                         bus=0;
-                        cha=999;
                     }
                 }
                 catch (Exception e) {
@@ -167,7 +166,6 @@ public class Seat {
                         x.setBackground(Color.WHITE);
                         selected=0;
                         bus=0;
-                        cha=999;
                     }
                 }
                 catch (Exception e) {
@@ -191,7 +189,6 @@ public class Seat {
                         x.setBackground(Color.WHITE);
                         selected=0;
                         bus=0;
-                        cha=999;
                     }
                 }
                 catch (Exception e) {
@@ -214,7 +211,6 @@ public class Seat {
                         x.setBackground(Color.WHITE);
                         selected=0;
                         bus=0;
-                        cha=999;
                     }
                 }
                 catch (Exception e) {
@@ -237,7 +233,6 @@ public class Seat {
                         x.setBackground(Color.WHITE);
                         selected=0;
                         bus=0;
-                        cha=999;
                     }
                 }
                 catch (Exception e) {
@@ -260,7 +255,6 @@ public class Seat {
                         x.setBackground(Color.WHITE);
                         selected=0;
                         bus=0;
-                        cha=999;
                     }
                 }
                 catch (Exception e) {
@@ -283,7 +277,6 @@ public class Seat {
                         x.setBackground(Color.WHITE);
                         selected=0;
                         bus=0;
-                        cha=999;
                     }
                 }
                 catch (Exception e) {
@@ -306,7 +299,6 @@ public class Seat {
                         x.setBackground(Color.WHITE);
                         selected=0;
                         bus=0;
-                        cha=999;
                     }
                 }
                 catch (Exception e) {
@@ -327,7 +319,6 @@ public class Seat {
                         JButton x = Seat.this.x[8];
                         x.setBackground(Color.WHITE);
                         selected=0;
-                        cha=999;
                     }
                 }
                 catch (Exception e) {
@@ -348,7 +339,6 @@ public class Seat {
                         JButton x = Seat.this.x[9];
                         x.setBackground(Color.WHITE);
                         selected=0;
-                        cha=999;
                     }
                 }
                 catch (Exception e) {
@@ -369,7 +359,6 @@ public class Seat {
                         JButton x = Seat.this.x[10];
                         x.setBackground(Color.WHITE);
                         selected=0;
-                        cha=999;
                     }
                 }
                 catch (Exception e) {
@@ -390,7 +379,6 @@ public class Seat {
                         JButton x = Seat.this.x[11];
                         x.setBackground(Color.WHITE);
                         selected=0;
-                        cha=999;
                     }
                 }
                 catch (Exception e) {
@@ -411,7 +399,6 @@ public class Seat {
                         JButton x = Seat.this.x[12];
                         x.setBackground(Color.WHITE);
                         selected=0;
-                        cha=999;
                     }
                 }
                 catch (Exception e) {
@@ -432,7 +419,6 @@ public class Seat {
                         JButton x = Seat.this.x[13];
                         x.setBackground(Color.WHITE);
                         selected=0;
-                        cha=999;
                     }
                 }
                 catch (Exception e) {
@@ -453,7 +439,6 @@ public class Seat {
                         JButton x = Seat.this.x[14];
                         x.setBackground(Color.WHITE);
                         selected=0;
-                        cha=999;
                     }
                 }
                 catch (Exception e) {
@@ -474,7 +459,6 @@ public class Seat {
                         JButton x = Seat.this.x[15];
                         x.setBackground(Color.WHITE);
                         selected=0;
-                        cha=999;
                     }
                 }
                 catch (Exception e) {
@@ -495,7 +479,6 @@ public class Seat {
                         JButton x = Seat.this.x[16];
                         x.setBackground(Color.WHITE);
                         selected=0;
-                        cha=999;
                     }
                 }
                 catch (Exception e) {
@@ -516,7 +499,6 @@ public class Seat {
                         JButton x = Seat.this.x[17];
                         x.setBackground(Color.WHITE);
                         selected=0;
-                        cha=999;
                     }
                 }
                 catch (Exception e) {
@@ -537,7 +519,6 @@ public class Seat {
                         JButton x = Seat.this.x[18];
                         x.setBackground(Color.WHITE);
                         selected=0;
-                        cha=999;
                     }
                 }
                 catch (Exception e) {
@@ -558,7 +539,6 @@ public class Seat {
                         JButton x = Seat.this.x[19];
                         x.setBackground(Color.WHITE);
                         selected=0;
-                        cha=999;
                     }
                 }
                 catch (Exception e) {
@@ -579,7 +559,6 @@ public class Seat {
                         JButton x = Seat.this.x[20];
                         x.setBackground(Color.WHITE);
                         selected=0;
-                        cha=999;
                     }
                 }
                 catch (Exception e) {
@@ -600,7 +579,6 @@ public class Seat {
                         JButton x = Seat.this.x[21];
                         x.setBackground(Color.WHITE);
                         selected=0;
-                        cha=999;
                     }
                 }
                 catch (Exception e) {
@@ -621,7 +599,6 @@ public class Seat {
                         JButton x = Seat.this.x[22];
                         x.setBackground(Color.WHITE);
                         selected=0;
-                        cha=999;
                     }
                 }
                 catch (Exception e) {
@@ -642,7 +619,6 @@ public class Seat {
                         JButton x = Seat.this.x[23];
                         x.setBackground(Color.WHITE);
                         selected=0;
-                        cha=999;
                     }
                 }
                 catch (Exception e) {
@@ -663,7 +639,6 @@ public class Seat {
                         JButton x = Seat.this.x[24];
                         x.setBackground(Color.WHITE);
                         selected=0;
-                        cha=999;
                     }
                 }
                 catch (Exception e) {
@@ -684,7 +659,6 @@ public class Seat {
                         JButton x = Seat.this.x[25];
                         x.setBackground(Color.WHITE);
                         selected=0;
-                        cha=999;
                     }
                 }
                 catch (Exception e) {
@@ -705,7 +679,6 @@ public class Seat {
                         JButton x = Seat.this.x[26];
                         x.setBackground(Color.WHITE);
                         selected=0;
-                        cha=999;
                     }
                 }
                 catch (Exception e) {
@@ -726,7 +699,6 @@ public class Seat {
                         JButton x = Seat.this.x[27];
                         x.setBackground(Color.WHITE);
                         selected=0;
-                        cha=999;
                     }
                 }
                 catch (Exception e) {
@@ -747,7 +719,6 @@ public class Seat {
                         JButton x = Seat.this.x[28];
                         x.setBackground(Color.WHITE);
                         selected=0;
-                        cha=999;
                     }
                 }
                 catch (Exception e) {
@@ -768,7 +739,6 @@ public class Seat {
                         JButton x = Seat.this.x[29];
                         x.setBackground(Color.WHITE);
                         selected=0;
-                        cha=999;
                     }
                 }
                 catch (Exception e) {
@@ -789,7 +759,6 @@ public class Seat {
                         JButton x = Seat.this.x[30];
                         x.setBackground(Color.WHITE);
                         selected=0;
-                        cha=999;
                     }
                 }
                 catch (Exception e) {
@@ -810,7 +779,6 @@ public class Seat {
                         JButton x = Seat.this.x[31];
                         x.setBackground(Color.WHITE);
                         selected=0;
-                        cha=999;
                     }
                 }
                 catch (Exception e) {
@@ -844,12 +812,17 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     DataController.updateSeat(flightID, cha);
-                    if (bus == 0 && mov == 0 && leg == 0) {
-                        closeThis();
-                        new Meal();
-                    } else {
-                        closeThis();
-                        formpay(bus, mov, leg, seatnumID);
+                    if(selected==1) {
+                        if (bus == 0 && mov == 0 && leg == 0) {
+                            closeThis();
+                            new Meal();
+                        } else {
+                            closeThis();
+                            formpay(bus, mov, leg, seatnumID);
+                        }
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(frame, "You have not chosen a seat！","Missing information", JOptionPane.ERROR_MESSAGE);
                     }
                 }
                 catch (Exception e) {
