@@ -5,8 +5,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Meal extends JFrame {
-    public Meal() {
+public class MealWindow extends JFrame {
+    public MealWindow() {
         setLayout(new BorderLayout());
         setTitle("Meal");
         setSize(1280, 960);
@@ -210,6 +210,6 @@ public class Meal extends JFrame {
     }
 
     public static void main(String[] agrs) {
-        new Meal();
+        new MealWindow();
     }
 }

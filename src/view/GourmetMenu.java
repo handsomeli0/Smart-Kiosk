@@ -304,7 +304,7 @@ public class GourmetMenu extends JFrame{
                 if(e.getSource()==jbback)
                 {
                     dispose();
-                    new Meal();
+                    new MealWindow();
                 }
             }
         });
