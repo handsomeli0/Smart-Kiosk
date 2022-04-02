@@ -16,8 +16,7 @@ public class Summary
         JButton B1=new JButton("Confirm and order food.");
         B1.setBounds(450,550,200,40);
         B1.addActionListener(e ->{
-            Seat seat=new Seat(A.getFlightID(),A.getPassengerID());
-        });
+            Seat seat=new Seat(A.getFlightID(),A.getPassengerID());});
         frame.add(B1);
         JPanel panel = new JPanel();
         panel.add(new JLabel("summary.Summary"));
@@ -41,7 +40,7 @@ public class Summary
         label_3.setBounds(20,220,400,30);
         label_3.setFont(new Font("微软雅黑", Font.BOLD, 25));
         JLabel Price=new JLabel(""+B.getPrice());
-        Price.setBounds(300,120,400,30);
+        Price.setBounds(300,220,400,30);
         Price.setFont(new Font("微软雅黑", Font.BOLD, 25));
         JLabel label_4=new JLabel("All staff from British Airways sincerely wish you have a good trip!");
         label_4.setBounds(200,600,1200,30);
@@ -50,25 +49,25 @@ public class Summary
         label_5.setBounds(20,320,400,30);
         label_5.setFont(new Font("微软雅黑", Font.BOLD, 25));
         JLabel FID=new JLabel(A.getFlightID());
-        FID.setBounds(750,120,400,30);
+        FID.setBounds(300,320,400,30);
         FID.setFont(new Font("微软雅黑", Font.BOLD, 25));
         JLabel label_6=new JLabel("Passenger ID:");
         label_6.setBounds(600,220,400,30);
         label_6.setFont(new Font("微软雅黑", Font.BOLD, 25));
         JLabel PID=new JLabel( A.getPassengerID());
-        PID.setBounds(750,220,400,30);
+        PID.setBounds(800,220,400,30);
         PID.setFont(new Font("微软雅黑", Font.BOLD, 25));
         JLabel label_7=new JLabel("Boarding Time:");
         label_7.setBounds(600,320,400,30);
         label_7.setFont(new Font("微软雅黑", Font.BOLD, 25));
         JLabel BT=new JLabel( B.getBoardingTime());
-        BT.setBounds(750,320,400,30);
+        BT.setBounds(800,320,400,30);
         BT.setFont(new Font("微软雅黑", Font.BOLD, 25));
         JLabel label_8=new JLabel("FROM   LONDON");
         label_8.setBounds(200,420,400,40);
         label_8.setFont(new Font("微软雅黑", Font.BOLD, 40));
         JLabel label_9=new JLabel("TO");
-        label_9.setBounds(400,420,400,40);
+        label_9.setBounds(600,420,400,40);
         label_9.setFont(new Font("微软雅黑", Font.BOLD, 40));
         JLabel AD=new JLabel( B.getDestination());
         AD.setBounds(750,420,400,30);
