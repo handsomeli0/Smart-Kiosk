@@ -34,6 +34,7 @@ public class IDdocument  {
         txtfield1.setText("Put your ID document here and click confirm");
         txtfield1.setHorizontalAlignment(JTextField.CENTER);
 
+
         JPanel jp1=new JPanel();                 //创建三个面板
         JPanel jp2=new JPanel();
         JPanel jp3=new JPanel();
