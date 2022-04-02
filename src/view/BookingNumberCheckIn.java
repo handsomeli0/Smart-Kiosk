@@ -11,9 +11,9 @@ import controller.*;
  * @version 1.1
  */
 
-public class bookingNumberCheckIn
+public class BookingNumberCheckIn
 {
-    public bookingNumberCheckIn(){
+    public BookingNumberCheckIn(){
         JFrame frame=new JFrame("Smart-Kiosk");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(null);
@@ -53,9 +53,8 @@ public class bookingNumberCheckIn
             }
             else
             {
-//               Summary.setFlight(a);
-//               frame.setVisible(false);
-//               new Summary();
+               frame.setVisible(false);
+               new Summary(a);
             }
         });
 
@@ -70,7 +69,7 @@ public class bookingNumberCheckIn
         JButton button2 = new JButton("IDNum and Name");
         button2.setBounds(80,330,230,30);
         button2.addActionListener(e -> {
-            new IdAndNameCheckIn();
+            new IDAndNameCheckIn();
             frame.setVisible(false);
         });
 
