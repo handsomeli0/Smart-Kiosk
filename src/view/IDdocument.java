@@ -17,11 +17,10 @@ public class IDdocument  {
 
         JFrame frame=new JFrame("ID document check-in");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        ImageIcon img1 = new ImageIcon("src/image//background.jpg");//这是背景图片1
+        ImageIcon img1 = new ImageIcon("src/images//background1.jpg");//这是背景图片1
         JLabel imgLabel1 = new JLabel(img1);//将背景图放在标签里。
-        ImageIcon img2 = new ImageIcon("src/image//icon.jpg");//这是背景图片2
+        ImageIcon img2 = new ImageIcon("src/images//icon.jpg");//这是背景图片2
         JLabel imgLabel2 = new JLabel(img2);//将背景图放在标签里。
-
 
         frame.getLayeredPane().add(imgLabel1, new Integer(Integer.MIN_VALUE));//注意这里是关键，将背景标签添加到jfram的LayeredPane面板里。
         imgLabel1.setBounds(0,0,img1.getIconWidth(), img1.getIconHeight());//设置背景标签的位置
@@ -71,7 +70,7 @@ public class IDdocument  {
             new Summary(a);
             frame.setVisible(false);
         });
-        cancel.addActionListener(e -> {new bookingNumberCheckIn();
+        cancel.addActionListener(e -> {new BookingNumberCheckIn();
             frame.setVisible(false);
         });
 
