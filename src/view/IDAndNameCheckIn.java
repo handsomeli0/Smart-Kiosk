@@ -11,8 +11,8 @@ import javax.swing.*;
  * @version 1.1
  */
 
-public class IdAndNameCheckIn {
-    public IdAndNameCheckIn(){
+public class IDAndNameCheckIn {
+    public IDAndNameCheckIn(){
         JFrame frame = new JFrame("Smart-Kiosk");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(null);
@@ -55,9 +55,8 @@ public class IdAndNameCheckIn {
             }
             else
             {
-//                Summary.setFlight(a);
-//               frame.setVisible(false);
-//               new Summary();
+               frame.setVisible(false);
+               new Summary(a);
             }
         });
 
@@ -65,7 +64,7 @@ public class IdAndNameCheckIn {
         button1.setFont(new Font("微软雅黑",Font.BOLD,20));
         button1.setBounds(700,500,200,50);
         button1.addActionListener(e -> {
-            new bookingNumberCheckIn();
+            new BookingNumberCheckIn();
             frame.setVisible(false);
         });
 
