@@ -10,7 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Seat {
-    int selected = 0,bus=0,mov=0,leg=0,sum,cha;
+    int selected=-1,bus=0,mov=0,leg=0,sum,cha=-1;
     int[] seatnum=new int[32];
 
     JFrame frame=new JFrame("Choosing Seat"); //创建Frame窗口
@@ -133,8 +133,10 @@ public class Seat {
         x[0].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
-                    if (   seatnum[0] != true) {
-                        x[cha].setBackground(Color.WHITE);
+                    if (seatnum[0] != true) {
+                        if(cha!=-1){
+                            x[cha].setBackground(Color.WHITE);
+                        }
                         JButton x = Seat.this.x[0];
                         x.setBackground(Color.RED);
                         selected = 32;
@@ -152,7 +154,9 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if (   seatnum[1] != true) {
-                        x[cha].setBackground(Color.WHITE);
+                            if(cha!=-1){
+                                x[cha].setBackground(Color.WHITE);
+                            }
                         JButton x = Seat.this.x[1];
                         x.setBackground(Color.RED);
                         selected = 1;
@@ -168,16 +172,17 @@ public class Seat {
         x[2].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
-                    if (   seatnum[2] != true) {
-                        x[cha].setBackground(Color.WHITE);
-                        selected = 2;
-                        JButton x = Seat.this.x[2];
-                        x.setBackground(Color.RED);
-                        bus = 1;
-                        cha=2;
-
-                    }
+                    if (seatnum[2] != true) {
+                        if(cha!=-1){
+                            x[cha].setBackground(Color.WHITE);
+                        }
+                    selected = 2;
+                    JButton x = Seat.this.x[2];
+                    x.setBackground(Color.RED);
+                    bus = 1;
+                    cha = 2;
                 }
+            }
                 catch (Exception e) {
                     System.out.println("Exception occoured : " + e);
                 }
@@ -187,7 +192,9 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if (   seatnum[3] != true) {
-                        x[cha].setBackground(Color.WHITE);
+                          if(cha!=-1){
+                            x[cha].setBackground(Color.WHITE);
+                        }
                         selected = 3;
                         JButton x = Seat.this.x[3];
                         x.setBackground(Color.RED);
@@ -204,7 +211,9 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if (   seatnum[4] != true) {
-                        x[cha].setBackground(Color.WHITE);
+                          if(cha!=-1){
+                            x[cha].setBackground(Color.WHITE);
+                        }
                         selected = 4;
                         JButton x = Seat.this.x[4];
                         x.setBackground(Color.RED);
@@ -221,7 +230,9 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if (   seatnum[5] != true) {
-                        x[cha].setBackground(Color.WHITE);
+                          if(cha!=-1){
+                            x[cha].setBackground(Color.WHITE);
+                        }
                         selected = 5;
                         JButton x = Seat.this.x[5];
                         x.setBackground(Color.RED);
@@ -238,7 +249,9 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if (   seatnum[6] != true) {
-                        x[cha].setBackground(Color.WHITE);
+                          if(cha!=-1){
+                            x[cha].setBackground(Color.WHITE);
+                        }
                         selected = 6;
                         JButton x = Seat.this.x[6];
                         x.setBackground(Color.RED);
@@ -255,7 +268,9 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if (   seatnum[7] != true) {
-                        x[cha].setBackground(Color.WHITE);
+                          if(cha!=-1){
+                            x[cha].setBackground(Color.WHITE);
+                        }
                         selected = 7;
                         JButton x = Seat.this.x[7];
                         x.setBackground(Color.RED);
@@ -272,7 +287,9 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if (   seatnum[8] != true) {
-                        x[cha].setBackground(Color.WHITE);
+                          if(cha!=-1){
+                            x[cha].setBackground(Color.WHITE);
+                        }
                         selected = 8;
                         JButton x = Seat.this.x[8];
                         x.setBackground(Color.RED);
@@ -288,7 +305,9 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if (   seatnum[9] != true) {
-                        x[cha].setBackground(Color.WHITE);
+                          if(cha!=-1){
+                            x[cha].setBackground(Color.WHITE);
+                        }
                         selected = 9;
                         JButton x = Seat.this.x[9];
                         x.setBackground(Color.RED);
@@ -304,7 +323,9 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if (   seatnum[10] != true) {
-                        x[cha].setBackground(Color.WHITE);
+                          if(cha!=-1){
+                            x[cha].setBackground(Color.WHITE);
+                        }
                         selected = 10;
                         JButton x = Seat.this.x[10];
                         x.setBackground(Color.RED);
@@ -320,7 +341,9 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if (   seatnum[11] != true) {
-                        x[cha].setBackground(Color.WHITE);
+                          if(cha!=-1){
+                            x[cha].setBackground(Color.WHITE);
+                        }
                         selected = 11;
                         JButton x = Seat.this.x[11];
                         x.setBackground(Color.RED);
@@ -336,7 +359,9 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if (   seatnum[12] != true) {
-                        x[cha].setBackground(Color.WHITE);
+                          if(cha!=-1){
+                            x[cha].setBackground(Color.WHITE);
+                        }
                         selected = 12;
                         JButton x = Seat.this.x[12];
                         x.setBackground(Color.RED);
@@ -352,7 +377,9 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if (   seatnum[13] != true) {
-                        x[cha].setBackground(Color.WHITE);
+                          if(cha!=-1){
+                            x[cha].setBackground(Color.WHITE);
+                        }
                         selected = 13;
                         JButton x = Seat.this.x[13];
                         x.setBackground(Color.RED);
@@ -368,7 +395,9 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if (   seatnum[14] != true) {
-                        x[cha].setBackground(Color.WHITE);
+                          if(cha!=-1){
+                            x[cha].setBackground(Color.WHITE);
+                        }
                         selected = 14;
                         JButton x = Seat.this.x[14];
                         x.setBackground(Color.RED);
@@ -384,7 +413,9 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if (   seatnum[15] != true) {
-                        x[cha].setBackground(Color.WHITE);
+                          if(cha!=-1){
+                            x[cha].setBackground(Color.WHITE);
+                        }
                         selected = 15;
                         JButton x = Seat.this.x[15];
                         x.setBackground(Color.RED);
@@ -400,7 +431,9 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if (   seatnum[16] != true) {
-                        x[cha].setBackground(Color.WHITE);
+                          if(cha!=-1){
+                            x[cha].setBackground(Color.WHITE);
+                        }
                         selected = 16;
                         JButton x = Seat.this.x[16];
                         x.setBackground(Color.RED);
@@ -416,7 +449,9 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if (   seatnum[17] != true) {
-                        x[cha].setBackground(Color.WHITE);
+                          if(cha!=-1){
+                            x[cha].setBackground(Color.WHITE);
+                        }
                         selected = 17;
                         JButton x = Seat.this.x[17];
                         x.setBackground(Color.RED);
@@ -432,7 +467,9 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if (   seatnum[18] != true) {
-                        x[cha].setBackground(Color.WHITE);
+                          if(cha!=-1){
+                            x[cha].setBackground(Color.WHITE);
+                        }
                         selected = 18;
                         JButton x = Seat.this.x[18];
                         x.setBackground(Color.RED);
@@ -448,7 +485,9 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if (   seatnum[19] != true) {
-                        x[cha].setBackground(Color.WHITE);
+                          if(cha!=-1){
+                            x[cha].setBackground(Color.WHITE);
+                        }
                         selected = 19;
                         JButton x = Seat.this.x[19];
                         x.setBackground(Color.RED);
@@ -464,7 +503,9 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if (   seatnum[20] != true) {
-                        x[cha].setBackground(Color.WHITE);
+                          if(cha!=-1){
+                            x[cha].setBackground(Color.WHITE);
+                        }
                         selected = 20;
                         JButton x = Seat.this.x[20];
                         x.setBackground(Color.RED);
@@ -480,7 +521,9 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if (   seatnum[21] != true) {
-                        x[cha].setBackground(Color.WHITE);
+                          if(cha!=-1){
+                            x[cha].setBackground(Color.WHITE);
+                        }
                         selected = 21;
                         JButton x = Seat.this.x[21];
                         x.setBackground(Color.RED);
@@ -496,7 +539,9 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if (   seatnum[22] != true) {
-                        x[cha].setBackground(Color.WHITE);
+                          if(cha!=-1){
+                            x[cha].setBackground(Color.WHITE);
+                        }
                         selected = 22;
                         JButton x = Seat.this.x[22];
                         x.setBackground(Color.RED);
@@ -513,7 +558,9 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if (   seatnum[23] != true) {
-                        x[cha].setBackground(Color.WHITE);
+                          if(cha!=-1){
+                            x[cha].setBackground(Color.WHITE);
+                        }
                         selected = 23;
                         JButton x = Seat.this.x[23];
                         x.setBackground(Color.RED);
@@ -529,7 +576,9 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if (   seatnum[24] != true) {
-                        x[cha].setBackground(Color.WHITE);
+                          if(cha!=-1){
+                            x[cha].setBackground(Color.WHITE);
+                        }
                         selected = 24;
                         JButton x = Seat.this.x[24];
                         x.setBackground(Color.RED);
@@ -545,7 +594,9 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if (   seatnum[25] != true) {
-                        x[cha].setBackground(Color.WHITE);
+                          if(cha!=-1){
+                            x[cha].setBackground(Color.WHITE);
+                        }
                         selected = 25;
                         JButton x = Seat.this.x[25];
                         x.setBackground(Color.RED);
@@ -561,7 +612,9 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if (seatnum[26] != true) {
-                        x[cha].setBackground(Color.WHITE);
+                          if(cha!=-1){
+                            x[cha].setBackground(Color.WHITE);
+                        }
                         selected = 26;
                         JButton x = Seat.this.x[26];
                         x.setBackground(Color.RED);
@@ -577,7 +630,9 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if (seatnum[27] != true) {
-                        x[cha].setBackground(Color.WHITE);
+                          if(cha!=-1){
+                            x[cha].setBackground(Color.WHITE);
+                        }
                         selected = 27;
                         JButton x = Seat.this.x[27];
                         x.setBackground(Color.RED);
@@ -593,7 +648,9 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if (   seatnum[28] != true) {
-                        x[cha].setBackground(Color.WHITE);
+                          if(cha!=-1){
+                            x[cha].setBackground(Color.WHITE);
+                        }
                         selected = 28;
                         JButton x = Seat.this.x[28];
                         x.setBackground(Color.RED);
@@ -609,7 +666,9 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if (   seatnum[29] != true) {
-                        x[cha].setBackground(Color.WHITE);
+                          if(cha!=-1){
+                            x[cha].setBackground(Color.WHITE);
+                        }
                         selected = 29;
                         JButton x = Seat.this.x[29];
                         x.setBackground(Color.RED);
@@ -625,7 +684,9 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if (   seatnum[30] != true) {
-                        x[cha].setBackground(Color.WHITE);
+                          if(cha!=-1){
+                            x[cha].setBackground(Color.WHITE);
+                        }
                         selected = 30;
                         JButton x = Seat.this.x[30];
                         x.setBackground(Color.RED);
@@ -641,7 +702,9 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if (seatnum[31] != true) {
-                        x[cha].setBackground(Color.WHITE);
+                          if(cha!=-1){
+                            x[cha].setBackground(Color.WHITE);
+                        }
                         selected = 31;
                         JButton x = Seat.this.x[31];
                         x.setBackground(Color.RED);
@@ -679,7 +742,7 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     DataController.updateSeat(flightID, cha);
-                    if(selected!=0) {
+                    if(selected!=-1) {
                         if (bus == 0 && mov == 0 && leg == 0) {
                             closeThis();
                             new Meal();
