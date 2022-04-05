@@ -10,7 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Seat {
-    int selected = 0,bus=0,mov=0,leg=0,sum,cha;
+    int selected=0,bus=0,mov=0,leg=0,sum,cha=-1;
     int[] seatnum=new int[32];
 
     JFrame frame=new JFrame("Choosing Seat"); //创建Frame窗口
@@ -31,7 +31,7 @@ public class Seat {
     JPanel jp=new JPanel(); //创建JPanel对象
     JPanel jp2=new JPanel();
 
-    ImageIcon image=new ImageIcon("src/images/B.jpg");//背景图片
+    ImageIcon image=new ImageIcon("src/images/background1.jpg");//背景图片
     JLabel im=new JLabel(image);
     ImageIcon plane=new ImageIcon("src/images/plane.png");
     JLabel pl=new JLabel(plane);
@@ -51,12 +51,13 @@ public class Seat {
         jp2.add(lable1);
         lable1.setBounds(0,0,900,100);
 
+        id.setFont(font3);
         jp2.add(id);
         jp2.add(ID);
-        id.setBounds(210,180,90,40);
-        ID.setBounds(295,180,300,30);
+        id.setBounds(360,275,300,40);
+        ID.setBounds(500,280,300,30);
 
-        im.setBounds(0,0,900,590);
+        im.setBounds(0,0,1200,675);
         jp2.add(im);
 
         con1.addActionListener(new ActionListener() {
@@ -71,11 +72,11 @@ public class Seat {
                 }
             }
         });
-        con1.setBounds(370, 500, 120, 30);
+        con1.setBounds(540, 600, 120, 30);
         jp2.add(con1);
 
         frame1.add(jp2);
-        frame1.setBounds(300, 100, 900, 585);
+        frame1.setBounds(0, 0, 1200, 675);
         frame1.setVisible(true);
         frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         return 0;
@@ -96,35 +97,35 @@ public class Seat {
             }
             if(i/4==0)
             {
-                x[i].setBounds(215,205+(i%4)*21+(i%4)/2*8,20,20);
+                x[i].setBounds(370,255+(i%4)*21+(i%4)/2*8,20,20);
             }
             else if(i/4==1)
             {
-                x[i].setBounds(260,205+(i%4)*21+(i%4)/2*8,20,20);
+                x[i].setBounds(415,255+(i%4)*21+(i%4)/2*8,20,20);
             }
             else if(i/4==2)
             {
-                x[i].setBounds(345,205+(i%4)*21+(i%4)/2*8,20,20);
+                x[i].setBounds(500,255+(i%4)*21+(i%4)/2*8,20,20);
             }
             else if(i/4==3)
             {
-                x[i].setBounds(390,205+(i%4)*21+(i%4)/2*8,20,20);
+                x[i].setBounds(545,255+(i%4)*21+(i%4)/2*8,20,20);
             }
             else if(i/4==4)
             {
-                x[i].setBounds(435,205+(i%4)*21+(i%4)/2*8,20,20);
+                x[i].setBounds(590,255+(i%4)*21+(i%4)/2*8,20,20);
             }
             else if(i/4==5)
             {
-                x[i].setBounds(480,205+(i%4)*21+(i%4)/2*8,20,20);
+                x[i].setBounds(635,255+(i%4)*21+(i%4)/2*8,20,20);
             }
             else if(i/4==6)
             {
-                x[i].setBounds(525,205+(i%4)*21+(i%4)/2*8,20,20);
+                x[i].setBounds(680,255+(i%4)*21+(i%4)/2*8,20,20);
             }
             else if(i/4==7)
             {
-                x[i].setBounds(570,205+(i%4)*21+(i%4)/2*8,20,20);
+                x[i].setBounds(725,255+(i%4)*21+(i%4)/2*8,20,20);
             }
 
             jp.add(x[i]);
@@ -132,20 +133,17 @@ public class Seat {
         x[0].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
-                    if (selected == 0 && seatnum[0] != true) {
+                    if (seatnum[0] != true) {
+                        if(cha!=-1){
+                            x[cha].setBackground(Color.WHITE);
+                        }
                         JButton x = Seat.this.x[0];
                         x.setBackground(Color.RED);
                         selected = 1;
                         bus = 1;
                         cha=0;
                     }
-                    else if(selected!=0&&seatnum[0] != true){
-                        JButton x = Seat.this.x[0];
-                        x.setBackground(Color.WHITE);
-                        selected=0;
-                        bus=0;
-                        cha=999;
-                    }
+
                 }
                 catch (Exception e) {
                     System.out.println("Exception occoured : " + e);
@@ -155,19 +153,15 @@ public class Seat {
         x[1].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
-                    if (selected == 0 && seatnum[1] != true) {
+                    if (   seatnum[1] != true) {
+                            if(cha!=-1){
+                                x[cha].setBackground(Color.WHITE);
+                            }
                         JButton x = Seat.this.x[1];
                         x.setBackground(Color.RED);
                         selected = 1;
                         bus = 1;
                         cha=1;
-                    }
-                    else if(selected!=0&&seatnum[1] != true){
-                        JButton x = Seat.this.x[1];
-                        x.setBackground(Color.WHITE);
-                        selected=0;
-                        bus=0;
-                        cha=999;
                     }
                 }
                 catch (Exception e) {
@@ -178,22 +172,17 @@ public class Seat {
         x[2].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
-                    if (selected == 0 && seatnum[2] != true) {
-                        selected = 1;
-                        JButton x = Seat.this.x[2];
-                        x.setBackground(Color.RED);
-                        bus = 1;
-                        cha=2;
-
-                    }
-                    else if(selected!=0&&seatnum[2] != true){
-                        JButton x = Seat.this.x[2];
-                        x.setBackground(Color.WHITE);
-                        selected=0;
-                        bus=0;
-                        cha=999;
-                    }
+                    if (seatnum[2] != true) {
+                        if(cha!=-1){
+                            x[cha].setBackground(Color.WHITE);
+                        }
+                    selected = 1;
+                    JButton x = Seat.this.x[2];
+                    x.setBackground(Color.RED);
+                    bus = 1;
+                    cha = 2;
                 }
+            }
                 catch (Exception e) {
                     System.out.println("Exception occoured : " + e);
                 }
@@ -202,19 +191,15 @@ public class Seat {
         x[3].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
-                    if (selected == 0 && seatnum[3] != true) {
+                    if (   seatnum[3] != true) {
+                          if(cha!=-1){
+                            x[cha].setBackground(Color.WHITE);
+                        }
                         selected = 1;
                         JButton x = Seat.this.x[3];
                         x.setBackground(Color.RED);
                         bus = 1;
                         cha=3;
-                    }
-                    else if(selected!=0&&seatnum[3] != true){
-                        JButton x = Seat.this.x[3];
-                        x.setBackground(Color.WHITE);
-                        selected=0;
-                        bus=0;
-                        cha=999;
                     }
                 }
                 catch (Exception e) {
@@ -225,19 +210,15 @@ public class Seat {
         x[4].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
-                    if (selected == 0 && seatnum[4] != true) {
+                    if (   seatnum[4] != true) {
+                          if(cha!=-1){
+                            x[cha].setBackground(Color.WHITE);
+                        }
                         selected = 1;
                         JButton x = Seat.this.x[4];
                         x.setBackground(Color.RED);
                         bus = 1;
                         cha=4;
-                    }
-                    else if(selected!=0&&seatnum[4] != true){
-                        JButton x = Seat.this.x[4];
-                        x.setBackground(Color.WHITE);
-                        selected=0;
-                        bus=0;
-                        cha=999;
                     }
                 }
                 catch (Exception e) {
@@ -248,19 +229,15 @@ public class Seat {
         x[5].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
-                    if (selected == 0 && seatnum[5] != true) {
+                    if (   seatnum[5] != true) {
+                          if(cha!=-1){
+                            x[cha].setBackground(Color.WHITE);
+                        }
                         selected = 1;
                         JButton x = Seat.this.x[5];
                         x.setBackground(Color.RED);
                         bus = 1;
                         cha=5;
-                    }
-                    else if(selected!=0&&seatnum[5] != true){
-                        JButton x = Seat.this.x[5];
-                        x.setBackground(Color.WHITE);
-                        selected=0;
-                        bus=0;
-                        cha=999;
                     }
                 }
                 catch (Exception e) {
@@ -271,19 +248,15 @@ public class Seat {
         x[6].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
-                    if (selected == 0 && seatnum[6] != true) {
+                    if (   seatnum[6] != true) {
+                          if(cha!=-1){
+                            x[cha].setBackground(Color.WHITE);
+                        }
                         selected = 1;
                         JButton x = Seat.this.x[6];
                         x.setBackground(Color.RED);
                         bus = 1;
                         cha=6;
-                    }
-                    else if(selected!=0&&seatnum[6] != true){
-                        JButton x = Seat.this.x[6];
-                        x.setBackground(Color.WHITE);
-                        selected=0;
-                        bus=0;
-                        cha=999;
                     }
                 }
                 catch (Exception e) {
@@ -294,19 +267,15 @@ public class Seat {
         x[7].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
-                    if (selected == 0 && seatnum[7] != true) {
+                    if (   seatnum[7] != true) {
+                          if(cha!=-1){
+                            x[cha].setBackground(Color.WHITE);
+                        }
                         selected = 1;
                         JButton x = Seat.this.x[7];
                         x.setBackground(Color.RED);
                         bus = 1;
                         cha=7;
-                    }
-                    else if(selected!=0&&seatnum[7] != true){
-                        JButton x = Seat.this.x[7];
-                        x.setBackground(Color.WHITE);
-                        selected=0;
-                        bus=0;
-                        cha=999;
                     }
                 }
                 catch (Exception e) {
@@ -317,17 +286,14 @@ public class Seat {
         x[8].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
-                    if (selected == 0 && seatnum[8] != true) {
+                    if (   seatnum[8] != true) {
+                          if(cha!=-1){
+                            x[cha].setBackground(Color.WHITE);
+                        }
                         selected = 1;
                         JButton x = Seat.this.x[8];
                         x.setBackground(Color.RED);
                         cha=8;
-                    }
-                    else if(selected!=0&&seatnum[8] != true){
-                        JButton x = Seat.this.x[8];
-                        x.setBackground(Color.WHITE);
-                        selected=0;
-                        cha=999;
                     }
                 }
                 catch (Exception e) {
@@ -338,17 +304,14 @@ public class Seat {
         x[9].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
-                    if (selected == 0 && seatnum[9] != true) {
+                    if (   seatnum[9] != true) {
+                          if(cha!=-1){
+                            x[cha].setBackground(Color.WHITE);
+                        }
                         selected = 1;
                         JButton x = Seat.this.x[9];
                         x.setBackground(Color.RED);
                         cha=9;
-                    }
-                    else if(selected!=0&&seatnum[9] != true){
-                        JButton x = Seat.this.x[9];
-                        x.setBackground(Color.WHITE);
-                        selected=0;
-                        cha=999;
                     }
                 }
                 catch (Exception e) {
@@ -359,17 +322,14 @@ public class Seat {
         x[10].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
-                    if (selected == 0 && seatnum[10] != true) {
+                    if (   seatnum[10] != true) {
+                          if(cha!=-1){
+                            x[cha].setBackground(Color.WHITE);
+                        }
                         selected = 1;
                         JButton x = Seat.this.x[10];
                         x.setBackground(Color.RED);
                         cha=10;
-                    }
-                    else if(selected!=0&&seatnum[10] != true){
-                        JButton x = Seat.this.x[10];
-                        x.setBackground(Color.WHITE);
-                        selected=0;
-                        cha=999;
                     }
                 }
                 catch (Exception e) {
@@ -380,17 +340,14 @@ public class Seat {
         x[11].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
-                    if (selected == 0 && seatnum[11] != true) {
+                    if (   seatnum[11] != true) {
+                          if(cha!=-1){
+                            x[cha].setBackground(Color.WHITE);
+                        }
                         selected = 1;
                         JButton x = Seat.this.x[11];
                         x.setBackground(Color.RED);
                         cha=11;
-                    }
-                    else if(selected!=0&&seatnum[11] != true){
-                        JButton x = Seat.this.x[11];
-                        x.setBackground(Color.WHITE);
-                        selected=0;
-                        cha=999;
                     }
                 }
                 catch (Exception e) {
@@ -401,17 +358,14 @@ public class Seat {
         x[12].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
-                    if (selected == 0 && seatnum[12] != true) {
+                    if (   seatnum[12] != true) {
+                          if(cha!=-1){
+                            x[cha].setBackground(Color.WHITE);
+                        }
                         selected = 1;
                         JButton x = Seat.this.x[12];
                         x.setBackground(Color.RED);
                         cha=12;
-                    }
-                    else if(selected!=0&&seatnum[12] != true){
-                        JButton x = Seat.this.x[12];
-                        x.setBackground(Color.WHITE);
-                        selected=0;
-                        cha=999;
                     }
                 }
                 catch (Exception e) {
@@ -422,17 +376,14 @@ public class Seat {
         x[13].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
-                    if (selected == 0 && seatnum[13] != true) {
+                    if (   seatnum[13] != true) {
+                          if(cha!=-1){
+                            x[cha].setBackground(Color.WHITE);
+                        }
                         selected = 1;
                         JButton x = Seat.this.x[13];
                         x.setBackground(Color.RED);
                         cha=13;
-                    }
-                    else if(selected!=0&&seatnum[13] != true){
-                        JButton x = Seat.this.x[13];
-                        x.setBackground(Color.WHITE);
-                        selected=0;
-                        cha=999;
                     }
                 }
                 catch (Exception e) {
@@ -443,17 +394,14 @@ public class Seat {
         x[14].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
-                    if (selected == 0 && seatnum[14] != true) {
+                    if (   seatnum[14] != true) {
+                          if(cha!=-1){
+                            x[cha].setBackground(Color.WHITE);
+                        }
                         selected = 1;
                         JButton x = Seat.this.x[14];
                         x.setBackground(Color.RED);
                         cha=14;
-                    }
-                    else if(selected!=0&&seatnum[14] != true){
-                        JButton x = Seat.this.x[14];
-                        x.setBackground(Color.WHITE);
-                        selected=0;
-                        cha=999;
                     }
                 }
                 catch (Exception e) {
@@ -464,17 +412,14 @@ public class Seat {
         x[15].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
-                    if (selected == 0 && seatnum[15] != true) {
+                    if (   seatnum[15] != true) {
+                          if(cha!=-1){
+                            x[cha].setBackground(Color.WHITE);
+                        }
                         selected = 1;
                         JButton x = Seat.this.x[15];
                         x.setBackground(Color.RED);
                         cha=15;
-                    }
-                    else if(selected!=0&&seatnum[15] != true){
-                        JButton x = Seat.this.x[15];
-                        x.setBackground(Color.WHITE);
-                        selected=0;
-                        cha=999;
                     }
                 }
                 catch (Exception e) {
@@ -485,17 +430,14 @@ public class Seat {
         x[16].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
-                    if (selected == 0 && seatnum[16] != true) {
+                    if (   seatnum[16] != true) {
+                          if(cha!=-1){
+                            x[cha].setBackground(Color.WHITE);
+                        }
                         selected = 1;
                         JButton x = Seat.this.x[16];
                         x.setBackground(Color.RED);
                         cha=16;
-                    }
-                    else if(selected!=0&&seatnum[16] != true){
-                        JButton x = Seat.this.x[16];
-                        x.setBackground(Color.WHITE);
-                        selected=0;
-                        cha=999;
                     }
                 }
                 catch (Exception e) {
@@ -506,17 +448,14 @@ public class Seat {
         x[17].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
-                    if (selected == 0 && seatnum[17] != true) {
+                    if (   seatnum[17] != true) {
+                          if(cha!=-1){
+                            x[cha].setBackground(Color.WHITE);
+                        }
                         selected = 1;
                         JButton x = Seat.this.x[17];
                         x.setBackground(Color.RED);
                         cha=17;
-                    }
-                    else if(selected!=0&&seatnum[17] != true){
-                        JButton x = Seat.this.x[17];
-                        x.setBackground(Color.WHITE);
-                        selected=0;
-                        cha=999;
                     }
                 }
                 catch (Exception e) {
@@ -527,17 +466,14 @@ public class Seat {
         x[18].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
-                    if (selected == 0 && seatnum[18] != true) {
+                    if (   seatnum[18] != true) {
+                          if(cha!=-1){
+                            x[cha].setBackground(Color.WHITE);
+                        }
                         selected = 1;
                         JButton x = Seat.this.x[18];
                         x.setBackground(Color.RED);
                         cha=18;
-                    }
-                    else if(selected!=0&&seatnum[18] != true){
-                        JButton x = Seat.this.x[18];
-                        x.setBackground(Color.WHITE);
-                        selected=0;
-                        cha=999;
                     }
                 }
                 catch (Exception e) {
@@ -548,17 +484,14 @@ public class Seat {
         x[19].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
-                    if (selected == 0 && seatnum[19] != true) {
+                    if (   seatnum[19] != true) {
+                          if(cha!=-1){
+                            x[cha].setBackground(Color.WHITE);
+                        }
                         selected = 1;
                         JButton x = Seat.this.x[19];
                         x.setBackground(Color.RED);
                         cha=19;
-                    }
-                    else if(selected!=0&&seatnum[19] != true){
-                        JButton x = Seat.this.x[19];
-                        x.setBackground(Color.WHITE);
-                        selected=0;
-                        cha=999;
                     }
                 }
                 catch (Exception e) {
@@ -569,17 +502,14 @@ public class Seat {
         x[20].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
-                    if (selected == 0 && seatnum[20] != true) {
+                    if (   seatnum[20] != true) {
+                          if(cha!=-1){
+                            x[cha].setBackground(Color.WHITE);
+                        }
                         selected = 1;
                         JButton x = Seat.this.x[20];
                         x.setBackground(Color.RED);
-                        cha=20;
-                    }
-                    else if(selected!=0&&seatnum[20] != true){
-                        JButton x = Seat.this.x[20];
-                        x.setBackground(Color.WHITE);
-                        selected=0;
-                        cha=999;
+                        cha = 20;
                     }
                 }
                 catch (Exception e) {
@@ -590,17 +520,14 @@ public class Seat {
         x[21].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
-                    if (selected == 0 && seatnum[21] != true) {
+                    if (   seatnum[21] != true) {
+                          if(cha!=-1){
+                            x[cha].setBackground(Color.WHITE);
+                        }
                         selected = 1;
                         JButton x = Seat.this.x[21];
                         x.setBackground(Color.RED);
                         cha=21;
-                    }
-                    else if(selected!=0&&seatnum[21] != true){
-                        JButton x = Seat.this.x[21];
-                        x.setBackground(Color.WHITE);
-                        selected=0;
-                        cha=999;
                     }
                 }
                 catch (Exception e) {
@@ -611,18 +538,16 @@ public class Seat {
         x[22].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
-                    if (selected == 0 && seatnum[22] != true) {
+                    if (   seatnum[22] != true) {
+                          if(cha!=-1){
+                            x[cha].setBackground(Color.WHITE);
+                        }
                         selected = 1;
                         JButton x = Seat.this.x[22];
                         x.setBackground(Color.RED);
                         cha=22;
                     }
-                    else if(selected!=0&&seatnum[22] != true){
-                        JButton x = Seat.this.x[22];
-                        x.setBackground(Color.WHITE);
-                        selected=0;
-                        cha=999;
-                    }
+
                 }
                 catch (Exception e) {
                     System.out.println("Exception occoured : " + e);
@@ -632,17 +557,14 @@ public class Seat {
         x[23].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
-                    if (selected == 0 && seatnum[23] != true) {
+                    if (   seatnum[23] != true) {
+                          if(cha!=-1){
+                            x[cha].setBackground(Color.WHITE);
+                        }
                         selected = 1;
                         JButton x = Seat.this.x[23];
                         x.setBackground(Color.RED);
                         cha=23;
-                    }
-                    else if(selected!=0&&seatnum[23] != true){
-                        JButton x = Seat.this.x[23];
-                        x.setBackground(Color.WHITE);
-                        selected=0;
-                        cha=999;
                     }
                 }
                 catch (Exception e) {
@@ -653,17 +575,14 @@ public class Seat {
         x[24].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
-                    if (selected == 0 && seatnum[24] != true) {
+                    if (   seatnum[24] != true) {
+                          if(cha!=-1){
+                            x[cha].setBackground(Color.WHITE);
+                        }
                         selected = 1;
                         JButton x = Seat.this.x[24];
                         x.setBackground(Color.RED);
                         cha=24;
-                    }
-                    else if(selected!=0&&seatnum[24] != true){
-                        JButton x = Seat.this.x[24];
-                        x.setBackground(Color.WHITE);
-                        selected=0;
-                        cha=999;
                     }
                 }
                 catch (Exception e) {
@@ -674,17 +593,14 @@ public class Seat {
         x[25].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
-                    if (selected == 0 && seatnum[25] != true) {
+                    if (   seatnum[25] != true) {
+                          if(cha!=-1){
+                            x[cha].setBackground(Color.WHITE);
+                        }
                         selected = 1;
                         JButton x = Seat.this.x[25];
                         x.setBackground(Color.RED);
                         cha=25;
-                    }
-                    else if(selected!=0&&seatnum[25] != true){
-                        JButton x = Seat.this.x[25];
-                        x.setBackground(Color.WHITE);
-                        selected=0;
-                        cha=999;
                     }
                 }
                 catch (Exception e) {
@@ -695,17 +611,14 @@ public class Seat {
         x[26].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
-                    if (selected == 0 && seatnum[26] != true) {
+                    if (seatnum[26] != true) {
+                          if(cha!=-1){
+                            x[cha].setBackground(Color.WHITE);
+                        }
                         selected = 1;
                         JButton x = Seat.this.x[26];
                         x.setBackground(Color.RED);
                         cha=26;
-                    }
-                    else if(selected!=0&&seatnum[26] != true){
-                        JButton x = Seat.this.x[26];
-                        x.setBackground(Color.WHITE);
-                        selected=0;
-                        cha=999;
                     }
                 }
                 catch (Exception e) {
@@ -716,17 +629,14 @@ public class Seat {
         x[27].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
-                    if (selected == 0 && seatnum[27] != true) {
+                    if (seatnum[27] != true) {
+                          if(cha!=-1){
+                            x[cha].setBackground(Color.WHITE);
+                        }
                         selected = 1;
                         JButton x = Seat.this.x[27];
                         x.setBackground(Color.RED);
                         cha=27;
-                    }
-                    else if(selected!=0&&seatnum[27] != true){
-                        JButton x = Seat.this.x[27];
-                        x.setBackground(Color.WHITE);
-                        selected=0;
-                        cha=999;
                     }
                 }
                 catch (Exception e) {
@@ -737,17 +647,14 @@ public class Seat {
         x[28].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
-                    if (selected == 0 && seatnum[28] != true) {
+                    if (   seatnum[28] != true) {
+                          if(cha!=-1){
+                            x[cha].setBackground(Color.WHITE);
+                        }
                         selected = 1;
                         JButton x = Seat.this.x[28];
                         x.setBackground(Color.RED);
                         cha=28;
-                    }
-                    else if(selected!=0&&seatnum[28] != true){
-                        JButton x = Seat.this.x[28];
-                        x.setBackground(Color.WHITE);
-                        selected=0;
-                        cha=999;
                     }
                 }
                 catch (Exception e) {
@@ -758,17 +665,14 @@ public class Seat {
         x[29].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
-                    if (selected == 0 && seatnum[29] != true) {
+                    if (   seatnum[29] != true) {
+                          if(cha!=-1){
+                            x[cha].setBackground(Color.WHITE);
+                        }
                         selected = 1;
                         JButton x = Seat.this.x[29];
                         x.setBackground(Color.RED);
                         cha=29;
-                    }
-                    else if(selected!=0&&seatnum[29] != true){
-                        JButton x = Seat.this.x[29];
-                        x.setBackground(Color.WHITE);
-                        selected=0;
-                        cha=999;
                     }
                 }
                 catch (Exception e) {
@@ -779,17 +683,14 @@ public class Seat {
         x[30].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
-                    if (selected == 0 && seatnum[30] != true) {
+                    if (   seatnum[30] != true) {
+                          if(cha!=-1){
+                            x[cha].setBackground(Color.WHITE);
+                        }
                         selected = 1;
                         JButton x = Seat.this.x[30];
                         x.setBackground(Color.RED);
                         cha=30;
-                    }
-                    else if(selected!=0&&seatnum[30] != true){
-                        JButton x = Seat.this.x[30];
-                        x.setBackground(Color.WHITE);
-                        selected=0;
-                        cha=999;
                     }
                 }
                 catch (Exception e) {
@@ -800,17 +701,14 @@ public class Seat {
         x[31].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
-                    if (selected == 0 && seatnum[31] != true) {
+                    if (seatnum[31] != true) {
+                          if(cha!=-1){
+                            x[cha].setBackground(Color.WHITE);
+                        }
                         selected = 1;
                         JButton x = Seat.this.x[31];
                         x.setBackground(Color.RED);
                         cha=31;
-                    }
-                    else if(selected!=0&&seatnum[31] != true){
-                        JButton x = Seat.this.x[31];
-                        x.setBackground(Color.WHITE);
-                        selected=0;
-                        cha=999;
                     }
                 }
                 catch (Exception e) {
@@ -843,13 +741,19 @@ public class Seat {
         con.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
-                    DataController.updateSeat(flightID, cha);
-                    if (bus == 0 && mov == 0 && leg == 0) {
-                        closeThis();
-                        new Meal();
-                    } else {
-                        closeThis();
-                        formpay(bus, mov, leg, seatnumID);
+                    if(selected!=0) {
+                        if (bus == 0 && mov == 0 && leg == 0) {
+                            DataController.updateSeat(flightID, cha);
+                            closeThis();
+                            new Meal();
+                        } else {
+                            DataController.updateSeat(flightID, cha);
+                            closeThis();
+                            formpay(bus, mov, leg, seatnumID);
+                        }
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(frame, "You have not chosen a seat！","Missing information", JOptionPane.ERROR_MESSAGE);
                     }
                 }
                 catch (Exception e) {
@@ -858,34 +762,34 @@ public class Seat {
             }
         });
 
-        con.setBounds(370, 500, 120, 30);
+        con.setBounds(520, 600, 120, 30);
         jp.add(con);
 
         lable.setFont(font1);
         lable.setForeground(Color.white);
         jp.add(lable);
-        lable.setBounds(0,0,900,100);
+        lable.setBounds(150,0,900,100);
         lable2.setFont(font3);
-        lable2.setForeground(Color.white);
+        lable2.setForeground(Color.BLACK);
         jp.add(lable2);
-        lable2.setBounds(150,170,200,20);
+        lable2.setBounds(300,220,200,20);
         lable3.setFont(font3);
-        lable3.setForeground(Color.white);
+        lable3.setForeground(Color.BLACK);
         jp.add(lable3);
-        lable3.setBounds(370,170,200,20);
+        lable3.setBounds(530,220,200,20);
 
-        ne.setBounds(200,400,110,20);
+        ne.setBounds(350,450,110,20);
         jp.add(ne);
-        fm.setBounds(530,400,100,20);
+        fm.setBounds(680,450,100,20);
         jp.add(fm);
 
-        im.setBounds(0,0,900,590);
+        im.setBounds(0,0,1200,675);
         jp.add(pl);
-        pl.setBounds(0,100,900,300);
+        pl.setBounds(150,150,900,300);
         jp.add(im);
 
         frame.add(jp);
-        frame.setBounds(300, 100, 900, 585);
+        frame.setBounds(0, 0, 1200, 675);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         sum=bus+mov+leg;
