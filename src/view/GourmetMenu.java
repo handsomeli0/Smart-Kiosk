@@ -13,8 +13,8 @@ public class GourmetMenu extends JFrame{
     {
         setLayout(new BorderLayout());
         setTitle("GourmetMenu");
-//        setSize(1280,960);
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        setSize(1200,675);
+//        setExtendedState(JFrame.MAXIMIZED_BOTH);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 
@@ -25,7 +25,7 @@ public class GourmetMenu extends JFrame{
         ImageIcon logo1;
         logo1 = new ImageIcon("src/images/Logo.png");
         Image logoimg = logo1.getImage();
-        logoimg = logoimg.getScaledInstance(400, 90, Image.SCALE_AREA_AVERAGING);
+        logoimg = logoimg.getScaledInstance(340, 80, Image.SCALE_AREA_AVERAGING);
         logo1.setImage(logoimg);
         logo.setIcon(logo1);
         north.add(logo);
@@ -181,11 +181,11 @@ public class GourmetMenu extends JFrame{
         food3.setType("Drinks");
         food3.setPrice(2.50);
         food4.setName("Food1");
-        food4.setDescription("Tom Kerridge - Ham Hock and Smoked Cheddar Sandwich");
+        food4.setDescription("Tom Kerridge - Ham and Cheddar Sandwich");
         food4.setType("Food");
         food4.setPrice(4.10);
         food5.setName("Food2");
-        food5.setDescription("Tom Kerridge - Soft Brie and Apple Chutney Ploughmans Sandwich");
+        food5.setDescription("Tom Kerridge - Brie and Apple Chutney Sandwich");
         food5.setType("Food");
         food5.setPrice(4.20);
         food6.setName("Food3");

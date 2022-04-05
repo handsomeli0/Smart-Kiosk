@@ -9,8 +9,8 @@ public class PayMent extends JFrame{
     public PayMent() {
         setLayout(new BorderLayout());
         setTitle("PayMent");
-//        setSize(1280,960);
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        setSize(1200,675);
+//        setExtendedState(JFrame.MAXIMIZED_BOTH);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         //add logo
@@ -20,7 +20,7 @@ public class PayMent extends JFrame{
         ImageIcon logo1;
         logo1 = new ImageIcon("src/images/Logo.png");
         Image logoimg = logo1.getImage();
-        logoimg = logoimg.getScaledInstance(400, 90, Image.SCALE_AREA_AVERAGING);
+        logoimg = logoimg.getScaledInstance(340, 80, Image.SCALE_AREA_AVERAGING);
         logo1.setImage(logoimg);
         logo.setIcon(logo1);
         north.add(logo);
