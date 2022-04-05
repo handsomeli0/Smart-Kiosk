@@ -31,7 +31,7 @@ public class Seat {
     JPanel jp=new JPanel(); //创建JPanel对象
     JPanel jp2=new JPanel();
 
-    ImageIcon image=new ImageIcon("src/images/B.jpg");//背景图片
+    ImageIcon image=new ImageIcon("src/images/background1.jpg");//背景图片
     JLabel im=new JLabel(image);
     ImageIcon plane=new ImageIcon("src/images/plane.png");
     JLabel pl=new JLabel(plane);
@@ -51,12 +51,13 @@ public class Seat {
         jp2.add(lable1);
         lable1.setBounds(0,0,900,100);
 
+        id.setFont(font3);
         jp2.add(id);
         jp2.add(ID);
-        id.setBounds(210,180,90,40);
-        ID.setBounds(295,180,300,30);
+        id.setBounds(360,275,300,40);
+        ID.setBounds(500,280,300,30);
 
-        im.setBounds(0,0,900,590);
+        im.setBounds(0,0,1200,675);
         jp2.add(im);
 
         con1.addActionListener(new ActionListener() {
@@ -71,11 +72,11 @@ public class Seat {
                 }
             }
         });
-        con1.setBounds(370, 500, 120, 30);
+        con1.setBounds(540, 600, 120, 30);
         jp2.add(con1);
 
         frame1.add(jp2);
-        frame1.setBounds(300, 100, 900, 585);
+        frame1.setBounds(0, 0, 1200, 675);
         frame1.setVisible(true);
         frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         return 0;
@@ -96,35 +97,35 @@ public class Seat {
             }
             if(i/4==0)
             {
-                x[i].setBounds(215,205+(i%4)*21+(i%4)/2*8,20,20);
+                x[i].setBounds(370,255+(i%4)*21+(i%4)/2*8,20,20);
             }
             else if(i/4==1)
             {
-                x[i].setBounds(260,205+(i%4)*21+(i%4)/2*8,20,20);
+                x[i].setBounds(415,255+(i%4)*21+(i%4)/2*8,20,20);
             }
             else if(i/4==2)
             {
-                x[i].setBounds(345,205+(i%4)*21+(i%4)/2*8,20,20);
+                x[i].setBounds(500,255+(i%4)*21+(i%4)/2*8,20,20);
             }
             else if(i/4==3)
             {
-                x[i].setBounds(390,205+(i%4)*21+(i%4)/2*8,20,20);
+                x[i].setBounds(545,255+(i%4)*21+(i%4)/2*8,20,20);
             }
             else if(i/4==4)
             {
-                x[i].setBounds(435,205+(i%4)*21+(i%4)/2*8,20,20);
+                x[i].setBounds(590,255+(i%4)*21+(i%4)/2*8,20,20);
             }
             else if(i/4==5)
             {
-                x[i].setBounds(480,205+(i%4)*21+(i%4)/2*8,20,20);
+                x[i].setBounds(635,255+(i%4)*21+(i%4)/2*8,20,20);
             }
             else if(i/4==6)
             {
-                x[i].setBounds(525,205+(i%4)*21+(i%4)/2*8,20,20);
+                x[i].setBounds(680,255+(i%4)*21+(i%4)/2*8,20,20);
             }
             else if(i/4==7)
             {
-                x[i].setBounds(570,205+(i%4)*21+(i%4)/2*8,20,20);
+                x[i].setBounds(725,255+(i%4)*21+(i%4)/2*8,20,20);
             }
 
             jp.add(x[i]);
@@ -831,34 +832,34 @@ public class Seat {
             }
         });
 
-        con.setBounds(370, 500, 120, 30);
+        con.setBounds(520, 600, 120, 30);
         jp.add(con);
 
         lable.setFont(font1);
         lable.setForeground(Color.white);
         jp.add(lable);
-        lable.setBounds(0,0,900,100);
+        lable.setBounds(150,0,900,100);
         lable2.setFont(font3);
-        lable2.setForeground(Color.white);
+        lable2.setForeground(Color.BLACK);
         jp.add(lable2);
-        lable2.setBounds(150,170,200,20);
+        lable2.setBounds(300,220,200,20);
         lable3.setFont(font3);
-        lable3.setForeground(Color.white);
+        lable3.setForeground(Color.BLACK);
         jp.add(lable3);
-        lable3.setBounds(370,170,200,20);
+        lable3.setBounds(530,220,200,20);
 
-        ne.setBounds(200,400,110,20);
+        ne.setBounds(350,450,110,20);
         jp.add(ne);
-        fm.setBounds(530,400,100,20);
+        fm.setBounds(680,450,100,20);
         jp.add(fm);
 
-        im.setBounds(0,0,900,590);
+        im.setBounds(0,0,1200,675);
         jp.add(pl);
-        pl.setBounds(0,100,900,300);
+        pl.setBounds(150,150,900,300);
         jp.add(im);
 
         frame.add(jp);
-        frame.setBounds(300, 100, 900, 585);
+        frame.setBounds(0, 0, 1200, 675);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         sum=bus+mov+leg;
