@@ -105,7 +105,7 @@ public class PayMent extends JFrame{
         add(south,BorderLayout.SOUTH);
 
         setVisible(true);
-        this.setLocationRelativeTo(null);
+//        this.setLocationRelativeTo(null);
 
         jbback.addActionListener(new ActionListener() {
             @Override

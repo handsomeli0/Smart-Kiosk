@@ -328,18 +328,7 @@ public class GourmetMenu extends JFrame{
         add(south,BorderLayout.SOUTH);
 
         setVisible(true);
-        this.setLocationRelativeTo(null);
-
-
-        setVisible(true);
-        this.setLocationRelativeTo(null);
-
-
-
-
-
-
-
+//        this.setLocationRelativeTo(null);
 
         add1.addActionListener(new ActionListener() {
             @Override
@@ -350,11 +339,6 @@ public class GourmetMenu extends JFrame{
                 }
             }
         });
-
-
-
-
-
 
         jbback.addActionListener(new ActionListener() {
             @Override

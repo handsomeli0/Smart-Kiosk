@@ -15,6 +15,18 @@ public class MealWindow extends JFrame {
 //        setExtendedState(JFrame.MAXIMIZED_BOTH);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+
+        Container Window=new Container();
+        Window.setLayout(new BorderLayout());
+        this.add(Window);
+
+        ImageIcon background=new ImageIcon("src/images/background1.jpg");
+        JLabel lbBackground=new JLabel(background);
+        Window.add(lbBackground);
+
+//        Window.getLayeredPane().add(lbBackground,new Integer(Integer.MIN_VALUE));
+
+
         //add logo
         JPanel north = new JPanel();
         north.setLayout(new GridLayout(1, 1, 0, 0));
@@ -28,7 +40,7 @@ public class MealWindow extends JFrame {
         logo1.setImage(logoimg);
         logo.setIcon(logo1);
         north.add(logo);
-        add(north, BorderLayout.NORTH);
+        Window.add(north, BorderLayout.NORTH);
 
 
         JPanel center = new JPanel();
@@ -179,7 +191,7 @@ public class MealWindow extends JFrame {
         group.add(rb3);
         group.add(rb4);
 
-        add(center, BorderLayout.CENTER);
+        Window.add(center, BorderLayout.CENTER);
 
         menu.add(m1);
         menu.add(m2);
@@ -210,10 +222,10 @@ public class MealWindow extends JFrame {
         button.add(jbnext);
 
         south.add(button);
-        add(south, BorderLayout.SOUTH);
+        Window.add(south, BorderLayout.SOUTH);
 
         setVisible(true);
-        this.setLocationRelativeTo(null);
+//        this.setLocationRelativeTo(null);
 
         jbnext.addActionListener(new ActionListener() {
             @Override
