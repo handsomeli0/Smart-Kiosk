@@ -8,7 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MealWindow extends JFrame {
-    public MealWindow(String flightID, String passengerID, Booking A) {
+    public MealWindow(Flight flight, Passenger passenger, Booking booking) {
 
         setLayout(new BorderLayout());
         setTitle("Meal");
@@ -17,13 +17,13 @@ public class MealWindow extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 
-        Container Window=new Container();
-        Window.setLayout(new BorderLayout());
-        this.add(Window);
+//        Container Window=new Container();
+//        Window.setLayout(new BorderLayout());
+//        this.add(Window);
 
-        ImageIcon background=new ImageIcon("src/images/background1.jpg");
-        JLabel lbBackground=new JLabel(background);
-        Window.add(lbBackground);
+//        ImageIcon background=new ImageIcon("src/images/background1.jpg");
+//        JLabel lbBackground=new JLabel(background);
+//        Window.add(lbBackground);
 
 //        Window.getLayeredPane().add(lbBackground,new Integer(Integer.MIN_VALUE));
 
@@ -31,17 +31,15 @@ public class MealWindow extends JFrame {
         //add logo
         JPanel north = new JPanel();
         north.setLayout(new GridLayout(1, 1, 0, 0));
-        JLabel logo = new JLabel();
-        ImageIcon logo1;
-
-
-        logo1 = new ImageIcon("src/images/Logo.png");
-        Image logoimg = logo1.getImage();
-        logoimg = logoimg.getScaledInstance(340, 80, Image.SCALE_AREA_AVERAGING);
-        logo1.setImage(logoimg);
-        logo.setIcon(logo1);
-        north.add(logo);
-        Window.add(north, BorderLayout.NORTH);
+//        JLabel logo = new JLabel();
+//        ImageIcon logo1;
+//        logo1 = new ImageIcon("src/images/Logo.png");
+//        Image logoimg = logo1.getImage();
+//        logoimg = logoimg.getScaledInstance(300, 70, Image.SCALE_AREA_AVERAGING);
+//        logo1.setImage(logoimg);
+//        logo.setIcon(logo1);
+//        north.add(logo);
+        add(north, BorderLayout.NORTH);
 
 
         JPanel center = new JPanel();
@@ -67,6 +65,15 @@ public class MealWindow extends JFrame {
 
 
         Font f = new Font(Font.DIALOG, Font.BOLD, 14);
+        Font ff=new Font (Font.DIALOG, Font.BOLD, 20);
+
+        JPanel intro=new JPanel();
+        JLabel introlabel=new JLabel("Please choose your meal in the flight");
+        introlabel.setHorizontalAlignment(SwingConstants.CENTER);
+        introlabel.setFont(ff);
+        intro.add(introlabel);
+        north.add(intro);
+
 
         Meal meal1 = new Meal();
         Meal meal2 = new Meal();
@@ -192,7 +199,7 @@ public class MealWindow extends JFrame {
         group.add(rb3);
         group.add(rb4);
 
-        Window.add(center, BorderLayout.CENTER);
+        add(center, BorderLayout.CENTER);
 
         menu.add(m1);
         menu.add(m2);
@@ -202,7 +209,7 @@ public class MealWindow extends JFrame {
 
         //Remarks and next page
         JPanel remark = new JPanel();
-        JTextArea remarktxt = new JTextArea(3, 70);
+        JTextArea remarktxt = new JTextArea(2, 70);
         remarktxt.setFont(f);
 
         JLabel remarklabel = new JLabel("Remarks (etc. Special meals): ");
@@ -223,7 +230,7 @@ public class MealWindow extends JFrame {
         button.add(jbnext);
 
         south.add(button);
-        Window.add(south, BorderLayout.SOUTH);
+        add(south, BorderLayout.SOUTH);
 
         setVisible(true);
 //        this.setLocationRelativeTo(null);
@@ -232,10 +239,18 @@ public class MealWindow extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (e.getSource() == jbnext) {
+                    new GourmetMenu(flight,passenger,booking);
                     dispose();
-                    new GourmetMenu(flightID,passengerID,A);
                 }
             }
         });
     }
+
+//    public static void main(String[] args) {
+//        Flight flight = new Flight();
+//        Passenger passenger = new Passenger();
+//        Booking booking = new Booking();
+//        new MealWindow(flight, passenger, booking);
+//    }
+
 }

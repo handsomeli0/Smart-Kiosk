@@ -1,7 +1,6 @@
 package view;
 
-import model.Booking;
-import model.GourmetFood;
+import model.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,10 +9,10 @@ import java.awt.event.ActionListener;
 
 public class GourmetMenu extends JFrame{
     Double TotalPrice = 0.0;
-    public GourmetMenu(String flightID, String passengerID, Booking A)
+    public GourmetMenu(Flight flight, Passenger passenger, Booking booking)
     {
         setLayout(new BorderLayout());
-        setTitle("GourmetMenu");
+        setTitle("Gourmet Menu");
         setSize(1200,675);
 //        setExtendedState(JFrame.MAXIMIZED_BOTH);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -22,15 +21,16 @@ public class GourmetMenu extends JFrame{
         //add logo
         JPanel north=new JPanel();
         north.setLayout(new GridLayout(1,1,0,0));
-        JLabel logo = new JLabel();
-        ImageIcon logo1;
-        logo1 = new ImageIcon("src/images/Logo.png");
-        Image logoimg = logo1.getImage();
-        logoimg = logoimg.getScaledInstance(340, 80, Image.SCALE_AREA_AVERAGING);
-        logo1.setImage(logoimg);
-        logo.setIcon(logo1);
-        north.add(logo);
+//        JLabel logo = new JLabel();
+//        ImageIcon logo1;
+//        logo1 = new ImageIcon("src/images/Logo.png");
+//        Image logoimg = logo1.getImage();
+//        logoimg = logoimg.getScaledInstance(340, 80, Image.SCALE_AREA_AVERAGING);
+//        logo1.setImage(logoimg);
+//        logo.setIcon(logo1);
+//        north.add(logo);
         add(north,BorderLayout.NORTH);
+
 
 
         // center and south
@@ -65,6 +65,14 @@ public class GourmetMenu extends JFrame{
 
         Font f=new Font (Font.DIALOG, Font.BOLD, 14);
         Font ff=new Font (Font.DIALOG, Font.BOLD, 20);
+
+
+        JPanel intro=new JPanel();
+        JLabel introlabel=new JLabel("Gourmet Menu to for the flight");
+        introlabel.setHorizontalAlignment(SwingConstants.CENTER);
+        introlabel.setFont(ff);
+        intro.add(introlabel);
+        north.add(intro);
 
 
 
@@ -346,8 +354,8 @@ public class GourmetMenu extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 if(e.getSource()==jbback)
                 {
+                    new MealWindow(flight,passenger,booking);
                     dispose();
-                    new MealWindow(flightID,passengerID,A);
                 }
             }
         });
@@ -357,8 +365,8 @@ public class GourmetMenu extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 if(e.getSource()==jbnext)
                 {
+                    new PayMent(flight,passenger,booking);
                     dispose();
-                    new PayMent(flightID,passengerID,A);
                 }
             }
         });

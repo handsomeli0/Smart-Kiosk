@@ -1,6 +1,6 @@
 package view;
 
-import model.Booking;
+import model.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -8,9 +8,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class PayMent extends JFrame{
-    public PayMent(String flightID, String passengerID, Booking A) {
+    public PayMent(Flight flight, Passenger passenger, Booking booking) {
         setLayout(new BorderLayout());
-        setTitle("PayMent");
+        setTitle("Payment");
         setSize(1200,675);
 //        setExtendedState(JFrame.MAXIMIZED_BOTH);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -18,21 +18,21 @@ public class PayMent extends JFrame{
         //add logo
         JPanel north=new JPanel();
         north.setLayout(new GridLayout(1,1,0,0));
-        JLabel logo = new JLabel();
-        ImageIcon logo1;
-        logo1 = new ImageIcon("src/images/Logo.png");
-        Image logoimg = logo1.getImage();
-        logoimg = logoimg.getScaledInstance(340, 80, Image.SCALE_AREA_AVERAGING);
-        logo1.setImage(logoimg);
-        logo.setIcon(logo1);
-        north.add(logo);
+//        JLabel logo = new JLabel();
+//        ImageIcon logo1;
+//        logo1 = new ImageIcon("src/images/Logo.png");
+//        Image logoimg = logo1.getImage();
+//        logoimg = logoimg.getScaledInstance(340, 80, Image.SCALE_AREA_AVERAGING);
+//        logo1.setImage(logoimg);
+//        logo.setIcon(logo1);
+//        north.add(logo);
         add(north,BorderLayout.NORTH);
 
 
 
         //center
         JPanel center=new JPanel();
-        center.setLayout(new GridLayout(4,1,0,0));
+        center.setLayout(new GridLayout(2,1,0,0));
         add(center,BorderLayout.CENTER);
 
         JPanel south=new JPanel();
@@ -43,16 +43,21 @@ public class PayMent extends JFrame{
 
 
 
-
-
-        //description
         JPanel intro=new JPanel();
-        JLabel introlabel=new JLabel("Please fill in your bank account and pin to pay the extra fee");
+        JLabel introlabel=new JLabel("Please check your credit card to pay the extra fee");
         introlabel.setHorizontalAlignment(SwingConstants.CENTER);
         introlabel.setFont(ff);
         intro.add(introlabel);
-        center.add(intro);
+        north.add(intro);
 
+
+        //description
+//        JPanel intro=new JPanel();
+//        JLabel introlabel=new JLabel("Please fill in your bank account and pin to pay the extra fee");
+//        introlabel.setHorizontalAlignment(SwingConstants.CENTER);
+//        introlabel.setFont(ff);
+//        intro.add(introlabel);
+//        center.add(intro);
 
         //total price
         Double Totalprice = 0.0;
@@ -64,7 +69,6 @@ public class PayMent extends JFrame{
         panTP.add(lbTP);
         center.add(panTP);
 
-
         //account
         JPanel account=new JPanel();
         JTextField acctxt=new JTextField(50);    //创建account文本框
@@ -75,19 +79,6 @@ public class PayMent extends JFrame{
         account.add(acclabel);
         account.add(acctxt);
         center.add(account);
-
-
-        //PIN
-        JPanel password=new JPanel();
-        JTextField passtxt=new JTextField(50);    //创建account文本框
-        passtxt.setFont(f);
-        JLabel passlabel=new JLabel("Password: ");
-        passlabel.setFont(f);
-        password.add(passlabel);
-        password.add(passtxt);
-        center.add(password);
-
-
 
         //south: check and page change
         JPanel button=new JPanel();
@@ -114,10 +105,18 @@ public class PayMent extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 if(e.getSource()==jbback)
                 {
+                    new GourmetMenu(flight,passenger,booking);
                     dispose();
-                    new GourmetMenu(flightID,passengerID,A);
                 }
             }
         });
     }
+
+    public static void main(String[] args) {
+        Flight flight = new Flight();
+        Passenger passenger = new Passenger();
+        Booking booking = new Booking();
+        new PayMent(flight, passenger, booking);
+    }
+
 }
