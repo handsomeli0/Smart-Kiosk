@@ -84,3 +84,4 @@ public class Flight {
                 ", seat=" + Arrays.toString(seat) +
                 '}';
     }
+}

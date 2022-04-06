@@ -1,12 +1,14 @@
 package view;
 
+import model.Booking;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class PayMent extends JFrame{
-    public PayMent() {
+    public PayMent(String flightID, String passengerID, Booking A) {
         setLayout(new BorderLayout());
         setTitle("PayMent");
         setSize(1200,675);
@@ -113,13 +115,9 @@ public class PayMent extends JFrame{
                 if(e.getSource()==jbback)
                 {
                     dispose();
-                    new GourmetMenu();
+                    new GourmetMenu(flightID,passengerID,A);
                 }
             }
         });
-    }
-    public static void main(String[] agrs)
-    {
-        new PayMent();
     }
 }

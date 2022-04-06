@@ -1,6 +1,6 @@
 package view;
 
-import model.Meal;
+import model.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -8,7 +8,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MealWindow extends JFrame {
-    public MealWindow() {
+    public MealWindow(String flightID, String passengerID, Booking A) {
+
         setLayout(new BorderLayout());
         setTitle("Meal");
         setSize(1200, 675);
@@ -232,13 +233,9 @@ public class MealWindow extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 if (e.getSource() == jbnext) {
                     dispose();
-                    new GourmetMenu();
+                    new GourmetMenu(flightID,passengerID,A);
                 }
             }
         });
-    }
-
-    public static void main(String[] agrs) {
-        new MealWindow();
     }
 }
