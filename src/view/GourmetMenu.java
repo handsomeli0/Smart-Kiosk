@@ -1,5 +1,7 @@
 package view;
 
+import model.Booking;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -7,7 +9,7 @@ import java.awt.event.ActionListener;
 
 public class GourmetMenu extends JFrame{
     Double Totalprice = 0.0;
-    public GourmetMenu()
+    public GourmetMenu(String flightID, String passengerID, Booking A)
     {
         setLayout(new BorderLayout());
         setTitle("GourmetMenu");
@@ -304,7 +306,7 @@ public class GourmetMenu extends JFrame{
                 if(e.getSource()==jbback)
                 {
                     dispose();
-                    new Meal();
+                    new Meal(flightID,passengerID,A);
                 }
             }
         });
@@ -315,13 +317,9 @@ public class GourmetMenu extends JFrame{
                 if(e.getSource()==jbnext)
                 {
                     dispose();
-                    new PayMent();
+                    new PayMent(flightID, passengerID, A);
                 }
             }
         });
-    }
-    public static void main(String[] agrs)
-    {
-        new GourmetMenu();
     }
 }

@@ -13,7 +13,6 @@ import java.awt.event.ActionListener;
 
 public class Seat {
     int selected=0,bus=0,mov=0,leg=0,sum,cha=-1;
-    int[] seatnum=new int[32];
 
     JFrame frame=new JFrame("Choosing Seat"); //创建Frame窗口
     JFrame frame1=new JFrame("Pay For");
@@ -46,7 +45,7 @@ public class Seat {
     JButton back2=new JButton("Back");
     JButton back3=new JButton("Back to main");
 
-    public int formpay(int bus,int mov,int leg,String flightID,String seatnumID, Booking A,int cha){
+    public int formpay(int bus,int mov,int leg,String flightID,String passengerID, Booking A,int cha){
         JLabel id=new JLabel("Credit Card ID:");
         JTextField ID=new JTextField(20);
 
@@ -71,10 +70,10 @@ public class Seat {
                     }
                     else{
                         int Id= Integer.parseInt(ID.getText().toString());
-                        if(DataController.checkPayment(seatnumID,Id)) {
+                        if(DataController.checkPayment(passengerID,Id)) {
                             DataController.updateSeat(flightID, cha);
                             closeThis();
-                            new Meal();
+                            new Meal(flightID,passengerID,A);
                         }
                         else{
                             JOptionPane.showMessageDialog(frame, "The credit card information you entered is incorrect. ","Missing information", JOptionPane.ERROR_MESSAGE);
@@ -89,7 +88,7 @@ public class Seat {
         back2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 try{
-                    new Seat(flightID, seatnumID,A);
+                    new Seat(flightID,passengerID,A);
                     closeThis();
                 }
                 catch (Exception e) {
@@ -129,7 +128,7 @@ public class Seat {
         return 0;
     }
 
-    public int form(String flightID,String seatnumID, Booking A) {
+    public int form(String flightID,String passengerID, Booking A) {
         jp.setLayout(null);
         JButton back=new JButton("Back");
         JButton back1=new JButton("Back to main");
@@ -335,7 +334,7 @@ public class Seat {
         x[8].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
-                    if (   seatnum[8] != true) {
+                    if (  seatnum[8] != true) {
                           if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
@@ -794,10 +793,10 @@ public class Seat {
                         if (bus == 0 && mov == 0 && leg == 0) {
                             DataController.updateSeat(flightID, cha);
                             closeThis();
-                            new Meal();
+                            new Meal(flightID,passengerID,A);
                         } else {
                             closeThis();
-                            formpay(bus, mov, leg, flightID,seatnumID,A,cha);
+                            formpay(bus, mov, leg, flightID,passengerID,A,cha);
                         }
                     }
                     else{
@@ -867,9 +866,9 @@ public class Seat {
         frame.dispose();
         frame1.dispose();
     }
-    public Seat(String flightID, String seatnumID, Booking A)
+    public Seat(String flightID, String passengerID, Booking A)
     {
-        form(flightID,seatnumID,A);
+        form(flightID,passengerID,A);
     }
 }
 
