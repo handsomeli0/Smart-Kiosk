@@ -1,6 +1,8 @@
 package view;
 
 import controller.DataController;
+import model.Booking;
+import model.Passenger;
 
 import javax.swing.*;
 import java.awt.*;
@@ -8,47 +10,16 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class IDdocument  {
-    private String idNum;
-    private String firstName;
-    private String lastName;
 
-    public String getIdNum() {
-        return idNum;
-    }
-
-    public void setIdNum(String idNum) {
-        this.idNum = idNum;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String toString() {
-        return "IDdocument{" +
-                "idNum='" + idNum + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                '}';
-    }
     public IDdocument() {
+
+        model.IDdocument iDdocument = DataController.getIDdocument();
+
         JFrame frame=new JFrame("ID document check-in");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        ImageIcon img1 = new ImageIcon("src/image//background.jpg");//这是背景图片1
+        ImageIcon img1 = new ImageIcon("src/images//background1.jpg");//这是背景图片1
         JLabel imgLabel1 = new JLabel(img1);//将背景图放在标签里。
-        ImageIcon img2 = new ImageIcon("src/image//icon.jpg");//这是背景图片2
+        ImageIcon img2 = new ImageIcon("src/images//icon.jpg");//这是背景图片2
         JLabel imgLabel2 = new JLabel(img2);//将背景图放在标签里。
 
         frame.getLayeredPane().add(imgLabel1, new Integer(Integer.MIN_VALUE));//注意这里是关键，将背景标签添加到jfram的LayeredPane面板里。
@@ -93,10 +64,12 @@ public class IDdocument  {
         jp2.add(txtfield1);
         jp3.add(confirm);
         jp3.add(cancel);
-        confirm.addActionListener(e -> {new Summary();
+        confirm.addActionListener(e -> {
+            Booking a = DataController.getBookingBySurnameIdNum(iDdocument.getLastName(),iDdocument.getIdNum());
+            new Summary(a);
             frame.setVisible(false);
         });
-        cancel.addActionListener(e -> {new bookingNumberCheckin();
+        cancel.addActionListener(e -> {new BookingNumberCheckIn();
             frame.setVisible(false);
         });
 
