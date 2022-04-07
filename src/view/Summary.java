@@ -16,7 +16,8 @@ public class Summary
         JButton B1=new JButton("Confirm and order food.");
         B1.setBounds(450,550,200,40);
         B1.addActionListener(e ->{
-            Seat seat=new Seat(A.getFlightID(),A.getPassengerID());});
+            frame.setVisible(false);
+            Seat seat=new Seat(A.getFlightID(),A.getPassengerID(),A);});
         frame.add(B1);
         JPanel panel = new JPanel();
         panel.add(new JLabel("summary.Summary"));
