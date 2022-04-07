@@ -2,15 +2,18 @@ package view;
 
 import controller.DataController;
 import model.Booking;
+import model.Flight;
+import model.Passenger;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.print.Book;
 
 public class IDdocument2  {
 
-    public IDdocument2() {
+    public IDdocument2(Flight flight, Passenger passenger, Booking booking) {
 
         model.IDdocument iDdocument = DataController.getIDdocument();
 
@@ -70,9 +73,10 @@ public class IDdocument2  {
         cancel.addActionListener(e -> {new BookingNumberCheckIn();
             frame.setVisible(false);
         });
-        /*back.addActionListener(e -> {new Meal();                    //连接上一个界面
+        back.addActionListener(e -> {new MealWindow(flight,passenger,booking);                    //连接上一个界面
             frame.setVisible(false);
-        });*/
+
+        });
 
         ((JPanel)cp).setOpaque(false); //注意这里，将内容面板设为透明。这样LayeredPane面板中的背景才能显示出来。
 
