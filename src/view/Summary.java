@@ -12,7 +12,7 @@ public class Summary
         ImageIcon icon1 = new ImageIcon("src\\images\\background1.jpg");
         JLabel label1 = new JLabel(icon1);
         label1.setBounds(0,0,icon1.getIconWidth(),icon1.getIconHeight());
-        ImageIcon icon2 = new ImageIcon("src/images/logo.png");
+        ImageIcon icon2 = new ImageIcon("src\\images\\logo.png");
         JLabel label2 = new JLabel(icon2);
         label2.setBounds(600,20,icon2.getIconWidth(),icon2.getIconHeight());
         JFrame frame=new JFrame("summary.Summary");
@@ -20,7 +20,7 @@ public class Summary
         B1.setBounds(50,550,200,40);
         B1.addActionListener(e ->{
             frame.setVisible(false);
-            Seat seat=new Seat(A.getFlightID(),A.getPassengerID()，A);});
+            Seat seat=new Seat(A.getFlightID(),A.getPassengerID(),A);});
         frame.add(B1);
         JButton B2=new JButton("Return to the last page.");
         B2.setBounds(500,550,200,40);
