@@ -28,7 +28,7 @@ public class BookingNumberCheckIn
 
         ImageIcon icon2 = new ImageIcon("src/images/logo.png");
         JLabel label2 = new JLabel(icon2);
-        label2.setBounds(600,20,icon2.getIconWidth(),icon2.getIconHeight());
+        label2.setBounds(800,20,icon2.getIconWidth(),icon2.getIconHeight());
 
         ImageIcon icon3 = new ImageIcon("src/images/girl.png");
         JLabel label3 = new JLabel(icon3);
