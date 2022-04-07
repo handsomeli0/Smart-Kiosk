@@ -6,10 +6,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
 
 public class GourmetMenu extends JFrame{
-    Double TotalPrice = 0.0;
-    public GourmetMenu(Flight flight, Passenger passenger, Booking booking)
+    public GourmetMenu(String flightID, String passengerID, Booking booking, double totalPrice)
     {
         setLayout(new BorderLayout());
         setTitle("Gourmet Menu");
@@ -17,20 +18,10 @@ public class GourmetMenu extends JFrame{
 //        setExtendedState(JFrame.MAXIMIZED_BOTH);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-
         //add logo
         JPanel north=new JPanel();
         north.setLayout(new GridLayout(1,1,0,0));
-//        JLabel logo = new JLabel();
-//        ImageIcon logo1;
-//        logo1 = new ImageIcon("src/images/Logo.png");
-//        Image logoimg = logo1.getImage();
-//        logoimg = logoimg.getScaledInstance(340, 80, Image.SCALE_AREA_AVERAGING);
-//        logo1.setImage(logoimg);
-//        logo.setIcon(logo1);
-//        north.add(logo);
         add(north,BorderLayout.NORTH);
-
 
 
         // center and south
@@ -73,8 +64,6 @@ public class GourmetMenu extends JFrame{
         introlabel.setFont(ff);
         intro.add(introlabel);
         north.add(intro);
-
-
 
         GourmetFood food1=new GourmetFood();
         GourmetFood food2=new GourmetFood();
@@ -211,96 +200,88 @@ public class GourmetMenu extends JFrame{
         food8.setPrice(2.50);
 
 
-        String PaD1 = "<html><body>" + food1.getDescription() + "<br>" + "Price: "+ food1.getPrice() + "<br>" +"Count: " + food1.getCount() + "<body></html>";
+        String PaD1 = "<html><body>" + food1.getDescription() + "<br>" + "Price: "+ food1.getPrice() + "<body></html>";
         JLabel lbdes1=new JLabel(PaD1);// label description1
         lbdes1.setHorizontalAlignment(SwingConstants.CENTER);
         lbdes1.setFont(f);
         m1.add(lbdes1);
 
-        String PaD2 = "<html><body>" + food2.getDescription() + "<br>" + "Price: "+ food2.getPrice() + "<br>" +"Count: " + food2.getCount() + "<body></html>";
+        String PaD2 = "<html><body>" + food2.getDescription() + "<br>" + "Price: "+ food2.getPrice() + "<body></html>";
         JLabel lbdes2=new JLabel(PaD2);
         lbdes2.setHorizontalAlignment(SwingConstants.CENTER);
         lbdes2.setFont(f);
         m2.add(lbdes2);
 
-        String PaD3 = "<html><body>" + food3.getDescription() + "<br>" + "Price: "+ food3.getPrice() + "<br>" +"Count: " + food3.getCount() + "<body></html>";
+        String PaD3 = "<html><body>" + food3.getDescription() + "<br>" + "Price: "+ food3.getPrice() + "<body></html>";
         JLabel lbdes3=new JLabel(PaD3);
         lbdes3.setHorizontalAlignment(SwingConstants.CENTER);
         lbdes3.setFont(f);
         m3.add(lbdes3);
 
-        String PaD4 = "<html><body>" + food4.getDescription() + "<br>" + "Price: "+ food4.getPrice() + "<br>" +"Count: " + food4.getCount() + "<body></html>";
+        String PaD4 = "<html><body>" + food4.getDescription() + "<br>" + "Price: "+ food4.getPrice() + "<body></html>";
         JLabel lbdes4=new JLabel(PaD4);
         lbdes4.setHorizontalAlignment(SwingConstants.CENTER);
         lbdes4.setFont(f);
         m4.add(lbdes4);
 
-        String PaD5 = "<html><body>" + food5.getDescription() + "<br>" + "Price: "+ food5.getPrice() + "<br>" +"Count: " + food5.getCount() + "<body></html>";
+        String PaD5 = "<html><body>" + food5.getDescription() + "<br>" + "Price: "+ food5.getPrice() + "<body></html>";
         JLabel lbdes5=new JLabel(PaD5);
         lbdes5.setHorizontalAlignment(SwingConstants.CENTER);
         lbdes5.setFont(f);
         m5.add(lbdes5);
 
-        String PaD6 = "<html><body>" + food6.getDescription() + "<br>" + "Price: "+ food6.getPrice() + "<br>" +"Count: " + food6.getCount() + "<body></html>";
+        String PaD6 = "<html><body>" + food6.getDescription() + "<br>" + "Price: "+ food6.getPrice() + "<body></html>";
         JLabel lbdes6=new JLabel(PaD6);
         lbdes6.setHorizontalAlignment(SwingConstants.CENTER);
         lbdes6.setFont(f);
         m6.add(lbdes6);
 
-        String PaD7 = "<html><body>" + food7.getDescription() + "<br>" + "Price: "+ food7.getPrice() + "<br>" +"Count: " + food7.getCount() + "<body></html>";
+        String PaD7 = "<html><body>" + food7.getDescription() + "<br>" + "Price: "+ food7.getPrice() + "<body></html>";
         JLabel lbdes7=new JLabel(PaD7);
         lbdes7.setHorizontalAlignment(SwingConstants.CENTER);
         lbdes7.setFont(f);
         m7.add(lbdes7);
 
-        String PaD8 = "<html><body>" + food8.getDescription() + "<br>" + "Price: "+ food8.getPrice() + "<br>" +"Count: " + food8.getCount() + "<body></html>";
+        String PaD8 = "<html><body>" + food8.getDescription() + "<br>" + "Price: "+ food8.getPrice() + "<body></html>";
         JLabel lbdes8=new JLabel(PaD8);
         lbdes8.setHorizontalAlignment(SwingConstants.CENTER);
         lbdes8.setFont(f);
         m8.add(lbdes8);
 
         //choose button
-        JButton add1=new JButton("Add"); JButton remove1=new JButton("Remove");
-        JButton add2=new JButton("Add"); JButton remove2=new JButton("Remove");
-        JButton add3=new JButton("Add"); JButton remove3=new JButton("Remove");
-        JButton add4=new JButton("Add"); JButton remove4=new JButton("Remove");
-        JButton add5=new JButton("Add"); JButton remove5=new JButton("Remove");
-        JButton add6=new JButton("Add"); JButton remove6=new JButton("Remove");
-        JButton add7=new JButton("Add"); JButton remove7=new JButton("Remove");
-        JButton add8=new JButton("Add"); JButton remove8=new JButton("Remove");
+        JButton add1=new JButton("Add");
+        JButton add2=new JButton("Add");
+        JButton add3=new JButton("Add");
+        JButton add4=new JButton("Add");
+        JButton add5=new JButton("Add");
+        JButton add6=new JButton("Add");
+        JButton add7=new JButton("Add");
+        JButton add8=new JButton("Add");
 
 
         JPanel payButton1 = new JPanel();
         payButton1.add(add1);
-        payButton1.add(remove1);
 
         JPanel payButton2 = new JPanel();
         payButton2.add(add2);
-        payButton2.add(remove2);
 
         JPanel payButton3 = new JPanel();
         payButton3.add(add3);
-        payButton3.add(remove3);
 
         JPanel payButton4 = new JPanel();
         payButton4.add(add4);
-        payButton4.add(remove4);
 
         JPanel payButton5 = new JPanel();
         payButton5.add(add5);
-        payButton5.add(remove5);
 
         JPanel payButton6 = new JPanel();
         payButton6.add(add6);
-        payButton6.add(remove6);
 
         JPanel payButton7 = new JPanel();
         payButton7.add(add7);
-        payButton7.add(remove7);
 
         JPanel payButton8 = new JPanel();
         payButton8.add(add8);
-        payButton8.add(remove8);
 
         m1.add(payButton1);m2.add(payButton2);m3.add(payButton3);m4.add(payButton4);
         m5.add(payButton5);m6.add(payButton6);m7.add(payButton7);m8.add(payButton8);
@@ -312,8 +293,8 @@ public class GourmetMenu extends JFrame{
 
 
         //total price and change page
-//        Double Totalprice = 0.0;
-        String TP = "<html><body>" + "Total Price: "+ TotalPrice + "<body></html>";
+        DecimalFormat format = new DecimalFormat("0.00");
+        String TP = "<html><body>" + "Total Price: "+ format.format(new BigDecimal(totalPrice)) + "<body></html>";
         JLabel lbTP=new JLabel(TP);// label description1
         lbTP.setFont(ff);
         lbTP.setHorizontalAlignment(SwingConstants.CENTER);
@@ -323,15 +304,15 @@ public class GourmetMenu extends JFrame{
         JPanel button=new JPanel();
         JButton jbback=new JButton("Back");
         JButton jbnext=new JButton("Next");
-//        JButton jbclear=new JButton("Clear");
+        JButton jbclear=new JButton("Clear");
 
         jbback.setFont(f);
         jbnext.setFont(f);
-//        jbclear.setFont(f);
+        jbclear.setFont(f);
 
         button.add(jbback);
         button.add(jbnext);
-//        button.add(jbclear);
+        button.add(jbclear);
 
         south.add(button);
         add(south,BorderLayout.SOUTH);
@@ -342,9 +323,80 @@ public class GourmetMenu extends JFrame{
         add1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(e.getSource()==add1)
-                {
-                    TotalPrice = TotalPrice + 1;
+                if(e.getSource()==add1) {
+                    double TP = totalPrice + food1.getPrice();
+                    new GourmetMenu(flightID,passengerID,booking,TP);
+                    dispose();
+                }
+            }
+        });
+        add2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(e.getSource()==add2) {
+                    double TP = totalPrice + food2.getPrice();
+                    new GourmetMenu(flightID,passengerID,booking,TP);
+                    dispose();
+                }
+            }
+        });
+        add3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(e.getSource()==add3) {
+                    double TP = totalPrice + food3.getPrice();
+                    new GourmetMenu(flightID,passengerID,booking,TP);
+                    dispose();
+                }
+            }
+        });
+        add4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(e.getSource()==add4) {
+                    double TP = totalPrice + food4.getPrice();
+                    new GourmetMenu(flightID,passengerID,booking,TP);
+                    dispose();
+                }
+            }
+        });
+        add5.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(e.getSource()==add5) {
+                    double TP = totalPrice + food5.getPrice();
+                    new GourmetMenu(flightID,passengerID,booking,TP);
+                    dispose();
+                }
+            }
+        });
+        add6.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(e.getSource()==add6) {
+                    double TP = totalPrice + food6.getPrice();
+                    new GourmetMenu(flightID,passengerID,booking,TP);
+                    dispose();
+                }
+            }
+        });
+        add7.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(e.getSource()==add7) {
+                    double TP = totalPrice + food7.getPrice();
+                    new GourmetMenu(flightID,passengerID,booking,TP);
+                    dispose();
+                }
+            }
+        });
+        add8.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(e.getSource()==add8) {
+                    double TP = totalPrice + food8.getPrice();
+                    new GourmetMenu(flightID,passengerID,booking,TP);
+                    dispose();
                 }
             }
         });
@@ -354,7 +406,7 @@ public class GourmetMenu extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 if(e.getSource()==jbback)
                 {
-                    new MealWindow(flight,passenger,booking);
+                    new MealWindow(flightID,passengerID,booking);
                     dispose();
                 }
             }
@@ -365,10 +417,22 @@ public class GourmetMenu extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 if(e.getSource()==jbnext)
                 {
-                    new PayMent(flight,passenger,booking);
+                    new PayMent(flightID,passengerID,booking,totalPrice);
                     dispose();
                 }
             }
         });
+
+        jbclear.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(e.getSource()==jbclear) {
+                    double TP = 0.0;
+                    new GourmetMenu(flightID,passengerID,booking,TP);
+                    dispose();
+                }
+            }
+        });
+
     }
 }

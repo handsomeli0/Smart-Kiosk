@@ -8,7 +8,7 @@ public class GourmetFood {
     private double price;
     private String description;
     private ImageIcon image;
-    private int count=0;
+//    private int count=0;
 
     public String getName() {
         return name;
@@ -29,13 +29,6 @@ public class GourmetFood {
         this.price = price;
     }
 
-    public int getCount() {
-        return count;
-    }
-    public void setCount(int count) {
-        this.count = count;
-    }
-
     public String getDescription() {
         return description;
     }
@@ -50,13 +43,20 @@ public class GourmetFood {
         this.image = image;
     }
 
+
+//    public int getCount() {
+//        return count;
+//    }
+//    public void setCount(int count) {
+//        this.count = count;
+//    }
+
     @Override
     public String toString() {
         return "Meal{" +
                 "name='" + name + '\'' +
                 ", type='" + type + '\'' +
                 ", price=" + price +
-                ", number='" + count + '\'' +
                 ", image='" + image + '\'' +
                 '}';
     }

@@ -8,25 +8,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MealWindow extends JFrame {
-    public MealWindow(Flight flight, Passenger passenger, Booking booking) {
+    public MealWindow(String flightID, String passengerID, Booking booking) {
 
         setLayout(new BorderLayout());
         setTitle("Meal");
         setSize(1200, 675);
 //        setExtendedState(JFrame.MAXIMIZED_BOTH);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-
-//        Container Window=new Container();
-//        Window.setLayout(new BorderLayout());
-//        this.add(Window);
-
-//        ImageIcon background=new ImageIcon("src/images/background1.jpg");
-//        JLabel lbBackground=new JLabel(background);
-//        Window.add(lbBackground);
-
-//        Window.getLayeredPane().add(lbBackground,new Integer(Integer.MIN_VALUE));
-
 
         //add logo
         JPanel north = new JPanel();
@@ -132,18 +120,12 @@ public class MealWindow extends JFrame {
 
 
         //price and description
-//            double price1=6.9; double price2=5.9; double price3=5.7; double price4=5.9;
-
-//        Meal meal1 = new Meal();
         meal1.setName("Steak with Onion");
         meal1.setDescription("Includes Steak, Onions, fruit, side dishes, dessert...");
-//        Meal meal2 = new Meal();
         meal2.setName("Halal Meal");
         meal2.setDescription("Includes bread, fruit, vegetables and other halal certified foods");
-//        Meal meal3 = new Meal();
         meal3.setName("Vegetarian Oriental Meal");
         meal3.setDescription("Includes grains, breads, fruits, vegetables, desserts, drinks...");
-//        Meal meal4 = new Meal();
         meal4.setName("Kid's meal");
         meal4.setDescription("Suitable for children and easy to digest");
 
@@ -235,23 +217,36 @@ public class MealWindow extends JFrame {
         setVisible(true);
 //        this.setLocationRelativeTo(null);
 
-        jbnext.addActionListener(new ActionListener() {
+
+        //nextpage
+        double totalPrice = 0;
+
+        jbback.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (e.getSource() == jbnext) {
-                    new GourmetMenu(flight,passenger,booking);
+                    new Seat(flightID,passengerID,booking);
                     dispose();
                 }
             }
         });
+        jbnext.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (e.getSource() == jbnext) {
+                    new GourmetMenu(flightID,passengerID,booking,totalPrice);
+                    dispose();
+                }
+            }
+        });
+
     }
 
-    public static void main(String[] args) {
-        Flight flight = new Flight();
-        Passenger passenger = new Passenger();
-        passenger.setCreditCardID(123456);
-        Booking booking = new Booking();
-        new MealWindow(flight, passenger, booking);
-    }
+//    public static void main(String[] args) {
+//        String flightID = "123abc";
+//        String passengerID = "456def";
+//        Booking booking = new Booking();
+//        new MealWindow(flightID, passengerID, booking);
+//    }
 
 }
