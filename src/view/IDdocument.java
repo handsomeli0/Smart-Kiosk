@@ -2,7 +2,6 @@ package view;
 
 import controller.DataController;
 import model.Booking;
-import model.Passenger;
 
 import javax.swing.*;
 import java.awt.*;
@@ -29,6 +28,7 @@ public class IDdocument  {
 
         JButton confirm=new JButton("confirm");//创建按钮
         JButton cancel=new JButton("cancel");
+        JButton back = new JButton("back");
         JTextField txtfield1=new JTextField();//创建文本框
         txtfield1.setEditable(false);
         txtfield1.setText("Put your ID document here and click confirm");
@@ -40,13 +40,14 @@ public class IDdocument  {
         jp1.setLayout(null);                     //将三个面板的布局设置成null
         jp2.setLayout(null);
         jp3.setLayout(null);
-        jp1.setBounds(0,0,1200,400);             //设置了图片 文本框 按钮的位置
-        jp2.setBounds(0,200,1200,400);
-        jp3.setBounds(0,400,1200,500);
-        imgLabel2.setBounds(500,0,700,150);
-        txtfield1.setBounds(300,0,575,300);
-        confirm.setBounds(400,200,100,50);
-        cancel.setBounds(700,200,100,50);
+        jp1.setBounds(0,0,1200,100);             //设置了图片 文本框 按钮的位置
+        jp2.setBounds(0,150,1200,300);
+        jp3.setBounds(0,400,1200,225);
+        imgLabel2.setBounds(650,0,700,100);
+        txtfield1.setBounds(300,0,600,300);
+        confirm.setBounds(550,150,100,50);
+        cancel.setBounds(1050,150,100,50);
+        back.setBounds(50,150,100,50);
         jp1.setBackground(Color.WHITE);           //将三个面板背景色设置成透明
         jp2.setBackground(Color.WHITE);
         jp3.setBackground(Color.WHITE);
@@ -55,7 +56,7 @@ public class IDdocument  {
         jp3.setOpaque(false);
         txtfield1.setBackground(Color.WHITE);     //将文本框区域背景色设置成透明
         txtfield1.setOpaque(false);
-        txtfield1.setFont(new Font("楷体",Font.BOLD,20));
+        txtfield1.setFont(new Font("SERIF",Font.BOLD,20));
 
         frame.add(jp1);
         frame.add(jp2);
@@ -64,6 +65,7 @@ public class IDdocument  {
         jp2.add(txtfield1);
         jp3.add(confirm);
         jp3.add(cancel);
+        jp3.add(back);
         confirm.addActionListener(e -> {
             Booking a = DataController.getBookingBySurnameIdNum(iDdocument.getLastName(),iDdocument.getIdNum());
             new Summary(a);
@@ -72,10 +74,13 @@ public class IDdocument  {
         cancel.addActionListener(e -> {new BookingNumberCheckIn();
             frame.setVisible(false);
         });
+        back.addActionListener(e -> {new BookingNumberCheckIn();
+            frame.setVisible(false);
+        });
 
         ((JPanel)cp).setOpaque(false); //注意这里，将内容面板设为透明。这样LayeredPane面板中的背景才能显示出来。
 
-        frame.setSize(1200,700);
+        frame.setSize(1200,675);
         frame.setVisible(true);
     }
 }
