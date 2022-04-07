@@ -18,9 +18,9 @@ public class Summary
         JFrame frame=new JFrame("summary.Summary");
         JButton B1=new JButton("Confirm and order food.");
         B1.setBounds(200,550,200,40);
-//        B1.addActionListener(e ->{
-//            frame.setVisible(false);
-//            Seat seat=new Seat(A.getFlightID(),A.getPassengerID(),A);});
+        B1.addActionListener(e ->{
+            frame.setVisible(false);
+            Seat seat=new Seat(A.getFlightID(),A.getPassengerID(),A);});
         frame.add(B1);
         JButton B2=new JButton("Return to the last page.");
         B2.setBounds(700,550,200,40);
