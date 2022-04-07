@@ -246,11 +246,12 @@ public class MealWindow extends JFrame {
         });
     }
 
-//    public static void main(String[] args) {
-//        Flight flight = new Flight();
-//        Passenger passenger = new Passenger();
-//        Booking booking = new Booking();
-//        new MealWindow(flight, passenger, booking);
-//    }
+    public static void main(String[] args) {
+        Flight flight = new Flight();
+        Passenger passenger = new Passenger();
+        passenger.setCreditCardID(123456);
+        Booking booking = new Booking();
+        new MealWindow(flight, passenger, booking);
+    }
 
 }

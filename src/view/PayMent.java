@@ -71,8 +71,10 @@ public class PayMent extends JFrame{
 
         //account
         JPanel account=new JPanel();
-        JTextField acctxt=new JTextField(50);    //创建account文本框
+        JTextField acctxt=new JTextField(30);    //创建account文本框
         acctxt.setFont(f);
+
+
         JLabel acclabel=new JLabel("Account: ");
         acclabel.setFont(f);
         acclabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -83,7 +85,7 @@ public class PayMent extends JFrame{
         //south: check and page change
         JPanel button=new JPanel();
         JButton jbback=new JButton("Back");
-        JButton jbnext=new JButton("Next");
+        JButton jbnext=new JButton("Confirm");
 //        JButton jbclear=new JButton("Clear");
 
         jbback.setFont(f);
@@ -103,20 +105,45 @@ public class PayMent extends JFrame{
         jbback.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(e.getSource()==jbback)
-                {
-                    new GourmetMenu(flight,passenger,booking);
-                    dispose();
+                if(e.getSource()==jbback) {
+                        new GourmetMenu(flight, passenger, booking);
+                        dispose();
+                }
+            }
+        });
+
+        jbnext.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(e.getSource()==jbnext) {
+                    if (Integer.parseInt(acctxt.getText()) == passenger.getCreditCardID()) {
+                        JOptionPane.showMessageDialog(null,"Payment successful!");
+                        new MealWindow(flight, passenger, booking);
+                        dispose();
+                    }
+                    else {
+                        JOptionPane.showMessageDialog(null," False: The credit card information is incorrect!");
+                    }
                 }
             }
         });
     }
 
-    public static void main(String[] args) {
-        Flight flight = new Flight();
-        Passenger passenger = new Passenger();
-        Booking booking = new Booking();
-        new PayMent(flight, passenger, booking);
+    public static boolean checkPay(int CreditCardID, int input) {
+        if(CreditCardID == input) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
+
+//    public static void main(String[] args) {
+//        Flight flight = new Flight();
+//        Passenger passenger = new Passenger();
+//        passenger.setCreditCardID(123456);
+//        Booking booking = new Booking();
+//        new PayMent(flight, passenger, booking);
+//    }
 
 }
