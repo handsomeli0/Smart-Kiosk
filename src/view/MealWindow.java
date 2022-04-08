@@ -74,12 +74,11 @@ public class MealWindow extends JFrame {
         m1img.setHorizontalAlignment(SwingConstants.CENTER);
         ImageIcon image1;
         image1 = new ImageIcon("src/images/Steak with Onion.jpg");
-        meal1.setImage(image1);
         Image img1 = image1.getImage();// get Image
         img1 = img1.getScaledInstance(270, 170, Image.SCALE_AREA_AVERAGING);
         image1.setImage(img1);
         m1img.setIcon(image1);
-        meal1.setImage(image1);
+//        meal1.setImage(image1);
         m1.add(m1img);
 
 
@@ -91,7 +90,7 @@ public class MealWindow extends JFrame {
         img2 = img2.getScaledInstance(270, 170, Image.SCALE_AREA_AVERAGING);
         image2.setImage(img2);
         m2img.setIcon(image2);
-        meal2.setImage(image2);
+//        meal2.setImage(image2);
         m2.add(m2img);
 
 
@@ -103,7 +102,7 @@ public class MealWindow extends JFrame {
         img3 = img3.getScaledInstance(270, 170, Image.SCALE_AREA_AVERAGING);
         image3.setImage(img3);
         m3img.setIcon(image3);
-        meal3.setImage(image3);
+//        meal3.setImage(image3);
         m3.add(m3img);
 
 
@@ -115,7 +114,7 @@ public class MealWindow extends JFrame {
         img4 = img4.getScaledInstance(270, 170, Image.SCALE_AREA_AVERAGING);
         image4.setImage(img4);
         m4img.setIcon(image4);
-        meal4.setImage(image4);
+//        meal4.setImage(image4);
         m4.add(m4img);
 
 
