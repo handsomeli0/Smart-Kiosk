@@ -7,7 +7,7 @@ import java.awt.*;
 public class Summary
 {
     public Summary(Booking A){
-        Flight B=DataController.getFlightByFlightID(A.getFlightID());
+        Flight B= DataController.getFlightByFlightID(A.getFlightID());
 
         ImageIcon icon1 = new ImageIcon("src\\images\\background1.jpg");
         JLabel label1 = new JLabel(icon1);
