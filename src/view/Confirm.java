@@ -11,9 +11,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.print.Book;
 
-public class IDdocument2  {
+public class Confirm  {
 
-    public IDdocument2(Flight flight, Passenger passenger, Booking booking) {
+    public Confirm(Flight flight, Passenger passenger, Booking booking) {
 
         model.IDdocument iDdocument = DataController.getIDdocument();
 
