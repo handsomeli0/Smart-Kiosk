@@ -17,7 +17,7 @@ public class Confirm  {
 
         model.IDdocument iDdocument = DataController.getIDdocument();
 
-        JFrame frame=new JFrame("ID document check-in");
+        JFrame frame=new JFrame("Confirm");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ImageIcon img1 = new ImageIcon("src/images//background1.jpg");//这是背景图片1
         JLabel imgLabel1 = new JLabel(img1);//将背景图放在标签里。
