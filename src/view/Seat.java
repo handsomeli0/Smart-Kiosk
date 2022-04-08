@@ -1,6 +1,8 @@
 package view;
 
+import controller.DataController;
 import model.Booking;
+import model.Meal;
 
 import javax.swing.*;
 import java.awt.Color;
@@ -71,7 +73,7 @@ public class Seat {
                         if(DataController.checkPayment(passengerID,Id)) {
                             DataController.updateSeat(flightID, cha);
                             closeThis();
-                            new Meal(flightID,passengerID,A);
+                            new MealWindow(flightID,passengerID,A);
                         }
                         else{
                             JOptionPane.showMessageDialog(frame, "The credit card information you entered is incorrect. ","Missing information", JOptionPane.ERROR_MESSAGE);
@@ -791,7 +793,7 @@ public class Seat {
                         if (bus == 0 && mov == 0 && leg == 0) {
                             DataController.updateSeat(flightID, cha);
                             closeThis();
-                            new Meal(flightID,passengerID,A);
+                            new MealWindow(flightID,passengerID,A);
                         } else {
                             closeThis();
                             formpay(bus, mov, leg, flightID,passengerID,A,cha);
