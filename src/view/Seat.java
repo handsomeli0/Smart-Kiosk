@@ -71,9 +71,9 @@ public class Seat {
                     else{
                         int Id= Integer.parseInt(ID.getText().toString());
                         if(DataController.checkPayment(passengerID,Id)) {
+                            new MealWindow(flightID,passengerID,A);
                             DataController.updateSeat(flightID, cha);
                             closeThis();
-                            new MealWindow(flightID,passengerID,A);
                         }
                         else{
                             JOptionPane.showMessageDialog(frame, "The credit card information you entered is incorrect. ","Missing information", JOptionPane.ERROR_MESSAGE);
@@ -186,7 +186,7 @@ public class Seat {
                             x[cha].setBackground(Color.WHITE);
                         }
                         JButton x = Seat.this.x[0];
-                        x.setBackground(Color.RED);
+                        x.setBackground(Color.BLUE);
                         selected = 1;
                         bus = 1;
                         cha=0;
@@ -206,7 +206,7 @@ public class Seat {
                                 x[cha].setBackground(Color.WHITE);
                             }
                         JButton x = Seat.this.x[1];
-                        x.setBackground(Color.RED);
+                        x.setBackground(Color.BLUE);
                         selected = 1;
                         bus = 1;
                         cha=1;
@@ -226,7 +226,7 @@ public class Seat {
                         }
                     selected = 1;
                     JButton x = Seat.this.x[2];
-                    x.setBackground(Color.RED);
+                    x.setBackground(Color.BLUE);
                     bus = 1;
                     cha = 2;
                 }
@@ -245,7 +245,7 @@ public class Seat {
                         }
                         selected = 1;
                         JButton x = Seat.this.x[3];
-                        x.setBackground(Color.RED);
+                        x.setBackground(Color.BLUE);
                         bus = 1;
                         cha=3;
                     }
@@ -264,7 +264,7 @@ public class Seat {
                         }
                         selected = 1;
                         JButton x = Seat.this.x[4];
-                        x.setBackground(Color.RED);
+                        x.setBackground(Color.BLUE);
                         bus = 1;
                         cha=4;
                     }
@@ -283,7 +283,7 @@ public class Seat {
                         }
                         selected = 1;
                         JButton x = Seat.this.x[5];
-                        x.setBackground(Color.RED);
+                        x.setBackground(Color.BLUE);
                         bus = 1;
                         cha=5;
                     }
@@ -302,7 +302,7 @@ public class Seat {
                         }
                         selected = 1;
                         JButton x = Seat.this.x[6];
-                        x.setBackground(Color.RED);
+                        x.setBackground(Color.BLUE);
                         bus = 1;
                         cha=6;
                     }
@@ -321,7 +321,7 @@ public class Seat {
                         }
                         selected = 1;
                         JButton x = Seat.this.x[7];
-                        x.setBackground(Color.RED);
+                        x.setBackground(Color.BLUE);
                         bus = 1;
                         cha=7;
                     }
@@ -340,7 +340,7 @@ public class Seat {
                         }
                         selected = 1;
                         JButton x = Seat.this.x[8];
-                        x.setBackground(Color.RED);
+                        x.setBackground(Color.BLUE);
                         cha=8;
                     }
                 }
@@ -358,7 +358,7 @@ public class Seat {
                         }
                         selected = 1;
                         JButton x = Seat.this.x[9];
-                        x.setBackground(Color.RED);
+                        x.setBackground(Color.BLUE);
                         cha=9;
                     }
                 }
@@ -376,7 +376,7 @@ public class Seat {
                         }
                         selected = 1;
                         JButton x = Seat.this.x[10];
-                        x.setBackground(Color.RED);
+                        x.setBackground(Color.BLUE);
                         cha=10;
                     }
                 }
@@ -394,7 +394,7 @@ public class Seat {
                         }
                         selected = 1;
                         JButton x = Seat.this.x[11];
-                        x.setBackground(Color.RED);
+                        x.setBackground(Color.BLUE);
                         cha=11;
                     }
                 }
@@ -412,7 +412,7 @@ public class Seat {
                         }
                         selected = 1;
                         JButton x = Seat.this.x[12];
-                        x.setBackground(Color.RED);
+                        x.setBackground(Color.BLUE);
                         cha=12;
                     }
                 }
@@ -430,7 +430,7 @@ public class Seat {
                         }
                         selected = 1;
                         JButton x = Seat.this.x[13];
-                        x.setBackground(Color.RED);
+                        x.setBackground(Color.BLUE);
                         cha=13;
                     }
                 }
@@ -448,7 +448,7 @@ public class Seat {
                         }
                         selected = 1;
                         JButton x = Seat.this.x[14];
-                        x.setBackground(Color.RED);
+                        x.setBackground(Color.BLUE);
                         cha=14;
                     }
                 }
@@ -466,7 +466,7 @@ public class Seat {
                         }
                         selected = 1;
                         JButton x = Seat.this.x[15];
-                        x.setBackground(Color.RED);
+                        x.setBackground(Color.BLUE);
                         cha=15;
                     }
                 }
@@ -484,7 +484,7 @@ public class Seat {
                         }
                         selected = 1;
                         JButton x = Seat.this.x[16];
-                        x.setBackground(Color.RED);
+                        x.setBackground(Color.BLUE);
                         cha=16;
                     }
                 }
@@ -502,7 +502,7 @@ public class Seat {
                         }
                         selected = 1;
                         JButton x = Seat.this.x[17];
-                        x.setBackground(Color.RED);
+                        x.setBackground(Color.BLUE);
                         cha=17;
                     }
                 }
@@ -520,7 +520,7 @@ public class Seat {
                         }
                         selected = 1;
                         JButton x = Seat.this.x[18];
-                        x.setBackground(Color.RED);
+                        x.setBackground(Color.BLUE);
                         cha=18;
                     }
                 }
@@ -538,7 +538,7 @@ public class Seat {
                         }
                         selected = 1;
                         JButton x = Seat.this.x[19];
-                        x.setBackground(Color.RED);
+                        x.setBackground(Color.BLUE);
                         cha=19;
                     }
                 }
@@ -556,7 +556,7 @@ public class Seat {
                         }
                         selected = 1;
                         JButton x = Seat.this.x[20];
-                        x.setBackground(Color.RED);
+                        x.setBackground(Color.BLUE);
                         cha = 20;
                     }
                 }
@@ -574,7 +574,7 @@ public class Seat {
                         }
                         selected = 1;
                         JButton x = Seat.this.x[21];
-                        x.setBackground(Color.RED);
+                        x.setBackground(Color.BLUE);
                         cha=21;
                     }
                 }
@@ -592,7 +592,7 @@ public class Seat {
                         }
                         selected = 1;
                         JButton x = Seat.this.x[22];
-                        x.setBackground(Color.RED);
+                        x.setBackground(Color.BLUE);
                         cha=22;
                     }
 
@@ -611,7 +611,7 @@ public class Seat {
                         }
                         selected = 1;
                         JButton x = Seat.this.x[23];
-                        x.setBackground(Color.RED);
+                        x.setBackground(Color.BLUE);
                         cha=23;
                     }
                 }
@@ -629,7 +629,7 @@ public class Seat {
                         }
                         selected = 1;
                         JButton x = Seat.this.x[24];
-                        x.setBackground(Color.RED);
+                        x.setBackground(Color.BLUE);
                         cha=24;
                     }
                 }
@@ -647,7 +647,7 @@ public class Seat {
                         }
                         selected = 1;
                         JButton x = Seat.this.x[25];
-                        x.setBackground(Color.RED);
+                        x.setBackground(Color.BLUE);
                         cha=25;
                     }
                 }
@@ -665,7 +665,7 @@ public class Seat {
                         }
                         selected = 1;
                         JButton x = Seat.this.x[26];
-                        x.setBackground(Color.RED);
+                        x.setBackground(Color.BLUE);
                         cha=26;
                     }
                 }
@@ -683,7 +683,7 @@ public class Seat {
                         }
                         selected = 1;
                         JButton x = Seat.this.x[27];
-                        x.setBackground(Color.RED);
+                        x.setBackground(Color.BLUE);
                         cha=27;
                     }
                 }
@@ -701,7 +701,7 @@ public class Seat {
                         }
                         selected = 1;
                         JButton x = Seat.this.x[28];
-                        x.setBackground(Color.RED);
+                        x.setBackground(Color.BLUE);
                         cha=28;
                     }
                 }
@@ -719,7 +719,7 @@ public class Seat {
                         }
                         selected = 1;
                         JButton x = Seat.this.x[29];
-                        x.setBackground(Color.RED);
+                        x.setBackground(Color.BLUE);
                         cha=29;
                     }
                 }
@@ -737,7 +737,7 @@ public class Seat {
                         }
                         selected = 1;
                         JButton x = Seat.this.x[30];
-                        x.setBackground(Color.RED);
+                        x.setBackground(Color.BLUE);
                         cha=30;
                     }
                 }
@@ -755,7 +755,7 @@ public class Seat {
                         }
                         selected = 1;
                         JButton x = Seat.this.x[31];
-                        x.setBackground(Color.RED);
+                        x.setBackground(Color.BLUE);
                         cha=31;
                     }
                 }
