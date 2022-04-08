@@ -223,7 +223,7 @@ public class MealWindow extends JFrame {
         jbback.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (e.getSource() == jbnext) {
+                if (e.getSource() == jbback) {
                     new Seat(flightID,passengerID,booking);
                     dispose();
                 }
@@ -238,7 +238,6 @@ public class MealWindow extends JFrame {
                 }
             }
         });
-
     }
 
 //    public static void main(String[] args) {
