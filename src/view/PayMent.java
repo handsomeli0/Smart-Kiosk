@@ -112,7 +112,8 @@ public class PayMent extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(e.getSource()==jbnext) {
-                    if (DataController.checkPayment(passengerID,Integer.parseInt(acctxt.getText())) == true) {
+                    int Card = Integer.parseInt(acctxt.getText().toString());
+                    if (DataController.checkPayment(passengerID,Card)) {
                         JOptionPane.showMessageDialog(null,"Payment Successful!");
                         new Confirm(flightID, passengerID, booking);
                         dispose();
