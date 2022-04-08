@@ -1,61 +1,51 @@
 package view;
 
-import model.Booking;
+import model.*;
+import controller.*;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
 
 public class PayMent extends JFrame{
-    public PayMent(String flightID, String passengerID, Booking A) {
+    public PayMent(String flightID, String passengerID, Booking booking, double totalPrice) {
         setLayout(new BorderLayout());
-        setTitle("PayMent");
-        setSize(1280,960);
+        setTitle("Payment");
+        setSize(1200,675);
+//        setExtendedState(JFrame.MAXIMIZED_BOTH);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         //add logo
         JPanel north=new JPanel();
         north.setLayout(new GridLayout(1,1,0,0));
-        JLabel logo = new JLabel();
-        ImageIcon logo1;
-        logo1 = new ImageIcon("D:/Mealimage/Logo.png");
-        Image logoimg = logo1.getImage();
-        logoimg = logoimg.getScaledInstance(400, 90, Image.SCALE_AREA_AVERAGING);
-        logo1.setImage(logoimg);
-        logo.setIcon(logo1);
-        north.add(logo);
         add(north,BorderLayout.NORTH);
-
-
 
         //center
         JPanel center=new JPanel();
-        center.setLayout(new GridLayout(4,1,0,0));
+        center.setLayout(new GridLayout(3,1,0,0));
         add(center,BorderLayout.CENTER);
 
         JPanel south=new JPanel();
         south.setLayout(new GridLayout(1,1,0,0));
 
-        Font f=new Font (Font.DIALOG, Font.BOLD, 14);
-        Font ff=new Font (Font.DIALOG, Font.BOLD, 20);
+        Font f=new Font (Font.SERIF, Font.BOLD, 14);
+        Font ff=new Font (Font.SERIF, Font.BOLD, 20);
 
 
-
-
-
-        //description
         JPanel intro=new JPanel();
-        JLabel introlabel=new JLabel("Please fill in your bank account and pin to pay the extra fee");
+        JLabel introlabel=new JLabel("Please check your credit card to pay the extra fee");
         introlabel.setHorizontalAlignment(SwingConstants.CENTER);
         introlabel.setFont(ff);
         intro.add(introlabel);
-        center.add(intro);
+        north.add(intro);
 
 
         //total price
-        Double Totalprice = 0.0;
-        String TP = "<html><body>" + "Total Price: "+ Totalprice + "<body></html>";
+        DecimalFormat format = new DecimalFormat("0.00");
+        String TP = "<html><body>" + "Total Price: "+ format.format(new BigDecimal(totalPrice)) + "<body></html>";
         JPanel panTP=new JPanel();
         JLabel lbTP=new JLabel(TP);// label description1
         lbTP.setFont(ff);
@@ -63,60 +53,76 @@ public class PayMent extends JFrame{
         panTP.add(lbTP);
         center.add(panTP);
 
-
         //account
         JPanel account=new JPanel();
-        JTextField acctxt=new JTextField(50);    //创建account文本框
+        JTextField acctxt=new JTextField(30);    //创建account文本框
         acctxt.setFont(f);
-        JLabel acclabel=new JLabel("Account: ");
+
+
+        JLabel acclabel=new JLabel("CreditCardID: ");
         acclabel.setFont(f);
         acclabel.setHorizontalAlignment(SwingConstants.CENTER);
         account.add(acclabel);
         account.add(acctxt);
         center.add(account);
 
-
-        //PIN
-        JPanel password=new JPanel();
-        JTextField passtxt=new JTextField(50);    //创建account文本框
-        passtxt.setFont(f);
-        JLabel passlabel=new JLabel("Password: ");
-        passlabel.setFont(f);
-        password.add(passlabel);
-        password.add(passtxt);
-        center.add(password);
-
-
-
         //south: check and page change
         JPanel button=new JPanel();
-        JButton jbback=new JButton("Back");
-        JButton jbnext=new JButton("Next");
-//        JButton jbclear=new JButton("Clear");
+        JButton jbback=new JButton("Cancel");
+        JButton jbnext=new JButton("Confirm");
 
         jbback.setFont(f);
         jbnext.setFont(f);
-//        jbclear.setFont(f);
 
         button.add(jbback);
         button.add(jbnext);
-//        button.add(jbclear);
 
         south.add(button);
         add(south,BorderLayout.SOUTH);
 
         setVisible(true);
-        this.setLocationRelativeTo(null);
 
         jbback.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(e.getSource()==jbback)
-                {
-                    dispose();
-                    new GourmetMenu(flightID,passengerID,A);
+                if(e.getSource()==jbback) {
+                        new MealWindow(flightID, passengerID, booking);
+                        dispose();
+                }
+            }
+        });
+
+//        jbnext.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                if(e.getSource()==jbnext) {
+//                    if (Integer.parseInt(acctxt.getText()) == passenger.getCreditCardID()) {
+//                        JOptionPane.showMessageDialog(null,"Payment Successful!");
+//                        new MealWindow(flight, passenger, booking);
+//                        dispose();
+//                    }
+//                    else {
+//                        JOptionPane.showMessageDialog(null,"Payment False: The credit card information is incorrect!");
+//                    }
+//                }
+//            }
+//        });
+
+        jbnext.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(e.getSource()==jbnext) {
+                    if (DataController.checkPayment(passengerID,Integer.parseInt(acctxt.getText())) == true) {
+                        JOptionPane.showMessageDialog(null,"Payment Successful!");
+                        new Confirm(flightID, passengerID, booking);
+                        dispose();
+                    }
+                    else {
+                        JOptionPane.showMessageDialog(null,"Payment False: The credit card information is incorrect!");
+                    }
                 }
             }
         });
     }
+
 }

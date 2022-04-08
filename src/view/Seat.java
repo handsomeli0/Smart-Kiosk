@@ -2,8 +2,8 @@ package view;
 
 import controller.DataController;
 import model.Booking;
-import model.Flight;
-import java.io.*;
+import model.Meal;
+
 import javax.swing.*;
 import java.awt.Color;
 import java.awt.Font;
