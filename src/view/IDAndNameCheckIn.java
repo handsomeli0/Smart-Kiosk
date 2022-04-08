@@ -8,7 +8,7 @@ import javax.swing.*;
  * This class is the UI of ID and surname check in.
  *
  * @author Song Yan
- * @version 1.1
+ * @version 1.2
  */
 
 public class IDAndNameCheckIn {
@@ -26,23 +26,23 @@ public class IDAndNameCheckIn {
         label1.setBounds(660,20,icon2.getIconWidth(),icon2.getIconHeight());
 
         JLabel label2 = new JLabel("Please input your surname:");
-        label2.setFont(new Font("微软雅黑",Font.BOLD,30));
+        label2.setFont(new Font("SERIF",Font.BOLD,30));
         label2.setBounds(300,100,800,50);
 
         JTextField textField = new JTextField();
-        textField.setFont(new Font("微软雅黑",Font.BOLD,30));
+        textField.setFont(new Font("SERIF",Font.BOLD,30));
         textField.setBounds(300 ,200,600,50);
 
         JLabel label3 = new JLabel("Please input ID number:");
-        label3.setFont(new Font("微软雅黑",Font.BOLD,30));
+        label3.setFont(new Font("SERIF",Font.BOLD,30));
         label3.setBounds(300,300,800,50);
 
         JTextField textField1 = new JTextField();
-        textField1.setFont(new Font("微软雅黑",Font.BOLD,30));
+        textField1.setFont(new Font("SERIF",Font.BOLD,30));
         textField1.setBounds(300 ,400,600,50);
 
         JButton button = new JButton("Confirm");
-        button.setFont(new Font("微软雅黑",Font.BOLD,20));
+        button.setFont(new Font("SERIF",Font.BOLD,20));
         button.setBounds(300,500,200,50);
         button.addActionListener(e -> {
             Booking a = DataController.getBookingBySurnameIdNum(textField.getText(),textField1.getText());
@@ -55,13 +55,13 @@ public class IDAndNameCheckIn {
             }
             else
             {
-               frame.setVisible(false);
-               new Summary(a);
+                frame.setVisible(false);
+                new Summary(a);
             }
         });
 
         JButton button1 = new JButton("cancel");
-        button1.setFont(new Font("微软雅黑",Font.BOLD,20));
+        button1.setFont(new Font("SERIF",Font.BOLD,20));
         button1.setBounds(700,500,200,50);
         button1.addActionListener(e -> {
             new BookingNumberCheckIn();
