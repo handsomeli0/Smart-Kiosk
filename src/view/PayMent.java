@@ -114,7 +114,7 @@ public class PayMent extends JFrame{
                 if(e.getSource()==jbnext) {
                     if (DataController.checkPayment(passengerID,Integer.parseInt(acctxt.getText())) == true) {
                         JOptionPane.showMessageDialog(null,"Payment Successful!");
-//                        new Confirm(flightID, passengerID, booking);
+                        new Confirm(flightID, passengerID, booking);
                         dispose();
                     }
                     else {
