@@ -12,7 +12,7 @@ public class Summary
         ImageIcon icon1 = new ImageIcon("src\\images\\background1.jpg");
         JLabel label1 = new JLabel(icon1);
         label1.setBounds(0,0,icon1.getIconWidth(),icon1.getIconHeight());
-        ImageIcon icon2 = new ImageIcon("src\\images\\BA.png");
+        ImageIcon icon2 = new ImageIcon("src\\images\\logo.png");
         JLabel label_10 = new JLabel(icon2);
         label_10.setBounds(820,20,icon2.getIconWidth(),icon2.getIconHeight());
         JFrame frame=new JFrame("summary.Summary");
@@ -25,6 +25,7 @@ public class Summary
         JButton B2=new JButton("Return to the last page.");
         B2.setBounds(700,550,200,40);
         B2.addActionListener(e ->{
+            frame.setVisible(false);
             BookingNumberCheckIn BookingNumberCheckIn=new BookingNumberCheckIn();});
         frame.add(B2);
         JPanel panel = new JPanel();
