@@ -18,7 +18,7 @@ public class BookingNumberCheckIn
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(null);
 
-        ImageIcon icon=new ImageIcon("src/images/rectangle.png");
+        ImageIcon icon=new ImageIcon("src/images/circle.png");
         JLabel label=new JLabel(icon);
         label.setBounds(18,87,500,500);
 
