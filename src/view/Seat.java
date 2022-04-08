@@ -36,7 +36,7 @@ public class Seat {
     JLabel im=new JLabel(image);
     ImageIcon plane=new ImageIcon("src/images/plane.png");
     JLabel pl=new JLabel(plane);
-    ImageIcon logo=new ImageIcon("src/images/brand.jpg");
+    ImageIcon logo=new ImageIcon("src/images/logo.png");
     JLabel lo=new JLabel(logo);
 
     JButton[] x=new JButton[100];
@@ -73,7 +73,7 @@ public class Seat {
                         if(DataController.checkPayment(passengerID,Id)) {
                             DataController.updateSeat(flightID, cha);
                             closeThis();
-                            new MealWindow(flightID,passengerID,A);
+                            new Meal(flightID,passengerID,A);
                         }
                         else{
                             JOptionPane.showMessageDialog(frame, "The credit card information you entered is incorrect. ","Missing information", JOptionPane.ERROR_MESSAGE);
@@ -793,7 +793,7 @@ public class Seat {
                         if (bus == 0 && mov == 0 && leg == 0) {
                             DataController.updateSeat(flightID, cha);
                             closeThis();
-                            new MealWindow(flightID,passengerID,A);
+                            new Meal(flightID,passengerID,A);
                         } else {
                             closeThis();
                             formpay(bus, mov, leg, flightID,passengerID,A,cha);
