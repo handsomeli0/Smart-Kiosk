@@ -54,8 +54,8 @@ public class GourmetMenu extends JFrame{
         JPanel south=new JPanel();
         south.setLayout(new GridLayout(2,1,0,0));
 
-        Font f=new Font (Font.DIALOG, Font.BOLD, 14);
-        Font ff=new Font (Font.DIALOG, Font.BOLD, 20);
+        Font f=new Font (Font.SERIF, Font.BOLD, 14);
+        Font ff=new Font (Font.SERIF, Font.BOLD, 20);
 
 
         JPanel intro=new JPanel();
