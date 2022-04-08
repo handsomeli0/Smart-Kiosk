@@ -13,7 +13,7 @@ import java.awt.print.Book;
 
 public class Confirm  {
 
-    public Confirm(Flight flight, Passenger passenger, Booking booking) {
+    public Confirm(String flight, String passenger, Booking booking) {
 
         model.IDdocument iDdocument = DataController.getIDdocument();
 
@@ -73,10 +73,10 @@ public class Confirm  {
         cancel.addActionListener(e -> {new BookingNumberCheckIn();
             frame.setVisible(false);
         });
-        /*back.addActionListener(e -> {new MealWindow(flight,passenger,booking);                    //连接上一个界面
+        back.addActionListener(e -> {new MealWindow(flight,passenger,booking);                    //连接上一个界面
             frame.setVisible(false);
 
-        });*/
+        });
 
         ((JPanel)cp).setOpaque(false); //注意这里，将内容面板设为透明。这样LayeredPane面板中的背景才能显示出来。
 
