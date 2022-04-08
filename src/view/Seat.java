@@ -15,7 +15,7 @@ public class Seat {
     int selected=0,bus=0,mov=0,leg=0,sum,cha=-1;
 
     JFrame frame=new JFrame("Choosing Seat"); //创建Frame窗口
-    JFrame frame1=new JFrame("Pay For");
+    JFrame frame1=new JFrame("Payment Interface");
 
     JLabel lable=new JLabel("Please select your seat!", JLabel.CENTER);
     Font font1=new Font(Font.SERIF, Font.BOLD|Font.ITALIC,80);
@@ -43,7 +43,7 @@ public class Seat {
     JButton con=new JButton("Confirm");
     JButton con1=new JButton("Confirm");
     JButton back2=new JButton("Back");
-    JButton back3=new JButton("Back to main");
+    JButton back3=new JButton("Home Page");
 
     public int formpay(int bus,int mov,int leg,String flightID,String passengerID, Booking A,int cha){
         JLabel id=new JLabel("Credit Card ID:");
@@ -131,7 +131,7 @@ public class Seat {
     public int form(String flightID,String passengerID, Booking A) {
         jp.setLayout(null);
         JButton back=new JButton("Back");
-        JButton back1=new JButton("Back to main");
+        JButton back1=new JButton("Home Page");
         boolean[] seatnum= DataController.getSeatsByFlightID(flightID);
         for(int i=0;i<32;i++)
         {
