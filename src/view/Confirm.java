@@ -2,13 +2,18 @@ package view;
 
 import controller.DataController;
 import model.Booking;
+import model.Flight;
+import model.Passenger;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.print.Book;
 
-public class IDdocument  {
+public class Confirm  {
 
-    public IDdocument() {
+    public Confirm(String flight, String passenger, Booking booking) {
 
         model.IDdocument iDdocument = DataController.getIDdocument();
 
@@ -64,16 +69,13 @@ public class IDdocument  {
         jp3.add(confirm);
         jp3.add(cancel);
         jp3.add(back);
-        confirm.addActionListener(e -> {
-            Booking a = DataController.getBookingBySurnameIdNum(iDdocument.getLastName(),iDdocument.getIdNum());
-            new Summary(a);
-            frame.setVisible(false);
-        });
+        confirm.addActionListener(e -> {});
         cancel.addActionListener(e -> {new BookingNumberCheckIn();
             frame.setVisible(false);
         });
-        back.addActionListener(e -> {new BookingNumberCheckIn();
+        back.addActionListener(e -> {new MealWindow(flight,passenger,booking);                    //连接上一个界面
             frame.setVisible(false);
+
         });
 
         ((JPanel)cp).setOpaque(false); //注意这里，将内容面板设为透明。这样LayeredPane面板中的背景才能显示出来。
