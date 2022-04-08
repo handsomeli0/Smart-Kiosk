@@ -202,9 +202,9 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if ( seatnum[1] != true) {
-                        if(cha!=-1){
-                            x[cha].setBackground(Color.WHITE);
-                        }
+                            if(cha!=-1){
+                                x[cha].setBackground(Color.WHITE);
+                            }
                         JButton x = Seat.this.x[1];
                         x.setBackground(Color.RED);
                         selected = 1;
@@ -224,13 +224,13 @@ public class Seat {
                         if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
-                        selected = 1;
-                        JButton x = Seat.this.x[2];
-                        x.setBackground(Color.RED);
-                        bus = 1;
-                        cha = 2;
-                    }
+                    selected = 1;
+                    JButton x = Seat.this.x[2];
+                    x.setBackground(Color.RED);
+                    bus = 1;
+                    cha = 2;
                 }
+            }
                 catch (Exception e) {
                     System.out.println("Exception occoured : " + e);
                 }
@@ -240,7 +240,7 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if (   seatnum[3] != true) {
-                        if(cha!=-1){
+                          if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
                         selected = 1;
@@ -259,7 +259,7 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if (   seatnum[4] != true) {
-                        if(cha!=-1){
+                          if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
                         selected = 1;
@@ -278,7 +278,7 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if (   seatnum[5] != true) {
-                        if(cha!=-1){
+                          if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
                         selected = 1;
@@ -297,7 +297,7 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if (   seatnum[6] != true) {
-                        if(cha!=-1){
+                          if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
                         selected = 1;
@@ -316,7 +316,7 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if (   seatnum[7] != true) {
-                        if(cha!=-1){
+                          if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
                         selected = 1;
@@ -335,7 +335,7 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if (  seatnum[8] != true) {
-                        if(cha!=-1){
+                          if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
                         selected = 1;
@@ -353,7 +353,7 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if (   seatnum[9] != true) {
-                        if(cha!=-1){
+                          if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
                         selected = 1;
@@ -371,7 +371,7 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if (   seatnum[10] != true) {
-                        if(cha!=-1){
+                          if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
                         selected = 1;
@@ -389,7 +389,7 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if (   seatnum[11] != true) {
-                        if(cha!=-1){
+                          if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
                         selected = 1;
@@ -407,7 +407,7 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if (   seatnum[12] != true) {
-                        if(cha!=-1){
+                          if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
                         selected = 1;
@@ -425,7 +425,7 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if (   seatnum[13] != true) {
-                        if(cha!=-1){
+                          if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
                         selected = 1;
@@ -443,7 +443,7 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if (   seatnum[14] != true) {
-                        if(cha!=-1){
+                          if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
                         selected = 1;
@@ -461,7 +461,7 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if (   seatnum[15] != true) {
-                        if(cha!=-1){
+                          if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
                         selected = 1;
@@ -479,7 +479,7 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if (   seatnum[16] != true) {
-                        if(cha!=-1){
+                          if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
                         selected = 1;
@@ -497,7 +497,7 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if (   seatnum[17] != true) {
-                        if(cha!=-1){
+                          if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
                         selected = 1;
@@ -515,7 +515,7 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if (   seatnum[18] != true) {
-                        if(cha!=-1){
+                          if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
                         selected = 1;
@@ -533,7 +533,7 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if (   seatnum[19] != true) {
-                        if(cha!=-1){
+                          if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
                         selected = 1;
@@ -551,7 +551,7 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if (   seatnum[20] != true) {
-                        if(cha!=-1){
+                          if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
                         selected = 1;
@@ -569,7 +569,7 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if (   seatnum[21] != true) {
-                        if(cha!=-1){
+                          if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
                         selected = 1;
@@ -587,7 +587,7 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if (   seatnum[22] != true) {
-                        if(cha!=-1){
+                          if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
                         selected = 1;
@@ -606,7 +606,7 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if (   seatnum[23] != true) {
-                        if(cha!=-1){
+                          if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
                         selected = 1;
@@ -624,7 +624,7 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if (   seatnum[24] != true) {
-                        if(cha!=-1){
+                          if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
                         selected = 1;
@@ -642,7 +642,7 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if (   seatnum[25] != true) {
-                        if(cha!=-1){
+                          if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
                         selected = 1;
@@ -660,7 +660,7 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if (seatnum[26] != true) {
-                        if(cha!=-1){
+                          if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
                         selected = 1;
@@ -678,7 +678,7 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if (seatnum[27] != true) {
-                        if(cha!=-1){
+                          if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
                         selected = 1;
@@ -696,7 +696,7 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if (   seatnum[28] != true) {
-                        if(cha!=-1){
+                          if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
                         selected = 1;
@@ -714,7 +714,7 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if (   seatnum[29] != true) {
-                        if(cha!=-1){
+                          if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
                         selected = 1;
@@ -732,7 +732,7 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if (   seatnum[30] != true) {
-                        if(cha!=-1){
+                          if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
                         selected = 1;
@@ -750,7 +750,7 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if (seatnum[31] != true) {
-                        if(cha!=-1){
+                          if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
                         selected = 1;
@@ -871,3 +871,4 @@ public class Seat {
         form(flightID,passengerID,A);
     }
 }
+
