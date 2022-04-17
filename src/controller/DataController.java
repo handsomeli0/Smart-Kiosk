@@ -96,11 +96,11 @@ public class DataController {
      */
     public static Booking getBookingBySurnameIdNum(String surname, String IdNum) {
         for (Booking bk : bookings) {
-                Passenger pass = getPassByBooking(bk);
-                if (pass == null)
-                    continue;
-                if (pass.getLastName().equals(surname) && pass.getIdNum().equals(IdNum)) {
-                    return bk;
+            Passenger pass = getPassByBooking(bk);
+            if (pass == null)
+                continue;
+            if (pass.getLastName().equals(surname) && pass.getIdNum().equals(IdNum)) {
+                return bk;
             }
         }
         return null;
