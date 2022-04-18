@@ -417,7 +417,7 @@ public class GourmetMenu extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 if(e.getSource()==jbnext)
                 {
-                    new PayMent(flightID,passengerID,booking,totalPrice);
+                    new Payment(flightID,passengerID,booking,totalPrice);
                     dispose();
                 }
             }

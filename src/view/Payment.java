@@ -10,8 +10,8 @@ import java.awt.event.ActionListener;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 
-public class PayMent extends JFrame{
-    public PayMent(String flightID, String passengerID, Booking booking, double totalPrice) {
+public class Payment extends JFrame{
+    public Payment(String flightID, String passengerID, Booking booking, double totalPrice) {
         setLayout(new BorderLayout());
         setTitle("Payment");
         setSize(1200,675);
