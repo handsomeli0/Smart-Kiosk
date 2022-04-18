@@ -80,7 +80,7 @@ public class GourmetMenu extends JFrame{
         ImageIcon image1;
         image1 = new ImageIcon("src/images/Drink1.png");
         Image img1 = image1.getImage();// 获得此图标的Image
-        img1 = img1.getScaledInstance(210, 130, Image.SCALE_AREA_AVERAGING);
+        img1 = img1.getScaledInstance(100, 97, Image.SCALE_AREA_AVERAGING);
         image1.setImage(img1);
         m1img.setIcon(image1);
         food1.setImage(image1);
@@ -91,7 +91,7 @@ public class GourmetMenu extends JFrame{
         ImageIcon image2;
         image2 = new ImageIcon("src/images/Drink2.png");
         Image img2 = image2.getImage();
-        img2 = img2.getScaledInstance(210, 130, Image.SCALE_AREA_AVERAGING);
+        img2 = img2.getScaledInstance(100, 97, Image.SCALE_AREA_AVERAGING);
         image2.setImage(img2);
         m2img.setIcon(image2);
         food2.setImage(image2);
@@ -102,7 +102,7 @@ public class GourmetMenu extends JFrame{
         ImageIcon image3;
         image3 = new ImageIcon("src/images/Drink3.png");
         Image img3 = image3.getImage();
-        img3 = img3.getScaledInstance(210, 130, Image.SCALE_AREA_AVERAGING);
+        img3 = img3.getScaledInstance(100, 97, Image.SCALE_AREA_AVERAGING);
         image3.setImage(img3);
         m3img.setIcon(image3);
         food3.setImage(image3);
@@ -113,7 +113,7 @@ public class GourmetMenu extends JFrame{
         ImageIcon image4;
         image4 = new ImageIcon("src/images/Food1.png");
         Image img4 = image4.getImage();
-        img4 = img4.getScaledInstance(210, 130, Image.SCALE_AREA_AVERAGING);
+        img4 = img4.getScaledInstance(100, 97, Image.SCALE_AREA_AVERAGING);
         image4.setImage(img4);
         m4img.setIcon(image4);
         food4.setImage(image4);
@@ -124,7 +124,7 @@ public class GourmetMenu extends JFrame{
         ImageIcon image5;
         image5 = new ImageIcon("src/images/Food2.png");
         Image img5 = image5.getImage();
-        img5 = img5.getScaledInstance(210, 130, Image.SCALE_AREA_AVERAGING);
+        img5 = img5.getScaledInstance(100, 97, Image.SCALE_AREA_AVERAGING);
         image5.setImage(img5);
         m5img.setIcon(image5);
         food5.setImage(image5);
@@ -135,7 +135,7 @@ public class GourmetMenu extends JFrame{
         ImageIcon image6;
         image6 = new ImageIcon("src/images/Food3.png");
         Image img6 = image6.getImage();
-        img6 = img6.getScaledInstance(210, 130, Image.SCALE_AREA_AVERAGING);
+        img6 = img6.getScaledInstance(100, 97, Image.SCALE_AREA_AVERAGING);
         image6.setImage(img6);
         m6img.setIcon(image6);
         food6.setImage(image6);
@@ -146,7 +146,7 @@ public class GourmetMenu extends JFrame{
         ImageIcon image7;
         image7 = new ImageIcon("src/images/Snack1.png");
         Image img7 = image7.getImage();
-        img7 = img7.getScaledInstance(210, 130, Image.SCALE_AREA_AVERAGING);
+        img7 = img7.getScaledInstance(100, 97, Image.SCALE_AREA_AVERAGING);
         image7.setImage(img7);
         m7img.setIcon(image7);
         food7.setImage(image7);
@@ -157,7 +157,7 @@ public class GourmetMenu extends JFrame{
         ImageIcon image8;
         image8 = new ImageIcon("src/images/Snack2.png");
         Image img8 = image8.getImage();
-        img8 = img8.getScaledInstance(210, 130, Image.SCALE_AREA_AVERAGING);
+        img8 = img8.getScaledInstance(100, 97, Image.SCALE_AREA_AVERAGING);
         image8.setImage(img8);
         m8img.setIcon(image8);
         food8.setImage(image8);
@@ -414,11 +414,21 @@ public class GourmetMenu extends JFrame{
 
         jbnext.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                if(e.getSource()==jbnext)
-                {
-                    new Payment(flightID,passengerID,booking,totalPrice);
-                    dispose();
+            public void actionPerformed(ActionEvent actionEvent) {
+                try {
+                    if (actionEvent.getSource() == jbnext) {
+                        if(totalPrice != 0) {
+                            new Payment(flightID, passengerID, booking, totalPrice);
+                            dispose();
+                        }
+                        else {
+                            new Confirm(flightID, passengerID, booking);
+                            dispose();
+                        }
+                    }
+                }
+                catch(Exception e){
+                    System.out.println(e);
                 }
             }
         });

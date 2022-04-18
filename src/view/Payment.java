@@ -110,17 +110,22 @@ public class Payment extends JFrame{
 
         jbnext.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                if(e.getSource()==jbnext) {
-                    int Card = Integer.parseInt(acctxt.getText());
-                    if (DataController.checkPayment(passengerID,Card) == true) {
-                        JOptionPane.showMessageDialog(null,"Payment Successful!");
-                        new Confirm(flightID, passengerID, booking);
-                        dispose();
+            public void actionPerformed(ActionEvent actionEvent) {
+                try{
+                    if (actionEvent.getSource() == jbnext) {
+                        int Card = Integer.parseInt(acctxt.getText());
+                        if (DataController.checkPayment(passengerID, Card)) {
+                            JOptionPane.showMessageDialog(null, "Payment Successful!");
+                            new Confirm(flightID, passengerID, booking);
+                            dispose();
+                        }
+                        else {
+                            JOptionPane.showMessageDialog(null, "Payment False: The credit card information is incorrect!");
+                        }
                     }
-                    else {
-                        JOptionPane.showMessageDialog(null,"Payment False: The credit card information is incorrect!");
-                    }
+                }
+                catch (Exception e) {
+                    System.out.println(e);
                 }
             }
         });

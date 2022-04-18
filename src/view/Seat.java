@@ -792,8 +792,8 @@ public class Seat {
                     if(selected!=0) {
                         if (bus == 0 && mov == 0 && leg == 0) {
                             DataController.updateSeat(flightID, cha);
-                            closeThis();
                             new MealWindow(flightID,passengerID,A);
+                            closeThis();
                         } else {
                             closeThis();
                             formpay(bus, mov, leg, flightID,passengerID,A,cha);

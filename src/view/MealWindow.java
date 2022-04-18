@@ -75,7 +75,7 @@ public class MealWindow extends JFrame {
         ImageIcon image1;
         image1 = new ImageIcon("src/images/Steak with Onion.jpg");
         Image img1 = image1.getImage();// get Image
-        img1 = img1.getScaledInstance(270, 170, Image.SCALE_AREA_AVERAGING);
+        img1 = img1.getScaledInstance(216, 144, Image.SCALE_AREA_AVERAGING);
         image1.setImage(img1);
         m1img.setIcon(image1);
 //        meal1.setImage(image1);
@@ -87,7 +87,7 @@ public class MealWindow extends JFrame {
         ImageIcon image2;
         image2 = new ImageIcon("src/images/Halal meal.jpg");
         Image img2 = image2.getImage();
-        img2 = img2.getScaledInstance(270, 170, Image.SCALE_AREA_AVERAGING);
+        img2 = img2.getScaledInstance(216, 144, Image.SCALE_AREA_AVERAGING);
         image2.setImage(img2);
         m2img.setIcon(image2);
 //        meal2.setImage(image2);
@@ -99,7 +99,7 @@ public class MealWindow extends JFrame {
         ImageIcon image3;
         image3 = new ImageIcon("src/images/Vegetarian Oriental Meal.jpg");
         Image img3 = image3.getImage();
-        img3 = img3.getScaledInstance(270, 170, Image.SCALE_AREA_AVERAGING);
+        img3 = img3.getScaledInstance(216, 144, Image.SCALE_AREA_AVERAGING);
         image3.setImage(img3);
         m3img.setIcon(image3);
 //        meal3.setImage(image3);
@@ -111,7 +111,7 @@ public class MealWindow extends JFrame {
         ImageIcon image4;
         image4 = new ImageIcon("src/images/Kid's meal.jpg");
         Image img4 = image4.getImage();
-        img4 = img4.getScaledInstance(270, 170, Image.SCALE_AREA_AVERAGING);
+        img4 = img4.getScaledInstance(216, 144, Image.SCALE_AREA_AVERAGING);
         image4.setImage(img4);
         m4img.setIcon(image4);
 //        meal4.setImage(image4);
