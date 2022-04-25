@@ -25,11 +25,11 @@ public class DataController {
     // Initially read arraylists from JSON files
     static {
         try {
-            bookings = (ArrayList<Booking>) JSON.parseArray(readJSON("Booking.json"), Booking.class);
-            flights = (ArrayList<Flight>) JSON.parseArray(readJSON("Flight.json"), Flight.class);
-            passengers = (ArrayList<Passenger>) JSON.parseArray(readJSON("Passenger.json"), Passenger.class);
-            meals = (ArrayList<Meal>) JSON.parseArray(readJSON("Meal.json"), Meal.class);
-            idDocument = (IDdocument) JSON.parseObject(readJSON("IDdocument.json"), IDdocument.class);
+            bookings = (ArrayList<Booking>) JSON.parseArray(FileIOController.readJSON("Booking.json"), Booking.class);
+            flights = (ArrayList<Flight>) JSON.parseArray(FileIOController.readJSON("Flight.json"), Flight.class);
+            passengers = (ArrayList<Passenger>) JSON.parseArray(FileIOController.readJSON("Passenger.json"), Passenger.class);
+            meals = (ArrayList<Meal>) JSON.parseArray(FileIOController.readJSON("Meal.json"), Meal.class);
+            idDocument = (IDdocument) JSON.parseObject(FileIOController.readJSON("IDdocument.json"), IDdocument.class);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -37,39 +37,7 @@ public class DataController {
 
     private DataController(){}
 
-    /**
-     * This method is used to read the data from a json file.
-     * @param name file name
-     * @return data of the file in String format
-     * @throws IOException IOException
-     */
-    private static String readJSON(String name) throws IOException {
-        String line = "";
-        FileReader fileReader = new FileReader("./data/"+name);
-        BufferedReader br = new BufferedReader(fileReader);
-        StringBuffer sb = new StringBuffer();
-        while ((line = br.readLine()) != null) {
-            sb.append(line);
-        }
-        br.close();
-        fileReader.close();
 
-        return sb.toString();
-    }
-
-    /**
-     * Write String data into a json file
-     * @param name filename
-     * @param str data to be written
-     * @throws IOException IOException
-     */
-    private static void writeJSON(String name, String str) throws IOException {
-        FileWriter fw = new FileWriter("./data/"+name);
-        BufferedWriter bw = new BufferedWriter(fw);
-        bw.write(str);
-        bw.close();
-        fw.close();
-    }
 
     // checkin
 
@@ -183,7 +151,7 @@ public class DataController {
         // change the seat to true
         DataController.getFlightByFlightID(flightID).getSeat()[index] = true;
         // write the new flights into json file
-        DataController.writeJSON("Flight.json", JSON.toJSONString(flights));
+        FileIOController.writeJSON("./data/Flight.json", JSON.toJSONString(flights));
     }
 
 
