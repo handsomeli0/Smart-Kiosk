@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 import java.text.DecimalFormat;
 
 public class GourmetMenu extends JFrame{
-    public GourmetMenu(String flightID, String passengerID, Booking booking, double totalPrice,int seatnum,int seatlevel,int payment)
+    public GourmetMenu(String flightID, String passengerID, Booking booking, double totalPrice,int seatnum,int seatlevel,double payment)
     {
         setLayout(new BorderLayout());
         setTitle("Gourmet Menu");

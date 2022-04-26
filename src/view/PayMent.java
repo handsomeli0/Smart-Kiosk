@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 import java.text.DecimalFormat;
 
 public class PayMent extends JFrame{
-    public PayMent(String flightID, String passengerID, Booking booking, double totalPrice,int seatnum,int seatlevel,int payment) {
+    public PayMent(String flightID, String passengerID, Booking booking, double totalPrice,int seatnum,int seatlevel,double payment) {
         setLayout(new BorderLayout());
         setTitle("Payment");
         setSize(1200,675);

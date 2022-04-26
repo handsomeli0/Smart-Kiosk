@@ -13,7 +13,7 @@ import java.awt.print.Book;
 
 public class Confirm  {
 
-    public Confirm(String flight, String passenger, Booking booking,int seatnum,int seatlevel,int payment) {
+    public Confirm(String flight, String passenger, Booking booking,int seatnum,int seatlevel,double payment) {
 
         model.IDdocument iDdocument = DataController.getIDdocument();
 

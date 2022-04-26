@@ -8,7 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MealWindow extends JFrame {
-    public MealWindow(String flightID, String passengerID, Booking booking,int seatnum,int seatlevel,int payment) {
+    public MealWindow(String flightID, String passengerID, Booking booking,int seatnum,int seatlevel,double payment) {
 
         setLayout(new BorderLayout());
         setTitle("Meal");

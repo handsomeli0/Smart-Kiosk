@@ -802,7 +802,7 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if(selected!=0) {
-                        int payment=bus*100+mov*20+leg*60;
+                        double payment=bus*100+mov*20+leg*60;
  //                       if (bus == 0 && mov == 0 && leg == 0) {
                             DataController.updateSeat(flightID, cha);
                             closeThis();
