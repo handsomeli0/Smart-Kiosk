@@ -1,16 +1,21 @@
 package model;
 
+import com.alibaba.fastjson.*;
+
+import java.util.ArrayList;
+
 /**
  * This is the entity class of booking
  * @author Minghan Li
- * @version 1.1
+ * @version 2.0
  */
 public class Booking {
     private String bookingNum;
     private String flightID;
     private String passengerID;
     private String tagNum;
-    private String baggageNum;
+    private String ticketNum;
+    private String bagDropCounterNum;
 
     public String getBookingNum() {
         return bookingNum;
@@ -44,12 +49,20 @@ public class Booking {
         this.tagNum = tagNum;
     }
 
-    public String getBaggageNum() {
-        return baggageNum;
+    public String getTicketNum() {
+        return ticketNum;
     }
 
-    public void setBaggageNum(String baggageNum) {
-        this.baggageNum = baggageNum;
+    public void setTicketNum(String ticketNum) {
+        this.ticketNum = ticketNum;
+    }
+
+    public String getBagDropCounterNum() {
+        return bagDropCounterNum;
+    }
+
+    public void setBagDropCounterNum(String bagDropCounterNum) {
+        this.bagDropCounterNum = bagDropCounterNum;
     }
 
     @Override
@@ -59,7 +72,8 @@ public class Booking {
                 ", flightID='" + flightID + '\'' +
                 ", passengerID='" + passengerID + '\'' +
                 ", tagNum='" + tagNum + '\'' +
-                ", baggageNum='" + baggageNum + '\'' +
+                ", ticketNum='" + ticketNum + '\'' +
+                ", bagDropCounterNum='" + bagDropCounterNum + '\'' +
                 '}';
     }
 }
