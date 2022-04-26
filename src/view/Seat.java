@@ -45,90 +45,92 @@ public class Seat {
     JButton back2=new JButton("Back");
     JButton back3=new JButton("Home Page");
 
-    public int formpay(int bus,int mov,int leg,String flightID,String passengerID, Booking A,int cha){
-        JLabel id=new JLabel("Credit Card ID:");
-        JTextField ID=new JTextField(20);
+//    public int formpay(int bus,int mov,int leg,String flightID,String passengerID, Booking A,int cha){
+//        JLabel id=new JLabel("Credit Card ID:");
+//        JTextField ID=new JTextField(20);
+//
+//        jp2.setLayout(null);
+//        JLabel lable1=new JLabel("You need to pay " + (bus*100+mov*20+leg*60)+" dollars extra!", JLabel.CENTER);
+//        lable1.setFont(font2);
+//        lable1.setForeground(Color.white);
+//        jp2.add(lable1);
+//        lable1.setBounds(0,0,900,100);
+//
+//        id.setFont(font3);
+//        jp2.add(id);
+//        jp2.add(ID);
+//        id.setBounds(360,275,300,40);
+//        ID.setBounds(500,280,300,30);
+//
+//        con1.addActionListener(new ActionListener() {
+//            public void actionPerformed(ActionEvent actionEvent) {
+//                try{
+//                    if("".equals(ID.getText())){
+//                        JOptionPane.showMessageDialog(frame, "Please enter your credit card information. ","Missing information", JOptionPane.ERROR_MESSAGE);
+//                    }
+//                    else{
+//                        int Id= Integer.parseInt(ID.getText().toString());
+//                        if(DataController.checkPayment(passengerID,Id)) {
+//                            new MealWindow(flightID,passengerID,A);
+//                            DataController.updateSeat(flightID, cha);
+//                            closeThis();
+//                        }
+//                        else{
+//                            JOptionPane.showMessageDialog(frame, "The credit card information you entered is incorrect. ","Missing information", JOptionPane.ERROR_MESSAGE);
+//                        }
+//                    }
+//                }
+//                catch (Exception e) {
+//                    System.out.println("Exception occoured : " + e);
+//                }
+//            }
+//        });
+//        back2.addActionListener(new ActionListener() {
+//            public void actionPerformed(ActionEvent actionEvent) {
+//                try{
+//                    new Seat(A);
+//                    closeThis();
+//                }
+//                catch (Exception e) {
+//                    System.out.println("Exception occoured : " + e);
+//                }
+//            }
+//        });
+//        back3.addActionListener(new ActionListener() {
+//            public void actionPerformed(ActionEvent actionEvent) {
+//                try{
+//                    new BookingNumberCheckIn();
+//                    closeThis();
+//                }
+//                catch (Exception e) {
+//                    System.out.println("Exception occoured : " + e);
+//                }
+//
+//            }
+//        });
+//        con1.setBounds(540, 600, 120, 30);
+//        jp2.add(con1);
+//
+//        back2.setBounds(200,600,120,30);
+//        back3.setBounds(900,600,120,30);
+//        jp2.add(back2);
+//        jp2.add(back3);
+//
+//        lo.setBounds(820,10,350,67);
+//        jp2.add(lo);
+//        im.setBounds(0,0,1200,675);
+//        jp2.add(im);
+//
+//        frame1.add(jp2);
+//        frame1.setBounds(0, 0, 1200, 675);
+//        frame1.setVisible(true);
+//        frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        return 0;
+//    }
 
-        jp2.setLayout(null);
-        JLabel lable1=new JLabel("You need to pay " + (bus*100+mov*20+leg*60)+" dollars extra!", JLabel.CENTER);
-        lable1.setFont(font2);
-        lable1.setForeground(Color.white);
-        jp2.add(lable1);
-        lable1.setBounds(0,0,900,100);
-
-        id.setFont(font3);
-        jp2.add(id);
-        jp2.add(ID);
-        id.setBounds(360,275,300,40);
-        ID.setBounds(500,280,300,30);
-
-        con1.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent actionEvent) {
-                try{
-                    if("".equals(ID.getText())){
-                        JOptionPane.showMessageDialog(frame, "Please enter your credit card information. ","Missing information", JOptionPane.ERROR_MESSAGE);
-                    }
-                    else{
-                        int Id= Integer.parseInt(ID.getText().toString());
-                        if(DataController.checkPayment(passengerID,Id)) {
-                            new MealWindow(flightID,passengerID,A);
-                            DataController.updateSeat(flightID, cha);
-                            closeThis();
-                        }
-                        else{
-                            JOptionPane.showMessageDialog(frame, "The credit card information you entered is incorrect. ","Missing information", JOptionPane.ERROR_MESSAGE);
-                        }
-                    }
-                }
-                catch (Exception e) {
-                    System.out.println("Exception occoured : " + e);
-                }
-            }
-        });
-        back2.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent actionEvent) {
-                try{
-                    new Seat(flightID,passengerID,A);
-                    closeThis();
-                }
-                catch (Exception e) {
-                    System.out.println("Exception occoured : " + e);
-                }
-            }
-        });
-        back3.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent actionEvent) {
-                try{
-                    new BookingNumberCheckIn();
-                    closeThis();
-                }
-                catch (Exception e) {
-                    System.out.println("Exception occoured : " + e);
-                }
-
-            }
-        });
-        con1.setBounds(540, 600, 120, 30);
-        jp2.add(con1);
-
-        back2.setBounds(200,600,120,30);
-        back3.setBounds(900,600,120,30);
-        jp2.add(back2);
-        jp2.add(back3);
-
-        lo.setBounds(820,10,350,67);
-        jp2.add(lo);
-        im.setBounds(0,0,1200,675);
-        jp2.add(im);
-
-        frame1.add(jp2);
-        frame1.setBounds(0, 0, 1200, 675);
-        frame1.setVisible(true);
-        frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        return 0;
-    }
-
-    public int form(String flightID,String passengerID, Booking A) {
+    public int form(Booking A) {
+        String flightID=A.getFlightID();
+        String passengerID=A.getPassengerID();
         jp.setLayout(null);
         JButton back=new JButton("Back");
         JButton back1=new JButton("Home Page");
@@ -800,14 +802,16 @@ public class Seat {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     if(selected!=0) {
-                        if (bus == 0 && mov == 0 && leg == 0) {
+                        int payment=bus*100+mov*20+leg*60;
+ //                       if (bus == 0 && mov == 0 && leg == 0) {
                             DataController.updateSeat(flightID, cha);
                             closeThis();
-                            new MealWindow(flightID,passengerID,A);
-                        } else {
-                            closeThis();
-                            formpay(bus, mov, leg, flightID,passengerID,A,cha);
-                        }
+                            new MealWindow(flightID,passengerID,A,cha,bus,payment);
+ //                       }
+//                        else {
+//                            closeThis();
+//                            formpay(bus, mov, leg, flightID,passengerID,A,cha);
+//                        }
                     }
                     else{
                         JOptionPane.showMessageDialog(frame, "You have not chosen a seat！","Missing information", JOptionPane.ERROR_MESSAGE);
@@ -891,9 +895,9 @@ public class Seat {
         frame.dispose();
         frame1.dispose();
     }
-    public Seat(String flightID, String passengerID, Booking A)
+    public Seat(Booking A)
     {
-        form(flightID,passengerID,A);
+        form(A);
     }
 }
 

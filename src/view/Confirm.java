@@ -13,7 +13,7 @@ import java.awt.print.Book;
 
 public class Confirm  {
 
-    public Confirm(String flight, String passenger, Booking booking) {
+    public Confirm(String flight, String passenger, Booking booking,int seatnum,int seatlevel,int payment) {
 
         model.IDdocument iDdocument = DataController.getIDdocument();
 
@@ -73,7 +73,7 @@ public class Confirm  {
         cancel.addActionListener(e -> {new BookingNumberCheckIn();
             frame.setVisible(false);
         });
-        back.addActionListener(e -> {new MealWindow(flight,passenger,booking);                    //连接上一个界面
+        back.addActionListener(e -> {new MealWindow(flight,passenger,booking,seatnum,seatlevel,payment);                    //连接上一个界面
             frame.setVisible(false);
 
         });

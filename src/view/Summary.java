@@ -20,7 +20,7 @@ public class Summary
         B1.setBounds(200,550,200,40);
         B1.addActionListener(e ->{
             frame.setVisible(false);
-            Seat seat=new Seat(A.getFlightID(),A.getPassengerID(),A);});
+            Seat seat=new Seat(A);});
         frame.add(B1);
         JButton B2=new JButton("Return to the last page.");
         B2.setBounds(700,550,200,40);
