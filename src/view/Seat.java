@@ -132,6 +132,16 @@ public class Seat {
         jp.setLayout(null);
         JButton back=new JButton("Back");
         JButton back1=new JButton("Home Page");
+        JButton exp=new JButton();
+        JButton exp1=new JButton();
+        JButton exp2=new JButton();
+        exp.setBackground(Color.WHITE);
+        exp1.setBackground(Color.RED);
+        exp2.setBackground(Color.BLUE);
+        JLabel exptext=new JLabel("Unselected seats", JLabel.LEFT);
+        JLabel exptext1=new JLabel("Seats chosen by someone else", JLabel.LEFT);
+        JLabel exptext2=new JLabel("The seat you have chosen", JLabel.LEFT);
+
         boolean[] seatnum= DataController.getSeatsByFlightID(flightID);
         for(int i=0;i<32;i++)
         {
@@ -442,7 +452,7 @@ public class Seat {
         x[14].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
-                    if (   seatnum[14] != true) {
+                    if ( seatnum[14] != true) {
                           if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
@@ -828,6 +838,12 @@ public class Seat {
         back1.setBounds(800,600,120,30);
         jp.add(back);
         jp.add(back1);
+        exp.setBounds(880, 100, 20, 20);
+        exp1.setBounds(880, 130, 20, 20);
+        exp2.setBounds(880, 160, 20, 20);
+        jp.add(exp);
+        jp.add(exp1);
+        jp.add(exp2);
 
         lable.setFont(font1);
         lable.setForeground(Color.white);
@@ -841,6 +857,15 @@ public class Seat {
         lable3.setForeground(Color.BLACK);
         jp.add(lable3);
         lable3.setBounds(530,220,200,20);
+        exptext.setFont(font3);
+        exptext1.setFont(font3);
+        exptext2.setFont(font3);
+        jp.add(exptext);
+        jp.add(exptext1);
+        jp.add(exptext2);
+        exptext.setBounds(910,100,200,20);
+        exptext1.setBounds(910,130,300,20);
+        exptext2.setBounds(910,160,300,20);
 
         ne.setBounds(350,450,110,20);
         jp.add(ne);
