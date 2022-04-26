@@ -2,6 +2,8 @@ package controller;
 
 import model.*;
 
+import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.*;
 import java.util.ArrayList;
 
@@ -36,6 +38,23 @@ public class DataController {
     }
 
     private DataController(){}
+
+    public static BufferedImage createImage(String[] strs) {
+        // set size
+        int width = 600, height = 400;
+        BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+        Graphics graphics = image.getGraphics();
+        // padding
+        graphics.fillRect(0, 0, width, height);
+        // font size, color
+        graphics.setFont(new Font("Arial", Font.BOLD, 20));
+        graphics.setColor(Color.BLACK);
+        for (int i = 0; i < strs.length; i++) {
+            graphics.drawString(strs[i], 150, 70 + (i + 1) * 30);
+        }
+        graphics.dispose();
+        return image;
+    }
 
 
 

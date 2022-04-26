@@ -1,5 +1,8 @@
 package controller;
 
+import javax.imageio.ImageIO;
+import javax.imageio.stream.ImageOutputStream;
+import java.awt.image.BufferedImage;
 import java.io.*;
 
 public class FileIOController {
@@ -38,5 +41,26 @@ public class FileIOController {
         bw.write(str);
         bw.close();
         fw.close();
+    }
+
+    /**
+     * Write strings into an image file.
+     *
+     * @param name file name
+     * @param strs Strings to be written. Each element corresponds to one line.
+     * @throws IOException IOException
+     */
+    protected static void writeImage(String name, String[] strs) throws IOException {
+        BufferedImage image = DataController.createImage(strs);
+        File file = new File("./peripherals/");
+        String fileName = name + ".jpg";
+        File jpgFile = new File(file, fileName);
+        if (!jpgFile.exists()) {
+            jpgFile.createNewFile();
+        }
+        ImageOutputStream imageOutputStream = ImageIO.createImageOutputStream(jpgFile);
+
+        ImageIO.write(image, "jpg", imageOutputStream);
+        imageOutputStream.close();
     }
 }
