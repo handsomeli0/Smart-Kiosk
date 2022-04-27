@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 import java.text.DecimalFormat;
 
 public class PayMent extends JFrame{
-    public PayMent(String flightID, String passengerID, Booking booking, double totalPrice) {
+    public PayMent(String flightID, String passengerID, Booking booking, double totalPrice,int seatnum,int seatlevel,double payment) {
         setLayout(new BorderLayout());
         setTitle("Payment");
         setSize(1200,675);
@@ -86,7 +86,7 @@ public class PayMent extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(e.getSource()==jbback) {
-                        new MealWindow(flightID, passengerID, booking);
+                        new MealWindow(flightID, passengerID, booking,seatnum,seatlevel,payment);
                         dispose();
                 }
             }
@@ -114,7 +114,7 @@ public class PayMent extends JFrame{
                 if(e.getSource()==jbnext) {
                     if (DataController.checkPayment(passengerID,Integer.parseInt(acctxt.getText())) == true) {
                         JOptionPane.showMessageDialog(null,"Payment Successful!");
-                        new Confirm(flightID, passengerID, booking);
+                        new Confirm(flightID, passengerID, booking,seatnum,seatlevel,payment);
                         dispose();
                     }
                     else {

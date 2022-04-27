@@ -1,6 +1,7 @@
 package view;
 
 import controller.DataController;
+import controller.PeripheralController;
 import model.Booking;
 import model.Flight;
 import model.Passenger;
@@ -10,10 +11,11 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.print.Book;
+import java.io.IOException;
 
 public class Confirm  {
 
-    public Confirm(String flight, String passenger, Booking booking) {
+    public Confirm(String flight, String passenger, Booking booking, int seatnum, int seatlevel, double payment) {
 
         model.IDdocument iDdocument = DataController.getIDdocument();
 
@@ -69,11 +71,19 @@ public class Confirm  {
         jp3.add(confirm);
         jp3.add(cancel);
         jp3.add(back);
-        confirm.addActionListener(e -> {});
+        confirm.addActionListener(e -> {
+            try {
+                PeripheralController.printBoardingPass(booking, seatlevel, seatnum);
+                PeripheralController.printTag(booking);
+                PeripheralController.printTicket(booking);
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
+        });
         cancel.addActionListener(e -> {new BookingNumberCheckIn();
             frame.setVisible(false);
         });
-        back.addActionListener(e -> {new MealWindow(flight,passenger,booking);                    //连接上一个界面
+        back.addActionListener(e -> {new MealWindow(flight,passenger,booking,seatnum,seatlevel,payment);                    //连接上一个界面
             frame.setVisible(false);
 
         });

@@ -8,7 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MealWindow extends JFrame {
-    public MealWindow(String flightID, String passengerID, Booking booking) {
+    public MealWindow(String flightID, String passengerID, Booking booking,int seatnum,int seatlevel,double payment) {
 
         setLayout(new BorderLayout());
         setTitle("Meal");
@@ -224,7 +224,7 @@ public class MealWindow extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (e.getSource() == jbback) {
-                    new Seat(flightID,passengerID,booking);
+                    new Seat(booking);
                     dispose();
                 }
             }
@@ -233,7 +233,7 @@ public class MealWindow extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (e.getSource() == jbnext) {
-                    new GourmetMenu(flightID,passengerID,booking,totalPrice);
+                    new GourmetMenu(flightID,passengerID,booking,totalPrice,seatnum,seatlevel,payment);
                     dispose();
                 }
             }
