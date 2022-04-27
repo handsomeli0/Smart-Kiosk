@@ -19,8 +19,4 @@ public class FinalPage {
 
     }
 
-    public static void main(String args[])
-    {
-        new FinalPage();
-    }
 }
