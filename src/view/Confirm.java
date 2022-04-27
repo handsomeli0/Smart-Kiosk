@@ -85,6 +85,8 @@ public class Confirm  {
                 PeripheralController.printBoardingPass(booking, seatlevel, seatnum);
                 PeripheralController.printTag(booking);
                 PeripheralController.printTicket(booking);
+                new FinalPage();
+                frame.setVisible(false);
             } catch (IOException ioException) {
                 ioException.printStackTrace();
             }
