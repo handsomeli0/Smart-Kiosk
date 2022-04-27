@@ -4,6 +4,12 @@ import javax.imageio.ImageIO;
 import javax.imageio.stream.ImageOutputStream;
 import java.awt.image.BufferedImage;
 import java.io.*;
+/**
+ * This class is used to manage peripherals.
+ *
+ * @author Minghan Li
+ * @version 1.1
+ */
 
 public class FileIOController {
 
