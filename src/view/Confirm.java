@@ -40,7 +40,7 @@ public class Confirm  {
         txtfield1.setHorizontalAlignment(JTextField.CENTER);
         JTextField txtfield2=new JTextField();//创建文本框
         txtfield2.setEditable(false);
-        txtfield2.setText("Tips: Please check your flight reservation information and put your ID card into the scanning box for registration.");
+        txtfield2.setText("Tips: Please check your flight booking information and put your ID card into the scanning box for check-in.");
         txtfield2.setHorizontalAlignment(JTextField.CENTER);
 
         JPanel jp1=new JPanel();                 //创建三个面板
