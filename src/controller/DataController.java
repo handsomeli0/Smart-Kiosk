@@ -191,4 +191,81 @@ public class DataController {
         }
         return false;
     }
+
+    // print
+
+    /**
+     * Get passenger name by booking information
+     *
+     * @param bk booking
+     * @return passenger name
+     */
+    public static String getNameByBooking(Booking bk) {
+        for (Passenger p : passengers) {
+            if (p.getPassengerID().equals(bk.getPassengerID())) {
+                return p.getFirstName() + " " + p.getLastName();
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Get destination by booking information.
+     *
+     * @param bk booking
+     * @return destination
+     */
+    public static String getDestinationByBooking(Booking bk) {
+        for (Flight flight : flights) {
+            if (flight.getFlightID().equals(bk.getFlightID())) {
+                return flight.getDestination();
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Get gate number by booking information
+     *
+     * @param bk booking
+     * @return gate
+     */
+    public static String getGateByBooking(Booking bk) {
+        for (Flight flight : flights) {
+            if (flight.getFlightID().equals(bk.getFlightID())) {
+                return flight.getGate();
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Get date of flight by booking information
+     *
+     * @param bk booking
+     * @return date
+     */
+    public static String getDateByBooking(Booking bk) {
+        for (Flight flight : flights) {
+            if (flight.getFlightID().equals(bk.getFlightID())) {
+                return flight.getDate();
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Get boarding time by booking information
+     *
+     * @param bk booking
+     * @return boarding time
+     */
+    public static String getTimeByBooking(Booking bk) {
+        for (Flight flight : flights) {
+            if (flight.getFlightID().equals(bk.getFlightID())) {
+                return flight.getBoardingTime();
+            }
+        }
+        return null;
+    }
 }
