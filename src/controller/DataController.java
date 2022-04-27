@@ -13,7 +13,7 @@ import com.alibaba.fastjson.JSON;
  * This class is used to manage data.
  *
  * @author Minghan Li
- * @version 1.1
+ * @version 2.0
  */
 
 public class DataController {
@@ -39,6 +39,12 @@ public class DataController {
 
     private DataController(){}
 
+    /**
+     * Create a BufferedImage with strs shown on it.
+     *
+     * @param strs Strings to be shown.
+     * @return BufferedImage
+     */
     public static BufferedImage createImage(String[] strs) {
         // set size
         int width = 600, height = 400;
