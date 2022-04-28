@@ -7,7 +7,7 @@ public class GourmetFood {
     private String type;
     private double price;
     private String description;
-    private ImageIcon image;
+    private String image;
     private int count;
 
     public String getName() {
@@ -36,13 +36,12 @@ public class GourmetFood {
         this.description = description;
     }
 
-    public ImageIcon getImage() {
+    public String getImage() {
         return image;
     }
-    public void setImage(ImageIcon image) {
+    public void setImage(String image) {
         this.image = image;
     }
-
     public int getCount() {
         return count;
     }
