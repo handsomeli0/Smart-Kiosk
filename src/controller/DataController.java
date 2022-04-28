@@ -23,6 +23,7 @@ public class DataController {
     private static ArrayList<Passenger> passengers;
     private static ArrayList<Meal> meals;
     private static IDdocument idDocument;
+    private static ArrayList<GourmetFood> gourmetFoods;
 
     // Initially read arraylists from JSON files
     static {
@@ -32,6 +33,7 @@ public class DataController {
             passengers = (ArrayList<Passenger>) JSON.parseArray(FileIOController.readJSON("Passenger.json"), Passenger.class);
             meals = (ArrayList<Meal>) JSON.parseArray(FileIOController.readJSON("Meal.json"), Meal.class);
             idDocument = (IDdocument) JSON.parseObject(FileIOController.readJSON("IDdocument.json"), IDdocument.class);
+            gourmetFoods = (ArrayList<GourmetFood>) JSON.parseArray(FileIOController.readJSON("GourmetFood.json"),GourmetFood.class);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -79,6 +81,25 @@ public class DataController {
         }
         return null;
 
+    }
+
+    public static GourmetFood getGourmetFood(int num)
+    {
+        return gourmetFoods.get(num);
+    }
+
+    public static Meal getMeal(int num){return meals.get(num);}
+
+    public static void addCount (int num) throws IOException{
+        DataController.gourmetFoods.get(num).setCount(DataController.gourmetFoods.get(num).getCount()+1);
+        FileIOController.writeJSON("./data/GourmetFood.json", JSON.toJSONString(gourmetFoods));
+    }
+
+    public static void setCountToNull () throws IOException{
+        for(int i = 0; i<gourmetFoods.size(); i++) {
+            DataController.gourmetFoods.get(i).setCount(0);
+        }
+        FileIOController.writeJSON("./data/GourmetFood.json", JSON.toJSONString(gourmetFoods));
     }
 
     /**

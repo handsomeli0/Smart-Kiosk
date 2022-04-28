@@ -7,8 +7,8 @@ public class GourmetFood {
     private String type;
     private double price;
     private String description;
-    private ImageIcon image;
-//    private int count=0;
+    private String image;
+    private int count=0;
 
     public String getName() {
         return name;
@@ -36,20 +36,18 @@ public class GourmetFood {
         this.description = description;
     }
 
-    public ImageIcon getImage() {
+    public String getImage() {
         return image;
     }
-    public void setImage(ImageIcon image) {
+    public void setImage(String image) {
         this.image = image;
     }
-
-
-//    public int getCount() {
-//        return count;
-//    }
-//    public void setCount(int count) {
-//        this.count = count;
-//    }
+    public int getCount() {
+        return count;
+    }
+    public void setCount(int count) {
+        this.count = count;
+    }
 
     @Override
     public String toString() {

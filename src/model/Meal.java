@@ -1,7 +1,5 @@
 package model;
 
-import java.util.Arrays;
-
 /**
  * This is the entity class of meal
  * @author Minghan Li
@@ -9,9 +7,6 @@ import java.util.Arrays;
  */
 public class Meal {
     private String name;
-    private String type;
-    private String[] extraOptions;
-    private double[] price;
     private String description;
     private String image;
 
@@ -23,29 +18,6 @@ public class Meal {
         this.name = name;
     }
 
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String[] getExtraOptions() {
-        return extraOptions;
-    }
-
-    public void setExtraOptions(String[] extraOptions) {
-        this.extraOptions = extraOptions;
-    }
-
-    public double[] getPrice() {
-        return price;
-    }
-
-    public void setPrice(double[] price) {
-        this.price = price;
-    }
 
     public String getDescription() {
         return description;
@@ -67,9 +39,6 @@ public class Meal {
     public String toString() {
         return "Meal{" +
                 "name='" + name + '\'' +
-                ", type='" + type + '\'' +
-                ", extraOptions=" + Arrays.toString(extraOptions) +
-                ", price=" + Arrays.toString(price) +
                 ", description='" + description + '\'' +
                 ", image='" + image + '\'' +
                 '}';
