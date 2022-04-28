@@ -36,7 +36,12 @@ public class Confirm  {
         txtfield1.setEditable(false);
         txtfield1.setText("Put your ID document here and click confirm");
         txtfield1.setHorizontalAlignment(JTextField.CENTER);
-
+        JLabel label_1=new JLabel("The seat you have chosen:");
+        label_1.setBounds(20,120,400,30);
+        label_1.setFont(new Font("SERIF", Font.BOLD, 25));
+        JLabel label_2=new JLabel("The food you have chosen:");
+        label_2.setBounds(200,120,400,30);
+        label_2.setFont(new Font("SERIF", Font.BOLD, 25));
         JPanel jp1=new JPanel();                 //创建三个面板
         JPanel jp2=new JPanel();
         JPanel jp3=new JPanel();
@@ -64,6 +69,8 @@ public class Confirm  {
         frame.add(jp1);
         frame.add(jp2);
         frame.add(jp3);
+        frame.add(label_1);
+        frame.add(label_2);
         jp1.add(imgLabel2);
         jp2.add(txtfield1);
         jp3.add(confirm);
