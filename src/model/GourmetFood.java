@@ -8,7 +8,7 @@ public class GourmetFood {
     private double price;
     private String description;
     private String image;
-    private int count;
+    private int count=0;
 
     public String getName() {
         return name;

@@ -1,5 +1,6 @@
 package view;
 
+import controller.DataController;
 import model.*;
 
 import javax.swing.*;
@@ -8,25 +9,16 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MealWindow extends JFrame {
-    public MealWindow(String passengerID, Booking booking,int seatnum,int seatlevel,double payment) {
+    public MealWindow( String passengerID, Booking booking,int seatnum,int seatlevel,double payment) {
 
         setLayout(new BorderLayout());
         setTitle("Meal");
         setSize(1200, 675);
-//        setExtendedState(JFrame.MAXIMIZED_BOTH);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        //add logo
+
         JPanel north = new JPanel();
         north.setLayout(new GridLayout(1, 1, 0, 0));
-//        JLabel logo = new JLabel();
-//        ImageIcon logo1;
-//        logo1 = new ImageIcon("src/images/Logo.png");
-//        Image logoimg = logo1.getImage();
-//        logoimg = logoimg.getScaledInstance(300, 70, Image.SCALE_AREA_AVERAGING);
-//        logo1.setImage(logoimg);
-//        logo.setIcon(logo1);
-//        north.add(logo);
         add(north, BorderLayout.NORTH);
 
 
@@ -73,80 +65,64 @@ public class MealWindow extends JFrame {
         JLabel m1img = new JLabel();//a JLabel with picture
         m1img.setHorizontalAlignment(SwingConstants.CENTER);
         ImageIcon image1;
-        image1 = new ImageIcon("src/images/Steak with Onion.jpg");
+        image1 = new ImageIcon(DataController.getMeal(0).getImage());
         Image img1 = image1.getImage();// get Image
-        img1 = img1.getScaledInstance(216, 144, Image.SCALE_AREA_AVERAGING);
+        img1 = img1.getScaledInstance(270, 170, Image.SCALE_AREA_AVERAGING);
         image1.setImage(img1);
         m1img.setIcon(image1);
-//        meal1.setImage(image1);
         m1.add(m1img);
 
 
         JLabel m2img = new JLabel();
         m2img.setHorizontalAlignment(SwingConstants.CENTER);
         ImageIcon image2;
-        image2 = new ImageIcon("src/images/Halal meal.jpg");
+        image2 = new ImageIcon(DataController.getMeal(1).getImage());
         Image img2 = image2.getImage();
-        img2 = img2.getScaledInstance(216, 144, Image.SCALE_AREA_AVERAGING);
+        img2 = img2.getScaledInstance(270, 170, Image.SCALE_AREA_AVERAGING);
         image2.setImage(img2);
         m2img.setIcon(image2);
-//        meal2.setImage(image2);
         m2.add(m2img);
-
 
         JLabel m3img = new JLabel();
         m3img.setHorizontalAlignment(SwingConstants.CENTER);
         ImageIcon image3;
-        image3 = new ImageIcon("src/images/Vegetarian Oriental Meal.jpg");
+        image3 = new ImageIcon(DataController.getMeal(2).getImage());
         Image img3 = image3.getImage();
-        img3 = img3.getScaledInstance(216, 144, Image.SCALE_AREA_AVERAGING);
+        img3 = img3.getScaledInstance(270, 170, Image.SCALE_AREA_AVERAGING);
         image3.setImage(img3);
         m3img.setIcon(image3);
-//        meal3.setImage(image3);
         m3.add(m3img);
 
 
         JLabel m4img = new JLabel();
         m4img.setHorizontalAlignment(SwingConstants.CENTER);
         ImageIcon image4;
-        image4 = new ImageIcon("src/images/Kid's meal.jpg");
+        image4 = new ImageIcon(DataController.getMeal(3).getImage());
         Image img4 = image4.getImage();
-        img4 = img4.getScaledInstance(216, 144, Image.SCALE_AREA_AVERAGING);
+        img4 = img4.getScaledInstance(270, 170, Image.SCALE_AREA_AVERAGING);
         image4.setImage(img4);
         m4img.setIcon(image4);
-//        meal4.setImage(image4);
         m4.add(m4img);
 
-
-        //price and description
-        meal1.setName("Steak with Onion");
-        meal1.setDescription("Includes Steak, Onions, fruit, side dishes, dessert...");
-        meal2.setName("Halal Meal");
-        meal2.setDescription("Includes bread, fruit, vegetables and other halal certified foods");
-        meal3.setName("Vegetarian Oriental Meal");
-        meal3.setDescription("Includes grains, breads, fruits, vegetables, desserts, drinks...");
-        meal4.setName("Kid's meal");
-        meal4.setDescription("Suitable for children and easy to digest");
-
-        String PaD1 = "<html><body>" + "Description: " + meal1.getDescription() + "<body></html>";
+        String PaD1 = "<html><body>" + "Description: " + DataController.getMeal(0).getDescription() + "<body></html>";
         JLabel lbdes1 = new JLabel(PaD1);// label description1
         lbdes1.setHorizontalAlignment(SwingConstants.CENTER);
         lbdes1.setFont(f);
         m1.add(lbdes1);
 
-        String PaD2 = "<html><body>" + "Description: " + meal2.getDescription() + "<body></html>";
+        String PaD2 = "<html><body>" + "Description: " +DataController.getMeal(1).getDescription() + "<body></html>";
         JLabel lbdes2 = new JLabel(PaD2);
         lbdes2.setHorizontalAlignment(SwingConstants.CENTER);
         lbdes2.setFont(f);
         m2.add(lbdes2);
 
-        String PaD3 = "<html><body>" + "Description: " + meal3.getDescription() + "<body></html>";
+        String PaD3 = "<html><body>" + "Description: " +DataController.getMeal(2).getDescription() + "<body></html>";
         JLabel lbdes3 = new JLabel(PaD3);
         lbdes3.setHorizontalAlignment(SwingConstants.CENTER);
         lbdes3.setFont(f);
         m3.add(lbdes3);
 
-        String PaD4 = "<html><body>" + "Description: " + meal4.getDescription() + "<body></html>";
+        String PaD4 = "<html><body>" + "Description: " +DataController.getMeal(3).getDescription() + "<body></html>";
         JLabel lbdes4 = new JLabel(PaD4);
         lbdes4.setHorizontalAlignment(SwingConstants.CENTER);
         lbdes4.setFont(f);

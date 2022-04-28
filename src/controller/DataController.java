@@ -88,6 +88,8 @@ public class DataController {
         return gourmetFoods.get(num);
     }
 
+    public static Meal getMeal(int num){return meals.get(num);}
+
     public static void addCount (int num) throws IOException{
         DataController.gourmetFoods.get(num).setCount(DataController.gourmetFoods.get(num).getCount()+1);
         FileIOController.writeJSON("./data/GourmetFood.json", JSON.toJSONString(gourmetFoods));

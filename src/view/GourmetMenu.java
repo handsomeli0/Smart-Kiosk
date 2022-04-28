@@ -464,13 +464,6 @@ public class GourmetMenu extends JFrame{
                 if(e.getSource()==jbnext)
                 {
                     new Payment(passengerID,booking,totalPrice,seatnum,seatlevel,payment);
-                    try{
-                        DataController.setCountToNull();
-                    }catch (IOException ioException)
-                    {
-                        ioException.printStackTrace();
-                    }
-
                     dispose();
                 }
             }
