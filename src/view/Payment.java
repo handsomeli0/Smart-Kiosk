@@ -10,8 +10,8 @@ import java.awt.event.ActionListener;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 
-public class Payment extends JFrame{
-    public Payment(String flightID, String passengerID, Booking booking, double totalPrice) {
+public class PayMent extends JFrame{
+    public PayMent(String flightID, String passengerID, Booking booking, double totalPrice,int seatnum,int seatlevel,double payment) {
         setLayout(new BorderLayout());
         setTitle("Payment");
         setSize(1200,675);
@@ -86,7 +86,7 @@ public class Payment extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(e.getSource()==jbback) {
-                        new MealWindow(flightID, passengerID, booking);
+                        new MealWindow(flightID, passengerID, booking,seatnum,seatlevel,payment);
                         dispose();
                 }
             }
@@ -110,22 +110,16 @@ public class Payment extends JFrame{
 
         jbnext.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-                try{
-                    if (actionEvent.getSource() == jbnext) {
-                        int Card = Integer.parseInt(acctxt.getText());
-                        if (DataController.checkPayment(passengerID, Card)) {
-                            JOptionPane.showMessageDialog(null, "Payment Successful!");
-                            new Confirm(flightID, passengerID, booking);
-                            dispose();
-                        }
-                        else {
-                            JOptionPane.showMessageDialog(null, "Payment False: The credit card information is incorrect!");
-                        }
+            public void actionPerformed(ActionEvent e) {
+                if(e.getSource()==jbnext) {
+                    if (DataController.checkPayment(passengerID,Integer.parseInt(acctxt.getText())) == true) {
+                        JOptionPane.showMessageDialog(null,"Payment Successful!");
+                        new Confirm(flightID, passengerID, booking,seatnum,seatlevel,payment);
+                        dispose();
                     }
-                }
-                catch (Exception e) {
-                    System.out.println(e);
+                    else {
+                        JOptionPane.showMessageDialog(null,"Payment False: The credit card information is incorrect!");
+                    }
                 }
             }
         });

@@ -43,9 +43,9 @@ public class IDdocument  {
         jp3.setBounds(0,400,1200,225);
         imgLabel2.setBounds(650,0,700,100);
         txtfield1.setBounds(300,0,600,300);
-        confirm.setBounds(550,150,100,50);
-        cancel.setBounds(1050,150,100,50);
-        back.setBounds(50,150,100,50);
+        confirm.setBounds(550,150,100,30);
+        cancel.setBounds(1050,150,100,30);
+        back.setBounds(50,150,100,30);
         jp1.setBackground(Color.WHITE);           //将三个面板背景色设置成透明
         jp2.setBackground(Color.WHITE);
         jp3.setBackground(Color.WHITE);

@@ -23,7 +23,6 @@ public class DataController {
     private static ArrayList<Passenger> passengers;
     private static ArrayList<Meal> meals;
     private static IDdocument idDocument;
-    private static ArrayList<GourmetFood> gourmetFoods;
 
     // Initially read arraylists from JSON files
     static {
@@ -33,7 +32,6 @@ public class DataController {
             passengers = (ArrayList<Passenger>) JSON.parseArray(FileIOController.readJSON("Passenger.json"), Passenger.class);
             meals = (ArrayList<Meal>) JSON.parseArray(FileIOController.readJSON("Meal.json"), Meal.class);
             idDocument = (IDdocument) JSON.parseObject(FileIOController.readJSON("IDdocument.json"), IDdocument.class);
-            gourmetFoods = (ArrayList<GourmetFood>) JSON.parseArray(FileIOController.readJSON("GourmetFood.json"),GourmetFood.class);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -81,11 +79,6 @@ public class DataController {
         }
         return null;
 
-    }
-
-    public static GourmetFood getGourmetFood(int num)
-    {
-        return gourmetFoods.get(num);
     }
 
     /**
