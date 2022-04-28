@@ -2,6 +2,8 @@ package controller;
 
 import model.*;
 
+import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.*;
 import java.util.ArrayList;
 
@@ -11,7 +13,7 @@ import com.alibaba.fastjson.JSON;
  * This class is used to manage data.
  *
  * @author Minghan Li
- * @version 1.1
+ * @version 2.1
  */
 
 public class DataController {
@@ -25,11 +27,11 @@ public class DataController {
     // Initially read arraylists from JSON files
     static {
         try {
-            bookings = (ArrayList<Booking>) JSON.parseArray(readJSON("Booking.json"), Booking.class);
-            flights = (ArrayList<Flight>) JSON.parseArray(readJSON("Flight.json"), Flight.class);
-            passengers = (ArrayList<Passenger>) JSON.parseArray(readJSON("Passenger.json"), Passenger.class);
-            meals = (ArrayList<Meal>) JSON.parseArray(readJSON("Meal.json"), Meal.class);
-            idDocument = (IDdocument) JSON.parseObject(readJSON("IDdocument.json"), IDdocument.class);
+            bookings = (ArrayList<Booking>) JSON.parseArray(FileIOController.readJSON("Booking.json"), Booking.class);
+            flights = (ArrayList<Flight>) JSON.parseArray(FileIOController.readJSON("Flight.json"), Flight.class);
+            passengers = (ArrayList<Passenger>) JSON.parseArray(FileIOController.readJSON("Passenger.json"), Passenger.class);
+            meals = (ArrayList<Meal>) JSON.parseArray(FileIOController.readJSON("Meal.json"), Meal.class);
+            idDocument = (IDdocument) JSON.parseObject(FileIOController.readJSON("IDdocument.json"), IDdocument.class);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -38,38 +40,29 @@ public class DataController {
     private DataController(){}
 
     /**
-     * This method is used to read the data from a json file.
-     * @param name file name
-     * @return data of the file in String format
-     * @throws IOException IOException
+     * Create a BufferedImage with strs shown on it.
+     *
+     * @param strs Strings to be shown.
+     * @return BufferedImage
      */
-    private static String readJSON(String name) throws IOException {
-        String line = "";
-        FileReader fileReader = new FileReader("./data/"+name);
-        BufferedReader br = new BufferedReader(fileReader);
-        StringBuffer sb = new StringBuffer();
-        while ((line = br.readLine()) != null) {
-            sb.append(line);
+    public static BufferedImage createImage(String[] strs) {
+        // set size
+        int width = 600, height = 400;
+        BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+        Graphics graphics = image.getGraphics();
+        // padding
+        graphics.fillRect(0, 0, width, height);
+        // font size, color
+        graphics.setFont(new Font("Arial", Font.BOLD, 20));
+        graphics.setColor(Color.BLACK);
+        for (int i = 0; i < strs.length; i++) {
+            graphics.drawString(strs[i], 150, 70 + (i + 1) * 30);
         }
-        br.close();
-        fileReader.close();
-
-        return sb.toString();
+        graphics.dispose();
+        return image;
     }
 
-    /**
-     * Write String data into a json file
-     * @param name filename
-     * @param str data to be written
-     * @throws IOException IOException
-     */
-    private static void writeJSON(String name, String str) throws IOException {
-        FileWriter fw = new FileWriter("./data/"+name);
-        BufferedWriter bw = new BufferedWriter(fw);
-        bw.write(str);
-        bw.close();
-        fw.close();
-    }
+
 
     // checkin
 
@@ -183,7 +176,7 @@ public class DataController {
         // change the seat to true
         DataController.getFlightByFlightID(flightID).getSeat()[index] = true;
         // write the new flights into json file
-        DataController.writeJSON("Flight.json", JSON.toJSONString(flights));
+        FileIOController.writeJSON("./data/Flight.json", JSON.toJSONString(flights));
     }
 
 
@@ -203,5 +196,101 @@ public class DataController {
             }
         }
         return false;
+    }
+
+    // confirm
+
+    /**
+     * Check whether the ID Document belongs to correct passenger.
+     *
+     * @param bk booking information
+     * @return true or false
+     */
+    public static boolean checkIdDocument(Booking bk) {
+        for (Passenger p : passengers) {
+            if (p.getPassengerID().equals(bk.getPassengerID())) {
+                if (p.getIdNum().equals(idDocument.getIdNum())) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    // print
+
+    /**
+     * Get passenger name by booking information
+     *
+     * @param bk booking
+     * @return passenger name
+     */
+    public static String getNameByBooking(Booking bk) {
+        for (Passenger p : passengers) {
+            if (p.getPassengerID().equals(bk.getPassengerID())) {
+                return p.getFirstName() + " " + p.getLastName();
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Get destination by booking information.
+     *
+     * @param bk booking
+     * @return destination
+     */
+    public static String getDestinationByBooking(Booking bk) {
+        for (Flight flight : flights) {
+            if (flight.getFlightID().equals(bk.getFlightID())) {
+                return flight.getDestination();
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Get gate number by booking information
+     *
+     * @param bk booking
+     * @return gate
+     */
+    public static String getGateByBooking(Booking bk) {
+        for (Flight flight : flights) {
+            if (flight.getFlightID().equals(bk.getFlightID())) {
+                return flight.getGate();
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Get date of flight by booking information
+     *
+     * @param bk booking
+     * @return date
+     */
+    public static String getDateByBooking(Booking bk) {
+        for (Flight flight : flights) {
+            if (flight.getFlightID().equals(bk.getFlightID())) {
+                return flight.getDate();
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Get boarding time by booking information
+     *
+     * @param bk booking
+     * @return boarding time
+     */
+    public static String getTimeByBooking(Booking bk) {
+        for (Flight flight : flights) {
+            if (flight.getFlightID().equals(bk.getFlightID())) {
+                return flight.getBoardingTime();
+            }
+        }
+        return null;
     }
 }

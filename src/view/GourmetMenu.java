@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 import java.text.DecimalFormat;
 
 public class GourmetMenu extends JFrame{
-    public GourmetMenu(String flightID, String passengerID, Booking booking, double totalPrice)
+    public GourmetMenu(String flightID, String passengerID, Booking booking, double totalPrice,int seatnum,int seatlevel,double payment)
     {
         setLayout(new BorderLayout());
         setTitle("Gourmet Menu");
@@ -325,7 +325,7 @@ public class GourmetMenu extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 if(e.getSource()==add1) {
                     double TP = totalPrice + food1.getPrice();
-                    new GourmetMenu(flightID,passengerID,booking,TP);
+                    new GourmetMenu(flightID,passengerID,booking,TP,seatnum,seatlevel,payment);
                     dispose();
                 }
             }
@@ -335,7 +335,7 @@ public class GourmetMenu extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 if(e.getSource()==add2) {
                     double TP = totalPrice + food2.getPrice();
-                    new GourmetMenu(flightID,passengerID,booking,TP);
+                    new GourmetMenu(flightID,passengerID,booking,TP,seatnum,seatlevel,payment);
                     dispose();
                 }
             }
@@ -345,7 +345,7 @@ public class GourmetMenu extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 if(e.getSource()==add3) {
                     double TP = totalPrice + food3.getPrice();
-                    new GourmetMenu(flightID,passengerID,booking,TP);
+                    new GourmetMenu(flightID,passengerID,booking,TP,seatnum,seatlevel,payment);
                     dispose();
                 }
             }
@@ -355,7 +355,7 @@ public class GourmetMenu extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 if(e.getSource()==add4) {
                     double TP = totalPrice + food4.getPrice();
-                    new GourmetMenu(flightID,passengerID,booking,TP);
+                    new GourmetMenu(flightID,passengerID,booking,TP,seatnum,seatlevel,payment);
                     dispose();
                 }
             }
@@ -365,7 +365,7 @@ public class GourmetMenu extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 if(e.getSource()==add5) {
                     double TP = totalPrice + food5.getPrice();
-                    new GourmetMenu(flightID,passengerID,booking,TP);
+                    new GourmetMenu(flightID,passengerID,booking,TP,seatnum,seatlevel,payment);
                     dispose();
                 }
             }
@@ -375,7 +375,7 @@ public class GourmetMenu extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 if(e.getSource()==add6) {
                     double TP = totalPrice + food6.getPrice();
-                    new GourmetMenu(flightID,passengerID,booking,TP);
+                    new GourmetMenu(flightID,passengerID,booking,TP,seatnum,seatlevel,payment);
                     dispose();
                 }
             }
@@ -385,7 +385,7 @@ public class GourmetMenu extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 if(e.getSource()==add7) {
                     double TP = totalPrice + food7.getPrice();
-                    new GourmetMenu(flightID,passengerID,booking,TP);
+                    new GourmetMenu(flightID,passengerID,booking,TP,seatnum,seatlevel,payment);
                     dispose();
                 }
             }
@@ -395,7 +395,7 @@ public class GourmetMenu extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 if(e.getSource()==add8) {
                     double TP = totalPrice + food8.getPrice();
-                    new GourmetMenu(flightID,passengerID,booking,TP);
+                    new GourmetMenu(flightID,passengerID,booking,TP,seatnum,seatlevel,payment);
                     dispose();
                 }
             }
@@ -406,7 +406,7 @@ public class GourmetMenu extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 if(e.getSource()==jbback)
                 {
-                    new MealWindow(flightID,passengerID,booking);
+                    new MealWindow(flightID,passengerID,booking,seatnum,seatlevel,payment);
                     dispose();
                 }
             }
@@ -417,7 +417,7 @@ public class GourmetMenu extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 if(e.getSource()==jbnext)
                 {
-                    new PayMent(flightID,passengerID,booking,totalPrice);
+                    new PayMent(flightID,passengerID,booking,totalPrice,seatnum,seatlevel,payment);
                     dispose();
                 }
             }
@@ -428,7 +428,7 @@ public class GourmetMenu extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 if(e.getSource()==jbclear) {
                     double TP = 0.0;
-                    new GourmetMenu(flightID,passengerID,booking,TP);
+                    new GourmetMenu(flightID,passengerID,booking,TP,seatnum,seatlevel,payment);
                     dispose();
                 }
             }
