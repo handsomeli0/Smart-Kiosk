@@ -13,7 +13,7 @@ import com.alibaba.fastjson.JSON;
  * This class is used to manage data.
  *
  * @author Minghan Li
- * @version 2.1
+ * @version 2.0
  */
 
 public class DataController {
@@ -23,6 +23,7 @@ public class DataController {
     private static ArrayList<Passenger> passengers;
     private static ArrayList<Meal> meals;
     private static IDdocument idDocument;
+    private static ArrayList<GourmetFood> gourmetFoods;
 
     // Initially read arraylists from JSON files
     static {
@@ -32,6 +33,7 @@ public class DataController {
             passengers = (ArrayList<Passenger>) JSON.parseArray(FileIOController.readJSON("Passenger.json"), Passenger.class);
             meals = (ArrayList<Meal>) JSON.parseArray(FileIOController.readJSON("Meal.json"), Meal.class);
             idDocument = (IDdocument) JSON.parseObject(FileIOController.readJSON("IDdocument.json"), IDdocument.class);
+            gourmetFoods = (ArrayList<GourmetFood>) JSON.parseArray(FileIOController.readJSON("GourmetFood.json"),GourmetFood.class);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -79,6 +81,44 @@ public class DataController {
         }
         return null;
 
+    }
+
+    public static GourmetFood getGourmetFood(int num)
+    {
+        return gourmetFoods.get(num);
+    }
+
+    public static Meal getMeal(int num){return meals.get(num);}
+
+    public static void addCount (int num) throws IOException{
+        DataController.gourmetFoods.get(num).setCount(DataController.gourmetFoods.get(num).getCount()+1);
+        FileIOController.writeJSON("./data/GourmetFood.json", JSON.toJSONString(gourmetFoods));
+    }
+
+    public static void setCountToNull () throws IOException{
+        for(int i = 0; i<gourmetFoods.size(); i++) {
+            DataController.gourmetFoods.get(i).setCount(0);
+        }
+        FileIOController.writeJSON("./data/GourmetFood.json", JSON.toJSONString(gourmetFoods));
+    }
+
+    public static String showGourmetFood() throws  IOException{
+        ArrayList<String> gf = new ArrayList<>();
+        for(int i = 0; i<gourmetFoods.size();i++) {
+            if(DataController.gourmetFoods.get(i).getCount()!=0){
+                gf.add(DataController.gourmetFoods.get(i).getDescription());
+                gf.add(", ");
+                int a = DataController.gourmetFoods.get(i).getCount();
+                String b = String.valueOf(a);
+                gf.add(b);
+                gf.add(";\n");
+            }
+        }
+        String PurchasedFood = "";
+        for (String fruit : gf) {
+            PurchasedFood+= fruit+",";
+        }
+        return PurchasedFood;
     }
 
     /**
@@ -193,25 +233,6 @@ public class DataController {
             if (p.getPassengerID().equals(passengerID)) {
                 if (p.getCreditCardID() == creditCardID)
                     return true;
-            }
-        }
-        return false;
-    }
-
-    // confirm
-
-    /**
-     * Check whether the ID Document belongs to correct passenger.
-     *
-     * @param bk booking information
-     * @return true or false
-     */
-    public static boolean checkIdDocument(Booking bk) {
-        for (Passenger p : passengers) {
-            if (p.getPassengerID().equals(bk.getPassengerID())) {
-                if (p.getIdNum().equals(idDocument.getIdNum())) {
-                    return true;
-                }
             }
         }
         return false;
