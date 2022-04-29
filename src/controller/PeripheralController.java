@@ -1,6 +1,5 @@
 package controller;
 import model.Booking;
-
 import javax.swing.*;
 import java.io.IOException;
 

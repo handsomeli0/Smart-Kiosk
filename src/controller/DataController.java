@@ -102,25 +102,6 @@ public class DataController {
         FileIOController.writeJSON("./data/GourmetFood.json", JSON.toJSONString(gourmetFoods));
     }
 
-    public static String showGourmetFood() throws  IOException{
-        ArrayList<String> gf = new ArrayList<>();
-        for(int i = 0; i<gourmetFoods.size();i++) {
-            if(DataController.gourmetFoods.get(i).getCount()!=0){
-                gf.add(DataController.gourmetFoods.get(i).getDescription());
-                gf.add(", ");
-                int a = DataController.gourmetFoods.get(i).getCount();
-                String b = String.valueOf(a);
-                gf.add(b);
-                gf.add(";\n");
-            }
-        }
-        String PurchasedFood = "";
-        for (String fruit : gf) {
-            PurchasedFood+= fruit+",";
-        }
-        return PurchasedFood;
-    }
-
     /**
      * Get booking information by surname and ID number
      * @param surname surname of the passenger

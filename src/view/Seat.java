@@ -806,7 +806,7 @@ public class Seat {
  //                       if (bus == 0 && mov == 0 && leg == 0) {
                             DataController.updateSeat(flightID, cha);
                             closeThis();
-                            new MealWindow(flightID,passengerID,A,cha,bus,payment);
+                            new MealWindow(passengerID,A,cha,bus,payment);
  //                       }
 //                        else {
 //                            closeThis();
