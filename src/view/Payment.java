@@ -7,6 +7,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 
@@ -45,13 +46,14 @@ public class Payment extends JFrame{
 
         //total price
         DecimalFormat format = new DecimalFormat("0.00");
-        String TP = "<html><body>" + "Total Price: "+ format.format(new BigDecimal(totalPrice)) + "<body></html>";
+        String TP = "<html><body>" + "Seat Price: " + payment + "<br>" + "GourmetMeal Price: " + format.format(new BigDecimal(totalPrice)) + "<body></html>";
         JPanel panTP=new JPanel();
         JLabel lbTP=new JLabel(TP);// label description1
         lbTP.setFont(ff);
         lbTP.setHorizontalAlignment(SwingConstants.CENTER);
         panTP.add(lbTP);
         center.add(panTP);
+
 
         //account
         JPanel account=new JPanel();
@@ -86,8 +88,15 @@ public class Payment extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(e.getSource()==jbback) {
-                        new MealWindow(passengerID,booking,seatnum,seatlevel,payment);
-                        dispose();
+                    new MealWindow(passengerID,booking,seatnum,seatlevel,payment);
+                    try{
+                        DataController.setCountToNull();
+                    }catch (IOException ioException)
+                    {
+                        ioException.printStackTrace();
+                    }
+
+                    dispose();
                 }
             }
         });
@@ -112,13 +121,18 @@ public class Payment extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(e.getSource()==jbnext) {
-                    if (DataController.checkPayment(passengerID,Integer.parseInt(acctxt.getText())) == true) {
-                        JOptionPane.showMessageDialog(null,"Payment Successful!");
-                        new Confirm(passengerID,booking,seatnum,seatlevel,payment);
+                    int card = Integer.parseInt(acctxt.getText().toString());
+                    double TP = totalPrice + payment;
+                    if (DataController.checkPayment(passengerID, card)) {
+                        JOptionPane.showMessageDialog(null, "Payment Successful!");
+                        try {
+                            new Confirm(passengerID, booking, seatnum, seatlevel, payment, TP);
+                        } catch (IOException ex) {
+                            ex.printStackTrace();
+                        }
                         dispose();
-                    }
-                    else {
-                        JOptionPane.showMessageDialog(null,"Payment False: The credit card information is incorrect!");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Payment False: The credit card information is incorrect!");
                     }
                 }
             }

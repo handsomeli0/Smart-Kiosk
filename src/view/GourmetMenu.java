@@ -473,8 +473,14 @@ public class GourmetMenu extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(e.getSource()==jbclear) {
-                    double TP = 0.0;
-                    new GourmetMenu(passengerID,booking,TP,seatnum,seatlevel,payment);
+                    new GourmetMenu(passengerID,booking,totalPrice,seatnum,seatlevel,payment);
+                    try{
+                        DataController.setCountToNull();
+                    }catch (IOException ioException)
+                    {
+                        ioException.printStackTrace();
+                    }
+
                     dispose();
                 }
             }

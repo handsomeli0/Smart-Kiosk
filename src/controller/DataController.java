@@ -107,7 +107,7 @@ public class DataController {
         for(int i = 0; i<gourmetFoods.size();i++) {
             if(DataController.gourmetFoods.get(i).getCount()!=0){
                     gf.add(DataController.gourmetFoods.get(i).getDescription());
-                    gf.add(", ");
+                    gf.add(", x");
                     int a = DataController.gourmetFoods.get(i).getCount();
                     String b = String.valueOf(a);
                     gf.add(b);
@@ -116,7 +116,7 @@ public class DataController {
         }
         String PurchasedFood = "";
         for (String fruit : gf) {
-            PurchasedFood+= fruit+",";
+            PurchasedFood+= fruit;
         }
         return PurchasedFood;
     }
