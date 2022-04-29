@@ -126,7 +126,7 @@ public class Payment extends JFrame{
                         if (DataController.checkPayment(passengerID, card)) {
                             JOptionPane.showMessageDialog(null, "Payment Successful!");
                             try {
-                                new Confirm(passengerID, booking, seatnum, seatlevel, TP);
+                                new Confirm(passengerID, booking, seatnum, seatlevel, payment, TP);
                             } catch (IOException ex) {
                                 ex.printStackTrace();
                             }

@@ -22,7 +22,7 @@ import model.Booking;
 import model.IDdocument;
 
 public class Confirm {
-    public Confirm( String passenger, Booking booking, int seatnum, int seatlevel, double payment) throws IOException {
+    public Confirm( String passenger, Booking booking, int seatnum, int seatlevel, double payment, double totalPrice) throws IOException {
         IDdocument iDdocument = DataController.getIDdocument();
         JFrame frame = new JFrame("Confirm");
         frame.setDefaultCloseOperation(3);
@@ -52,7 +52,7 @@ public class Confirm {
         JLabel label_2 = new JLabel("The food you have chosen: " + GF);
         label_2.setBounds(20, 120, 400, 30);
         label_2.setFont(new Font("SERIF", 1, 25));
-        JLabel label_4 = new JLabel("Total payment is:" + payment);
+        JLabel label_4 = new JLabel("Total payment is:" + totalPrice);
         label_4.setBounds(20, 160, 400, 30);
         label_4.setFont(new Font("SERIF", 1, 25));
         JPanel jp1 = new JPanel();
