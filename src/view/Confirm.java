@@ -87,6 +87,21 @@ public class Confirm  {
                 ioException.printStackTrace();
             }
         });
+        confirm.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(e.getSource()==confirm) {
+                    if (DataController.checkIdDocument(booking) == true) {
+                        JOptionPane.showMessageDialog(null,"Check in Successfully!");
+                        new Confirm(flight, passenger,booking,seatnum,seatlevel,payment);
+                        frame.setVisible(false);
+                    }
+                    else {
+                        JOptionPane.showMessageDialog(null,"Check in False: The ID document is incorrect!");
+                    }
+                }
+            }
+        });
         cancel.addActionListener(e -> {new BookingNumberCheckIn();
             frame.setVisible(false);
         });
