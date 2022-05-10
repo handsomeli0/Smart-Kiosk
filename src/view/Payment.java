@@ -120,7 +120,8 @@ public class Payment extends JFrame{
         jbnext.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(e.getSource()==jbnext) {
+                try {
+                    if(e.getSource()==jbnext) {
                         int card = Integer.parseInt(acctxt.getText().toString());
                         double TP = totalPrice + payment;
                         if (DataController.checkPayment(passengerID, card)) {
@@ -134,9 +135,13 @@ public class Payment extends JFrame{
                         } else {
                             JOptionPane.showMessageDialog(null, "Payment False: The credit card information is incorrect!");
                         }
+                    }
+                }
+                catch (Exception exception) {
+                    JOptionPane.showMessageDialog(null, "Payment False: The credit card information is incorrect!");
+                    System.out.println("Exception occoured : " + exception);
                 }
             }
         });
     }
-
 }
