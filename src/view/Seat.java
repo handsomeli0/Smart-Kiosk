@@ -105,10 +105,10 @@ public class Seat {
         int sum;
         JFrame frame=new JFrame("Choosing Seat"); //创建Frame窗口
         JLabel lable=new JLabel("Please select your seat!", JLabel.CENTER);
-        Font font1=new Font(Font.SERIF, Font.BOLD|Font.ITALIC,80);
-        Font font3=new Font(Font.SERIF, Font.BOLD|Font.ITALIC,20);
         JLabel lable2=new JLabel("Business Class", JLabel.CENTER);
         JLabel lable3=new JLabel("Economy Class", JLabel.CENTER);
+        Font font1=new Font(Font.SERIF, Font.BOLD|Font.ITALIC,80);
+        Font font3=new Font(Font.SERIF, Font.BOLD|Font.ITALIC,20);
 
         String y[]={"Normal", "Extra legroom"};
         JComboBox<String> ne=new JComboBox<String>(y);
@@ -149,6 +149,10 @@ public class Seat {
             }
             else{
                 x[i].setBackground(Color.WHITE);
+            }
+            if(i==cha)
+            {
+                x[i].setBackground(Color.BLUE);
             }
             if(i/4==0)
             {
@@ -853,8 +857,14 @@ public class Seat {
         return sum;
     }
 
+
     public Seat(Booking A)
     {
+        form(A);
+    }
+    public Seat(Booking A, int seatNum)
+    {
+        this.cha = seatNum;
         form(A);
     }
 }
