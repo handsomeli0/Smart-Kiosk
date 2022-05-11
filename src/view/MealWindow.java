@@ -130,10 +130,10 @@ public class MealWindow extends JFrame {
 
 
         //chose meal button
-        JRadioButton rb1 = new JRadioButton(meal1.getName(), true);
-        JRadioButton rb2 = new JRadioButton(meal2.getName(), false);
-        JRadioButton rb3 = new JRadioButton(meal3.getName(), false);
-        JRadioButton rb4 = new JRadioButton(meal4.getName(), false);
+        JRadioButton rb1 = new JRadioButton(DataController.getMeal(0).getName(), true);
+        JRadioButton rb2 = new JRadioButton(DataController.getMeal(1).getName(), false);
+        JRadioButton rb3 = new JRadioButton(DataController.getMeal(2).getName(), false);
+        JRadioButton rb4 = new JRadioButton(DataController.getMeal(3).getName(), false);
 
         rb1.setHorizontalAlignment(SwingConstants.CENTER);
         rb2.setHorizontalAlignment(SwingConstants.CENTER);
