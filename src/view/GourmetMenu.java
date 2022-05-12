@@ -26,14 +26,13 @@ public class GourmetMenu extends JFrame{
         JLabel label2 = new JLabel(icon2);
         label2.setBounds(800,20,icon2.getIconWidth(),icon2.getIconHeight());
 
-        Font f=new Font (Font.SERIF, Font.BOLD, 14);
-        Font ff=new Font (Font.SERIF, Font.BOLD, 20);
-        Font font1=new Font(Font.SERIF, Font.BOLD|Font.ITALIC,50);
-        Font font2=new Font(Font.SERIF, Font.BOLD|Font.ITALIC,17);
+        Font font1=new Font (Font.SERIF, Font.BOLD, 14);
+        Font font2=new Font (Font.SERIF, Font.BOLD, 20);
+        Font font3=new Font(Font.SERIF, Font.BOLD|Font.ITALIC,50);
 
         JLabel introLabel=new JLabel("Gourmet Menu for the flight!");
         introLabel.setBounds(100,0,900,70);
-        introLabel.setFont(font1);
+        introLabel.setFont(font3);
         introLabel.setForeground(Color.white);
 
         //show pictures
@@ -129,56 +128,56 @@ public class GourmetMenu extends JFrame{
         String PaD1 = "<html><body>" + DataController.getGourmetFood(0).getDescription() + "<br>" + "Price: "+ DataController.getGourmetFood(0).getPrice() + "<body></html>";
         JLabel lbDes1=new JLabel(PaD1);// label description1
         lbDes1.setHorizontalAlignment(SwingConstants.CENTER);
-        lbDes1.setFont(f);
+        lbDes1.setFont(font1);
         lbDes1.setBounds(58,158,300, 50);
         add(lbDes1);
 
         String PaD2 = "<html><body>" + DataController.getGourmetFood(1).getDescription() + "<br>" + "Price: "+ DataController.getGourmetFood(1).getPrice() + "<body></html>";
         JLabel lbDes2=new JLabel(PaD2);
         lbDes2.setHorizontalAlignment(SwingConstants.CENTER);
-        lbDes2.setFont(f);
+        lbDes2.setFont(font1);
         lbDes2.setBounds(468,158,300, 50);
         add(lbDes2);
 
         String PaD3 = "<html><body>" + DataController.getGourmetFood(2).getDescription() + "<br>" + "Price: "+ DataController.getGourmetFood(2).getPrice() + "<body></html>";
         JLabel lbDes3=new JLabel(PaD3);
         lbDes3.setHorizontalAlignment(SwingConstants.CENTER);
-        lbDes3.setFont(f);
+        lbDes3.setFont(font1);
         lbDes3.setBounds(873,158,300, 50);
         add(lbDes3);
 
         String PaD4 = "<html><body>" + DataController.getGourmetFood(3).getDescription() + "<br>" + "Price: "+ DataController.getGourmetFood(3).getPrice() + "<body></html>";
         JLabel lbDes4=new JLabel(PaD4);
         lbDes4.setHorizontalAlignment(SwingConstants.CENTER);
-        lbDes4.setFont(f);
+        lbDes4.setFont(font1);
         lbDes4.setBounds(36,331,300, 50);
         add(lbDes4);
 
         String PaD5 = "<html><body>" + DataController.getGourmetFood(4).getDescription() + "<br>" + "Price: "+ DataController.getGourmetFood(4).getPrice() + "<body></html>";
         JLabel lbDes5=new JLabel(PaD5);
         lbDes5.setHorizontalAlignment(SwingConstants.CENTER);
-        lbDes5.setFont(f);
+        lbDes5.setFont(font1);
         lbDes5.setBounds(482,331,300, 58);
         add(lbDes5);
 
         String PaD6 = "<html><body>" + DataController.getGourmetFood(5).getDescription() + "<br>" + "Price: "+ DataController.getGourmetFood(5).getPrice() + "<body></html>";
         JLabel lbDes6=new JLabel(PaD6);
         lbDes6.setHorizontalAlignment(SwingConstants.CENTER);
-        lbDes6.setFont(f);
+        lbDes6.setFont(font1);
         lbDes6.setBounds(873,331,300, 58);
         add(lbDes6);
 
         String PaD7 = "<html><body>" + DataController.getGourmetFood(6).getDescription() + "<br>" + "Price: "+ DataController.getGourmetFood(6).getPrice() + "<body></html>";
         JLabel lbDes7=new JLabel(PaD7);
         lbDes7.setHorizontalAlignment(SwingConstants.CENTER);
-        lbDes7.setFont(f);
+        lbDes7.setFont(font1);
         lbDes7.setBounds(28,506,300, 50);
         add(lbDes7);
 
         String PaD8 = "<html><body>" + DataController.getGourmetFood(7).getDescription() + "<br>" + "Price: "+ DataController.getGourmetFood(7).getPrice() + "<body></html>";
         JLabel lbDes8=new JLabel(PaD8);
         lbDes8.setHorizontalAlignment(SwingConstants.CENTER);
-        lbDes8.setFont(f);
+        lbDes8.setFont(font1);
         lbDes8.setBounds(435,506,300, 50);
         add(lbDes8);
 
@@ -212,22 +211,22 @@ public class GourmetMenu extends JFrame{
         DecimalFormat format = new DecimalFormat("0.00");
         String TP = "<html><body>" + "Total Price: "+ format.format(new BigDecimal(totalPrice)) + "<body></html>";
         JLabel lbTP=new JLabel(TP);// label description1
-        lbTP.setFont(ff);
+        lbTP.setFont(font2);
         lbTP.setHorizontalAlignment(SwingConstants.CENTER);
         lbTP.setBounds(870,534,200, 30);
         add(lbTP);
 
 
         JButton jbBack=new JButton("Back");
-        jbBack.setFont(f);
+        jbBack.setFont(font1);
         jbBack.setBounds(362,586,120, 36);
         add(jbBack);
         JButton jbNext=new JButton("Next");
-        jbNext.setFont(f);
+        jbNext.setFont(font1);
         jbNext.setBounds(700,586,120, 36);
         add(jbNext);
         JButton jbClear=new JButton("Clear");
-        jbClear.setFont(f);
+        jbClear.setFont(font1);
         jbClear.setBounds(0,586,120, 36);
         add(jbClear);
 
@@ -367,7 +366,6 @@ public class GourmetMenu extends JFrame{
                     {
                         ioException.printStackTrace();
                     }
-
                     dispose();
                 }
             }
@@ -378,7 +376,15 @@ public class GourmetMenu extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 if(e.getSource()==jbNext)
                 {
-                    new Payment(passengerID,booking,totalPrice,seatNum,seatLevel,payment);
+                    if(totalPrice + payment == 0) {
+                        try {
+                            new Confirm(passengerID, booking, seatNum, seatLevel, 0, 0);
+                        } catch (IOException ex) {
+                            ex.printStackTrace();
+                        }
+                    } else {
+                        new Payment(passengerID, booking, totalPrice, seatNum, seatLevel, payment);
+                    }
                     dispose();
                 }
             }
@@ -388,14 +394,13 @@ public class GourmetMenu extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(e.getSource()==jbClear) {
-                    new GourmetMenu(passengerID,booking,totalPrice,seatNum,seatLevel,payment);
+                    new GourmetMenu(passengerID,booking,0,seatNum,seatLevel,payment);
                     try{
                         DataController.setCountToNull();
                     }catch (IOException ioException)
                     {
                         ioException.printStackTrace();
                     }
-
                     dispose();
                 }
             }

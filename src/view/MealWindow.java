@@ -24,13 +24,13 @@ public class MealWindow extends JFrame {
         JLabel label2 = new JLabel(icon2);
         label2.setBounds(800,20,icon2.getIconWidth(),icon2.getIconHeight());
 
-        Font f = new Font(Font.SERIF, Font.BOLD, 17);
-        Font font1=new Font(Font.SERIF, Font.BOLD|Font.ITALIC,50);
-        Font font2=new Font(Font.SERIF, Font.BOLD|Font.ITALIC,17);
+        Font font1 = new Font(Font.SERIF, Font.BOLD, 17);
+        Font font2=new Font(Font.SERIF, Font.BOLD|Font.ITALIC,50);
+        Font font3=new Font(Font.SERIF, Font.BOLD|Font.ITALIC,17);
 
         JLabel introLabel=new JLabel("Please choose your meal!");
         introLabel.setBounds(120,0,900,70);
-        introLabel.setFont(font1);
+        introLabel.setFont(font2);
         introLabel.setForeground(Color.white);
 
         //picture
@@ -81,28 +81,28 @@ public class MealWindow extends JFrame {
         String PaD1 = "<html><body>" + "Description: " + DataController.getMeal(0).getDescription() + "<body></html>";
         JLabel lbDes1 = new JLabel(PaD1);// label description1
         lbDes1.setHorizontalAlignment(SwingConstants.CENTER);
-        lbDes1.setFont(font2);
+        lbDes1.setFont(font3);
         lbDes1.setBounds(30,215,600, 40);
         add(lbDes1);
 
         String PaD2 = "<html><body>" + "Description: " +DataController.getMeal(1).getDescription() + "<body></html>";
         JLabel lbDes2 = new JLabel(PaD2);
         lbDes2.setHorizontalAlignment(SwingConstants.CENTER);
-        lbDes2.setFont(font2);
+        lbDes2.setFont(font3);
         lbDes2.setBounds(620,215,600, 40);
         add(lbDes2);
 
         String PaD3 = "<html><body>" + "Description: " +DataController.getMeal(2).getDescription() + "<body></html>";
         JLabel lbDes3 = new JLabel(PaD3);
         lbDes3.setHorizontalAlignment(SwingConstants.CENTER);
-        lbDes3.setFont(font2);
+        lbDes3.setFont(font3);
         lbDes3.setBounds(30,443,600, 40);
         add(lbDes3);
 
         String PaD4 = "<html><body>" + "Description: " +DataController.getMeal(3).getDescription() + "<body></html>";
         JLabel lbDes4 = new JLabel(PaD4);
         lbDes4.setHorizontalAlignment(SwingConstants.CENTER);
-        lbDes4.setFont(font2);
+        lbDes4.setFont(font3);
         lbDes4.setBounds(620,443,600, 40);
         add(lbDes4);
 
@@ -112,16 +112,16 @@ public class MealWindow extends JFrame {
         JRadioButton rb3 = new JRadioButton(DataController.getMeal(2).getName(), false);
         JRadioButton rb4 = new JRadioButton(DataController.getMeal(3).getName(), false);
 
-        rb1.setFont(f);
+        rb1.setFont(font1);
         rb1.setBounds(240,260,160, 30);
         add(rb1);
-        rb2.setFont(f);
+        rb2.setFont(font1);
         rb2.setBounds(837,260,112, 30);
         add(rb2);
-        rb3.setFont(f);
+        rb3.setFont(font1);
         rb3.setBounds(203,481,220, 30);
         add(rb3);
-        rb4.setFont(f);
+        rb4.setFont(font1);
         rb4.setBounds(837,481,112, 30);
         add(rb4);
 
@@ -134,22 +134,22 @@ public class MealWindow extends JFrame {
 
         //Remarks and next page
         JLabel remarkLabel = new JLabel("Remarks (etc. Special meals): ");
-        remarkLabel.setFont(font2);
+        remarkLabel.setFont(font3);
         remarkLabel.setBounds(40,535,230, 30);
         add(remarkLabel);
 
         JTextArea remarkTxt = new JTextArea(2, 70);
-        remarkTxt.setFont(f);
+        remarkTxt.setFont(font1);
         remarkTxt.setBounds(260,535,800, 36);
         add(remarkTxt);
 
         JButton jbBack = new JButton("Back");
         JButton jbNext = new JButton("Next");
 
-        jbBack.setFont(f);
+        jbBack.setFont(font1);
         jbBack.setBounds(362,586,120, 36);
         add(jbBack);
-        jbNext.setFont(f);
+        jbNext.setFont(font1);
         jbNext.setBounds(700,586,120, 36);
         add(jbNext);
 
