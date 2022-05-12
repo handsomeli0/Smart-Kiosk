@@ -106,6 +106,13 @@ public class Seat {
 //        frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 //        return 0;
 //    }
+
+    /**
+     * Form a seat selection interface and store the corresponding components and seat selection information.
+     *
+     * @param A booking
+     * @return booking
+     */
     public int form(Booking A) {
         int sum;
         JFrame frame=new JFrame("Choosing Seat"); //Creating the Frame window
