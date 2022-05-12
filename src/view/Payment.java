@@ -139,7 +139,7 @@ public class Payment extends JFrame{
                 }
                 catch (Exception exception) {
                     JOptionPane.showMessageDialog(null, "Payment False: The credit card information is incorrect!");
-                    System.out.println("Exception occoured : " + exception);
+//                    System.out.println("Exception occoured : " + exception);
                 }
             }
         });

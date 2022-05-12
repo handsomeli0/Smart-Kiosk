@@ -805,6 +805,7 @@ public class Seat {
                         double payment=bus*100+mov*20+leg*60;
  //                       if (bus == 0 && mov == 0 && leg == 0) {
                             DataController.updateSeat(flightID, cha);
+                            DataController.setCountToNull();
                             new MealWindow(passengerID,A,cha,bus,payment);
                             closeThis();
  //                       }

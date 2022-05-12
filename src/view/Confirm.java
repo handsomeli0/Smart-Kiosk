@@ -7,17 +7,11 @@ package view;
 
 import controller.DataController;
 import controller.PeripheralController;
-import java.awt.Color;
-import java.awt.Container;
-import java.awt.Font;
-import java.awt.LayoutManager;
+
+import java.awt.*;
 import java.io.IOException;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+import javax.swing.*;
+
 import model.Booking;
 import model.IDdocument;
 
@@ -49,8 +43,13 @@ public class Confirm {
         label_3.setFont(new Font("SERIF", 1, 25));
 
         String GF = DataController.showGourmetFood();
+//        JTextArea TA1 = new JTextArea("The food you have chosen: " + GF);
+//        JLabel label_2 = new JLabel();
+//        label_2.add(TA1);
+
         JLabel label_2 = new JLabel("The food you have chosen: " + GF);
-        label_2.setBounds(20, 120, 400, 30);
+
+        label_2.setBounds(20, 120, 2000, 300);
         label_2.setFont(new Font("SERIF", 1, 25));
         JLabel label_4 = new JLabel("Total payment is:" + totalPrice);
         label_4.setBounds(20, 160, 400, 30);
