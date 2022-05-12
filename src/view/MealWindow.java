@@ -9,7 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MealWindow extends JFrame {
-    public MealWindow( String passengerID, Booking booking,int seatnum,int seatlevel,double payment) {
+    public MealWindow( String passengerID, Booking booking,int seatNum,int seatLevel,double payment) {
 
         setLayout(null);
         setTitle("Meal");
@@ -28,10 +28,10 @@ public class MealWindow extends JFrame {
         Font font1=new Font(Font.SERIF, Font.BOLD|Font.ITALIC,50);
         Font font2=new Font(Font.SERIF, Font.BOLD|Font.ITALIC,17);
 
-        JLabel Introlabel=new JLabel("Please choose your meal!");
-        Introlabel.setBounds(120,0,900,70);
-        Introlabel.setFont(font1);
-        Introlabel.setForeground(Color.white);
+        JLabel introLabel=new JLabel("Please choose your meal!");
+        introLabel.setBounds(120,0,900,70);
+        introLabel.setFont(font1);
+        introLabel.setForeground(Color.white);
 
         //picture
         JLabel m1img = new JLabel();//a JLabel with picture
@@ -79,32 +79,32 @@ public class MealWindow extends JFrame {
         add(m4img);
 
         String PaD1 = "<html><body>" + "Description: " + DataController.getMeal(0).getDescription() + "<body></html>";
-        JLabel Lbdes1 = new JLabel(PaD1);// label description1
-        Lbdes1.setHorizontalAlignment(SwingConstants.CENTER);
-        Lbdes1.setFont(font2);
-        Lbdes1.setBounds(30,215,600, 40);
-        add(Lbdes1);
+        JLabel lbDes1 = new JLabel(PaD1);// label description1
+        lbDes1.setHorizontalAlignment(SwingConstants.CENTER);
+        lbDes1.setFont(font2);
+        lbDes1.setBounds(30,215,600, 40);
+        add(lbDes1);
 
         String PaD2 = "<html><body>" + "Description: " +DataController.getMeal(1).getDescription() + "<body></html>";
-        JLabel Lbdes2 = new JLabel(PaD2);
-        Lbdes2.setHorizontalAlignment(SwingConstants.CENTER);
-        Lbdes2.setFont(font2);
-        Lbdes2.setBounds(620,215,600, 40);
-        add(Lbdes2);
+        JLabel lbDes2 = new JLabel(PaD2);
+        lbDes2.setHorizontalAlignment(SwingConstants.CENTER);
+        lbDes2.setFont(font2);
+        lbDes2.setBounds(620,215,600, 40);
+        add(lbDes2);
 
         String PaD3 = "<html><body>" + "Description: " +DataController.getMeal(2).getDescription() + "<body></html>";
-        JLabel Lbdes3 = new JLabel(PaD3);
-        Lbdes3.setHorizontalAlignment(SwingConstants.CENTER);
-        Lbdes3.setFont(font2);
-        Lbdes3.setBounds(30,443,600, 40);
-        add(Lbdes3);
+        JLabel lbDes3 = new JLabel(PaD3);
+        lbDes3.setHorizontalAlignment(SwingConstants.CENTER);
+        lbDes3.setFont(font2);
+        lbDes3.setBounds(30,443,600, 40);
+        add(lbDes3);
 
         String PaD4 = "<html><body>" + "Description: " +DataController.getMeal(3).getDescription() + "<body></html>";
-        JLabel Lbdes4 = new JLabel(PaD4);
-        Lbdes4.setHorizontalAlignment(SwingConstants.CENTER);
-        Lbdes4.setFont(font2);
-        Lbdes4.setBounds(620,443,600, 40);
-        add(Lbdes4);
+        JLabel lbDes4 = new JLabel(PaD4);
+        lbDes4.setHorizontalAlignment(SwingConstants.CENTER);
+        lbDes4.setFont(font2);
+        lbDes4.setBounds(620,443,600, 40);
+        add(lbDes4);
 
         //chose meal button
         JRadioButton rb1 = new JRadioButton(DataController.getMeal(0).getName(), true);
@@ -147,18 +147,18 @@ public class MealWindow extends JFrame {
         JButton jbNext = new JButton("Next");
 
         jbBack.setFont(f);
-        jbBack.setBounds(382,586,120, 36);
+        jbBack.setBounds(362,586,120, 36);
         add(jbBack);
         jbNext.setFont(f);
         jbNext.setBounds(700,586,120, 36);
         add(jbNext);
 
         add(label2);
-        add(Introlabel);
+        add(introLabel);
         add(label1);
         setVisible(true);
 
-        //nextpage
+        //nextPage
         double totalPrice = 0;
 
         jbBack.addActionListener(new ActionListener() {
@@ -175,7 +175,7 @@ public class MealWindow extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (e.getSource() == jbNext) {
-                    new GourmetMenu(passengerID,booking,totalPrice,seatnum,seatlevel,payment);
+                    new GourmetMenu(passengerID,booking,totalPrice,seatNum,seatLevel,payment);
                     dispose();
                 }
             }
