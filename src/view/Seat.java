@@ -8,6 +8,11 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * This class is used for seat selection interface and corresponding functions。
+ *
+ * @author Shenqi Tian
+ */
 public class Seat {
     int cha=-1,bus=0,mov=0,leg=0;
     JButton[] x=new JButton[100];
@@ -25,11 +30,11 @@ public class Seat {
 //        JTextField ID=new JTextField(20);
 //
 //        jp2.setLayout(null);
-//        JLabel lable1=new JLabel("You need to pay " + (bus*100+mov*20+leg*60)+" dollars extra!", JLabel.CENTER);
-//        lable1.setFont(font2);
-//        lable1.setForeground(Color.white);
-//        jp2.add(lable1);
-//        lable1.setBounds(0,0,900,100);
+//        JLabel label1=new JLabel("You need to pay " + (bus*100+mov*20+leg*60)+" dollars extra!", JLabel.CENTER);
+//        label1.setFont(font2);
+//        label1.setForeground(Color.white);
+//        jp2.add(label1);
+//        label1.setBounds(0,0,900,100);
 //
 //        id.setFont(font3);
 //        jp2.add(id);
@@ -103,12 +108,14 @@ public class Seat {
 //    }
     public int form(Booking A) {
         int sum;
-        JFrame frame=new JFrame("Choosing Seat"); //创建Frame窗口
-        JLabel lable=new JLabel("Please select your seat!", JLabel.CENTER);
-        JLabel lable2=new JLabel("Business Class", JLabel.CENTER);
-        JLabel lable3=new JLabel("Economy Class", JLabel.CENTER);
+        JFrame frame=new JFrame("Choosing Seat"); //Creating the Frame window
+        JLabel label=new JLabel("Please select your seat!", JLabel.CENTER);
+        JLabel label2=new JLabel("Business Class", JLabel.CENTER);
+        JLabel label3=new JLabel("Economy Class", JLabel.CENTER);
+//      Declare label
         Font font1=new Font(Font.SERIF, Font.BOLD|Font.ITALIC,80);
         Font font3=new Font(Font.SERIF, Font.BOLD|Font.ITALIC,20);
+//      Declare required fonts
 
         String y[]={"Normal", "Extra legroom"};
         JComboBox<String> ne=new JComboBox<String>(y);
@@ -815,18 +822,18 @@ public class Seat {
         jp.add(exp1);
         jp.add(exp2);
 
-        lable.setFont(font1);
-        lable.setForeground(Color.white);
-        jp.add(lable);
-        lable.setBounds(0,0,850,100);
-        lable2.setFont(font3);
-        lable2.setForeground(Color.BLACK);
-        jp.add(lable2);
-        lable2.setBounds(300,220,200,20);
-        lable3.setFont(font3);
-        lable3.setForeground(Color.BLACK);
-        jp.add(lable3);
-        lable3.setBounds(530,220,200,20);
+        label.setFont(font1);
+        label.setForeground(Color.white);
+        jp.add(label);
+        label.setBounds(0,0,850,100);
+        label2.setFont(font3);
+        label2.setForeground(Color.BLACK);
+        jp.add(label2);
+        label2.setBounds(300,220,200,20);
+        label3.setFont(font3);
+        label3.setForeground(Color.BLACK);
+        jp.add(label3);
+        label3.setBounds(530,220,200,20);
         exptext.setFont(font3);
         exptext1.setFont(font3);
         exptext2.setFont(font3);
@@ -857,11 +864,19 @@ public class Seat {
         return sum;
     }
 
-
+    /**
+     * Generates the GUI when no seat is selected
+     * @param A booking
+     */
     public Seat(Booking A)
     {
         form(A);
     }
+    /**
+     * Generates a GUI that back from another screen after a seat has been selected
+     * @param A booking
+     * @param seatNum The seat number selected previously
+     */
     public Seat(Booking A, int seatNum)
     {
         this.cha = seatNum;
