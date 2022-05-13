@@ -2,59 +2,39 @@ package view;
 
 import controller.DataController;
 import model.Booking;
-import model.Meal;
-
 import javax.swing.*;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-
+/**
+ * This class is used for seat selection interface and corresponding functions。
+ *
+ * @author Shenqi Tian
+ */
 public class Seat {
-    int selected=0,bus=0,mov=0,leg=0,sum,cha=-1;
-
-    JFrame frame=new JFrame("Choosing Seat"); //创建Frame窗口
-    JFrame frame1=new JFrame("Payment Interface");
-
-    JLabel lable=new JLabel("Please select your seat!", JLabel.CENTER);
-    Font font1=new Font(Font.SERIF, Font.BOLD|Font.ITALIC,80);
-    Font font2=new Font(Font.SERIF, Font.BOLD|Font.ITALIC,50);
-    Font font3=new Font(Font.SERIF, Font.BOLD|Font.ITALIC,20);
-    JLabel lable2=new JLabel("Business Class", JLabel.CENTER);
-    JLabel lable3=new JLabel("Economy Class", JLabel.CENTER);
-
-    String y[]={"Normal", "Extra legroom"};
-    JComboBox<String> ne=new JComboBox<String>(y);
-    String z[]={"Free Video", "Paid Movie"};
-    JComboBox<String> fm=new JComboBox<String>(z);
-
-    JPanel jp=new JPanel(); //创建JPanel对象
-    JPanel jp2=new JPanel();
-
-    ImageIcon image=new ImageIcon("src/images/background1.jpg");//背景图片
-    JLabel im=new JLabel(image);
-    ImageIcon plane=new ImageIcon("src/images/plane.png");
-    JLabel pl=new JLabel(plane);
-    ImageIcon logo=new ImageIcon("src/images/logo.png");
-    JLabel lo=new JLabel(logo);
-
+    int cha=-1,bus=0,mov=0,leg=0;
     JButton[] x=new JButton[100];
-    JButton con=new JButton("Confirm");
-    JButton con1=new JButton("Confirm");
-    JButton back2=new JButton("Back");
-    JButton back3=new JButton("Home Page");
-
-//    public int formpay(int bus,int mov,int leg,String flightID,String passengerID, Booking A,int cha){
+//    public int payment(int bus,int mov,int leg,Booking A,int cha){
+//        Font font2=new Font(Font.SERIF, Font.BOLD|Font.ITALIC,50);
+//        JPanel jp2=new JPanel();
+//        JButton con1=new JButton("Confirm");
+//        JButton back2=new JButton("Back");
+//        JButton back3=new JButton("Home Page");
+//
+//        String flightID=A.getFlightID();
+//        String passengerID=A.getPassengerID();
+//
 //        JLabel id=new JLabel("Credit Card ID:");
 //        JTextField ID=new JTextField(20);
 //
 //        jp2.setLayout(null);
-//        JLabel lable1=new JLabel("You need to pay " + (bus*100+mov*20+leg*60)+" dollars extra!", JLabel.CENTER);
-//        lable1.setFont(font2);
-//        lable1.setForeground(Color.white);
-//        jp2.add(lable1);
-//        lable1.setBounds(0,0,900,100);
+//        JLabel label1=new JLabel("You need to pay " + (bus*100+mov*20+leg*60)+" dollars extra!", JLabel.CENTER);
+//        label1.setFont(font2);
+//        label1.setForeground(Color.white);
+//        jp2.add(label1);
+//        label1.setBounds(0,0,900,100);
 //
 //        id.setFont(font3);
 //        jp2.add(id);
@@ -71,7 +51,6 @@ public class Seat {
 //                    else{
 //                        int Id= Integer.parseInt(ID.getText().toString());
 //                        if(DataController.checkPayment(passengerID,Id)) {
-//                            new MealWindow(flightID,passengerID,A);
 //                            DataController.updateSeat(flightID, cha);
 //                            closeThis();
 //                        }
@@ -128,7 +107,38 @@ public class Seat {
 //        return 0;
 //    }
 
+    /**
+     * Form a seat selection interface and store the corresponding components and seat selection information.
+     *
+     * @param A booking
+     * @return booking
+     */
     public int form(Booking A) {
+        int sum;
+        JFrame frame=new JFrame("Choosing Seat"); //Creating the Frame window
+        JLabel label=new JLabel("Please select your seat!", JLabel.CENTER);
+        JLabel label2=new JLabel("Business Class", JLabel.CENTER);
+        JLabel label3=new JLabel("Economy Class", JLabel.CENTER);
+//      Declare label
+        Font font1=new Font(Font.SERIF, Font.BOLD|Font.ITALIC,80);
+        Font font3=new Font(Font.SERIF, Font.BOLD|Font.ITALIC,20);
+//      Declare required fonts
+
+        String y[]={"Normal", "Extra legroom"};
+        JComboBox<String> ne=new JComboBox<String>(y);
+        String z[]={"Free Video", "Paid Movie"};
+        JComboBox<String> fm=new JComboBox<String>(z);
+
+        JPanel jp=new JPanel(); //创建JPanel对象
+
+        ImageIcon image=new ImageIcon("src/images/background1.jpg");//背景图片
+        JLabel im=new JLabel(image);
+        ImageIcon plane=new ImageIcon("src/images/plane.png");
+        JLabel pl=new JLabel(plane);
+        ImageIcon logo=new ImageIcon("src/images/logo.png");
+        JLabel lo=new JLabel(logo);
+
+        JButton con=new JButton("Confirm");
         String flightID=A.getFlightID();
         String passengerID=A.getPassengerID();
         jp.setLayout(null);
@@ -143,7 +153,6 @@ public class Seat {
         JLabel exptext=new JLabel("Unselected seats", JLabel.LEFT);
         JLabel exptext1=new JLabel("Seats chosen by someone else", JLabel.LEFT);
         JLabel exptext2=new JLabel("The seat you have chosen", JLabel.LEFT);
-
         boolean[] seatnum= DataController.getSeatsByFlightID(flightID);
         for(int i=0;i<32;i++)
         {
@@ -154,6 +163,10 @@ public class Seat {
             }
             else{
                 x[i].setBackground(Color.WHITE);
+            }
+            if(i==cha)
+            {
+                x[i].setBackground(Color.BLUE);
             }
             if(i/4==0)
             {
@@ -199,7 +212,6 @@ public class Seat {
                         }
                         JButton x = Seat.this.x[0];
                         x.setBackground(Color.BLUE);
-                        selected = 1;
                         bus = 1;
                         cha=0;
                     }
@@ -219,7 +231,6 @@ public class Seat {
                             }
                         JButton x = Seat.this.x[1];
                         x.setBackground(Color.BLUE);
-                        selected = 1;
                         bus = 1;
                         cha=1;
                     }
@@ -236,7 +247,6 @@ public class Seat {
                         if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
-                    selected = 1;
                     JButton x = Seat.this.x[2];
                     x.setBackground(Color.BLUE);
                     bus = 1;
@@ -255,7 +265,6 @@ public class Seat {
                           if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
-                        selected = 1;
                         JButton x = Seat.this.x[3];
                         x.setBackground(Color.BLUE);
                         bus = 1;
@@ -274,7 +283,6 @@ public class Seat {
                           if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
-                        selected = 1;
                         JButton x = Seat.this.x[4];
                         x.setBackground(Color.BLUE);
                         bus = 1;
@@ -293,7 +301,6 @@ public class Seat {
                           if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
-                        selected = 1;
                         JButton x = Seat.this.x[5];
                         x.setBackground(Color.BLUE);
                         bus = 1;
@@ -312,7 +319,6 @@ public class Seat {
                           if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
-                        selected = 1;
                         JButton x = Seat.this.x[6];
                         x.setBackground(Color.BLUE);
                         bus = 1;
@@ -331,7 +337,6 @@ public class Seat {
                           if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
-                        selected = 1;
                         JButton x = Seat.this.x[7];
                         x.setBackground(Color.BLUE);
                         bus = 1;
@@ -350,7 +355,6 @@ public class Seat {
                           if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
-                        selected = 1;
                         JButton x = Seat.this.x[8];
                         x.setBackground(Color.BLUE);
                         cha=8;
@@ -368,7 +372,6 @@ public class Seat {
                           if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
-                        selected = 1;
                         JButton x = Seat.this.x[9];
                         x.setBackground(Color.BLUE);
                         cha=9;
@@ -386,7 +389,6 @@ public class Seat {
                           if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
-                        selected = 1;
                         JButton x = Seat.this.x[10];
                         x.setBackground(Color.BLUE);
                         cha=10;
@@ -404,7 +406,6 @@ public class Seat {
                           if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
-                        selected = 1;
                         JButton x = Seat.this.x[11];
                         x.setBackground(Color.BLUE);
                         cha=11;
@@ -422,7 +423,6 @@ public class Seat {
                           if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
-                        selected = 1;
                         JButton x = Seat.this.x[12];
                         x.setBackground(Color.BLUE);
                         cha=12;
@@ -440,7 +440,6 @@ public class Seat {
                           if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
-                        selected = 1;
                         JButton x = Seat.this.x[13];
                         x.setBackground(Color.BLUE);
                         cha=13;
@@ -458,7 +457,6 @@ public class Seat {
                           if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
-                        selected = 1;
                         JButton x = Seat.this.x[14];
                         x.setBackground(Color.BLUE);
                         cha=14;
@@ -476,7 +474,6 @@ public class Seat {
                           if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
-                        selected = 1;
                         JButton x = Seat.this.x[15];
                         x.setBackground(Color.BLUE);
                         cha=15;
@@ -494,7 +491,6 @@ public class Seat {
                           if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
-                        selected = 1;
                         JButton x = Seat.this.x[16];
                         x.setBackground(Color.BLUE);
                         cha=16;
@@ -512,7 +508,6 @@ public class Seat {
                           if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
-                        selected = 1;
                         JButton x = Seat.this.x[17];
                         x.setBackground(Color.BLUE);
                         cha=17;
@@ -530,7 +525,6 @@ public class Seat {
                           if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
-                        selected = 1;
                         JButton x = Seat.this.x[18];
                         x.setBackground(Color.BLUE);
                         cha=18;
@@ -548,7 +542,6 @@ public class Seat {
                           if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
-                        selected = 1;
                         JButton x = Seat.this.x[19];
                         x.setBackground(Color.BLUE);
                         cha=19;
@@ -566,7 +559,6 @@ public class Seat {
                           if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
-                        selected = 1;
                         JButton x = Seat.this.x[20];
                         x.setBackground(Color.BLUE);
                         cha = 20;
@@ -584,7 +576,6 @@ public class Seat {
                           if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
-                        selected = 1;
                         JButton x = Seat.this.x[21];
                         x.setBackground(Color.BLUE);
                         cha=21;
@@ -602,7 +593,6 @@ public class Seat {
                           if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
-                        selected = 1;
                         JButton x = Seat.this.x[22];
                         x.setBackground(Color.BLUE);
                         cha=22;
@@ -621,7 +611,6 @@ public class Seat {
                           if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
-                        selected = 1;
                         JButton x = Seat.this.x[23];
                         x.setBackground(Color.BLUE);
                         cha=23;
@@ -639,7 +628,6 @@ public class Seat {
                           if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
-                        selected = 1;
                         JButton x = Seat.this.x[24];
                         x.setBackground(Color.BLUE);
                         cha=24;
@@ -657,7 +645,6 @@ public class Seat {
                           if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
-                        selected = 1;
                         JButton x = Seat.this.x[25];
                         x.setBackground(Color.BLUE);
                         cha=25;
@@ -675,7 +662,6 @@ public class Seat {
                           if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
-                        selected = 1;
                         JButton x = Seat.this.x[26];
                         x.setBackground(Color.BLUE);
                         cha=26;
@@ -693,7 +679,6 @@ public class Seat {
                           if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
-                        selected = 1;
                         JButton x = Seat.this.x[27];
                         x.setBackground(Color.BLUE);
                         cha=27;
@@ -711,7 +696,6 @@ public class Seat {
                           if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
-                        selected = 1;
                         JButton x = Seat.this.x[28];
                         x.setBackground(Color.BLUE);
                         cha=28;
@@ -729,7 +713,6 @@ public class Seat {
                           if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
-                        selected = 1;
                         JButton x = Seat.this.x[29];
                         x.setBackground(Color.BLUE);
                         cha=29;
@@ -747,7 +730,6 @@ public class Seat {
                           if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
-                        selected = 1;
                         JButton x = Seat.this.x[30];
                         x.setBackground(Color.BLUE);
                         cha=30;
@@ -765,7 +747,6 @@ public class Seat {
                           if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
-                        selected = 1;
                         JButton x = Seat.this.x[31];
                         x.setBackground(Color.BLUE);
                         cha=31;
@@ -801,11 +782,10 @@ public class Seat {
         con.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
-                    if(selected!=0) {
+                    if(cha!=-1) {
                         double payment=bus*100+mov*20+leg*60;
  //                       if (bus == 0 && mov == 0 && leg == 0) {
-                            DataController.updateSeat(flightID, cha);
-                            closeThis();
+                            frame.setVisible(false);
                             new MealWindow(flightID,passengerID,A,cha,bus,payment);
  //                       }
 //                        else {
@@ -825,13 +805,13 @@ public class Seat {
         back.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 new Summary(A);
-                closeThis();
+                frame.setVisible(false);
             }
         });
         back1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 new BookingNumberCheckIn();
-                closeThis();
+                frame.setVisible(false);
             }
         });
 
@@ -849,18 +829,18 @@ public class Seat {
         jp.add(exp1);
         jp.add(exp2);
 
-        lable.setFont(font1);
-        lable.setForeground(Color.white);
-        jp.add(lable);
-        lable.setBounds(0,0,850,100);
-        lable2.setFont(font3);
-        lable2.setForeground(Color.BLACK);
-        jp.add(lable2);
-        lable2.setBounds(300,220,200,20);
-        lable3.setFont(font3);
-        lable3.setForeground(Color.BLACK);
-        jp.add(lable3);
-        lable3.setBounds(530,220,200,20);
+        label.setFont(font1);
+        label.setForeground(Color.white);
+        jp.add(label);
+        label.setBounds(0,0,850,100);
+        label2.setFont(font3);
+        label2.setForeground(Color.BLACK);
+        jp.add(label2);
+        label2.setBounds(300,220,200,20);
+        label3.setFont(font3);
+        label3.setForeground(Color.BLACK);
+        jp.add(label3);
+        label3.setBounds(530,220,200,20);
         exptext.setFont(font3);
         exptext1.setFont(font3);
         exptext2.setFont(font3);
@@ -891,12 +871,22 @@ public class Seat {
         return sum;
     }
 
-    public void closeThis(){
-        frame.dispose();
-        frame1.dispose();
-    }
+    /**
+     * Generates the GUI when no seat is selected
+     * @param A booking
+     */
     public Seat(Booking A)
     {
+        form(A);
+    }
+    /**
+     * Generates a GUI that back from another screen after a seat has been selected
+     * @param A booking
+     * @param seatNum The seat number selected previously
+     */
+    public Seat(Booking A, int seatNum)
+    {
+        this.cha = seatNum;
         form(A);
     }
 }
