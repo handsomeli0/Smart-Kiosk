@@ -82,6 +82,7 @@ public class Confirm  {
         jp3.add(back);
         confirm.addActionListener(e -> {
             try {
+                DataController.updateSeat(booking.getFlightID(), seatnum);
                 PeripheralController.printBoardingPass(booking, seatlevel, seatnum);
                 PeripheralController.printTag(booking);
                 PeripheralController.printTicket(booking);
