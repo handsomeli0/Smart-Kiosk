@@ -89,7 +89,7 @@ public class MealWindow extends JFrame {
         JLabel lbDes2 = new JLabel(PaD2);
         lbDes2.setHorizontalAlignment(SwingConstants.CENTER);
         lbDes2.setFont(font3);
-        lbDes2.setBounds(620,215,600, 40);
+        lbDes2.setBounds(610,215,600, 40);
         add(lbDes2);
 
         String PaD3 = "<html><body>" + "Description: " +DataController.getMeal(2).getDescription() + "<body></html>";
@@ -114,15 +114,19 @@ public class MealWindow extends JFrame {
 
         rb1.setFont(font1);
         rb1.setBounds(240,260,160, 30);
+        rb1.setOpaque(false);
         add(rb1);
         rb2.setFont(font1);
         rb2.setBounds(837,260,112, 30);
+        rb2.setOpaque(false);
         add(rb2);
         rb3.setFont(font1);
         rb3.setBounds(203,481,220, 30);
+        rb3.setOpaque(false);
         add(rb3);
         rb4.setFont(font1);
         rb4.setBounds(837,481,112, 30);
+        rb4.setOpaque(false);
         add(rb4);
 
 
@@ -135,12 +139,13 @@ public class MealWindow extends JFrame {
         //Remarks and next page
         JLabel remarkLabel = new JLabel("Remarks (etc. Special meals): ");
         remarkLabel.setFont(font3);
+        remarkLabel.setForeground(Color.white);
         remarkLabel.setBounds(40,535,230, 30);
         add(remarkLabel);
 
         JTextArea remarkTxt = new JTextArea(2, 70);
         remarkTxt.setFont(font1);
-        remarkTxt.setBounds(260,535,800, 36);
+        remarkTxt.setBounds(260,538,800, 29);
         add(remarkTxt);
 
         JButton jbBack = new JButton("Back");

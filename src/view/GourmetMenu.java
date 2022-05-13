@@ -26,8 +26,8 @@ public class GourmetMenu extends JFrame{
         JLabel label2 = new JLabel(icon2);
         label2.setBounds(800,20,icon2.getIconWidth(),icon2.getIconHeight());
 
-        Font font1=new Font (Font.SERIF, Font.BOLD, 14);
-        Font font2=new Font (Font.SERIF, Font.BOLD, 20);
+        Font font1=new Font(Font.SERIF, Font.BOLD|Font.ITALIC,14);
+        Font font2=new Font (Font.SERIF, Font.BOLD, 24);
         Font font3=new Font(Font.SERIF, Font.BOLD|Font.ITALIC,50);
 
         JLabel introLabel=new JLabel("Gourmet Menu for the flight!");
@@ -111,7 +111,7 @@ public class GourmetMenu extends JFrame{
         img7 = img7.getScaledInstance(130, 120, Image.SCALE_AREA_AVERAGING);
         image7.setImage(img7);
         m7img.setIcon(image7);
-        m7img.setBounds(160,433,95, 78);
+        m7img.setBounds(160,423,95, 78);
         add(m7img);
 
         JLabel m8img = new JLabel();
@@ -122,63 +122,63 @@ public class GourmetMenu extends JFrame{
         img8 = img8.getScaledInstance(130, 120, Image.SCALE_AREA_AVERAGING);
         image8.setImage(img8);
         m8img.setIcon(image8);
-        m8img.setBounds(520,433,95, 78);
+        m8img.setBounds(520,423,95, 78);
         add(m8img);
 
         String PaD1 = "<html><body>" + DataController.getGourmetFood(0).getDescription() + "<br>" + "Price: "+ DataController.getGourmetFood(0).getPrice() + "<body></html>";
         JLabel lbDes1=new JLabel(PaD1);// label description1
         lbDes1.setHorizontalAlignment(SwingConstants.CENTER);
         lbDes1.setFont(font1);
-        lbDes1.setBounds(58,158,300, 50);
+        lbDes1.setBounds(58,155,300, 50);
         add(lbDes1);
 
         String PaD2 = "<html><body>" + DataController.getGourmetFood(1).getDescription() + "<br>" + "Price: "+ DataController.getGourmetFood(1).getPrice() + "<body></html>";
         JLabel lbDes2=new JLabel(PaD2);
         lbDes2.setHorizontalAlignment(SwingConstants.CENTER);
         lbDes2.setFont(font1);
-        lbDes2.setBounds(468,158,300, 50);
+        lbDes2.setBounds(458,155,300, 50);
         add(lbDes2);
 
         String PaD3 = "<html><body>" + DataController.getGourmetFood(2).getDescription() + "<br>" + "Price: "+ DataController.getGourmetFood(2).getPrice() + "<body></html>";
         JLabel lbDes3=new JLabel(PaD3);
         lbDes3.setHorizontalAlignment(SwingConstants.CENTER);
         lbDes3.setFont(font1);
-        lbDes3.setBounds(873,158,300, 50);
+        lbDes3.setBounds(842,155,300, 50);
         add(lbDes3);
 
         String PaD4 = "<html><body>" + DataController.getGourmetFood(3).getDescription() + "<br>" + "Price: "+ DataController.getGourmetFood(3).getPrice() + "<body></html>";
         JLabel lbDes4=new JLabel(PaD4);
         lbDes4.setHorizontalAlignment(SwingConstants.CENTER);
         lbDes4.setFont(font1);
-        lbDes4.setBounds(36,331,300, 50);
+        lbDes4.setBounds(62,324,300, 50);
         add(lbDes4);
 
         String PaD5 = "<html><body>" + DataController.getGourmetFood(4).getDescription() + "<br>" + "Price: "+ DataController.getGourmetFood(4).getPrice() + "<body></html>";
         JLabel lbDes5=new JLabel(PaD5);
         lbDes5.setHorizontalAlignment(SwingConstants.CENTER);
         lbDes5.setFont(font1);
-        lbDes5.setBounds(482,331,300, 58);
+        lbDes5.setBounds(380,324,420, 58);
         add(lbDes5);
 
         String PaD6 = "<html><body>" + DataController.getGourmetFood(5).getDescription() + "<br>" + "Price: "+ DataController.getGourmetFood(5).getPrice() + "<body></html>";
         JLabel lbDes6=new JLabel(PaD6);
         lbDes6.setHorizontalAlignment(SwingConstants.CENTER);
         lbDes6.setFont(font1);
-        lbDes6.setBounds(873,331,300, 58);
+        lbDes6.setBounds(771,324,450, 58);
         add(lbDes6);
 
         String PaD7 = "<html><body>" + DataController.getGourmetFood(6).getDescription() + "<br>" + "Price: "+ DataController.getGourmetFood(6).getPrice() + "<body></html>";
         JLabel lbDes7=new JLabel(PaD7);
         lbDes7.setHorizontalAlignment(SwingConstants.CENTER);
         lbDes7.setFont(font1);
-        lbDes7.setBounds(28,506,300, 50);
+        lbDes7.setBounds(35,496,300, 50);
         add(lbDes7);
 
         String PaD8 = "<html><body>" + DataController.getGourmetFood(7).getDescription() + "<br>" + "Price: "+ DataController.getGourmetFood(7).getPrice() + "<body></html>";
         JLabel lbDes8=new JLabel(PaD8);
         lbDes8.setHorizontalAlignment(SwingConstants.CENTER);
         lbDes8.setFont(font1);
-        lbDes8.setBounds(435,506,300, 50);
+        lbDes8.setBounds(425,496,300, 50);
         add(lbDes8);
 
         //choose button
@@ -192,19 +192,19 @@ public class GourmetMenu extends JFrame{
         add3.setBounds(910,205,63, 26);
         add(add3);
         JButton add4=new JButton("Add");
-        add4.setBounds(170,395,63, 26);
+        add4.setBounds(170,380,63, 26);
         add(add4);
         JButton add5=new JButton("Add");
-        add5.setBounds(530,395,63, 26);
+        add5.setBounds(530,380,63, 26);
         add(add5);
         JButton add6=new JButton("Add");
-        add6.setBounds(910,395,63, 26);
+        add6.setBounds(910,380,63, 26);
         add(add6);
         JButton add7=new JButton("Add");
-        add7.setBounds(170,554,63, 26);
+        add7.setBounds(170,544,63, 26);
         add(add7);
         JButton add8=new JButton("Add");
-        add8.setBounds(530,554,63, 26);
+        add8.setBounds(530,544,63, 26);
         add(add8);
 
         //total price and change page
@@ -212,8 +212,7 @@ public class GourmetMenu extends JFrame{
         String TP = "<html><body>" + "Total Price: "+ format.format(new BigDecimal(totalPrice)) + "<body></html>";
         JLabel lbTP=new JLabel(TP);// label description1
         lbTP.setFont(font2);
-        lbTP.setHorizontalAlignment(SwingConstants.CENTER);
-        lbTP.setBounds(870,534,200, 30);
+        lbTP.setBounds(853,470,200, 40);
         add(lbTP);
 
 
