@@ -8,7 +8,7 @@ import java.io.*;
  * This class is used to manage peripherals.
  *
  * @author Minghan Li
- * @version 1.1
+ * @version 2.0
  */
 
 public class FileIOController {
@@ -68,5 +68,20 @@ public class FileIOController {
 
         ImageIO.write(image, "jpg", imageOutputStream);
         imageOutputStream.close();
+    }
+
+    /**
+     * Write one line of csv String into a csv file.
+     * @param name file name
+     * @param str String to be written.
+     * @throws IOException IOException
+     */
+    protected static void writeCSV(String name, String str) throws IOException {
+        FileWriter fw = new FileWriter("./peripherals/" + name + ".csv", true);
+        BufferedWriter bw = new BufferedWriter(fw);
+        bw.write(str);
+        bw.newLine();
+        bw.close();
+        fw.close();
     }
 }
