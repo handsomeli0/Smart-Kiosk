@@ -14,6 +14,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import controller.PeripheralController;
 import model.Booking;
 import model.IDdocument;
 import javax.swing.*;
@@ -71,10 +73,10 @@ public class Confirm {
         jp2.setLayout((LayoutManager)null);
         jp3.setLayout((LayoutManager)null);
         jp1.setBounds(0, 0, 1200, 100);
-        jp2.setBounds(0, 150, 1200, 300);
-        jp3.setBounds(0, 400, 1200, 225);
+        jp2.setBounds(0, 150, 1200, 400);
+        jp3.setBounds(0, 400, 1200, 250);
         imgLabel2.setBounds(650, 0, 700, 100);
-        txtField1.setBounds(300, 0, 600, 300);
+        txtField1.setBounds(300, 0, 600, 275);
         confirm.setBounds(550, 150, 100, 50);
         cancel.setBounds(1050, 150, 100, 50);
         back.setBounds(50, 150, 100, 50);
@@ -87,6 +89,14 @@ public class Confirm {
         txtField1.setBackground(Color.WHITE);
         txtField1.setOpaque(false);
         txtField1.setFont(new Font("SERIF", 1, 20));
+        JTextField txtfield2=new JTextField();
+        txtfield2.setBounds(200,300,800,50);
+        txtfield2.setEditable(false);
+        txtfield2.setText("Tips: Please check your flight booking information and put your ID card into the scanning box for check-in.");
+        txtfield2.setHorizontalAlignment(JTextField.CENTER);
+        txtfield2.setBackground(Color.WHITE);
+        txtfield2.setOpaque(false);
+        txtfield2.setFont(new Font("SERIF",Font.BOLD,15));
         frame.add(jp1);
         frame.add(jp2);
         frame.add(jp3);
@@ -97,6 +107,7 @@ public class Confirm {
         frame.add(textArea);
         jp1.add(imgLabel2);
         jp2.add(txtField1);
+        jp2.add(txtfield2);
         jp3.add(confirm);
         jp3.add(cancel);
         jp3.add(back);
@@ -111,8 +122,25 @@ public class Confirm {
             frame.setVisible(false);
         });
         confirm.addActionListener(e -> {
-            new FinalPage();
-            frame.setVisible(false);
+            try {
+                if(e.getSource()==confirm) {
+                    if (DataController.checkIdDocument(booking) == true) {
+                        JOptionPane.showMessageDialog(null,"Check in Successfully!");
+                        DataController.updateSeat(booking.getFlightID(), seatNum);
+                        PeripheralController.printBoardingPass(booking, seatLevel, seatNum);
+                        PeripheralController.printTag(booking);
+                        PeripheralController.printTicket(booking);
+                        new FinalPage();
+                    }
+                    else {
+                        JOptionPane.showMessageDialog(null,"Check in False: The ID document is incorrect!");
+                        new Confirm(booking,seatNum,seatLevel,payment,totalPrice);
+                    }
+                }
+                frame.setVisible(false);
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
         });
         ((JPanel)cp).setOpaque(false);
         frame.setSize(1200, 675);
