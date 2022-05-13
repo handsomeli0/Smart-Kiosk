@@ -15,7 +15,7 @@ import com.alibaba.fastjson.JSON;
  * This class is used to manage data.
  *
  * @author Minghan Li
- * @version 2.0
+ * @version 2.1
  */
 
 public class DataController {
@@ -270,6 +270,25 @@ public class DataController {
             if (p.getPassengerID().equals(passengerID)) {
                 if (p.getCreditCardID() == creditCardID)
                     return true;
+            }
+        }
+        return false;
+    }
+
+    // confirm
+
+    /**
+     * Check whether the ID Document belongs to correct passenger.
+     *
+     * @param bk booking information
+     * @return true or false
+     */
+    public static boolean checkIdDocument(Booking bk) {
+        for (Passenger p : passengers) {
+            if (p.getPassengerID().equals(bk.getPassengerID())) {
+                if (p.getIdNum().equals(idDocument.getIdNum())) {
+                    return true;
+                }
             }
         }
         return false;

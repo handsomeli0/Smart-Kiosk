@@ -176,7 +176,7 @@ public class MealWindow extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (e.getSource() == jbBack) {
-                    new Seat(booking);
+                    new Seat(booking,seatNum);
                     dispose();
                 }
             }
