@@ -8,7 +8,6 @@ public class GourmetFood {
     private double price;
     private String description;
     private String image;
-    private int count=0;
 
     public String getName() {
         return name;
@@ -41,12 +40,6 @@ public class GourmetFood {
     }
     public void setImage(String image) {
         this.image = image;
-    }
-    public int getCount() {
-        return count;
-    }
-    public void setCount(int count) {
-        this.count = count;
     }
 
     @Override

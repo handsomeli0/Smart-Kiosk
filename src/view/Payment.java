@@ -12,7 +12,7 @@ import java.math.BigDecimal;
 import java.text.DecimalFormat;
 
 public class Payment extends JFrame{
-    public Payment(String passengerID, Booking booking, double totalPrice,int seatNum,int seatLevel,double payment) {
+    public Payment(Booking booking, double totalPrice,int seatNum,int seatLevel,double payment) {
         setLayout(null);
         setTitle("Payment");
         setSize(1200,675);
@@ -81,14 +81,8 @@ public class Payment extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(e.getSource()==jbBack) {
-                    new MealWindow(passengerID,booking,seatNum,seatLevel,payment);
-                    try{
-                        DataController.setCountToNull();
-                    }catch (IOException ioException)
-                    {
-                        ioException.printStackTrace();
-                    }
-
+                    new MealWindow(booking,seatNum,seatLevel,payment);
+                    DataController.setGournmetFoodListToNull();
                     dispose();
                 }
             }
@@ -101,10 +95,10 @@ public class Payment extends JFrame{
                     if(e.getSource()==jbConfirm) {
                         int card = Integer.parseInt(accTxt.getText().toString());
                         double TP = totalPrice + payment;
-                        if (DataController.checkPayment(passengerID, card)) {
+                        if (DataController.checkPayment(booking.getPassengerID(), card)) {
                             JOptionPane.showMessageDialog(null, "Payment Successful!");
                             try {
-                                new Confirm(passengerID, booking, seatNum, seatLevel, payment, TP);
+                                new Confirm( booking, seatNum, seatLevel, payment, TP);
                             } catch (IOException ex) {
                                 ex.printStackTrace();
                             }

@@ -6,6 +6,8 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import com.alibaba.fastjson.JSON;
 
@@ -24,6 +26,8 @@ public class DataController {
     private static ArrayList<Meal> meals;
     private static IDdocument idDocument;
     private static ArrayList<GourmetFood> gourmetFoods;
+    private static Map<String,Integer> GournmetFoodList = new HashMap<String,Integer>();
+    private static int[] Gournmeals;
 
     // Initially read arraylists from JSON files
     static {
@@ -34,10 +38,18 @@ public class DataController {
             meals = (ArrayList<Meal>) JSON.parseArray(FileIOController.readJSON("Meal.json"), Meal.class);
             idDocument = (IDdocument) JSON.parseObject(FileIOController.readJSON("IDdocument.json"), IDdocument.class);
             gourmetFoods = (ArrayList<GourmetFood>) JSON.parseArray(FileIOController.readJSON("GourmetFood.json"),GourmetFood.class);
+            Gournmeals = new int[getGournmetFoodNum()];
+            for(int i = 0; i<getGournmetFoodNum(); i++)
+            {
+                GournmetFoodList.put(getGourmetFood(i).getDescription(),Gournmeals[i]);
+            }
+
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+
 
     private DataController(){}
 
@@ -90,36 +102,36 @@ public class DataController {
 
     public static Meal getMeal(int num){return meals.get(num);}
 
-    public static void addCount (int num) throws IOException{
-        DataController.gourmetFoods.get(num).setCount(DataController.gourmetFoods.get(num).getCount()+1);
-        FileIOController.writeJSON("./data/GourmetFood.json", JSON.toJSONString(gourmetFoods));
+    public static int getGournmetFoodNum(){
+        return gourmetFoods.size();
     }
 
-    public static void setCountToNull () throws IOException{
-        for(int i = 0; i<gourmetFoods.size(); i++) {
-            DataController.gourmetFoods.get(i).setCount(0);
-        }
-        FileIOController.writeJSON("./data/GourmetFood.json", JSON.toJSONString(gourmetFoods));
+    public static void chooseGournmet(int num)
+    {
+        Gournmeals[num]++;
+        GournmetFoodList.put(getGourmetFood(num).getDescription(),Gournmeals[num]);
     }
 
-    public static String showGourmetFood() throws  IOException{
-        ArrayList<String> gf = new ArrayList<>();
-        for(int i = 0; i<gourmetFoods.size();i++) {
-            if(DataController.gourmetFoods.get(i).getCount()!=0){
-                    gf.add(DataController.gourmetFoods.get(i).getDescription());
-                    gf.add(", x");
-                    int a = DataController.gourmetFoods.get(i).getCount();
-                    String b = String.valueOf(a);
-                    gf.add(b);
-                    gf.add("; ");
+    public static String showGourmetFood(){
+        String chosenGourmetfood=null;
+        for(int i = 0; i<getGournmetFoodNum(); i++)
+        {
+            if(GournmetFoodList.get(getGourmetFood((i)).getDescription())!=0)
+            {
+                chosenGourmetfood = chosenGourmetfood+getGourmetFood(i).getDescription()+" "+GournmetFoodList.get(getGourmetFood((i)).getDescription())+" ";
             }
         }
-        String PurchasedFood = "";
-        for (String fruit : gf) {
-            PurchasedFood+=fruit + "\n";
-        }
-        return PurchasedFood;
+        System.out.println(GournmetFoodList.toString());
+        return chosenGourmetfood;
     }
+    public static void setGournmetFoodListToNull()
+    {
+        for(int i = 0; i<getGournmetFoodNum(); i++)
+        {
+            GournmetFoodList.put(getGourmetFood(i).getDescription(),0);
+        }
+    }
+
 
     /**
      * Get booking information by surname and ID number
