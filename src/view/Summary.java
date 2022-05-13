@@ -21,13 +21,13 @@ public class Summary
         JLabel label_10 = new JLabel(icon2);
         label_10.setBounds(820,20,icon2.getIconWidth(),icon2.getIconHeight());
         JFrame frame=new JFrame("summary.Summary");
-        JButton B1=new JButton("Confirm and order food.");
+        JButton B1=new JButton("Confirm and select seat");
         B1.setBounds(200,550,200,40);
         B1.addActionListener(e ->{
             frame.setVisible(false);
             Seat seat=new Seat(A);});
         frame.add(B1);
-        JButton B2=new JButton("Return to the last page.");
+        JButton B2=new JButton("Return to the last page");
         B2.setBounds(700,550,200,40);
         B2.addActionListener(e ->{
             frame.setVisible(false);
@@ -35,7 +35,7 @@ public class Summary
         frame.add(B2);
         JPanel panel = new JPanel();
         panel.add(new JLabel("summary.Summary"));
-        JLabel sum=new JLabel("Summary of the details .");
+        JLabel sum=new JLabel("Summary of the details");
         sum.setBounds(300,20,1200,40);
         frame.add(sum);
         sum.setFont(new Font("SERIF", Font.BOLD, 35));
@@ -85,8 +85,8 @@ public class Summary
         label_9.setBounds(600,420,400,40);
         label_9.setFont(new Font("SERIF", Font.BOLD, 40));
         JLabel AD=new JLabel( B.getDestination());
-        AD.setBounds(750,420,400,30);
-        AD.setFont(new Font("SERIF", Font.BOLD, 25));
+        AD.setBounds(750,410,400,50);
+        AD.setFont(new Font("SERIF", Font.BOLD, 40));
         frame.add(label_1);
         frame.add(label_2);
         frame.add(label_3);
