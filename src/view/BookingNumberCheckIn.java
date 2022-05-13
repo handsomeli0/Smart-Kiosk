@@ -93,6 +93,5 @@ public class BookingNumberCheckIn
         frame.add(label);
         frame.add(label1);
         frame.setVisible(true);
-
     }
 }
