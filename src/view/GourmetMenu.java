@@ -395,7 +395,7 @@ public class GourmetMenu extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 if(e.getSource()==add8) {
                     double TP = totalPrice + food8.getPrice();
-                    new GourmetMenu(flightID,passengerID,booking,TP,seatnum,seatlevel,payment);
+                    new GourmetMenu( flightID,passengerID,booking,TP,seatnum,seatlevel,payment);
                     dispose();
                 }
             }

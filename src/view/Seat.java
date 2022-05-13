@@ -111,7 +111,7 @@ public class Seat {
      * Form a seat selection interface and store the corresponding components and seat selection information.
      *
      * @param A booking
-     * @return booking
+     * @return sum
      */
     public int form(Booking A) {
         int sum;
