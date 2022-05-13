@@ -14,7 +14,7 @@ import com.alibaba.fastjson.JSON;
 /**
  * This class is used to manage data.
  *
- * @author Minghan Li
+ * @author Minghan Li and Song Yan
  * @version 2.1
  */
 
@@ -139,10 +139,10 @@ public class DataController {
         {
             if(GournmetFoodList.get(getGourmetFood((i)).getDescription())!=0)
             {
-                chosenGourmetfood = chosenGourmetfood+getGourmetFood(i).getDescription()+" "+GournmetFoodList.get(getGourmetFood((i)).getDescription())+" ";
+                chosenGourmetfood = chosenGourmetfood+getGourmetFood(i).getDescription()+" "+GournmetFoodList.get(getGourmetFood((i)).getDescription())+"; ";
             }
         }
-        System.out.println(GournmetFoodList.toString());
+
         return chosenGourmetfood;
     }
 

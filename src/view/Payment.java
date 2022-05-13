@@ -18,7 +18,7 @@ import java.text.DecimalFormat;
  */
 
 public class Payment extends JFrame{
-    public Payment(Booking booking, double totalPrice,int seatNum,int seatLevel,double payment) {
+    public Payment(Booking booking, double totalPrice,int seatNum,int seatLevel,double payment, String mealName) {
         setLayout(null);
         setTitle("Payment");
         setSize(1200,675);
@@ -104,7 +104,7 @@ public class Payment extends JFrame{
                         if (DataController.checkPayment(booking.getPassengerID(), card)) {
                             JOptionPane.showMessageDialog(null, "Payment Successful!");
                             try {
-                                new Confirm( booking, seatNum, seatLevel, payment, TP);
+                                new Confirm( booking, seatNum, seatLevel, payment, TP, mealName);
                             } catch (IOException ex) {
                                 ex.printStackTrace();
                             }
