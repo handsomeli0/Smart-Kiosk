@@ -13,9 +13,16 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.print.Book;
 
+/**
+ * This class is the UI of Confirm check in.
+ *
+ * @author Changming Xu
+ * @version 1.0
+ */
+
 public class Confirm  {
 
-    public Confirm(String flight, String passenger, Booking booking, int seatnum, int seatlevel, double payment) {
+    public Confirm(String flightID, String passengerID, Booking booking, int seatnum, int seatlevel, double payment) {
 
         model.IDdocument iDdocument = DataController.getIDdocument();
 
@@ -82,35 +89,29 @@ public class Confirm  {
         jp3.add(back);
         confirm.addActionListener(e -> {
             try {
-                DataController.updateSeat(booking.getFlightID(), seatnum);
-                PeripheralController.printBoardingPass(booking, seatlevel, seatnum);
-                PeripheralController.printTag(booking);
-                PeripheralController.printTicket(booking);
-                new FinalPage();
+                if(e.getSource()==confirm) {
+                    if (DataController.checkIdDocument(booking) == true) {
+                        JOptionPane.showMessageDialog(null,"Check in Successfully!");
+                        DataController.updateSeat(booking.getFlightID(), seatnum);
+                        PeripheralController.printBoardingPass(booking, seatlevel, seatnum);
+                        PeripheralController.printTag(booking);
+                        PeripheralController.printTicket(booking);
+                        new FinalPage();
+                    }
+                    else {
+                        JOptionPane.showMessageDialog(null,"Check in False: The ID document is incorrect!");
+                        new Confirm(flightID, passengerID,booking,seatnum,seatlevel,payment);
+                    }
+                }
                 frame.setVisible(false);
             } catch (IOException ioException) {
                 ioException.printStackTrace();
             }
         });
-        confirm.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if(e.getSource()==confirm) {
-                    if (DataController.checkIdDocument(booking) == true) {
-                        JOptionPane.showMessageDialog(null,"Check in Successfully!");
-                        new Confirm(flight, passenger,booking,seatnum,seatlevel,payment);
-                        frame.setVisible(false);
-                    }
-                    else {
-                        JOptionPane.showMessageDialog(null,"Check in False: The ID document is incorrect!");
-                    }
-                }
-            }
-        });
         cancel.addActionListener(e -> {new BookingNumberCheckIn();
             frame.setVisible(false);
         });
-        back.addActionListener(e -> {new MealWindow(flight,passenger,booking,seatnum,seatlevel,payment);                    //连接上一个界面
+        back.addActionListener(e -> {new MealWindow(flightID, passengerID,booking,seatnum,seatlevel,payment);                    //连接上一个界面
             frame.setVisible(false);
 
         });
