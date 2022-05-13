@@ -6,6 +6,8 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import com.alibaba.fastjson.JSON;
 
@@ -23,6 +25,9 @@ public class DataController {
     private static ArrayList<Passenger> passengers;
     private static ArrayList<Meal> meals;
     private static IDdocument idDocument;
+    private static ArrayList<GourmetFood> gourmetFoods;
+    private static Map<String,Integer> GournmetFoodList = new HashMap<String,Integer>();
+    private static int[] Gournmeals;
 
     // Initially read arraylists from JSON files
     static {
@@ -32,10 +37,18 @@ public class DataController {
             passengers = (ArrayList<Passenger>) JSON.parseArray(FileIOController.readJSON("Passenger.json"), Passenger.class);
             meals = (ArrayList<Meal>) JSON.parseArray(FileIOController.readJSON("Meal.json"), Meal.class);
             idDocument = (IDdocument) JSON.parseObject(FileIOController.readJSON("IDdocument.json"), IDdocument.class);
+            gourmetFoods = (ArrayList<GourmetFood>) JSON.parseArray(FileIOController.readJSON("GourmetFood.json"),GourmetFood.class);
+            Gournmeals = new int[getGournmetFoodNum()];
+            for(int i = 0; i<getGournmetFoodNum(); i++)
+            {
+                GournmetFoodList.put(getGourmetFood(i).getDescription(),Gournmeals[i]);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+
 
     private DataController(){}
 
@@ -80,6 +93,70 @@ public class DataController {
         return null;
 
     }
+
+    /**
+     * get Gournmet food by num
+     * @param num
+     * @return GournmetFood
+     */
+    public static GourmetFood getGourmetFood(int num)
+    {
+        return gourmetFoods.get(num);
+    }
+
+    /**
+     * get meal by num
+     * @param num
+     * @return Meal
+     */
+    public static Meal getMeal(int num){return meals.get(num);}
+
+    /**
+     * get the number of GournmetFood
+     * @return int
+     */
+    public static int getGournmetFoodNum(){
+        return gourmetFoods.size();
+    }
+
+    /**
+     * add the chosen GournmetFood's num
+     * @param num
+     */
+    public static void chooseGournmet(int num)
+    {
+        Gournmeals[num]++;
+        GournmetFoodList.put(getGourmetFood(num).getDescription(),Gournmeals[num]);
+    }
+
+    /**
+     * show the chosen GournmetFood and its num
+     * @return
+     */
+    public static String showGourmetFood(){
+        String chosenGourmetfood="";
+        for(int i = 0; i<getGournmetFoodNum(); i++)
+        {
+            if(GournmetFoodList.get(getGourmetFood((i)).getDescription())!=0)
+            {
+                chosenGourmetfood = chosenGourmetfood+getGourmetFood(i).getDescription()+" "+GournmetFoodList.get(getGourmetFood((i)).getDescription())+" ";
+            }
+        }
+        System.out.println(GournmetFoodList.toString());
+        return chosenGourmetfood;
+    }
+
+    /**
+     * remove the chosen GournmetFood
+     */
+    public static void setGournmetFoodListToNull()
+    {
+        for(int i = 0; i<getGournmetFoodNum(); i++)
+        {
+            GournmetFoodList.put(getGourmetFood(i).getDescription(),0);
+        }
+    }
+
 
     /**
      * Get booking information by surname and ID number

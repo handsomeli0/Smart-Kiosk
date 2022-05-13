@@ -111,7 +111,7 @@ public class Seat {
      * Form a seat selection interface and store the corresponding components and seat selection information.
      *
      * @param A booking
-     * @return booking
+     * @return sum
      */
     public int form(Booking A) {
         int sum;
@@ -786,7 +786,7 @@ public class Seat {
                         double payment=bus*100+mov*20+leg*60;
  //                       if (bus == 0 && mov == 0 && leg == 0) {
                             frame.setVisible(false);
-                            new MealWindow(flightID,passengerID,A,cha,bus,payment);
+                            new MealWindow(A,cha,bus,payment);
  //                       }
 //                        else {
 //                            closeThis();
