@@ -8,58 +8,36 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class MealWindow extends JFrame {
-    public MealWindow( String passengerID, Booking booking,int seatnum,int seatlevel,double payment) {
+/**
+ * The class is the UI of MealWindow
+ * @author Song Yan and Siyu Ming
+ * @version 2.0
+ */
 
-        setLayout(new BorderLayout());
+public class MealWindow extends JFrame {
+    public MealWindow( Booking booking,int seatNum,int seatLevel,double payment) {
+
+        setLayout(null);
         setTitle("Meal");
         setSize(1200, 675);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+        ImageIcon icon1 = new ImageIcon("src/images/background1.jpg");
+        JLabel label1 = new JLabel(icon1);
+        label1.setBounds(0,0,icon1.getIconWidth(),icon1.getIconHeight());
 
-        JPanel north = new JPanel();
-        north.setLayout(new GridLayout(1, 1, 0, 0));
-        add(north, BorderLayout.NORTH);
+        ImageIcon icon2 = new ImageIcon("src/images/logo.png");
+        JLabel label2 = new JLabel(icon2);
+        label2.setBounds(800,20,icon2.getIconWidth(),icon2.getIconHeight());
 
+        Font font1 = new Font(Font.SERIF, Font.BOLD, 17);
+        Font font2=new Font(Font.SERIF, Font.BOLD|Font.ITALIC,50);
+        Font font3=new Font(Font.SERIF, Font.BOLD|Font.ITALIC,17);
 
-        JPanel center = new JPanel();
-        center.setLayout(new GridLayout(1, 1, 0, 0));
-
-        JPanel menu = new JPanel();
-        menu.setLayout(new GridLayout(2, 2, 0, 0));
-        center.add(menu);
-
-
-        JPanel m1 = new JPanel();//first meal's Panel,meal1
-        m1.setLayout(new GridLayout(3, 1, 0, 0));
-        JPanel m2 = new JPanel();
-        m2.setLayout(new GridLayout(3, 1, 0, 0));
-        JPanel m3 = new JPanel();
-        m3.setLayout(new GridLayout(3, 1, 0, 0));
-        JPanel m4 = new JPanel();
-        m4.setLayout(new GridLayout(3, 1, 0, 0));
-
-
-        JPanel south = new JPanel();
-        south.setLayout(new GridLayout(2, 1, 0, 0));
-
-
-        Font f = new Font(Font.SERIF, Font.BOLD, 14);
-        Font ff=new Font (Font.SERIF, Font.BOLD, 20);
-
-        JPanel intro=new JPanel();
-        JLabel introlabel=new JLabel("Please choose your meal in the flight");
-        introlabel.setHorizontalAlignment(SwingConstants.CENTER);
-        introlabel.setFont(ff);
-        intro.add(introlabel);
-        north.add(intro);
-
-
-        Meal meal1 = new Meal();
-        Meal meal2 = new Meal();
-        Meal meal3 = new Meal();
-        Meal meal4 = new Meal();
-
+        JLabel introLabel=new JLabel("Please choose your meal!");
+        introLabel.setBounds(120,0,900,70);
+        introLabel.setFont(font2);
+        introLabel.setForeground(Color.white);
 
         //picture
         JLabel m1img = new JLabel();//a JLabel with picture
@@ -67,67 +45,72 @@ public class MealWindow extends JFrame {
         ImageIcon image1;
         image1 = new ImageIcon(DataController.getMeal(0).getImage());
         Image img1 = image1.getImage();// get Image
-        img1 = img1.getScaledInstance(270, 170, Image.SCALE_AREA_AVERAGING);
+        img1 = img1.getScaledInstance(240, 152, Image.SCALE_AREA_AVERAGING);
         image1.setImage(img1);
         m1img.setIcon(image1);
-        m1.add(m1img);
-
+        m1img.setBounds(200,90,240, 130);
+        add(m1img);
 
         JLabel m2img = new JLabel();
         m2img.setHorizontalAlignment(SwingConstants.CENTER);
         ImageIcon image2;
         image2 = new ImageIcon(DataController.getMeal(1).getImage());
         Image img2 = image2.getImage();
-        img2 = img2.getScaledInstance(270, 170, Image.SCALE_AREA_AVERAGING);
+        img2 = img2.getScaledInstance(240, 152, Image.SCALE_AREA_AVERAGING);
         image2.setImage(img2);
         m2img.setIcon(image2);
-        m2.add(m2img);
+        m2img.setBounds(770,90,240,130);
+        add(m2img);
 
         JLabel m3img = new JLabel();
         m3img.setHorizontalAlignment(SwingConstants.CENTER);
         ImageIcon image3;
         image3 = new ImageIcon(DataController.getMeal(2).getImage());
         Image img3 = image3.getImage();
-        img3 = img3.getScaledInstance(270, 170, Image.SCALE_AREA_AVERAGING);
+        img3 = img3.getScaledInstance(240, 152, Image.SCALE_AREA_AVERAGING);
         image3.setImage(img3);
         m3img.setIcon(image3);
-        m3.add(m3img);
-
+        m3img.setBounds(200,320,240, 130);
+        add(m3img);
 
         JLabel m4img = new JLabel();
         m4img.setHorizontalAlignment(SwingConstants.CENTER);
         ImageIcon image4;
         image4 = new ImageIcon(DataController.getMeal(3).getImage());
         Image img4 = image4.getImage();
-        img4 = img4.getScaledInstance(270, 170, Image.SCALE_AREA_AVERAGING);
+        img4 = img4.getScaledInstance(240, 152, Image.SCALE_AREA_AVERAGING);
         image4.setImage(img4);
         m4img.setIcon(image4);
-        m4.add(m4img);
+        m4img.setBounds(770,320,240, 130);
+        add(m4img);
 
         String PaD1 = "<html><body>" + "Description: " + DataController.getMeal(0).getDescription() + "<body></html>";
-        JLabel lbdes1 = new JLabel(PaD1);// label description1
-        lbdes1.setHorizontalAlignment(SwingConstants.CENTER);
-        lbdes1.setFont(f);
-        m1.add(lbdes1);
+        JLabel lbDes1 = new JLabel(PaD1);// label description1
+        lbDes1.setHorizontalAlignment(SwingConstants.CENTER);
+        lbDes1.setFont(font3);
+        lbDes1.setBounds(30,215,600, 40);
+        add(lbDes1);
 
         String PaD2 = "<html><body>" + "Description: " +DataController.getMeal(1).getDescription() + "<body></html>";
-        JLabel lbdes2 = new JLabel(PaD2);
-        lbdes2.setHorizontalAlignment(SwingConstants.CENTER);
-        lbdes2.setFont(f);
-        m2.add(lbdes2);
+        JLabel lbDes2 = new JLabel(PaD2);
+        lbDes2.setHorizontalAlignment(SwingConstants.CENTER);
+        lbDes2.setFont(font3);
+        lbDes2.setBounds(610,215,600, 40);
+        add(lbDes2);
 
         String PaD3 = "<html><body>" + "Description: " +DataController.getMeal(2).getDescription() + "<body></html>";
-        JLabel lbdes3 = new JLabel(PaD3);
-        lbdes3.setHorizontalAlignment(SwingConstants.CENTER);
-        lbdes3.setFont(f);
-        m3.add(lbdes3);
+        JLabel lbDes3 = new JLabel(PaD3);
+        lbDes3.setHorizontalAlignment(SwingConstants.CENTER);
+        lbDes3.setFont(font3);
+        lbDes3.setBounds(30,443,600, 40);
+        add(lbDes3);
 
         String PaD4 = "<html><body>" + "Description: " +DataController.getMeal(3).getDescription() + "<body></html>";
-        JLabel lbdes4 = new JLabel(PaD4);
-        lbdes4.setHorizontalAlignment(SwingConstants.CENTER);
-        lbdes4.setFont(f);
-        m4.add(lbdes4);
-
+        JLabel lbDes4 = new JLabel(PaD4);
+        lbDes4.setHorizontalAlignment(SwingConstants.CENTER);
+        lbDes4.setFont(font3);
+        lbDes4.setBounds(620,443,600, 40);
+        add(lbDes4);
 
         //chose meal button
         JRadioButton rb1 = new JRadioButton(DataController.getMeal(0).getName(), true);
@@ -135,92 +118,78 @@ public class MealWindow extends JFrame {
         JRadioButton rb3 = new JRadioButton(DataController.getMeal(2).getName(), false);
         JRadioButton rb4 = new JRadioButton(DataController.getMeal(3).getName(), false);
 
-        rb1.setHorizontalAlignment(SwingConstants.CENTER);
-        rb2.setHorizontalAlignment(SwingConstants.CENTER);
-        rb3.setHorizontalAlignment(SwingConstants.CENTER);
-        rb4.setHorizontalAlignment(SwingConstants.CENTER);
+        rb1.setFont(font1);
+        rb1.setBounds(240,260,160, 30);
+        rb1.setOpaque(false);
+        add(rb1);
+        rb2.setFont(font1);
+        rb2.setBounds(837,260,112, 30);
+        rb2.setOpaque(false);
+        add(rb2);
+        rb3.setFont(font1);
+        rb3.setBounds(203,481,220, 30);
+        rb3.setOpaque(false);
+        add(rb3);
+        rb4.setFont(font1);
+        rb4.setBounds(837,481,112, 30);
+        rb4.setOpaque(false);
+        add(rb4);
 
-        rb1.setFont(f);
-        rb2.setFont(f);
-        rb3.setFont(f);
-        rb4.setFont(f);
 
-
-        m1.add(rb1);
-        m2.add(rb2);
-        m3.add(rb3);
-        m4.add(rb4);//add button in meal 1,2,3,4
         ButtonGroup group = new ButtonGroup();//button group
         group.add(rb1);
         group.add(rb2);
         group.add(rb3);
         group.add(rb4);
 
-        add(center, BorderLayout.CENTER);
-
-        menu.add(m1);
-        menu.add(m2);
-        menu.add(m3);
-        menu.add(m4);
-
-
         //Remarks and next page
-        JPanel remark = new JPanel();
-        JTextArea remarktxt = new JTextArea(2, 70);
-        remarktxt.setFont(f);
+        JLabel remarkLabel = new JLabel("Remarks (etc. Special meals): ");
+        remarkLabel.setFont(font3);
+        remarkLabel.setForeground(Color.white);
+        remarkLabel.setBounds(40,535,230, 30);
+        add(remarkLabel);
 
-        JLabel remarklabel = new JLabel("Remarks (etc. Special meals): ");
-        remarklabel.setFont(f);
-        remark.add(remarklabel);
-        remark.add(remarktxt);
+        JTextArea remarkTxt = new JTextArea(2, 70);
+        remarkTxt.setFont(font1);
+        remarkTxt.setBounds(260,538,800, 29);
+        add(remarkTxt);
 
-        south.add(remark);
+        JButton jbBack = new JButton("Back");
+        JButton jbNext = new JButton("Next");
 
-        JPanel button = new JPanel();
-        JButton jbback = new JButton("Back");
-        JButton jbnext = new JButton("Next");
+        jbBack.setFont(font1);
+        jbBack.setBounds(362,586,120, 36);
+        add(jbBack);
+        jbNext.setFont(font1);
+        jbNext.setBounds(700,586,120, 36);
+        add(jbNext);
 
-        jbback.setFont(f);
-        jbnext.setFont(f);
-
-        button.add(jbback);
-        button.add(jbnext);
-
-        south.add(button);
-        add(south, BorderLayout.SOUTH);
-
+        add(label2);
+        add(introLabel);
+        add(label1);
         setVisible(true);
-//        this.setLocationRelativeTo(null);
 
-
-        //nextpage
+        //nextPage
         double totalPrice = 0;
 
-        jbback.addActionListener(new ActionListener() {
+        jbBack.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (e.getSource() == jbback) {
+                if (e.getSource() == jbBack) {
                     new Seat(booking);
                     dispose();
                 }
             }
         });
-        jbnext.addActionListener(new ActionListener() {
+
+        jbNext.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (e.getSource() == jbnext) {
-                    new GourmetMenu(passengerID,booking,totalPrice,seatnum,seatlevel,payment);
+                if (e.getSource() == jbNext) {
+                    new GourmetMenu(booking,totalPrice,seatNum,seatLevel,payment);
                     dispose();
                 }
             }
         });
     }
-
-//    public static void main(String[] args) {
-//        String flightID = "123abc";
-//        String passengerID = "456def";
-//        Booking booking = new Booking();
-//        new MealWindow(flightID, passengerID, booking);
-//    }
-
 }

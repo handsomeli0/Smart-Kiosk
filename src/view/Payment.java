@@ -7,122 +7,118 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 
+/**
+ * The class is the UI of Payment
+ * @author Song Yan and Siyu Ming
+ * @version 2.0
+ */
+
 public class Payment extends JFrame{
-    public Payment(String passengerID, Booking booking, double totalPrice,int seatnum,int seatlevel,double payment) {
-        setLayout(new BorderLayout());
+    public Payment(Booking booking, double totalPrice,int seatNum,int seatLevel,double payment) {
+        setLayout(null);
         setTitle("Payment");
         setSize(1200,675);
 //        setExtendedState(JFrame.MAXIMIZED_BOTH);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        //add logo
-        JPanel north=new JPanel();
-        north.setLayout(new GridLayout(1,1,0,0));
-        add(north,BorderLayout.NORTH);
+        ImageIcon icon1 = new ImageIcon("src/images/background1.jpg");
+        JLabel label1 = new JLabel(icon1);
+        label1.setBounds(0,0,icon1.getIconWidth(),icon1.getIconHeight());
 
-        //center
-        JPanel center=new JPanel();
-        center.setLayout(new GridLayout(3,1,0,0));
-        add(center,BorderLayout.CENTER);
+        ImageIcon icon2 = new ImageIcon("src/images/logo.png");
+        JLabel label2 = new JLabel(icon2);
+        label2.setBounds(800,20,icon2.getIconWidth(),icon2.getIconHeight());
 
-        JPanel south=new JPanel();
-        south.setLayout(new GridLayout(1,1,0,0));
+        Font font1 = new Font(Font.SERIF, Font.BOLD, 17);
+        Font font2=new Font (Font.SERIF, Font.BOLD, 37);
+        Font font3=new Font (Font.SERIF, Font.BOLD, 23);
+        Font font4=new Font(Font.SERIF, Font.BOLD|Font.ITALIC,50);
 
-        Font f=new Font (Font.SERIF, Font.BOLD, 14);
-        Font ff=new Font (Font.SERIF, Font.BOLD, 20);
-
-
-        JPanel intro=new JPanel();
-        JLabel introlabel=new JLabel("Please check your credit card to pay the extra fee");
-        introlabel.setHorizontalAlignment(SwingConstants.CENTER);
-        introlabel.setFont(ff);
-        intro.add(introlabel);
-        north.add(intro);
+        JLabel introLabel=new JLabel("Payment");
+        introLabel.setBounds(100,0,900,70);
+        introLabel.setFont(font4);
+        introLabel.setForeground(Color.white);
 
 
         //total price
         DecimalFormat format = new DecimalFormat("0.00");
-        String TP = "<html><body>" + "Total Price: "+ format.format(new BigDecimal(totalPrice)) + "<body></html>";
-        JPanel panTP=new JPanel();
+        String TP = "<html><body>" + "Seat Price: " + payment + "<br>" + "GourmetMeal Price: " + format.format(new BigDecimal(totalPrice)) + "<body></html>";
         JLabel lbTP=new JLabel(TP);// label description1
-        lbTP.setFont(ff);
+        lbTP.setFont(font2);
         lbTP.setHorizontalAlignment(SwingConstants.CENTER);
-        panTP.add(lbTP);
-        center.add(panTP);
+        lbTP.setBounds(100,80,1000,80);
+        add(lbTP);
+
 
         //account
-        JPanel account=new JPanel();
-        JTextField acctxt=new JTextField(30);    //创建account文本框
-        acctxt.setFont(f);
+        JLabel accLabel=new JLabel("CreditCardID: ");
+        accLabel.setFont(font3);
+        accLabel.setBounds(210,213,170,27);
+        add(accLabel);
+
+        JTextField accTxt=new JTextField(30);    //创建account文本框
+        accTxt.setFont(font1);
+        accTxt.setBounds(400,213,600,27);
+        add(accTxt);
 
 
-        JLabel acclabel=new JLabel("CreditCardID: ");
-        acclabel.setFont(f);
-        acclabel.setHorizontalAlignment(SwingConstants.CENTER);
-        account.add(acclabel);
-        account.add(acctxt);
-        center.add(account);
 
         //south: check and page change
-        JPanel button=new JPanel();
-        JButton jbback=new JButton("Cancel");
-        JButton jbnext=new JButton("Confirm");
+        JButton jbBack=new JButton("Cancel");
+        jbBack.setFont(font1);
+        jbBack.setBounds(362,586,120, 36);
+        add(jbBack);
 
-        jbback.setFont(f);
-        jbnext.setFont(f);
+        JButton jbConfirm=new JButton("Confirm");
+        jbConfirm.setFont(font1);
+        jbConfirm.setBounds(700,586,120, 36);
+        add(jbConfirm);
 
-        button.add(jbback);
-        button.add(jbnext);
-
-        south.add(button);
-        add(south,BorderLayout.SOUTH);
-
+        add(label2);
+        add(introLabel);
+        add(label1);
         setVisible(true);
 
-        jbback.addActionListener(new ActionListener() {
+        jbBack.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(e.getSource()==jbback) {
-                        new MealWindow(passengerID,booking,seatnum,seatlevel,payment);
-                        dispose();
+                if(e.getSource()==jbBack) {
+                    new MealWindow(booking,seatNum,seatLevel,payment);
+                    DataController.setGournmetFoodListToNull();
+                    dispose();
                 }
             }
         });
 
-//        jbnext.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                if(e.getSource()==jbnext) {
-//                    if (Integer.parseInt(acctxt.getText()) == passenger.getCreditCardID()) {
-//                        JOptionPane.showMessageDialog(null,"Payment Successful!");
-//                        new MealWindow(flight, passenger, booking);
-//                        dispose();
-//                    }
-//                    else {
-//                        JOptionPane.showMessageDialog(null,"Payment False: The credit card information is incorrect!");
-//                    }
-//                }
-//            }
-//        });
-
-        jbnext.addActionListener(new ActionListener() {
+        jbConfirm.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(e.getSource()==jbnext) {
-                    if (DataController.checkPayment(passengerID,Integer.parseInt(acctxt.getText())) == true) {
-                        JOptionPane.showMessageDialog(null,"Payment Successful!");
-                        new Confirm(passengerID,booking,seatnum,seatlevel,payment);
-                        dispose();
+                try {
+                    if(e.getSource()==jbConfirm) {
+                        int card = Integer.parseInt(accTxt.getText().toString());
+                        double TP = totalPrice + payment;
+                        if (DataController.checkPayment(booking.getPassengerID(), card)) {
+                            JOptionPane.showMessageDialog(null, "Payment Successful!");
+                            try {
+                                new Confirm( booking, seatNum, seatLevel, payment, TP);
+                            } catch (IOException ex) {
+                                ex.printStackTrace();
+                            }
+                            dispose();
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Payment False: The credit card information is incorrect!");
+                        }
                     }
-                    else {
-                        JOptionPane.showMessageDialog(null,"Payment False: The credit card information is incorrect!");
-                    }
+                }
+                catch (Exception exception) {
+                    JOptionPane.showMessageDialog(null, "Payment False: The credit card information is incorrect!");
+//                    System.out.println("Exception Occur: " + exception);
                 }
             }
         });
     }
-
 }

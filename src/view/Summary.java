@@ -4,6 +4,11 @@ import model.*;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * The class is the UI of Summary
+ * @author Xiaotian Chen
+ */
+
 public class Summary
 {
     public Summary(Booking A){
