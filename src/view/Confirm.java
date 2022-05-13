@@ -29,6 +29,10 @@ public class Confirm {
     public Confirm( Booking booking, int seatNum, int seatLevel, double payment, double totalPrice, String mealName) throws IOException {
         IDdocument iDdocument = DataController.getIDdocument();
         JFrame frame = new JFrame("Confirm");
+        JLabel jLabel = new JLabel("The meal you have chosen :"+mealName);
+        jLabel.setBounds(20,40,600,30);
+        jLabel.setFont(new Font("SERIF", 1, 25));
+
         frame.setDefaultCloseOperation(3);
         ImageIcon img1 = new ImageIcon("src/images//background1.jpg");
         JLabel imgLabel1 = new JLabel(img1);
@@ -106,6 +110,7 @@ public class Confirm {
         frame.add(label_3);
         frame.add(label_4);
         frame.add(textArea);
+        frame.add(jLabel);
         jp1.add(imgLabel2);
         jp2.add(txtField1);
         jp2.add(txtfield2);
