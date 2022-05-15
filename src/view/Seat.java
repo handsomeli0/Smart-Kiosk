@@ -607,7 +607,7 @@ public class Seat {
         x[23].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
-                    if (   seatnum[23] != true) {
+                    if (seatnum[23] != true) {
                           if(cha!=-1){
                             x[cha].setBackground(Color.WHITE);
                         }
@@ -786,7 +786,7 @@ public class Seat {
                         double payment=bus*100+mov*20+leg*60;
  //                       if (bus == 0 && mov == 0 && leg == 0) {
                             frame.setVisible(false);
-                            new MealWindow(A,cha,bus,payment);
+                            new MealWindow(A,cha,bus,payment,bus);
  //                       }
 //                        else {
 //                            closeThis();
@@ -884,9 +884,10 @@ public class Seat {
      * @param A booking
      * @param seatNum The seat number selected previously
      */
-    public Seat(Booking A, int seatNum)
+    public Seat(Booking A, int seatNum,int bus)
     {
         this.cha = seatNum;
+        this.bus=bus;
         form(A);
     }
 }

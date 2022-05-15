@@ -25,7 +25,7 @@ import javax.swing.*;
  * @author Xiantian Chen and Changming Xu
  */
 public class Confirm {
-    public Confirm( Booking booking, int seatNum, int seatLevel, double payment, double totalPrice) throws IOException {
+    public Confirm( Booking booking, int seatNum, int seatLevel, double payment, double totalPrice,int business) throws IOException {
         IDdocument iDdocument = DataController.getIDdocument();
         JFrame frame = new JFrame("Confirm");
         frame.setDefaultCloseOperation(3);
@@ -117,7 +117,7 @@ public class Confirm {
             frame.setVisible(false);
         });
         back.addActionListener((e) -> {
-            new MealWindow(booking, seatNum, seatLevel, payment);
+            new MealWindow(booking, seatNum, seatLevel, payment,business);
             DataController.setGournmetFoodListToNull();
             frame.setVisible(false);
         });
@@ -134,7 +134,7 @@ public class Confirm {
                     }
                     else {
                         JOptionPane.showMessageDialog(null,"Check in False: The ID document is incorrect!");
-                        new Confirm(booking,seatNum,seatLevel,payment,totalPrice);
+                        new Confirm(booking,seatNum,seatLevel,payment,totalPrice,business);
                     }
                 }
                 frame.setVisible(false);
