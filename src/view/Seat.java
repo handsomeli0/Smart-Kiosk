@@ -810,8 +810,7 @@ public class Seat {
                         double payment=bus*100+mov*20+leg*60;
  //                       if (bus == 0 && mov == 0 && leg == 0) {
                             frame.setVisible(false);
-                            new MealWindow(A,cha,bus,payment,bus);
-                            System.out.println(bus);
+                            new MealWindow(A,cha,bus,payment);
  //                       }
 //                        else {
 //                            closeThis();
@@ -909,10 +908,9 @@ public class Seat {
      * @param A booking
      * @param seatNum The seat number selected previously
      */
-    public Seat(Booking A, int seatNum,int business)
+    public Seat(Booking A, int seatNum)
     {
         this.cha = seatNum;
-        this.bus = business;
         form(A);
     }
 }

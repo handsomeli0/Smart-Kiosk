@@ -17,7 +17,7 @@ import java.text.DecimalFormat;
  */
 
 public class GourmetMenu extends JFrame{
-    public GourmetMenu(Booking booking, double totalPrice,int seatNum,int seatLevel,double payment,int business)
+    public GourmetMenu(Booking booking, double totalPrice,int seatNum,int seatLevel,double payment)
     {
         setLayout(null);
         setTitle("Gourmet Menu");
@@ -246,7 +246,7 @@ public class GourmetMenu extends JFrame{
                 if(e.getSource()==add1) {
                     double TP = totalPrice + DataController.getGourmetFood(0).getPrice();
                     DataController.chooseGournmet(0);
-                    new GourmetMenu(booking,TP,seatNum,seatLevel,payment,business);
+                    new GourmetMenu(booking,TP,seatNum,seatLevel,payment);
                     dispose();
                 }
             }
@@ -257,7 +257,7 @@ public class GourmetMenu extends JFrame{
                 if(e.getSource()==add2) {
                     double TP = totalPrice + DataController.getGourmetFood(1).getPrice();
                     DataController.chooseGournmet(1);
-                    new GourmetMenu(booking,TP,seatNum,seatLevel,payment,business);
+                    new GourmetMenu(booking,TP,seatNum,seatLevel,payment);
                     dispose();
                 }
             }
@@ -267,7 +267,7 @@ public class GourmetMenu extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 double TP = totalPrice + DataController.getGourmetFood(2).getPrice();
                 DataController.chooseGournmet(2);
-                new GourmetMenu(booking,TP,seatNum,seatLevel,payment,business);
+                new GourmetMenu(booking,TP,seatNum,seatLevel,payment);
                 dispose();
             }
         });
@@ -277,7 +277,7 @@ public class GourmetMenu extends JFrame{
                 if(e.getSource()==add4) {
                     double TP = totalPrice + DataController.getGourmetFood(3).getPrice();
                     DataController.chooseGournmet(3);
-                    new GourmetMenu(booking,TP,seatNum,seatLevel,payment,business);
+                    new GourmetMenu(booking,TP,seatNum,seatLevel,payment);
                     dispose();
                 }
             }
@@ -288,7 +288,7 @@ public class GourmetMenu extends JFrame{
                 if(e.getSource()==add5) {
                     double TP = totalPrice + DataController.getGourmetFood(4).getPrice();
                     DataController.chooseGournmet(4);
-                    new GourmetMenu(booking,TP,seatNum,seatLevel,payment,business);
+                    new GourmetMenu(booking,TP,seatNum,seatLevel,payment);
                     dispose();
                 }
             }
@@ -299,7 +299,7 @@ public class GourmetMenu extends JFrame{
                 if(e.getSource()==add6) {
                     double TP = totalPrice + DataController.getGourmetFood(5).getPrice();
                     DataController.chooseGournmet(5);
-                    new GourmetMenu(booking,TP,seatNum,seatLevel,payment,business);
+                    new GourmetMenu(booking,TP,seatNum,seatLevel,payment);
                     dispose();
                 }
             }
@@ -310,7 +310,7 @@ public class GourmetMenu extends JFrame{
                 if(e.getSource()==add7) {
                     double TP = totalPrice + DataController.getGourmetFood(6).getPrice();
                     DataController.chooseGournmet(6);
-                    new GourmetMenu(booking,TP,seatNum,seatLevel,payment,business);
+                    new GourmetMenu(booking,TP,seatNum,seatLevel,payment);
                     dispose();
                 }
             }
@@ -321,7 +321,7 @@ public class GourmetMenu extends JFrame{
                 if(e.getSource()==add8) {
                     double TP = totalPrice + DataController.getGourmetFood(7).getPrice();
                     DataController.chooseGournmet(7);
-                    new GourmetMenu(booking,TP,seatNum,seatLevel,payment,business);
+                    new GourmetMenu(booking,TP,seatNum,seatLevel,payment);
                     dispose();
                 }
             }
@@ -332,7 +332,7 @@ public class GourmetMenu extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 if(e.getSource()==jbBack)
                 {
-                    new MealWindow(booking,seatNum,seatLevel,payment,business);
+                    new MealWindow(booking,seatNum,seatLevel,payment);
                     DataController.setGournmetFoodListToNull();
                     dispose();
                 }
@@ -346,12 +346,12 @@ public class GourmetMenu extends JFrame{
                 {
                     if(totalPrice + payment == 0) {
                         try {
-                            new Confirm( booking, seatNum, seatLevel, 0, 0,business);
+                            new Confirm( booking, seatNum, seatLevel, 0, 0);
                         } catch (IOException ex) {
                             ex.printStackTrace();
                         }
                     } else {
-                        new Payment(booking, totalPrice, seatNum, seatLevel, payment,business);
+                        new Payment(booking, totalPrice, seatNum, seatLevel, payment);
                     }
                     dispose();
                 }
@@ -362,7 +362,7 @@ public class GourmetMenu extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(e.getSource()==jbClear) {
-                    new GourmetMenu(booking,0,seatNum,seatLevel,payment,business);
+                    new GourmetMenu(booking,0,seatNum,seatLevel,payment);
                     DataController.getGournmetFoodNum();
                     dispose();
                 }

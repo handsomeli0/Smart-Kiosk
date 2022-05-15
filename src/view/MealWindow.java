@@ -15,7 +15,7 @@ import java.awt.event.ActionListener;
  */
 
 public class MealWindow extends JFrame {
-    public MealWindow( Booking booking,int seatNum,int seatLevel,double payment,int business) {
+    public MealWindow( Booking booking,int seatNum,int seatLevel,double payment) {
         setLayout(null);
         setTitle("Meal");
         setSize(1200, 675);
@@ -175,7 +175,7 @@ public class MealWindow extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (e.getSource() == jbBack) {
-                    new Seat(booking,seatNum,business);
+                    new Seat(booking,seatNum);
                     dispose();
                 }
             }
@@ -185,7 +185,7 @@ public class MealWindow extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (e.getSource() == jbNext) {
-                    new GourmetMenu(booking,totalPrice,seatNum,seatLevel,payment,business);
+                    new GourmetMenu(booking,totalPrice,seatNum,seatLevel,payment);
                     dispose();
                 }
             }
