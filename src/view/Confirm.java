@@ -19,15 +19,20 @@ import controller.PeripheralController;
 import model.Booking;
 import model.IDdocument;
 import javax.swing.*;
+import javax.xml.crypto.Data;
 
 /**
  * The class is the UI of Confirm
  * @author Xiantian Chen and Changming Xu
  */
 public class Confirm {
-    public Confirm( Booking booking, int seatNum, int seatLevel, double payment, double totalPrice,int business) throws IOException {
+    public Confirm( Booking booking, int seatNum, int seatLevel, double payment, double totalPrice, String mealName) throws IOException {
         IDdocument iDdocument = DataController.getIDdocument();
         JFrame frame = new JFrame("Confirm");
+        JLabel jLabel = new JLabel("The meal you have chosen :"+mealName);
+        jLabel.setBounds(20,40,600,30);
+        jLabel.setFont(new Font("SERIF", 1, 25));
+
         frame.setDefaultCloseOperation(3);
         ImageIcon img1 = new ImageIcon("src/images//background1.jpg");
         JLabel imgLabel1 = new JLabel(img1);
@@ -47,8 +52,8 @@ public class Confirm {
         JLabel label_1 = new JLabel("The seat you have chosen:");
         label_1.setBounds(20, 80, 400, 30);
         label_1.setFont(new Font("SERIF", 1, 25));
-        JLabel label_3 = new JLabel("Seat number is: " + seatNum + " ,level is:  " + seatLevel);
-        label_3.setBounds(300, 80, 400, 30);
+        JLabel label_3 = new JLabel("Seat number: " + seatNum + " , Class: " + (seatLevel == 0 ? "Economy" : "Business"));
+        label_3.setBounds(300, 80, 500, 30);
         label_3.setFont(new Font("SERIF", 1, 25));
         String GF = DataController.showGourmetFood();
         JLabel label_2 = new JLabel("The gourmet food you have chosen: " );
@@ -105,6 +110,7 @@ public class Confirm {
         frame.add(label_3);
         frame.add(label_4);
         frame.add(textArea);
+        frame.add(jLabel);
         jp1.add(imgLabel2);
         jp2.add(txtField1);
         jp2.add(txtfield2);
@@ -117,7 +123,7 @@ public class Confirm {
             frame.setVisible(false);
         });
         back.addActionListener((e) -> {
-            new MealWindow(booking, seatNum, seatLevel, payment,business);
+            new MealWindow(booking, seatNum, seatLevel, payment);
             DataController.setGournmetFoodListToNull();
             frame.setVisible(false);
         });
@@ -130,11 +136,12 @@ public class Confirm {
                         PeripheralController.printBoardingPass(booking, seatLevel, seatNum);
                         PeripheralController.printTag(booking);
                         PeripheralController.printTicket(booking);
+                        PeripheralController.sendInformation(booking, seatLevel, seatNum, mealName, DataController.showGourmetFood(), format.format(new BigDecimal(totalPrice)));
                         new FinalPage();
                     }
                     else {
                         JOptionPane.showMessageDialog(null,"Check in False: The ID document is incorrect!");
-                        new Confirm(booking,seatNum,seatLevel,payment,totalPrice,business);
+                        new Confirm(booking,seatNum,seatLevel,payment,totalPrice, mealName);
                     }
                 }
                 frame.setVisible(false);
