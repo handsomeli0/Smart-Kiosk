@@ -911,6 +911,9 @@ public class Seat {
     public Seat(Booking A, int seatNum)
     {
         this.cha = seatNum;
+        if(cha>=0&&cha<=7){
+            this.bus=1;
+        }
         form(A);
     }
 }
