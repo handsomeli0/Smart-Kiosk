@@ -79,11 +79,11 @@ public class PeripheralController {
      * @param price price of chosen extra options
      * @throws IOException IOException
      */
-    public static void sendInformation(Booking bk, int seatlevel, int seatNum, String meal, String gourmet, double price) throws IOException {
+    public static void sendInformation(Booking bk, int seatlevel, int seatNum, String meal, String gourmet, String price) throws IOException {
         String classType = seatlevel == 0 ? "Economy" : "Business";
         String str = bk.getBookingNum() +","+ bk.getPassengerID() +","+ DataController.getNameByBooking(bk)+","+
                 DataController.getPassByBooking(bk).getIdNum()+","+DataController.getPassByBooking(bk).getCreditCardID()
-                +","+bk.getFlightID()+","+classType+","+seatNum+","+meal+","+gourmet+","+bk.getTagNum()+","
+                +","+bk.getFlightID()+","+classType+","+seatNum+","+meal+",{"+gourmet+"},"+bk.getTagNum()+","
                 +bk.getTicketNum()+","+bk.getBagDropCounterNum()+","+price;
         FileIOController.writeCSV("Check-In Information", str);
     }
