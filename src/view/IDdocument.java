@@ -71,7 +71,14 @@ public class IDdocument  {
         jp3.add(back);
         confirm.addActionListener(e -> {
             Booking a = DataController.getBookingBySurnameIdNum(iDdocument.getLastName(),iDdocument.getIdNum());
-            new Summary(a);
+            if(a==null){
+                JOptionPane.showMessageDialog(null,"Your booking information is not found, check in unsuccessfully, please rescan!");
+                new IDdocument();
+            }
+            else{
+                new Summary(a);
+                JOptionPane.showMessageDialog(null,"Check in successfully!");
+            }
             frame.setVisible(false);
         });
         cancel.addActionListener(e -> {new BookingNumberCheckIn();
