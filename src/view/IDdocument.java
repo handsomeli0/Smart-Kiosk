@@ -72,12 +72,11 @@ public class IDdocument  {
         confirm.addActionListener(e -> {
             Booking a = DataController.getBookingBySurnameIdNum(iDdocument.getLastName(),iDdocument.getIdNum());
             if(a==null){
-                JOptionPane.showMessageDialog(null,"Your booking information is not found, check in unsuccessfully, please rescan!");
+                JOptionPane.showMessageDialog(null,"Your booking information is not found, please rescan!");
                 new IDdocument();
             }
             else{
                 new Summary(a);
-                JOptionPane.showMessageDialog(null,"Check in successfully!");
             }
             frame.setVisible(false);
         });
