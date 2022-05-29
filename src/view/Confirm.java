@@ -17,9 +17,7 @@ import javax.swing.JTextField;
 
 import controller.PeripheralController;
 import model.Booking;
-import model.IDdocument;
 import javax.swing.*;
-import javax.xml.crypto.Data;
 
 /**
  * The class is the UI of Confirm
@@ -27,7 +25,6 @@ import javax.xml.crypto.Data;
  */
 public class Confirm {
     public Confirm( Booking booking, int seatNum, int seatLevel, double payment, double totalPrice, String mealName) throws IOException {
-        IDdocument iDdocument = DataController.getIDdocument();
         JFrame frame = new JFrame("Confirm");
         JLabel jLabel = new JLabel("The meal you have chosen :"+mealName);
         jLabel.setBounds(20,40,600,30);
@@ -137,6 +134,7 @@ public class Confirm {
                         PeripheralController.printTag(booking);
                         PeripheralController.printTicket(booking);
                         PeripheralController.sendInformation(booking, seatLevel, seatNum, mealName, DataController.showGourmetFood(), format.format(new BigDecimal(totalPrice)));
+                        DataController.setFinished(booking);
                         new FinalPage();
                     }
                     else {

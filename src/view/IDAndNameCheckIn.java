@@ -8,7 +8,7 @@ import javax.swing.*;
  * This class is the UI of ID and surname check in.
  *
  * @author Song Yan
- * @version 1.2
+ * @version 2.0
  */
 
 public class IDAndNameCheckIn {
@@ -55,8 +55,13 @@ public class IDAndNameCheckIn {
             }
             else
             {
-                frame.setVisible(false);
-                new Summary(a);
+                if (a.getFinished()) {
+                    JOptionPane.showMessageDialog(frame, "Your check-in has been finished!",
+                            "error", JOptionPane.ERROR_MESSAGE);
+                } else {
+                    frame.setVisible(false);
+                    new Summary(a);
+                }
             }
         });
 
