@@ -15,7 +15,7 @@ import com.alibaba.fastjson.JSON;
  * This class is used to manage data.
  *
  * @author Minghan Li and Song Yan
- * @version 2.1
+ * @version 3.2
  */
 
 public class DataController {
@@ -32,12 +32,12 @@ public class DataController {
     // Initially read arraylists from JSON files
     static {
         try {
-            bookings = (ArrayList<Booking>) JSON.parseArray(FileIOController.readJSON("Booking.json"), Booking.class);
-            flights = (ArrayList<Flight>) JSON.parseArray(FileIOController.readJSON("Flight.json"), Flight.class);
-            passengers = (ArrayList<Passenger>) JSON.parseArray(FileIOController.readJSON("Passenger.json"), Passenger.class);
-            meals = (ArrayList<Meal>) JSON.parseArray(FileIOController.readJSON("Meal.json"), Meal.class);
-            idDocument = (IDdocument) JSON.parseObject(FileIOController.readJSON("IDdocument.json"), IDdocument.class);
-            gourmetFoods = (ArrayList<GourmetFood>) JSON.parseArray(FileIOController.readJSON("GourmetFood.json"),GourmetFood.class);
+            bookings = (ArrayList<Booking>) JSON.parseArray(FileIOController.readJSON("./data/" +"Booking.json"), Booking.class);
+            flights = (ArrayList<Flight>) JSON.parseArray(FileIOController.readJSON("./data/" +"Flight.json"), Flight.class);
+            passengers = (ArrayList<Passenger>) JSON.parseArray(FileIOController.readJSON("./data/" +"Passenger.json"), Passenger.class);
+            meals = (ArrayList<Meal>) JSON.parseArray(FileIOController.readJSON("./data/" +"Meal.json"), Meal.class);
+            idDocument = (IDdocument) JSON.parseObject(FileIOController.readJSON("./peripherals/" +"IDdocument.json"), IDdocument.class);
+            gourmetFoods = (ArrayList<GourmetFood>) JSON.parseArray(FileIOController.readJSON("./data/" +"GourmetFood.json"),GourmetFood.class);
             Gournmeals = new int[getGournmetFoodNum()];
             for(int i = 0; i<getGournmetFoodNum(); i++)
             {
@@ -194,7 +194,8 @@ public class DataController {
      * Get ID document
      * @return ID document
      */
-    public static IDdocument getIDdocument() {
+    public static IDdocument getIDdocument() throws IOException {
+        idDocument = (IDdocument) JSON.parseObject(FileIOController.readJSON("./peripherals/" +"IDdocument.json"), IDdocument.class);
         return idDocument;
     }
 
@@ -224,7 +225,6 @@ public class DataController {
     public static ArrayList<Meal> getAllMeals() {
         return DataController.meals;
     }
-    // TODO: get Meals by type?
 
     // seat
 
@@ -283,10 +283,14 @@ public class DataController {
      * @param bk booking information
      * @return true or false
      */
-    public static boolean checkIdDocument(Booking bk) {
+    public static boolean checkIdDocument(Booking bk) throws IOException {
+        idDocument = (IDdocument) JSON.parseObject(FileIOController.readJSON("./peripherals/" +"IDdocument.json"), IDdocument.class);
+        if (idDocument==null) {
+            return false;
+        }
         for (Passenger p : passengers) {
             if (p.getPassengerID().equals(bk.getPassengerID())) {
-                if (p.getIdNum().equals(idDocument.getIdNum())) {
+                if (p.getIdNum().equals(idDocument.getIdNum()) && p.getLastName().equals(idDocument.getLastName())) {
                     return true;
                 }
             }
@@ -369,5 +373,16 @@ public class DataController {
             }
         }
         return null;
+    }
+
+    /**
+     * Set the specific booking status to finished.
+     *
+     * @param bk booking
+     * @throws IOException
+     */
+    public static void setFinished(Booking bk) throws IOException {
+        bk.setFinished(true);
+        FileIOController.writeJSON("./data/Booking.json", JSON.toJSONString(bookings));
     }
 }

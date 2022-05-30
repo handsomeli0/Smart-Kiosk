@@ -7,7 +7,7 @@ import java.util.ArrayList;
 /**
  * This is the entity class of booking
  * @author Minghan Li
- * @version 2.0
+ * @version 3.0
  */
 public class Booking {
     private String bookingNum;
@@ -16,6 +16,7 @@ public class Booking {
     private String tagNum;
     private String ticketNum;
     private String bagDropCounterNum;
+    private boolean finished;
 
     public String getBookingNum() {
         return bookingNum;
@@ -65,6 +66,14 @@ public class Booking {
         this.bagDropCounterNum = bagDropCounterNum;
     }
 
+    public boolean getFinished() {
+        return finished;
+    }
+
+    public void setFinished(boolean finished) {
+        this.finished = finished;
+    }
+
     @Override
     public String toString() {
         return "Booking{" +
@@ -74,6 +83,7 @@ public class Booking {
                 ", tagNum='" + tagNum + '\'' +
                 ", ticketNum='" + ticketNum + '\'' +
                 ", bagDropCounterNum='" + bagDropCounterNum + '\'' +
+                ", finished=" + finished +
                 '}';
     }
 }

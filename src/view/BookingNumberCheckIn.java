@@ -1,5 +1,6 @@
 package view;
 import java.awt.*;
+import java.io.IOException;
 import javax.swing.*;
 import model.*;
 import controller.*;
@@ -8,7 +9,7 @@ import controller.*;
  * This class is the UI of Booking check in.
  *
  * @author Song Yan
- * @version 1.2
+ * @version 2.0
  */
 
 public class BookingNumberCheckIn
@@ -53,8 +54,13 @@ public class BookingNumberCheckIn
             }
             else
             {
-                frame.setVisible(false);
-                new Summary(a);
+                if (a.getFinished()) {
+                    JOptionPane.showMessageDialog(frame, "Your check-in has been finished!",
+                            "error", JOptionPane.ERROR_MESSAGE);
+                } else {
+                    frame.setVisible(false);
+                    new Summary(a);
+                }
             }
         });
 
@@ -76,7 +82,11 @@ public class BookingNumberCheckIn
         JButton button3 = new JButton("ID Document");
         button3.setBounds(160,480,230,30);
         button3.addActionListener(e -> {
-            new IDdocument();
+            try {
+                new IDdocument();
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
             frame.setVisible(false);
         });
 

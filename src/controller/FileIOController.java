@@ -8,7 +8,7 @@ import java.io.*;
  * This class is used to manage peripherals.
  *
  * @author Minghan Li
- * @version 2.0
+ * @version 3.0
  */
 
 public class FileIOController {
@@ -22,7 +22,7 @@ public class FileIOController {
      */
     protected static String readJSON(String name) throws IOException {
         String line = "";
-        FileReader fileReader = new FileReader("./data/" + name);
+        FileReader fileReader = new FileReader(name);
         BufferedReader br = new BufferedReader(fileReader);
         StringBuffer sb = new StringBuffer();
         while ((line = br.readLine()) != null) {

@@ -1,8 +1,11 @@
 /.idea/
 /out/
-/test/
 *.iml
 *.class
 /META-INF/
 # Log file
 *.log
+Boarding-Pass.jpg
+Tag.jpg
+Ticket.jpg
+Check-In Information.csv

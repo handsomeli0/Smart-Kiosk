@@ -5,6 +5,7 @@ import model.Booking;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 
 /**
  * The class is the UI of ID document check in
@@ -13,10 +14,7 @@ import java.awt.*;
 
 public class IDdocument  {
 
-    public IDdocument() {
-
-        model.IDdocument iDdocument = DataController.getIDdocument();
-
+    public IDdocument() throws IOException {
         JFrame frame=new JFrame("ID document check-in");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ImageIcon img1 = new ImageIcon("src/images//background1.jpg");
@@ -70,15 +68,28 @@ public class IDdocument  {
         jp3.add(cancel);
         jp3.add(back);
         confirm.addActionListener(e -> {
-            Booking a = DataController.getBookingBySurnameIdNum(iDdocument.getLastName(),iDdocument.getIdNum());
+            model.IDdocument iDdocument = null;
+            Booking a = null;
+            try {
+                iDdocument = DataController.getIDdocument();
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
+            if (iDdocument!=null) {
+                a = DataController.getBookingBySurnameIdNum(iDdocument.getLastName(),iDdocument.getIdNum());
+            }
             if(a==null){
                 JOptionPane.showMessageDialog(null,"Your booking information is not found, please rescan!");
-                new IDdocument();
             }
             else{
-                new Summary(a);
+                if (a.getFinished()) {
+                    JOptionPane.showMessageDialog(frame, "Your check-in has been finished!",
+                            "error", JOptionPane.ERROR_MESSAGE);
+                } else {
+                    frame.setVisible(false);
+                    new Summary(a);
+                }
             }
-            frame.setVisible(false);
         });
         cancel.addActionListener(e -> {new BookingNumberCheckIn();
             frame.setVisible(false);
